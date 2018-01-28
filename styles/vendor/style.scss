@@ -1,0 +1,267 @@
+/* vietnamese */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Muli ExtraLight'), local('Muli-ExtraLight'), url(/fonts/Muli-ExtraLight-1.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Muli ExtraLight'), local('Muli-ExtraLight'), url(/fonts/Muli-ExtraLight-2.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Muli ExtraLight'), local('Muli-ExtraLight'), url(/fonts/Muli-ExtraLight-3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Muli Light'), local('Muli-Light'), url(/fonts/Muli-Light-1.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Muli Light'), local('Muli-Light'), url(/fonts/Muli-Light-2.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Muli Light'), local('Muli-Light'), url(/fonts/Muli-Light-3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Muli Regular'), local('Muli-Regular'), url(/fonts/Muli-Regular-1.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Muli Regular'), local('Muli-Regular'), url(/fonts/Muli-Regular-2.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Muli Regular'), local('Muli-Regular'), url(/fonts/Muli-Regular-3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/*---------------------------------------
+  Pre loader section              
+-----------------------------------------*/
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background: none repeat scroll 0 0 #ffffff;
+}
+
+.spinner {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  position: relative;
+}
+
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 65px;
+  height: 65px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 1px solid #000000;
+  border-top-color: #f9f9f9;
+  animation: spinner .9s linear infinite;
+}
+
+@-webkit-@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+
+
+/*---------------------------------------
+  Navigation section              
+-----------------------------------------*/
+
+
+
+/*---------------------------------------
+  Skill section              
+-----------------------------------------*/
+
+#skill {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.skill-thumb strong,
+.skill-thumb span {
+  color: #575757;
+  font-size: 16px;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.skill-thumb .progress {
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: none;
+  height: 4px;
+}
+
+.skill-thumb .progress-bar-primary {
+  background: #3d3d3f;
+}
+
+
+
+/*---------------------------------------
+  Work section              
+-----------------------------------------*/
+
+#work .work-thumb {
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+}
+
+#work .work-thumb:hover {
+  background: #ffffff;
+  box-shadow: 0px 16px 22px 0px rgba(90, 91, 95, 0.3);
+  top: -5px;
+}
+
+#work .work-thumb img {
+  border-radius: 5px;
+}
+
+
+
+/*---------------------------------------
+  Contact section              
+-----------------------------------------*/
+
+#contact .form-control {
+  border-radius: 0px;
+  border-color: #f0f0f0;
+  box-shadow: none;
+  font-size: 16px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+}
+
+#contact .form-control:focus {
+  border-bottom: 2px solid #999999;
+}
+
+#contact input {
+  height: 55px;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+#contact button#submit {
+  background: #000000;
+  border: none;
+  border-radius: 50px;
+  color: #ffffff;
+  font-weight: 300;
+  height: 55px;
+  padding-bottom: 10px;
+  margin-top: 24px;
+}
+
+#contact button#submit:hover {
+  background: #d7b065;
+  color: #ffffff;
+}
+
+
+
+/*---------------------------------------
+  Social icon             
+-----------------------------------------*/
+
+.social-icon {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icon li {
+  display: inline-block;
+  list-style: none;
+}
+
+.social-icon li a {
+  background: #292929;
+  border-radius: 100%;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  margin: 20px 6px 10px 6px;
+}
+
+.social-icon li a:hover {
+  background: #d7b065;
+  transform: scale(1.1);
+}
+

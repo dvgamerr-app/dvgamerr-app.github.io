@@ -1,8 +1,8 @@
 {
   "name": "io.touno.me",
   "version": "1.0.0",
-  "description": "Nuxt.js project",
-  "author": "Kananek T. <info.dvgamer@gmail.com>",
+  "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
+  "main": "nuxt.config.js",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -13,13 +13,44 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.1.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.15.0",
-    "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0"
-  }
+    "@nuxtjs/google-adsense": "^1.1.3",
+    "@nuxtjs/google-analytics": "^2.0.2",
+    "babel-eslint": "^7.2.3",
+    "bootstrap": "^4.0.0",
+    "bootstrap-vue": "^1.4.1",
+    "eslint": "^4.16.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.2.0",
+    "file-loader": "^1.1.6",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "source-map-support": "^0.4.15",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvgamer/io.touno.me.git"
+  },
+  "keywords": [
+    "resume",
+    "kananek",
+    "thongkam",
+    "dvgamer",
+    "touno"
+  ],
+  "author": "Kananek Thongkam <info.dvgamer@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dvgamer/io.touno.me/issues"
+  },
+  "homepage": "https://github.com/dvgamer/io.touno.me#readme"
 }
