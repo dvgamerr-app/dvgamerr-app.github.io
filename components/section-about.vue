@@ -66,11 +66,6 @@
         padding-top: 4px;
       }
     }
-
-
   }
-
-
-
 
 </style>

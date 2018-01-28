@@ -5,11 +5,7 @@
       <b-navbar-brand href="#">{{$store.state.resume.title}}</b-navbar-brand>
       <span class="navbar-text" style="padding-top: 10px;">{{$store.state.resume.subtitle}}</span>
       <b-collapse is-nav id="nav_collapse">
-        <b-navbar-nav v-if="account.userID == 10211091765946044 && fblogin" class="ml-auto">
-          <b-nav-item  href="/me"><i class="fa fa-sign-in" aria-hidden="true"></i> Hi, {{account.name}}</b-nav-item>
-        </b-navbar-nav>
-        <b-navbar-nav v-else class="ml-auto">
-          <b-nav-item v-if="!fblogin" href="#" @click="onLoginFacebook"><i class="fa fa-facebook" aria-hidden="true"></i></b-nav-item>
+        <b-navbar-nav class="ml-auto">
           <b-nav-item active href="#home">Home</b-nav-item>
           <b-nav-item href="#about">About Kananek</b-nav-item>
           <b-nav-item href="#work">My Works</b-nav-item>
@@ -19,58 +15,7 @@
   </b-navbar>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-      fblogin: null,
-      account: {
-        userID: 0,
-        name: '',
-        email: ''
-      }
-    }
-  },
-  methods: {
-    getLogin (res) {
-      let vm = this
-      if (res.status === 'connected') {
-        vm.account.userID = res.authResponse.userID
-        // vm.$store.dispatch('setAdmin', res.authResponse.userID)
-
-        vm.FB.api('/me', { fields: 'email,name' }, response => {
-          vm.account.name = response.name
-          vm.account.email = response.email
-          vm.fblogin = true
-        })
-      } else {
-        vm.fblogin = false
-      }
-    },
-    onLoginFacebook () {
-      this.FB.login(this.getLogin, { scope: 'email, public_profile, user_friends' }) // , user_photos, publish_actions
-    }
-    // onLoginGithub () {
-    //   window.FB.login(this.getLogin, { scope: 'email, public_profile, user_friends' }) // , user_photos, publish_actions
-    // }
-  },
-  created () {
-    let vm = this
-    let loginInterval = setInterval(() => {
-      if (vm.isFBReady) {
-        vm.FB.getLoginStatus(vm.getLogin)
-        clearInterval(loginInterval)
-      }
-    }, 100)
-    vm.$nextTick(() => {
-      // window.$(window).load(() => { window.$('.preloader').fadeOut(1000) })
-    })
-  }
-}
-</script>
-
 <style lang="scss">
-
 .custom-navbar {
   height: 58px;
   max-height: 58px;
