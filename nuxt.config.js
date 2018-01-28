@@ -48,7 +48,7 @@ module.exports = {
     'bootstrap-vue/dist/bootstrap-vue.css'
   ],
   plugins: [
-    'plugins/bootstrap-vue.js',
+    'plugins/bootstrap-vue.js'
   ],
   modules: [
     [ '@nuxtjs/google-adsense', { id: 'ca-pub-4905039106786059' } ],
