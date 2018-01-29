@@ -18,7 +18,7 @@ export default {
         { icon: 'fa-github', link: 'https://github.com/dvgamer' },
         { icon: 'fa-windows', link: 'http://www.mycertprofile.com/Profile/4816501773' },
         { icon: 'fa-linkedin', link: 'https://www.linkedin.com/in/kananek-thongkam' },
-        { icon: 'fa-facebook', link: 'https://www.facebook.com/touno.co' },
+        { icon: 'fa-facebook', link: 'https://www.facebook.com/touno.io' },
         { icon: 'fa-stack-overflow', link: 'https://stackoverflow.com/story/kananek-thongkam' },
         { icon: 'fa-youtube', link: 'https://www.youtube.com/channel/UCdXvK_j_mMM9HPyWaqCuteA' }
       ],
