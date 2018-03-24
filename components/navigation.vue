@@ -1,7 +1,6 @@
 <template>
   <b-navbar toggleable="md" type="light" fixed="top" class="custom-navbar">
     <div class="container">
-      <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-navbar-brand href="#">{{$store.state.resume.title}}</b-navbar-brand>
       <span class="navbar-text" style="padding-top: 10px;">{{$store.state.resume.subtitle}}</span>
       <b-collapse is-nav id="nav_collapse">
