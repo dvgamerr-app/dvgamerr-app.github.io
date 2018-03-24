@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - "stable"
+
+before_script:
+  - npm i
+
+script:
+  - npm run lint
+  - npm run test
+  - nuxt generate
+
+cache:
+  directories:
+    - node_modules
+
+notifications:
+  slack:
+    rooms:
+      - touno-io:bAvs98HimZWCvolKDxgPwxEn
+    on_success: change
+    on_failure: always
+  email:
+    recipients:
+      - info.dvgamer@gmail.com
+    on_success: never
+    on_failure: always
