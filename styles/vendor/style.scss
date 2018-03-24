@@ -248,16 +248,17 @@
   border-radius: 100%;
   color: #ffffff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   text-decoration: none;
   transition: all 0.4s ease-in-out;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 32px;
+  height: 32px;
+  line-height: 33px;
   text-align: center;
   vertical-align: middle;
   position: relative;
   margin: 20px 6px 10px 6px;
+  display: block;
 }
 
 .social-icon li a:hover {

@@ -13,7 +13,9 @@
           </div>
           <ul class="social-icon">
             <li v-for="item in $store.state.resume.about.social">
-              <a :href="item.link" target="_blank" :class="['fa', item.icon]"></a>
+              <a :href="item.link" target="_blank">
+                <i :class="['fab', item.icon]"/>
+              </a>
             </li>
           </ul>
         </div>

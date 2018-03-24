@@ -25,10 +25,10 @@ export default {
         { property: 'og:type', content: 'article' },
         { property: 'og:title', content: this.$store.state.resume.page },
         { property: 'og:description', content: this.$store.state.resume.desc },
-        { property: 'og:url', content: 'https://touno.io/' },
+        { property: 'og:url', content: 'https://me.touno.io/' },
         { property: 'og:site_name', content: 'Kananek T.' },
         { property: 'og:updated_time', content: '2017-11-30T23:33:14+00:00' },
-        { property: 'og:image', content: 'https://touno.io/fb-image.jpg' },
+        { property: 'og:image', content: 'https://me.touno.io/fb-image.jpg' },
         { property: 'article:publisher', content: 'https://www.facebook.com/touno.io' },
         { property: 'article:author', content: 'https://www.facebook.com/touno.io' },
         { property: 'article:section', content: 'STORIES' },
@@ -38,7 +38,7 @@ export default {
         { property: 'twitter:description', content: this.$store.state.resume.desc },
         { property: 'twitter:title', content: this.$store.state.resume.page },
         { property: 'twitter:site', content: '@dvgamerinfo' },
-        { property: 'twitter:image', content: 'https://touno.io/fb-image.jpg' },
+        { property: 'twitter:image', content: 'https://me.touno.io/fb-image.jpg' },
         { property: 'twitter:creator', content: '@dvgamerinfo' }
       ],
       script: [

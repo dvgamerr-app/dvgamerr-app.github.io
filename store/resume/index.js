@@ -1,9 +1,9 @@
 export default {
   state: {
-    page: 'Kananek T. - Full Stack Developer & DevOps',
+    page: 'Kananek T. - Full Stack Developer',
     desc: 'I love programming and the ability to develop their own just up from the current. I am happy that develops software for people with more than talent than me.',
     title: 'Kananek T.',
-    subtitle: 'Full Stack Developer & DevOps',
+    subtitle: 'Full Stack Developer',
     introduce: 'Hey there, My name is Kananek T. and I\'m a Full Stack Developer.',
     footer: `<b>Design by Touno™.</b> Power by <a href="https://bootstrap-vue.js.org/" target="_blank">BootstrapVue.js</a> & <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>`,
     resume: {
