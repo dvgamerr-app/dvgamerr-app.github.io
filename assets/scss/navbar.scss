@@ -1,20 +1,11 @@
-<template>
-  <b-navbar toggleable="md" type="light" fixed="top" class="custom-navbar">
-    <div class="container">
-      <b-navbar-brand href="#">{{$store.state.resume.title}}</b-navbar-brand>
-      <span class="navbar-text" style="padding-top: 10px;">{{$store.state.resume.subtitle}}</span>
-      <b-collapse is-nav id="nav_collapse">
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item active href="#home">Home</b-nav-item>
-          <b-nav-item href="#about">About Kananek</b-nav-item>
-          <b-nav-item href="#work">My Works</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </div>
-  </b-navbar>
-</template>
+.spinner {
+  transition: all 1s ease;
+	&.v-enter, &.v-leave {
+  	overflow: hidden;
+    opacity: 0;
+	}
+}
 
-<style lang="scss">
 .custom-navbar {
   height: 58px;
   max-height: 58px;
@@ -135,4 +126,3 @@
     }
   }
 }
-</style>

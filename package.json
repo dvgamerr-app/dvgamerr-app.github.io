@@ -1,7 +1,8 @@
 {
-  "name": "vue-project",
-  "version": "1.0.0",
-  "description": "Nuxt.js project",
+  "name": "about.touno.io",
+  "version": "2.0.0",
+  "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
+  "main": "nuxt.config.js",
   "author": "Kananek T. <info.dvgamer@gmail.com>",
   "private": true,
   "scripts": {
@@ -16,6 +17,12 @@
     "nuxt": "^2.1.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/vue-fontawesome": "0.0.22",
+    "@nuxtjs/google-adsense": "^1.1.3",
+    "@nuxtjs/google-analytics": "^2.0.2",
     "babel-eslint": "^10.0.1",
     "bootstrap": "^4.1.3",
     "eslint": "^5.6.1",
