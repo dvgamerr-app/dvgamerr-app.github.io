@@ -7,13 +7,13 @@
         </a>
         <ul class="nav ml-auto" id="nav_collapse">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#home">About Kananek</a>
+            <a class="nav-link" href="#about">About Kananek</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">My Works</a>
+            <a class="nav-link" href="#work">My Works</a>
           </li>
         </ul>
       </div>
