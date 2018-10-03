@@ -1,0 +1,61 @@
+{
+  "name": "io.touno.me",
+  "version": "1.0.0",
+  "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
+  "main": "nuxt.config.js",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "http-server ./dist",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/vue-fontawesome": "0.0.22",
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/google-adsense": "^1.1.3",
+    "@nuxtjs/google-analytics": "^2.0.2",
+    "babel-eslint": "^8.2.6",
+    "bootstrap": "^4.1.2",
+    "bootstrap-vue": "^1.4.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "eslint-plugin-vue": "^4.7.0",
+    "file-loader": "^1.1.11",
+    "node-sass": "^4.9.2",
+    "nuxt": "^1.4.1",
+    "sass-loader": "^6.0.7",
+    "source-map-support": "^0.4.15",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvgamer/io.touno.me.git"
+  },
+  "keywords": [
+    "resume",
+    "kananek",
+    "thongkam",
+    "dvgamer",
+    "touno"
+  ],
+  "author": "Kananek Thongkam <info.dvgamer@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dvgamer/io.touno.me/issues"
+  },
+  "homepage": "https://github.com/dvgamer/io.touno.me#readme"
+}

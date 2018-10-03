@@ -1,24 +1,29 @@
 <template>
-  <div>
-    <home/>
-    <about/>
-    <skill/>
-    <work/>
+<div>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Dashboard</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <button class="btn btn-sm btn-outline-secondary">Share</button>
+        <button class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+      <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        <span data-feather="calendar"></span>
+        This week
+      </button>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
-import home from '~/components/section-home.vue'
-import about from '~/components/section-about.vue'
-import skill from '~/components/section-skill.vue'
-import work from '~/components/section-work.vue'
 
 export default {
   components: {
-    home,
-    about,
-    skill,
-    work
   }
 }
 </script>
+
+<style>
+
+</style>
