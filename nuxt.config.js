@@ -22,7 +22,9 @@ module.exports = {
     '~assets/scss/index.scss'
   ],
   plugins: [
-    'plugins/vue-fontawesome.js'
+    '~/plugins/vue-i18n.js',
+    '~/plugins/vue-localstorage.js',
+    '~/plugins/vue-fontawesome.js'
   ],
   modules: [
     [ '@nuxtjs/google-adsense', { id: 'ca-pub-4905039106786059' } ],
@@ -38,7 +40,8 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: [ 'vue-i18n' ]
   }
 }
 

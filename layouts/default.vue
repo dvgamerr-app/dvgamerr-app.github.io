@@ -26,3 +26,10 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  mounted () {
+    this.$i18n.locale = this.$ls.get('locale') || 'en'
+  }
+}
+</script>

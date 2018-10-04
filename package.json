@@ -14,7 +14,9 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^2.1.0"
+    "nuxt": "^2.1.0",
+    "vue-i18n": "^8.1.0",
+    "vue-localstorage": "^0.6.2"
   },
   "devDependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
