@@ -1,6 +1,7 @@
 {
-  "name": "about.touno.io",
-  "version": "2.0.0",
+  "name": "my-resume-website",
+  "title": "Kananek T.",
+  "version": "3.0.0",
   "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
   "main": "nuxt.config.js",
   "author": "Kananek T. <info.dvgamer@gmail.com>",
@@ -14,8 +15,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^2.1.0",
-    "vue-i18n": "^8.1.0",
+    "nuxt": "^2.3.4",
+    "vue-cookie": "^1.1.4",
     "vue-localstorage": "^0.6.2"
   },
   "devDependencies": {
@@ -26,12 +27,12 @@
     "@nuxtjs/google-adsense": "^1.1.3",
     "@nuxtjs/google-analytics": "^2.0.2",
     "babel-eslint": "^10.0.1",
-    "bootstrap": "^4.1.3",
-    "eslint": "^5.6.1",
+    "bootstrap": "^4.2.1",
+    "eslint": "^5.12.1",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^4.7.1",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"
   }
 }
