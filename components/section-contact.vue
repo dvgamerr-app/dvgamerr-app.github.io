@@ -36,8 +36,7 @@
             </address>
           </div>
         </div>
-        <!--.row-->
-        <div class="feedback-form">
+        <div class="feedback-form d-print-none">
           <h3>GET IN TOUCH</h3>
 
           <form id="contactForm" action="sendemail.php" method="POST">
@@ -57,17 +56,12 @@
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
-        <!-- .feedback-form -->
-
       </div>
     </div>
-    <!--.row-->
-
   </div>
 </section>
 </template>
 <script>
-import marked from 'marked'
 
 export default {
   props: {
@@ -76,11 +70,6 @@ export default {
       default () {
         return []
       }
-    }
-  },
-  methods: {
-    markedown (text) {
-      return marked(text)
     }
   }
 }

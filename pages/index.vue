@@ -1,14 +1,14 @@
 <template>
 <div id="main-wrapper">
-  <section-header :resume="{ fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
-  <section-coding/>
-  <section-coding-history/>
-  <section-expertise :expertise="expertise"/>
-  <section-skill :skill="skill"/>
-  <section-work :work="work"/>
-  <section-education :education="education"/>
-  <section-contact/>
-  <page-footer/>
+  <section-header :editor="allowEditor" :resume="{ fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
+  <section-coding :editor="allowEditor"/>
+  <section-coding-history :editor="allowEditor"/>
+  <section-expertise :editor="allowEditor" :expertise="expertise"/>
+  <section-skill :editor="allowEditor" :skill="skill"/>
+  <section-work :editor="allowEditor" :work="work"/>
+  <section-education :editor="allowEditor" :education="education"/>
+  <section-contact :editor="allowEditor"/>
+  <page-footer :editor="allowEditor"/>
 </div>
 </template>
 <script>
@@ -35,6 +35,11 @@ export default {
     sectionEducation,
     sectionContact,
     pageFooter
+  },
+  computed: {
+    allowEditor () {
+      return this.$route.params && (this.$route.params.admin || '').indexOf('editor-') > -1
+    }
   },
   async asyncData () {
     const { data } = await axios.get('http://localhost:3000/my-resume')

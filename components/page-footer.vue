@@ -1,5 +1,5 @@
 <template>
-<footer class="footer">
+<footer class="footer d-print-none">
   <div class="copyright-section">
     <div class="container">
       <div class="row">

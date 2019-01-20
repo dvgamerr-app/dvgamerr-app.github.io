@@ -2,8 +2,6 @@ import Vuex from 'vuex'
 
 
 export const state = () => ({
-  locales: ['en', 'th'],
-  locale: 'en',
   about: {
     hobby: {
       title: 'Hobbies',
@@ -46,17 +44,6 @@ export const state = () => ({
         }
       ]
     }
-  },
-  skill: {
-    title: 'Expertise',
-    detail: 'Specialize in website programing with NodeJS technology and Server administration.',
-    items: [
-      { name: 'VueJs', percent: 100 },
-      { name: 'NodeJS', percent: 100 },
-      { name: 'Linux', percent: 70 },
-      { name: 'Docker', percent: 80 },
-      { name: 'Photoshop', percent: 80 }
-    ]
   },
   work: {
     title: 'Seleted Works',
@@ -155,11 +142,3 @@ export const state = () => ({
     ]
   }
 })
-
-export const mutations = {
-  SET_LANG(state, locale) {
-    if (state.locales.indexOf(locale) !== -1) {
-      state.locale = locale
-    }
-  }
-}

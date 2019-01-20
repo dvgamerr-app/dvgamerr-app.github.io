@@ -89,7 +89,6 @@ module.exports = {
     '~/plugins/vue-fontawesome.js'
   ],
   modules: [
-    [ '@nuxtjs/google-adsense', { id: 'ca-pub-4905039106786059' } ],
     [ '@nuxtjs/google-analytics', { id: 'UA-70130307-4' } ],
     '@nuxtjs/font-awesome'
   ],

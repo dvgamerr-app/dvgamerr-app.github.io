@@ -8,9 +8,6 @@
       </div>
       <div class="col-md-9">
         <div class="name-wrapper">
-          <div class="d-none d-lg-block pull-right">
-            <button class="btn btn-sm btn-primary">Admin</button>
-          </div>  
           <h1 class="name" v-text="resume.fullname"></h1>
           <span v-text="resume.job"></span>
         </div>
@@ -101,8 +98,6 @@ export default {
       let perHour = Math.round(this.resume.salary.base / 20 / 8 / this.resume.salary.rate * 100) / 100
       return `${this.resume.salary.currency}${perHour} per hour`
     }
-  },
-  created () {
   }
 }
 </script>
