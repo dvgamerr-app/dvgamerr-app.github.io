@@ -8,6 +8,9 @@
       </div>
       <div class="col-md-9">
         <div class="name-wrapper">
+          <div class="d-none d-lg-block pull-right">
+            <button class="btn btn-sm btn-primary">Admin</button>
+          </div>  
           <h1 class="name" v-text="resume.fullname"></h1>
           <span v-text="resume.job"></span>
         </div>
@@ -15,7 +18,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="personal-details">
-              <strong v-text="birth"></strong>
+              <strong v-text="showBirthday"></strong>
               <small>BIRTH</small>
             </div>
           </div>
@@ -32,7 +35,26 @@
             </div>
           </div>
         </div>
-
+        <div class="row">
+          <div class="col-md-4">
+            <div class="personal-details">
+              <strong v-text="resume.location"></strong>
+              <small>CURRENT LOCATION</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="personal-details">
+              <strong v-text="showSalary"></strong>
+              <small>CURRENT SALARY</small>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="personal-details">
+              <strong v-html="showInterview"></strong>
+              <small>INTERVIEW AVAILABILITY</small>
+            </div>
+          </div>
+        </div>
         <ul class="social-icon d-print-none">
           <li v-for="e in resume.social" :key="e.name" :id="`img-${e.name}`">
             <a :href="e.link" target="_blank"><i :class="[ e.icon ]"></i></a>
@@ -57,6 +79,9 @@ export default {
           birthday: new Date(),
           national: '',
           language: '',
+          salary: '',
+          interview: '',
+          location: '',
           job: '',
           detail: '',
           social: []
@@ -65,9 +90,16 @@ export default {
     }
   },
   computed: {
-    birth () {
+    showBirthday () {
       let bd = moment(this.resume.birthday)
       return `${bd.format('MMMM DD, YYYY')} (${bd.fromNow()})`
+    },
+    showInterview () {
+      return this.resume.interview ? 'Yes' : 'No'
+    },
+    showSalary () {
+      let perHour = Math.round(this.resume.salary.base / 20 / 8 / this.resume.salary.rate * 100) / 100
+      return `${this.resume.salary.currency}${perHour} per hour`
     }
   },
   created () {
