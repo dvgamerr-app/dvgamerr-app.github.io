@@ -1,4 +1,4 @@
-@import 'bootstrap_variables.scss';
+@import '~bootstrap/scss/bootstrap.scss';
 
 /*
 Template Name: My Profile
@@ -33,7 +33,7 @@ Author: themehippo.com
 11. Recent Reviews / .review-section
 12. Contact / .section-contact
 13. footer 
-
+ssets/puff.svg
 ------------------------------------*/
 
 
@@ -45,6 +45,39 @@ body {
   color       : #989898;
   font-weight : 300;
   background  : #f8f8f8;
+}
+
+body:before {
+  position: fixed;
+  top: 500px;
+  left: -100px;
+  bottom: 0;
+  content: '';
+  width: 400px;
+  height: 400px;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  z-index: -1;
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+body:after {
+  position: fixed;
+  top: -150px;
+  right: -50px;
+  bottom: 0;
+  content: '';
+  width: 400px;
+  height: 600px;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  z-index: -1;
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
 }
 
 /* --------------------------------------
@@ -233,195 +266,6 @@ button:focus,
       margin-bottom: 20px;
       }
   }
-
-/*-----------------------------
-* NAVIGATION & HEADER STYLE
-*-----------------------------*/
-
-.header {
-  padding    : 50px 0;
-  margin     : 0;
-  position   : relative;
-  border-top : 5px solid #ff5722;
-  }
-
-.header .profile-img {
-  margin-right : 30px;
-  }
-
-.header .name-wrapper {
-  margin-bottom : 30px;
-  }
-
-.header .name-wrapper h1 {
-  text-transform : uppercase;
-  line-height    : 1;
-  margin         : 0 0 5px;
-  }
-
-.header .name-wrapper span {
-  font-size : 24px;
-  color     : #ff5722;
-  }
-
-.header .personal-details {
-  margin : 10px 0;
-  }
-
-.header .personal-details strong {
-  font-size   : 13px;
-  color       : #444444;
-  display     : block;
-  line-height : 1;
-  }
-
-.header .personal-details small {
-  font-size : 12px;
-  }
-
-.header .personal-details span {
-  color : #989898;
-  }
-
-@media (max-width : 768px) {
-  .header {
-      padding    : 20px 0;
-      }
-
-  .header .profile-img {
-      margin: 0 0 30px;
-      }
-  }
-
-@media (max-width : 600px){
-  .header{
-      padding: 20px;
-      }
-  }
-
-
-  /*-------------------
-   * Social Icon
-   *-------------------*/
-
-.social-icon {
-  margin  : 20px 0;
-  padding : 0;
-  display : block;
-  }
-
-.social-icon li {
-  display : inline-block;
-  margin  : 0 2px;
-  }
-
-.social-icon li a {
-  display       : block;
-  font-size     : 12px;
-  color         : #333333;
-  width         : 34px;
-  height        : 34px;
-  line-height   : 33px;
-  text-align    : center;
-  border-radius : 2px;
-  border        : 2px solid #eeeeee;
-  }
-
-.social-icon li a:hover {
-  border-color : #cccccc;
-  }
-
-
-/*-------------------
-* Expertise
-*-------------------*/
-.item-stats .item-stats-value{
-  font-size: 18px;
-  color: #444;
-  font-weight: 500;
-  }
-
-.item-stats .item-stats-name{
-  font-size: 12px;
-  text-transform: uppercase;
-  line-height: 1;
-  }
-
-
-@media (max-width: 768px) {
-  .item-stats{
-      margin-bottom: 30px;
-      }
-  }
-
-/*-------------------
-* Expertise
-*-------------------*/
-.expertise-item {
-  margin-bottom : 20px;
-  }
-
-.expertise-item h3 {
-  text-transform : uppercase;
-  margin-bottom  : 5px;
-  }
-
-/*-------------------
-* Skills Progressbar
-*-------------------*/
-
-.progress-item {
-  position : relative;
-  }
-
-.progress-item .progress-title {
-  font-size     : 12px;
-  font-weight   : 400;
-  display       : inline-block;
-  margin-bottom : 5px;
-  }
-
-.progress-item .progress {
-  height        : 2px;
-  box-shadow    : none;
-  border-radius : 0;
-  background    : transparent;
-  }
-
-.progress-item .progress-bar {
-  background-color : #ff5722;
-  box-shadow       : none;
-  text-align       : right;
-  }
-
-.progress-item .progress-percent {
-  font-size        : 10px;
-  background-color : #313131;
-  position         : absolute;
-  top              : 5px;
-  padding          : 0 8px;
-  border-radius    : 3px;
-  }
-
-.progress-item .progress-percent::before {
-  content      : "";
-  position     : absolute;
-  left         : 0;
-  bottom       : -4px;
-  border-top   : 6px solid #313131;
-  border-right : 8px solid transparent;
-  }
-
-
-@media (max-width: 768px) {
-  .progress-wrapper{
-      margin-bottom: 50px;
-      }
-  }
-
-/*-------------------
-* Portfolio
-*-------------------*/
 
 .portfolio-item {
   position      : relative;
