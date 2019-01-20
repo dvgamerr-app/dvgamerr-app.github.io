@@ -1,10 +1,10 @@
 {
-  "name": "mr-touno-website",
+  "name": "web.profile-resume",
   "version": "3.0.0",
   "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
   "main": "nuxt.config.js",
   "author": "Kananek T. <info.dvgamer@gmail.com>",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "env-cmd .env nuxt",
     "build": "nuxt build",
@@ -15,9 +15,7 @@
   },
   "dependencies": {
     "@touno-io/db": "^1.4.0",
-    "nuxt": "^2.3.4",
-    "vue-cookie": "^1.1.4",
-    "vue-localstorage": "^0.6.2"
+    "nuxt": "^2.3.4"
   },
   "devDependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
