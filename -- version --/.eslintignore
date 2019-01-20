@@ -1,7 +1,0 @@
-# dependencies
-build
-node_modules
-static/**/*
-npm-debug.log
-.nuxt
-dist
