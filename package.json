@@ -1,6 +1,5 @@
 {
-  "name": "my-resume-website",
-  "title": "Kananek T.",
+  "name": "mr-touno-website",
   "version": "3.0.0",
   "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
   "main": "nuxt.config.js",

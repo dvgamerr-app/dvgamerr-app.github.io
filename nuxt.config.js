@@ -1,11 +1,13 @@
-let title = 'Kananek T.'
-let desc = `Hey there, My name is Kananek T. and I'm a Full Stack Developer.`
+let title = 'Mr.Kananek T.'
+let desc = `Hey there, My name is Kananek Thongkam and i'm a Full-Stack developer specialist.`
+let website = `https://mr.touno.io`
 
 module.exports = {
   mode: 'spa',
   head: {
-    titleTemplate: t => `${t || ''}Kananek T.`,
+    titleTemplate: t => `${t || ''}Mr.Kananek T.`,
     link: [
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700' }
     ]
   },
@@ -21,10 +23,31 @@ module.exports = {
     { name: 'apple-mobile-web-app-capable', content: 'yes' },
     { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
     { name: 'MobileOptimized', content: 'width' },
-    { name: 'HandheldFriendly', content: 'true' }
+    { name: 'HandheldFriendly', content: 'true' },
+    { name: 'google-site-verification', content: '8a9UqVi_ZQz5803x05WQzQZKK5E7XtKedN646oAHpas' },
+    { property: 'og:locale', content: 'en_US' },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: desc },
+    { property: 'og:url', content: `${website}/` },
+    { property: 'og:site_name', content: title },
+    { property: 'og:updated_time', content: '2017-11-30T23:33:14+00:00' },
+    { property: 'og:image', content: `${website}/fb-image.jpg` },
+    { property: 'article:publisher', content: 'https://www.facebook.com/dvgamerr' },
+    { property: 'article:author', content: 'https://www.facebook.com/dvgamerr' },
+    { property: 'article:section', content: 'STORIES' },
+    { property: 'article:published_time', content: '2019-01-18T17:00:00+00:00' },
+    { property: 'article:modified_time', content: '2019-01-18T17:00:00+00:00' },
+    { property: 'twitter:card', content: 'summary_large_image' },
+    { property: 'twitter:description', content: desc },
+    { property: 'twitter:title', content: title },
+    { property: 'twitter:site', content: '@dvgamerr' },
+    { property: 'twitter:image', content: `${website}/fb-image.jpg` },
+    { property: 'twitter:creator', content: '@dvgamerr' }
   ],
-  icons: { },
-  // loading: '~/components/preload.vue',
+  icons: {
+    sizes: [ 32, 57, 72, 144, 512 ]
+  },
   manifest: {
     name: title,
     lang: 'en',
@@ -32,7 +55,7 @@ module.exports = {
     description: '',
     short_name: title,
     icons: [
-      { src: '/icon-120.png', sizes: '64x64' },
+      { src: '/icon-114.png', sizes: '64x64' },
       { src: '/icon-144.png', sizes: '128x128' },
       { src: '/icon-144.png', sizes: '144x144' }
     ], 
@@ -60,8 +83,7 @@ module.exports = {
     }
   },
   css: [
-    '~assets/scss/index.scss',
-    '~assets/scss/vendor/github-markdown.css'
+    '~assets/scss/index.scss'
   ],
   plugins: [
     '~/plugins/vue-fontawesome.js'

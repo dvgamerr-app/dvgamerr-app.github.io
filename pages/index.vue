@@ -1,12 +1,14 @@
 <template>
 <div id="main-wrapper">
-  <section-header :resume="{ fullname, birthday, national, language, job, detail, social }" />
+  <section-header :resume="{ fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
   <section-coding/>
   <section-coding-history/>
   <section-expertise :expertise="expertise"/>
   <section-skill :skill="skill"/>
   <section-work :work="work"/>
   <section-education :education="education"/>
+  <section-contact/>
+  <page-footer/>
 </div>
 </template>
 <script>
@@ -17,6 +19,8 @@ import sectionExpertise from '~/components/section-expertise.vue'
 import sectionSkill from '~/components/section-skill.vue'
 import sectionWork from '~/components/section-work.vue'
 import sectionEducation from '~/components/section-education.vue'
+import sectionContact from '~/components/section-contact.vue'
+import pageFooter from '~/components/page-footer.vue'
 
 const axios = require('axios')
 
@@ -28,16 +32,14 @@ export default {
     sectionExpertise,
     sectionSkill,
     sectionWork,
-    sectionEducation
+    sectionEducation,
+    sectionContact,
+    pageFooter
   },
   async asyncData () {
-    const { data } = await axios.get('/my-resume')
+    const { data } = await axios.get('http://localhost:3000/my-resume')
     if (!data) throw new Error('Profile not found.')
     return data
   }
 }
 </script>
-
-<style>
-
-</style>
