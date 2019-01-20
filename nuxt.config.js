@@ -24,7 +24,7 @@ module.exports = {
     { name: 'HandheldFriendly', content: 'true' }
   ],
   icons: { },
-  loading: '~/components/preload.vue',
+  // loading: '~/components/preload.vue',
   manifest: {
     name: title,
     lang: 'en',
@@ -60,15 +60,18 @@ module.exports = {
     }
   },
   css: [
-    '~assets/scss/index.scss'
+    '~assets/scss/index.scss',
+    '~assets/scss/vendor/github-markdown.css'
   ],
   plugins: [
     '~/plugins/vue-fontawesome.js'
   ],
   modules: [
     [ '@nuxtjs/google-adsense', { id: 'ca-pub-4905039106786059' } ],
-    [ '@nuxtjs/google-analytics', { id: 'UA-70130307-4' } ]
+    [ '@nuxtjs/google-analytics', { id: 'UA-70130307-4' } ],
+    '@nuxtjs/font-awesome'
   ],
+  serverMiddleware: [ '~/api/index.js' ],
   build: {
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {

@@ -4,28 +4,7 @@ import Vuex from 'vuex'
 export const state = () => ({
   locales: ['en', 'th'],
   locale: 'en',
-  page: 'Kananek T. - Full Stack Developer',
-  desc: 'I love programming and the ability to develop their own just up from the current. I am happy that develops software for people with more than talent than me.',
-  title: 'Kananek T.',
-  subtitle: 'Full Stack Developer',
-  introduce: 'Hey there, My name is Kananek T. and I\'m a Full Stack Developer.',
-  footer: `<b>Design by Touno™.</b> Power by <a href="https://bootstrap-vue.js.org/" target="_blank">BootstrapVue.js</a> & <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>`,
-  resume: {
-    file: 'https://docs.google.com/document/d/1e08IYn-3KWZdb3WxD3OhBbF5QFCpHE0EbmhIoCsa6Jw',
-    button: 'View Resume'
-  },
   about: {
-    title: 'A Little Bit Of My Story',
-    job: '<strong>System Development Asst. Division Manager at RIS Co.,Ltd</strong>',
-    detail: 'I love programming and the ability to develop their own just up from the current. I am happy that develops software for people with more than talent than me.',
-    social: [
-      { icon: 'fa-github', link: 'https://github.com/touno-project' },
-      { icon: 'fa-windows', link: 'http://www.mycertprofile.com/Profile/4816501773' },
-      { icon: 'fa-linkedin', link: 'https://www.linkedin.com/in/kananek-thongkam' },
-      { icon: 'fa-stack-overflow', link: 'https://stackoverflow.com/story/kananek-thongkam' },
-      { icon: 'fa-facebook', link: 'https://www.facebook.com/dvgamerr' },
-      { icon: 'fa-twitter', link: 'https://twitter.com/dvgamerr' }
-    ],
     hobby: {
       title: 'Hobbies',
       items: [
