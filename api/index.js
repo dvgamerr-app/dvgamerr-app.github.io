@@ -1,12 +1,21 @@
 const app = require('express')()
+const bodyParser = require('body-parser')
 const { website } = require('@touno-io/db/mongo')
-router = app
 
-router.get('/', async (req, res) => {
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
+app.post('/email', async (req, res) => {
   try {
-    const { WebResume } = await website.open()
-    let data = await WebResume.findOne({ data: 'web-resume-profile' })
-    res.status(200).json(data.content)
+    const { WebResumeContact } = await website.open()
+    await new WebResumeContact(Object.assign({
+      sended: false,
+      readed: false,
+      created: new Date()
+    }, req.body)).save()
+    res.status(200).json({ error: null })
   } catch (ex) {
     res.status(500).json({ error: ex.message || ex })
   }
@@ -14,6 +23,6 @@ router.get('/', async (req, res) => {
 
 // Export the server middleware
 module.exports = {
-  path: '/my-resume',
-  handler: router
+  path: '/api',
+  handler: app
 }
