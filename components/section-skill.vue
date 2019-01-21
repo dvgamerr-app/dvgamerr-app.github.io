@@ -1,5 +1,5 @@
 <template>
-<section class="skills-wrapper pt-4 pb-4" v-if="skillHeader.length > 0">
+<section class="skills-section pt-4 pb-4" v-if="skillHeader.length > 0">
   <div class="container">
     <div class="row">
       <div class="col-md-3">

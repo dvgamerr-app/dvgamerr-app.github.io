@@ -1,5 +1,5 @@
 <template>
-<section class="expertise-wrapper pt-3 pb-3" v-if="expertise.length > 0">
+<section class="expertise-section pt-3 pb-3" v-if="expertise.length > 0">
   <div class="container">
     <div class="row">
       <div class="col-md-3">

@@ -1,5 +1,5 @@
 <template>
-<section class="pt-3 pb-2 d-print-none">
+<section class="coding-section pt-3 pb-2 d-print-none">
   <div class="container">
     <div class="row">
       <div class="col-md-3">

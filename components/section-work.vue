@@ -1,5 +1,5 @@
 <template>
-<section class="section-work pt-3 pb-3" v-if="work.length > 0">
+<section class="work-section pt-3 pb-3" v-if="work.length > 0">
   <div class="container">
     <div class="row">
       <div class="col-md-3">

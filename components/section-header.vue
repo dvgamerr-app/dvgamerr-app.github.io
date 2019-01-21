@@ -54,7 +54,7 @@
         </div>
         <ul class="social-icon d-print-none">
           <li v-for="e in resume.social" :key="e.name" :id="`img-${e.name}`">
-            <a :href="e.link" target="_blank"><i :class="[ e.icon ]"></i></a>
+            <a :href="e.link" target="_blank"><fa :icon="e.icon"/></a>
             <!-- <b-tooltip :target="`img-${e.name}`">{{e.alt}}</b-tooltip> -->
           </li>
         </ul>

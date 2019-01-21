@@ -1,5 +1,5 @@
 <template>
-<section class="pt-2 pb-5 d-print-none">
+<section class="coding-history-section pt-2 pb-5 d-print-none">
   <div class="container">
     <div class="row">
       <div class="col-md-3">

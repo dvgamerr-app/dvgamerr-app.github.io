@@ -4,7 +4,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="copytext">TOUNO.io &copy; all rights reserved - Design By <a href="https://mr.touno.io" target="_blank">Kananek T.</a></div>
+          <div class="copytext">
+            Copyright <fa :icon="['far', 'copyright']"  /> {{getYear}} {{orgs}}, all rights reserved ∙
+            Design By <a :href="url" target="_blank" v-text="name"></a>
+          </div>
         </div> 
       </div>
     </div>
@@ -13,5 +16,13 @@
 </template>
 <script>
 export default {
+  data () {
+    return {
+      orgs: 'Touno™',
+      url: 'https://mr.touno.io',
+      name: 'Kananek T.',
+      getYear: (new Date()).getFullYear()
+    }
+  }
 }
 </script>
