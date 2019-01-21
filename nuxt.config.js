@@ -86,13 +86,22 @@ module.exports = {
     '~assets/scss/index.scss'
   ],
   plugins: [
-    '~/plugins/vue-fontawesome.js'
+    '~/plugins/vue-tabindex.js'
   ],
   modules: [
     [ '@nuxtjs/google-analytics', { id: 'UA-70130307-4' } ],
-    '@nuxtjs/font-awesome'
+    [ 'nuxt-fontawesome', {
+        component: 'fa', 
+        imports: [
+          //import whole set
+          { set: '@fortawesome/free-solid-svg-icons', icons: [ 'fas' ] },
+          { set: '@fortawesome/free-brands-svg-icons', icons: [ 'fab' ] },
+          { set: '@fortawesome/free-regular-svg-icons', icons: [ 'far', 'faCopyright' ] }
+        ]
+      }
+    ]
   ],
-  serverMiddleware: [ '~/api/index.js' ],
+  serverMiddleware: [ '~/api/index.js', '~/api/resume.js' ],
   build: {
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {

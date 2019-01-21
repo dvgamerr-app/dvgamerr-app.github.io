@@ -18,4 +18,5 @@ $ npm start
 
 ## Thanks
 - [Nuxt.js](https://github.com/nuxt/nuxt.js). For detailed explanation on how things work.
-- [Theme Design](https://thememe.me/profile). For design template with bootstrap.
+- [Bootstrap](https://getbootstrap.com/). For web front-end component library.
+- [themehippo.com](https://themehippo.com). For the original template for the design.

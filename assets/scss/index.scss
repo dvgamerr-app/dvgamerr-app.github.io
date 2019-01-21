@@ -7,36 +7,6 @@ Version: 1.0
 Author: themehippo.com
 */
 
-/*------------------------------------------------------------------
-# [Color codes]
-
-# Body  (text): #3a4750
-# Heading Color #444444
-# Theme Color (link color) #ff5722
-# Mid grey (sub header) #f4f4f4
-# -------------------------------------------------------------------*/
-
-/* ---------------------------------
-
-[Table of contents]
-
-1. Body
-2. header / .header
-3. My Activity / .item-stats
-4. Work History / .work-history-wrapper
-5. My Specialities / .expertise-wrapper
-6. Skills / .skills-wrapper
-7. Work Experiance / .section-experience
-8. Education / .section-education
-9. Marketplace Profile / .section-profile
-10. Portfolio / .portfolio-section
-11. Recent Reviews / .review-section
-12. Contact / .section-contact
-13. footer 
-ssets/puff.svg
-------------------------------------*/
-
-
 body {
   font-family : 'Hind', sans-serif;
   font-size   : 15px;
@@ -528,31 +498,34 @@ button:focus,
 /*-------------------
 * Form Style
 *-------------------*/
-
-.form-group label {
-  font-weight : normal;
-  font-size   : 13px;
+.section-contact {
+  .form-group label {
+    font-weight : normal;
+    font-size   : 13px;
   }
 
-.form-control {
-  height        : 46px;
-  line-height   : 46px;
-  padding       : 0 15px;
-  color         : #969595;
-  border-color  : #f8f8f8;
-  border-radius : 0;
-  box-shadow    : none;
-  box-sizing    : border-box;
-  background    : #eeeeee;
+  input.form-control {
+    height        : 46px;
   }
 
-.form-control:focus,
-.form-control:active {
-  box-shadow   : none;
-  background   : #ffffff;
-  border-color : #000000;
+  textarea.form-control, input.form-control {
+    line-height   : 46px;
+    padding       : 0 15px;
+    color         : #969595;
+    border-color  : #F8F8F8;
+    border-radius : 0;
+    box-shadow    : none;
+    box-sizing    : border-box;
+    background    : #FFFFFF;
   }
 
+  .form-control:focus,
+  .form-control:active {
+    box-shadow   : none;
+    background   : #FFFFFF;
+    border-color : #999999;
+  }
+}
 /* --------------------------------------------
 *   Footer
 *---------------------------------------------- */

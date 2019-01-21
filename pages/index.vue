@@ -7,7 +7,7 @@
   <section-skill :editor="allowEditor" :skill="skill"/>
   <section-work :editor="allowEditor" :work="work"/>
   <section-education :editor="allowEditor" :education="education"/>
-  <section-contact :editor="allowEditor"/>
+  <section-contact :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha"/>
   <page-footer :editor="allowEditor"/>
 </div>
 </template>
@@ -42,7 +42,7 @@ export default {
     }
   },
   async asyncData () {
-    const { data } = await axios.get('http://localhost:3000/my-resume')
+    const { data } = await axios.get('/my-resume')
     if (!data) throw new Error('Profile not found.')
     return data
   }
