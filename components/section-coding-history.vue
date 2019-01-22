@@ -11,26 +11,26 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="item-stats">
-              <div class="item-stats-value">100%</div>
-              <div class="item-stats-name">Jobs Success</div>
+              <div class="item-stats-value">8h 44m</div>
+              <div class="item-stats-name">Yesterday Coding</div>
             </div>
           </div>
           <div class="col-sm-3">
             <div class="item-stats">
-              <div class="item-stats-value">96%</div>
-              <div class="item-stats-name">On Budget</div>
+              <div class="item-stats-value">2h 44m</div>
+              <div class="item-stats-name">Daily Average</div>
             </div>
           </div>
           <div class="col-sm-3">
             <div class="item-stats">
-              <div class="item-stats-value">99%</div>
-              <div class="item-stats-name">On Time</div>
+              <div class="item-stats-value">18h 12m</div>
+              <div class="item-stats-name">Best Coding</div>
             </div>
           </div>
           <div class="col-sm-3">
             <div class="item-stats">
-              <div class="item-stats-value">89%</div>
-              <div class="item-stats-name">Repeat Hire Rate</div>
+              <div class="item-stats-value">18h 12m</div>
+              <div class="item-stats-name">Best Coding</div>
             </div>
           </div>
         </div>

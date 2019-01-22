@@ -7,6 +7,7 @@
   <section-skill :editor="allowEditor" :skill="skill"/>
   <section-work :editor="allowEditor" :work="work"/>
   <section-education :editor="allowEditor" :education="education"/>
+  <section-portfolio :editor="allowEditor" :portfolio="portfolio"/>
   <section-contact :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha"/>
   <page-footer :editor="allowEditor"/>
 </div>
@@ -19,6 +20,7 @@ import sectionExpertise from '~/components/section-expertise.vue'
 import sectionSkill from '~/components/section-skill.vue'
 import sectionWork from '~/components/section-work.vue'
 import sectionEducation from '~/components/section-education.vue'
+import sectionPortfolio from '~/components/section-portfolio.vue'
 import sectionContact from '~/components/section-contact.vue'
 import pageFooter from '~/components/page-footer.vue'
 
@@ -33,6 +35,7 @@ export default {
     sectionSkill,
     sectionWork,
     sectionEducation,
+    sectionPortfolio,
     sectionContact,
     pageFooter
   },
@@ -42,7 +45,7 @@ export default {
     }
   },
   async asyncData () {
-    const { data } = await axios.get('/my-resume')
+    const { data } = await axios.get('http://localhost:3000/my-resume')
     if (!data) throw new Error('Profile not found.')
     return data
   }

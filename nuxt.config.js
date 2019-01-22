@@ -19,7 +19,7 @@ module.exports = {
     { name: 'application-name', content: title },
     { name: 'description', content: desc, id: 'desc' },
     { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
     { name: 'apple-mobile-web-app-capable', content: 'yes' },
     { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
     { name: 'MobileOptimized', content: 'width' },
@@ -88,6 +88,7 @@ module.exports = {
   plugins: [
     '~/plugins/vue-tabindex.js'
   ],
+  serverMiddleware: [ '~/api/index.js', '~/api/resume.js' ],
   modules: [
     [ '@nuxtjs/google-analytics', { id: 'UA-70130307-4' } ],
     [ 'nuxt-fontawesome', {
@@ -101,7 +102,6 @@ module.exports = {
       }
     ]
   ],
-  serverMiddleware: [ '~/api/index.js', '~/api/resume.js' ],
   build: {
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {

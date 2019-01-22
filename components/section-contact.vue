@@ -81,26 +81,27 @@ export default {
       this.sending = true
       try {
         const { data } = await axios.post('/api/email', this.msg)
-        console.log(data)
         this.sended = true
       } catch (ex) {
-        
+        console.log(ex)
       }
       this.sending = false
     }
   },
   created () {
-    let vm = this
-    let recaptcha = () => {
-      setTimeout(() => {
-        if (!window.grecaptcha) return recaptcha()
-        
-        window.grecaptcha.ready(async () => {
-          vm.msg.token = await window.grecaptcha.execute(this.grecaptcha, { action: 'action_name' })
-        })
-      }, 100)
+    if (process.client) {
+      let vm = this
+      let recaptcha = () => {
+        setTimeout(() => {
+          if (!window.grecaptcha) return recaptcha()
+          
+          window.grecaptcha.ready(async () => {
+            vm.msg.token = await window.grecaptcha.execute(this.grecaptcha, { action: 'action_name' })
+          })
+        }, 100)
+      }
+      recaptcha()
     }
-    recaptcha()
   }
 }
 </script>
