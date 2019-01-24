@@ -26,12 +26,8 @@ import marked from 'marked'
 
 export default {
   props: {
-    work: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
+    editor: { type: Boolean },
+    work: { type: Array, default: () => ([]) }
   },
   methods: {
     markedown (text) {

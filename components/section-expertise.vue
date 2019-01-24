@@ -24,12 +24,8 @@
 <script>
 export default {
   props: {
-    expertise: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
+    editor: { type: Boolean },
+    expertise: { type: Array, default: () => ([]) }
   }
 }
 </script>

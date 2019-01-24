@@ -57,13 +57,8 @@ export default {
   },
   props: {
     editor: { type: Boolean },
-    grecaptcha: { type: String },
-    contact: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
+    contact: { type: Array, default: () => ([]) },
+    grecaptcha: { type: String }
   },
   data: () => ({
     sending: false,

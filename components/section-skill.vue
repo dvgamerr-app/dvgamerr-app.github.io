@@ -24,12 +24,8 @@
 <script>
 export default {
   props: {
-    skill: {
-      type: Object,
-      default () {
-        return {}
-      }
-    }
+    editor: { type: Boolean },
+    skill: { type: Array, default: () => ({}) }
   },
   computed: {
     skillHeader () {

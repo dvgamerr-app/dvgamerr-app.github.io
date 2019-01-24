@@ -1,5 +1,5 @@
 <template>
-<section class="portfolio-section pt-3 pb-3">
+<section v-if="portfolio.length > 0" class="portfolio-section pt-3 pb-3">
   <div class="container">
     <div class="row">
       <div class="col-md-3">
@@ -30,12 +30,8 @@
 
 export default {
   props: {
-    work: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
+    editor: { type: Boolean },
+    portfolio: { type: Array, default: () => ([]) }
   }
 }
 </script>

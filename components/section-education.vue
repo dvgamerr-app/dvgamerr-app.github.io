@@ -25,12 +25,8 @@
 <script>
 export default {
   props: {
-    education: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
+    editor: { type: Boolean },
+    education: { type: Array, default: () => ([]) }
   }
 }
 </script>
