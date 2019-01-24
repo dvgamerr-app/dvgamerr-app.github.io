@@ -13,7 +13,4 @@ router.get('/', async (req, res) => {
 })
 
 // Export the server middleware
-module.exports = {
-  path: '/my-resume',
-  handler: router
-}
+module.exports = router

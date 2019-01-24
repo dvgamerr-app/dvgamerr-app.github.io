@@ -88,7 +88,6 @@ module.exports = {
   plugins: [
     '~/plugins/vue-tabindex.js'
   ],
-  serverMiddleware: [ '~/api/index.js', '~/api/resume.js' ],
   modules: [
     [ '@nuxtjs/google-analytics', { id: 'UA-70130307-4' } ],
     [ 'nuxt-fontawesome', {
