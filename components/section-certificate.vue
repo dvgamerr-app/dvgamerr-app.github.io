@@ -1,40 +1,23 @@
 <template>
-<section class="certificate-section pt-3 pb-3">
+<section v-if="certificate.length > 0" class="certificate-section pt-3 pb-3">
   <div class="container">
     <div class="row">
       <div class="col-md-3">
         <div class="section-title"><h2>Certificates</h2></div>
       </div>
-<!-- Microsoft Certified Solutions Associate: Web Applications
-September 26, 2016 
-
-Microsoft Certified Solutions Developer: App Builder 
-September 26, 2016 
-
-Microsoft Certified Solutions Developer: Web Applications
-June 21, 2016
-
-Microsoft Certified Professional
-June 14, 2016
-
-Microsoft Specialist: Programming in HTML5 with JavaScript and CSS3
-June 14, 2016 -->
       <div class="col-md-9">
         <div class="row">
-          <div class="col-md-6">
+          <div v-for="e in certificate" :key="certificate.indexOf(e)" class="col-md-6">
             <div class="profile-item">
               <div class="media">
                 <div class="media-left">
-                  <a target="_blank" href="/cert/file/Microsoft_Certified_Professional_Certificate_0.pdf">
-                    <img class="media-object" src="cert/exam-badge.jpg" alt="">
-                  </a>
+                  <a target="_blank" :href="e.cert"><img class="media-object" :src="e.icon" :alt="e.exam"></a>
                 </div>
                 <div class="media-body">
                   <h3 class="media-heading">
-                    <a target="_blank" href="/cert/file/Microsoft_Certified_Professional_Certificate_0.pdf">Web Applications</a>
-                    <small>September 26, 2016 </small>
-                  </h3>
-                  Microsoft Certified Solutions Associate
+                    <a target="_blank" :href="e.cert" v-text="e.exam"></a>
+                    <small v-text="toAchievement(e)"></small>
+                  </h3>{{e.detail}}
                 </div>
               </div>
             </div>
@@ -46,14 +29,27 @@ June 14, 2016 -->
 </section>
 </template>
 <script>
-
+import moment from 'moment'
 export default {
   props: {
     editor: { type: Boolean },
     certificate: { type: Array, default: () => ([]) }
+  },
+  methods: {
+    toAchievement (e) {
+      return moment(e.achievement).format('MMMM DD, YYYY')
+    }
   }
 }
 </script>
 <style scoped>
-
+.media-left {
+  padding-right: 6px;
+}
+.media-heading {
+  line-height: 1.2em;
+}
+.media-heading * {
+  display: block;
+}
 </style>

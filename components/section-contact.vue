@@ -73,6 +73,8 @@ export default {
   }),
   methods: {
     async onSendMessage () {
+      if (!this.msg.name || !this.msg.email || !this.msg.subject || !this.msg.text || !this.msg.token) return
+
       this.sending = true
       try {
         const { data } = await axios.post('/api/email', this.msg)

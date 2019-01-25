@@ -1,5 +1,5 @@
 <template>
-<section v-if="portfolio.length > 0" class="portfolio-section pt-3 pb-3">
+<section v-if="portfolio.length > 0" class="portfolio-section pt-3 pb-3 d-print-none">
   <div class="container">
     <div class="row">
       <div class="col-md-3">
