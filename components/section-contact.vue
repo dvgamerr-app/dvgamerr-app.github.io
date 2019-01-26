@@ -64,11 +64,11 @@ export default {
     sended: false,
     error: '',
     msg: {
-      name: 'Admin',
-      email: 'info.dvgamer@gmail.com',
-      subject: 'Hi',
+      name: '',
+      email: '',
+      subject: '',
       token: '',
-      text: 'Hello World!!'
+      text: ''
     }
   }),
   methods: {
