@@ -42,15 +42,14 @@
     </div>
     <div class="row d-print-none" v-if="sended">
       <div class="col-md-12 text-center">
-        <h2>Thank you for your interest in us.</h2>
+        <h2 v-if="!error">Thank you for your interest in us.</h2>
+        <h2 v-else v-text="error"></h2>
       </div>
     </div>
   </div>
 </section>
 </template>
 <script>
-const axios = require('axios')
-
 export default {
   head: {
     script: [ { src: 'https://www.google.com/recaptcha/api.js?render=6LeefYsUAAAAAGhMamT5dd5gNOXvrtUl4ZG_IayA' } ]
@@ -63,12 +62,13 @@ export default {
   data: () => ({
     sending: false,
     sended: false,
+    error: '',
     msg: {
-      name: '',
-      email: '',
-      subject: '',
+      name: 'Admin',
+      email: 'info.dvgamer@gmail.com',
+      subject: 'Hi',
       token: '',
-      text: ''
+      text: 'Hello World!!'
     }
   }),
   methods: {
@@ -77,11 +77,11 @@ export default {
 
       this.sending = true
       try {
-        const { data } = await axios.post('/api/email', this.msg)
-        this.sended = true
+        const { data } = await this.$axios.post('/api/email', this.msg)
       } catch (ex) {
-        console.log(ex)
+        this.error = ex.response.data.error
       }
+      this.sended = true
       this.sending = false
     }
   },

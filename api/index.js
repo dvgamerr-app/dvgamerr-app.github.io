@@ -1,5 +1,7 @@
 const app = require('express')()
 const bodyParser = require('body-parser')
+const request = require('request-promise')
+const { debuger } = require('@touno-io/debuger')
 const { website } = require('@touno-io/db/mongo')
 const { Nuxt, Builder } = require('nuxt')
 
@@ -32,12 +34,33 @@ app.use('/my-resume', require('./resume.js'))
 
 app.post('/api/email', async (req, res) => {
   try {
+    if (!process.env.RECAPTCHA_SECRET || !req.body.token) throw new Error('Token Recaptcha expired.')
     const { WebResumeContact } = await website.open()
+
+    let data = await request({
+      method: 'post',
+      url: 'https://www.google.com/recaptcha/api/siteverify',
+      json: true,
+      formData: {
+        secret: process.env.RECAPTCHA_SECRET,
+        response: req.body.token
+      }
+    })
+    if (!data.success) throw new Error(data['error-codes'])
+    
     await new WebResumeContact(Object.assign({
       sended: false,
-      readed: false,
+      score: data.score,
+      challenge: new Date(data.challenge_ts),
       created: new Date()
     }, req.body)).save()
+
+    const { name, email, subject, text } = req.body
+    await debuger.Slack({ 
+      text: `*${subject}*\n${text}\n\nby _${email}_`,
+      name: name,
+      channel: '#contact-us'
+    })
     res.status(200).json({ error: null })
   } catch (ex) {
     res.status(500).json({ error: ex.message || ex })

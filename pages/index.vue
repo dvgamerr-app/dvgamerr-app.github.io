@@ -26,8 +26,6 @@ import sectionCertificate from '~/components/section-certificate.vue'
 import sectionContact from '~/components/section-contact.vue'
 import pageFooter from '~/components/page-footer.vue'
 
-const axios = require('axios')
-
 export default {
   components: {
     sectionHeader,
@@ -47,8 +45,8 @@ export default {
       return this.$route.params && (this.$route.params.admin || '').indexOf('editor-') > -1
     }
   },
-  async asyncData () {
-    const { data } = await axios.get('http://localhost:3001/my-resume')
+  async asyncData ({ isDev, app, $axios}) {
+    const { data } = await $axios.get(`/my-resume`)
     if (!data) throw new Error('Profile not found.')
     return data
   }

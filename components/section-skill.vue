@@ -25,7 +25,7 @@
 export default {
   props: {
     editor: { type: Boolean },
-    skill: { type: Array, default: () => ({}) }
+    skill: { type: Object, default: () => ({}) }
   },
   computed: {
     skillHeader () {
