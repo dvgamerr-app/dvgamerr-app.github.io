@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     parseTime (seconds = 0) {
-      return `${seconds > 60 * 60 ? `${parseInt(seconds / 60 / 60)}h ` : ''}${seconds / 60 % 60}m`
+      return `${seconds > 60 * 60 ? `${parseInt(seconds / 60 / 60)}h ` : ''}${parseInt(seconds / 60 % 60)}m`
     }
   }
 }

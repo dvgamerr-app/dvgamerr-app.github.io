@@ -106,11 +106,11 @@ module.exports = {
   env: {
     dev: process.env.NODE_ENV !== 'production'
   },
-  axios: { proxy: process.env.NODE_ENV !== 'production' },
-  proxy: {
-    '/my-resume': 'http://127.0.0.1:3001/my-resume',
-    '/api': { target: 'http://127.0.0.1:3001/api', pathRewrite: { '^/api/': '' } }
-  },
+  // axios: { proxy: process.env.NODE_ENV !== 'production' },
+  // proxy: {
+  //   '/my-resume': 'http://127.0.0.1:3001/my-resume',
+  //   '/api': { target: 'http://127.0.0.1:3001/api', pathRewrite: { '^/api/': '' } }
+  // },
   build: {
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
