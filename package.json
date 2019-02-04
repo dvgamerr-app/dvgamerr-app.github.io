@@ -1,5 +1,5 @@
 {
-  "name": "web.profile-resume",
+  "name": "profile-resume",
   "version": "3.0.0",
   "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
   "main": "nuxt.config.js",
@@ -9,19 +9,10 @@
     "dev": "env-cmd .env nuxt",
     "serv": "env-cmd .env backpack",
     "build": "nuxt build && backpack build",
-    "start": "node ./build/main.js",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "start": "node dist/main.js --no-deprecation --no-warnings",
+    "eslint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@touno-io/db": "^1.4.3",
-    "@touno-io/debuger": "^1.4.5",
-    "body-parser": "^1.18.3",
-    "moment": "^2.24.0",
-    "nuxt": "^2.4.0",
-    "request-promise": "^4.2.2"
-  },
-  "devDependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-svg-core": "^1.2.13",
     "@fortawesome/free-brands-svg-icons": "^5.7.0",
@@ -33,6 +24,16 @@
     "@nuxtjs/google-analytics": "^2.0.2",
     "@nuxtjs/pwa": "^2.6.0",
     "axios": "^0.18.0",
+    "@touno-io/db": "^1.4.3",
+    "@touno-io/debuger": "^1.4.5",
+    "body-parser": "^1.18.3",
+    "marked": "^0.6.0",
+    "moment": "^2.24.0",
+    "nuxt": "^2.4.2",
+    "nuxt-fontawesome": "^0.4.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
     "babel-eslint": "^10.0.1",
     "backpack-core": "^0.8.3",
     "bootstrap": "^4.2.1",
@@ -41,15 +42,14 @@
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
+    "eslint-plugin-backpack": "^0.2.2",
     "eslint-plugin-html": "^5.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.1.0",
-    "marked": "^0.6.0",
     "node-sass": "^4.11.0",
-    "nuxt-fontawesome": "^0.4.0",
     "sass-loader": "^7.1.0"
   }
 }

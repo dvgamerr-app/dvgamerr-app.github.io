@@ -1,0 +1,43 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+version: 2
+jobs:
+  build:
+    environment:
+      DEPLOY_PATH: "/app/.build/"
+      PROJECT: "task-wakatime"
+    working_directory: ~/app
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+          name: Current Branch
+          command: echo ${CIRCLE_BRANCH}
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run:
+          name: Package Install
+          command: npm i
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Unit-Test CI/CD
+          command: npm test
+      - run:
+          name: ESLint JavaScript linter
+          command: npm run eslint
+      - run:
+          name: Project Building
+          command: npm run build
+      - run:
+          name: Project Compress
+          command: tar czf ~/$PROJECT-$CIRCLE_BUILD_NUM-$(date +%Y%m%d%H%M%S).tar.gz ./package.json ./dist/*.js
+      - run:
+          name: Project Deploy AWS
+          command: scp -o StrictHostKeyChecking=no ~/$PROJECT-$CIRCLE_BUILD_NUM-$(date +%Y%m%d%H%M%S).tar.gz ec2-user@$SSH_SERVER:$DEPLOY_PATH
