@@ -1,67 +1,69 @@
 <template>
-<header class="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="profile-img"><img src="~assets/icon.jpg" class="img-fluid" alt=""/></div>
-        <!-- Profile Image -->
-      </div>
-      <div class="col-md-9">
-        <div class="name-wrapper">
-          <h1 class="name" v-text="resume.fullname"></h1>
-          <span v-text="resume.job"></span>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="profile-img">
+            <img src="~assets/icon.jpg" class="img-fluid" alt="">
+          </div>
+          <!-- Profile Image -->
         </div>
-        <p v-html="resume.detail"></p>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="personal-details">
-              <strong v-text="showBirthday"></strong>
-              <small>BIRTH</small>
+        <div class="col-md-9">
+          <div class="name-wrapper">
+            <h1 class="name" v-text="resume.fullname" />
+            <span v-text="resume.job" />
+          </div>
+          <p v-html="resume.detail" />
+          <div class="row">
+            <div class="col-md-4">
+              <div class="personal-details">
+                <strong v-text="showBirthday" />
+                <small>BIRTH</small>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="personal-details">
+                <strong v-text="resume.national" />
+                <small>NATIONALITY</small>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="personal-details">
+                <strong v-html="resume.language" />
+                <small>LANGUAGE</small>
+              </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="personal-details">
-              <strong v-text="resume.national"></strong>
-              <small>NATIONALITY</small>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="personal-details">
+                <strong v-text="resume.location" />
+                <small>CURRENT LOCATION</small>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="personal-details">
+                <strong v-text="showSalary" />
+                <small>CURRENT SALARY</small>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="personal-details">
+                <strong v-html="showInterview" />
+                <small>INTERVIEW AVAILABILITY</small>
+              </div>
             </div>
           </div>
-          <div class="col-md-5">
-            <div class="personal-details">
-              <strong v-html="resume.language"></strong>
-              <small>LANGUAGE</small>
-            </div>
-          </div>
+          <ul class="social-icon d-print-none">
+            <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
+              <a :href="e.link" target="_blank"><fa :icon="e.icon" /></a>
+              <!-- <b-tooltip :target="`img-${e.name}`">{{e.alt}}</b-tooltip> -->
+            </li>
+          </ul>
         </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="personal-details">
-              <strong v-text="resume.location"></strong>
-              <small>CURRENT LOCATION</small>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="personal-details">
-              <strong v-text="showSalary"></strong>
-              <small>CURRENT SALARY</small>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="personal-details">
-              <strong v-html="showInterview"></strong>
-              <small>INTERVIEW AVAILABILITY</small>
-            </div>
-          </div>
-        </div>
-        <ul class="social-icon d-print-none">
-          <li v-for="e in resume.social" :key="e.name" :id="`img-${e.name}`">
-            <a :href="e.link" target="_blank"><fa :icon="e.icon"/></a>
-            <!-- <b-tooltip :target="`img-${e.name}`">{{e.alt}}</b-tooltip> -->
-          </li>
-        </ul>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 </template>
 <script>
 import moment from 'moment'

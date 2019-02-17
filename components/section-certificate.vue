@@ -1,23 +1,29 @@
 <template>
-<section v-if="certificate.length > 0" class="certificate-section pt-3 pb-3">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="section-title"><h2>Certificates</h2></div>
-      </div>
-      <div class="col-md-9">
-        <div class="row">
-          <div v-for="e in certificate" :key="certificate.indexOf(e)" class="col-md-6">
-            <div class="profile-item">
-              <div class="media">
-                <div class="media-left">
-                  <a target="_blank" :href="e.cert"><img class="media-object" :src="e.icon" :alt="e.exam"></a>
-                </div>
-                <div class="media-body">
-                  <h3 class="media-heading">
-                    <a target="_blank" :href="e.cert" v-text="e.exam"></a>
-                    <small v-text="toAchievement(e)"></small>
-                  </h3>{{e.detail}}
+  <section v-if="certificate.length > 0" class="section-wrapper section-certificate">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="section-title">
+            <h2>Certificates</h2>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div v-for="e in certificate" :key="certificate.indexOf(e)" class="col-md-6">
+              <div class="profile-item">
+                <div class="media">
+                  <div class="media-left">
+                    <a target="_blank" :href="e.cert">
+                      <img class="media-object" :src="e.icon" :alt="e.exam">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h3 class="media-heading">
+                      <a target="_blank" :href="e.cert" v-text="e.exam" />
+                      <small v-text="toAchievement(e)" />
+                    </h3>
+                    {{ e.detail }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -25,8 +31,7 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 <script>
 import moment from 'moment'

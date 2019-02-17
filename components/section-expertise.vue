@@ -1,25 +1,25 @@
 <template>
-<section class="expertise-section pt-3 pb-3" v-if="expertise.length > 0">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="section-title">
-          <h2>My Specialities</h2>
+  <section v-if="expertise.length > 0" class="section-wrapper section-expertise">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="section-title">
+            <h2>My Specialities</h2>
+          </div>
         </div>
-      </div>
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col-md-6" v-for="e in expertise" :key="expertise.indexOf(e)">
-            <div class="expertise-item">
-              <h3 v-text="e.subject"></h3>
-              <p v-html="e.detail"></p>
+        <div class="col-md-9">
+          <div class="row">
+            <div v-for="e in expertise" :key="expertise.indexOf(e)" class="col-md-6">
+              <div class="expertise-item">
+                <h3 v-text="e.subject" />
+                <p v-html="e.detail" />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 <script>
 export default {

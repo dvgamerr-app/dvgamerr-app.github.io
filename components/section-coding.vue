@@ -1,43 +1,51 @@
 <template>
-<section v-if="!!coding"  class="coding-section pt-3 pb-2 d-print-none">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="section-title">
-          <h2>My Coding</h2>
+  <section v-if="!!coding" class="section-wrapper section-coding d-print-none">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="section-title">
+            <h2>My Coding</h2>
+          </div>
         </div>
-      </div>
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="item-stats">
-              <div class="item-stats-value" v-text="getExperience"></div>
-              <div class="item-stats-name">Experience</div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="item-stats">
+                <div class="item-stats-value" v-text="getExperience" />
+                <div class="item-stats-name">
+                  Work Experience
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="item-stats">
-              <div class="item-stats-value" v-text="toNumber(coding.contributions)"></div>
-              <div class="item-stats-name">contributions</div>
+            <div class="col-sm-3">
+              <div class="item-stats">
+                <div class="item-stats-value" v-text="toNumber(coding.contributions)" />
+                <div class="item-stats-name">
+                  Contributions
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="item-stats">
-              <div class="item-stats-value" v-text="toNumber(coding.project)"></div>
-              <div class="item-stats-name">My Projects</div>
+            <div class="col-sm-3">
+              <div class="item-stats">
+                <div class="item-stats-value" v-text="toNumber(coding.project)" />
+                <div class="item-stats-name">
+                  My Projects
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="item-stats">
-              <div class="item-stats-value" v-text="toNumber(coding.opensource)"></div>
-              <div class="item-stats-name">Opensource Projects</div>
+            <div class="col-sm-3">
+              <div class="item-stats">
+                <div class="item-stats-value" v-text="toNumber(coding.opensource)" />
+                <div class="item-stats-name">
+                  Opensource Projects
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 <script>
 import moment from 'moment'
@@ -45,16 +53,16 @@ import moment from 'moment'
 export default {
   props: {
     editor: { type: Boolean },
-    coding: { type: Object }
-  },
-  methods: {
-    toNumber (n = 0) {
-      return n / 1000 >= 1 ? `${parseInt(n / 1000 * 10) / 10}K` : n
-    }
+    coding: { type: Object, default: () => ({}) }
   },
   computed: {
     getExperience () {
       return moment(this.coding.experience).fromNow(true)
+    }
+  },
+  methods: {
+    toNumber (n = 0) {
+      return n / 1000 >= 1 ? `${parseInt(n / 1000 * 10) / 10}K` : n
     }
   }
 }

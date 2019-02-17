@@ -1,30 +1,29 @@
 <template>
-<section v-if="portfolio.length > 0" class="portfolio-section pt-3 pb-3 d-print-none">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="section-title">
-          <h2>Portfolio</h2>
+  <section v-if="portfolio.length > 0" class="section-wrapper section-portfolio d-print-none">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="section-title">
+            <h2>Portfolio</h2>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col-md-4 col-sm-6" v-for="e in portfolio" :key="portfolio.indexOf(e)">
-            <a class="portfolio-item" :href="e.url">
-              <div class="portfolio-thumb"><img :src="`work/${e.thumb}`" alt=""></div>
-              <div class="portfolio-info">
-                <h3 v-text="e.title"></h3>
-                <small v-text="e.subtitle"></small>
-              </div>
-            </a>
+        <div class="col-md-9">
+          <div class="row">
+            <div v-for="e in portfolio" :key="portfolio.indexOf(e)" class="col-md-4 col-sm-6">
+              <a class="portfolio-item" :href="e.url">
+                <div class="portfolio-thumb"><img :src="`work/${e.thumb}`" alt=""></div>
+                <div class="portfolio-info">
+                  <h3 v-text="e.title" />
+                  <small v-text="e.subtitle" />
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- /.row -->
-  </div>
-</section>
+  </section>
 </template>
 <script>
 

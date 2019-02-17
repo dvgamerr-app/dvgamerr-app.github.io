@@ -1,49 +1,57 @@
 <template>
-<section v-if="!!coding" class="coding-history-section pt-2 pb-5 d-print-none">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="section-title">
-          <h2>Code History</h2>
+  <section v-if="!!coding" class="section-wrapper section-coding-history d-print-none">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="section-title">
+            <h2>Code History</h2>
+          </div>
         </div>
-      </div>
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="item-stats">
-              <div class="item-stats-value" v-text="parseTime(coding.yesterday_seconds)"></div>
-              <div class="item-stats-name">Yesterday Coding</div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="item-stats">
+                <div class="item-stats-value" v-text="parseTime(coding.yesterday_seconds)" />
+                <div class="item-stats-name">
+                  Yesterday Coding
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="item-stats">
-              <div class="item-stats-value" v-text="parseTime(coding.average_seconds)"></div>
-              <div class="item-stats-name">Daily Average</div>
+            <div class="col-sm-3">
+              <div class="item-stats">
+                <div class="item-stats-value" v-text="parseTime(coding.average_seconds)" />
+                <div class="item-stats-name">
+                  Daily Average
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="item-stats">
-              <div class="item-stats-value" v-text="parseTime(coding.best_seconds)"></div>
-              <div class="item-stats-name">Best Coding</div>
+            <div class="col-sm-3">
+              <div class="item-stats">
+                <div class="item-stats-value" v-text="parseTime(coding.best_seconds)" />
+                <div class="item-stats-name">
+                  Best Coding
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="item-stats">
-              <div class="item-stats-value" v-text="coding.languages"></div>
-              <div class="item-stats-name">languages</div>
+            <div class="col-sm-3">
+              <div class="item-stats">
+                <div class="item-stats-value" v-text="coding.languages" />
+                <div class="item-stats-name">
+                  languages
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 <script>
 export default {
   props: {
     editor: { type: Boolean },
-    coding: { type: Object }
+    coding: { type: Object, default: () => ({}) }
   },
   methods: {
     parseTime (seconds = 0) {

@@ -6,13 +6,13 @@
     <h2 class="info">
       {{ error.message }}
     </h2>
-    <nuxt-link class="button" to="/" v-if="error.statusCode === 404">
+    <nuxt-link v-if="error.statusCode === 404" class="button" to="/">
       Homepage
     </nuxt-link>
   </div>
 </template>
 <script>
 export default {
-  props: ['error']
+  props: [ 'error' ] // eslint-disable-line
 }
 </script>

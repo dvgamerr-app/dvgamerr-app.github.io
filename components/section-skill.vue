@@ -1,25 +1,25 @@
 <template>
-<section class="skills-section pt-4 pb-4" v-if="skillHeader.length > 0">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="section-title">
-          <h2>Skills</h2>
+  <section v-if="skillHeader.length > 0" class="section-wrapper section-skills">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="section-title">
+            <h2>Skills</h2>
+          </div>
         </div>
-      </div>
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col-md-6 skill-list" v-for="i in skillHeader" :key="i">
-            <h3 class="mb-1" v-text="i"></h3>
-            <ul class="pb-3">
-              <li v-for="item in skill[i]" :key="skill[i].indexOf(item)" v-text="item"></li>
-            </ul>
+        <div class="col-md-9">
+          <div class="row">
+            <div v-for="i in skillHeader" :key="i" class="col-md-6 skill-list">
+              <h3 class="mb-1" v-text="i" />
+              <ul class="pb-3">
+                <li v-for="item in skill[i]" :key="skill[i].indexOf(item)" v-text="item" />
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 <script>
 export default {

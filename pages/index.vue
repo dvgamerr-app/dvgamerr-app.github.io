@@ -1,17 +1,17 @@
 <template>
-<div id="main-wrapper">
-  <section-header :editor="allowEditor" :resume="{ fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
-  <section-coding :editor="allowEditor" :coding="coding"/>
-  <section-coding-history :editor="allowEditor" :coding="coding"/>
-  <section-expertise :editor="allowEditor" :expertise="expertise"/>
-  <section-skill :editor="allowEditor" :skill="skill"/>
-  <section-work :editor="allowEditor" :work="work"/>
-  <section-education :editor="allowEditor" :education="education"/>
-  <section-certificate :editor="allowEditor" :certificate="certificate"/>
-  <section-portfolio :editor="allowEditor" :portfolio="portfolio"/>
-  <section-contact :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha"/>
-  <page-footer :editor="allowEditor"/>
-</div>
+  <div id="main-wrapper">
+    <section-header :editor="allowEditor" :resume="{ fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
+    <section-coding :editor="allowEditor" :coding="coding" />
+    <section-coding-history :editor="allowEditor" :coding="coding" />
+    <section-expertise :editor="allowEditor" :expertise="expertise" />
+    <section-skill :editor="allowEditor" :skill="skill" />
+    <section-work :editor="allowEditor" :work="work" />
+    <section-education :editor="allowEditor" :education="education" />
+    <section-certificate :editor="allowEditor" :certificate="certificate" />
+    <section-portfolio :editor="allowEditor" :portfolio="portfolio" />
+    <section-contact :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
+    <page-footer :editor="allowEditor" />
+  </div>
 </template>
 <script>
 import sectionHeader from '~/components/section-header.vue'
