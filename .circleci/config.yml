@@ -6,7 +6,7 @@ jobs:
   build:
     environment:
       DEPLOY_PATH: "/app/.build/"
-      PROJECT: "task-wakatime"
+      PROJECT: "web-profile"
     working_directory: ~/app
     docker:
       - image: circleci/node
@@ -27,9 +27,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
-          name: Unit-Test CI/CD
-          command: npm test
-      - run:
           name: ESLint JavaScript linter
           command: npm run eslint
       - run:
@@ -37,7 +34,7 @@ jobs:
           command: npm run build
       - run:
           name: Project Compress
-          command: tar czf ~/$PROJECT-$CIRCLE_BUILD_NUM-$(date +%Y%m%d%H%M%S).tar.gz ./package.json ./dist/*.js
+          command: tar czf ~/$PROJECT-$CIRCLE_BUILD_NUM-$(date +%Y%m%d%H%M%S).tar.gz  ./.nuxt/*.* ./static/*.* ./package.json ./dist/*.js
       - run:
           name: Project Deploy AWS
           command: scp -o StrictHostKeyChecking=no ~/$PROJECT-$CIRCLE_BUILD_NUM-$(date +%Y%m%d%H%M%S).tar.gz ec2-user@$SSH_SERVER:$DEPLOY_PATH

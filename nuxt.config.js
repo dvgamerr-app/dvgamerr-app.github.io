@@ -89,7 +89,7 @@ module.exports = {
     '~/plugins/vue-tabindex.js'
   ],
   modules: [
-    [ '@nuxtjs/axios', { https: process.env.NODE_ENV === 'production' } ],
+    [ '@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' } ],
     [ '@nuxtjs/pwa', { icon: true } ],
     [ '@nuxtjs/google-analytics', { id: 'UA-134623154-1' } ],
     [ 'nuxt-fontawesome', {
@@ -103,8 +103,10 @@ module.exports = {
       }
     ]
   ],
+  axios: { baseURL: process.env.AXIOS_BASE_URL || 'https://mr.touno.io/' },
   env: {
-    dev: process.env.NODE_ENV !== 'production'
+    dev: process.env.NODE_ENV === 'development',
+    baseURL: process.env.AXIOS_BASE_URL || 'https://mr.touno.io/'
   },
   // axios: { proxy: process.env.NODE_ENV !== 'production' },
   // proxy: {
