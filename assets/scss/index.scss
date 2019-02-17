@@ -378,3 +378,7 @@ button:focus,
       }
   }
 
+.pagebreak {
+  margin: 0px;
+  page-break-before: always;
+}

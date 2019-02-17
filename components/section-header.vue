@@ -49,7 +49,9 @@
             </div>
             <div class="col-md-5">
               <div class="personal-details">
-                <strong v-html="showInterview" />
+                <span class="badge" :class="resume.interview ? 'badge-success' : 'badge-danger'">
+                  {{ resume.interview ? 'YES' : 'NO' }}
+                </span>
                 <small>INTERVIEW AVAILABILITY</small>
               </div>
             </div>
@@ -92,9 +94,6 @@ export default {
     showBirthday () {
       let bd = moment(this.resume.birthday)
       return `${bd.format('MMMM DD, YYYY')} (${bd.fromNow()})`
-    },
-    showInterview () {
-      return this.resume.interview ? 'Yes' : 'No'
     },
     showSalary () {
       let perHour = Math.round(this.resume.salary.base / 20 / 8 / this.resume.salary.rate * 100) / 100
@@ -159,6 +158,13 @@ export default {
 
 .header .personal-details span {
   color : #989898;
+}
+
+.header .personal-details span.badge {
+  color : #FFF;
+  display: table;
+  padding: 4px 5px 2px;
+  margin-top: -4px;
 }
 
 @media (max-width : 768px) {
