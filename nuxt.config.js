@@ -91,7 +91,7 @@ module.exports = {
   modules: [
     [ '@nuxtjs/axios', { https: process.env.NODE_ENV === 'production' } ],
     [ '@nuxtjs/pwa', { icon: true } ],
-    [ '@nuxtjs/google-analytics', { id: 'UA-70130307-4' } ],
+    [ '@nuxtjs/google-analytics', { id: 'UA-134623154-1' } ],
     [ 'nuxt-fontawesome', {
         component: 'fa', 
         imports: [
