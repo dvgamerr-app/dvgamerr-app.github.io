@@ -10,10 +10,14 @@
         </div>
         <div class="col-md-9">
           <div class="name-wrapper">
-            <h1 class="name" v-text="resume.fullname" />
-            <span v-text="resume.job" />
+            <h1 class="name">
+              {{ resume.fullname }} <fa v-if="editor" icon="pen-square" />
+            </h1> 
+            <span>
+              {{ resume.job }} <fa v-if="editor" icon="pen-square" />
+            </span>
           </div>
-          <p v-html="resume.detail" />
+          <fa v-if="editor" icon="pen-square" /> <p v-html="resume.detail" />
           <div class="row">
             <div class="col-md-4">
               <div class="personal-details">
@@ -72,6 +76,7 @@ import moment from 'moment'
 
 export default {
   props: {
+    editor: { type: Boolean },
     resume: {
       type: Object,
       default () {

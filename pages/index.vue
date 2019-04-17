@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     allowEditor () {
-      return this.$route.params && (this.$route.params.admin || '').indexOf('editor-') > -1
+      return this.$route.params && (this.$route.params.admin || '').indexOf('editor') === 0
     }
   },
   async asyncData ({ isDev, app, $axios}) {

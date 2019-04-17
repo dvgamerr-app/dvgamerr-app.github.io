@@ -7,7 +7,8 @@ const { Nuxt, Builder } = require('nuxt')
 
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3001
-
+const reSecret = process.env.RECAPTCHA_SECRET
+const reEndpoint = process.env.RECAPTCHA_ENDPOINT || 'https://www.google.com/recaptcha/api/siteverify'
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
@@ -34,15 +35,15 @@ app.use('/my-resume', require('./resume.js'))
 
 app.post('/api/email', async (req, res) => {
   try {
-    if (!process.env.RECAPTCHA_SECRET || !req.body.token) throw new Error('Token Recaptcha expired.')
+    if (!reSecret || !req.body.token) throw new Error('Token Recaptcha expired.')
     const { WebResumeContact } = await website.open()
 
     let data = await request({
       method: 'post',
-      url: 'https://www.google.com/recaptcha/api/siteverify',
+      url: reEndpoint,
       json: true,
       formData: {
-        secret: process.env.RECAPTCHA_SECRET,
+        secret: reSecret,
         response: req.body.token
       }
     })
@@ -70,13 +71,14 @@ app.post('/api/email', async (req, res) => {
 if (!config.dev) {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
+  nuxt.ready()
   // Give nuxt middleware to express
   app.use(nuxt.render)
 }
 
-async function start() {
+const expressInitialize = async () => {
   // Listen the server
-  const server = await app.listen(port, host)
+  await app.listen(port, host)
   console.log('Server listening on http://' + host + ':' + port) // eslint-disable-line no-console
 }
-start()
+expressInitialize()
