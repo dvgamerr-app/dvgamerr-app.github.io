@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     toNumber (n = 0) {
-      return n / 1000 >= 1 ? `${parseInt(n / 1000 * 10) / 10}K` : n
+      return n / 1000000 < 1 && n / 1000 >= 1 ? `${parseInt(n / 1000 * 10) / 10}K` : (n / 1000000 >= 1 ? `${parseInt(n / 1000000 * 10) / 10}M` : n)
     }
   }
 }

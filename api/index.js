@@ -1,9 +1,9 @@
 const app = require('express')()
 const bodyParser = require('body-parser')
 const request = require('request-promise')
-const { debuger } = require('@touno-io/debuger')
-const { website } = require('@touno-io/db/mongo')
-const { Nuxt, Builder } = require('nuxt')
+// const { debuger } = require('@touno-io/debuger')
+const { touno } = require('@touno-io/db/schema')
+const { Nuxt } = require('nuxt')
 
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3001
@@ -36,7 +36,9 @@ app.use('/my-resume', require('./resume.js'))
 app.post('/api/email', async (req, res) => {
   try {
     if (!reSecret || !req.body.token) throw new Error('Token Recaptcha expired.')
-    const { WebResumeContact } = await website.open()
+
+    await touno.open()
+    const { ResumeContact } = touno.get()
 
     let data = await request({
       method: 'post',
@@ -49,7 +51,7 @@ app.post('/api/email', async (req, res) => {
     })
     if (!data.success) throw new Error(data['error-codes'])
     
-    await new WebResumeContact(Object.assign({
+    await new ResumeContact(Object.assign({
       sended: false,
       score: data.score,
       challenge: new Date(data.challenge_ts),
@@ -57,26 +59,29 @@ app.post('/api/email', async (req, res) => {
     }, req.body)).save()
 
     const { name, email, subject, text } = req.body
-    await debuger.Slack({ 
-      text: `*${subject}*\n${text}\n\nby _${email}_`,
-      name: name,
-      channel: '#contact-us'
-    })
+    // await debuger.Slack({ 
+    //   text: `*${subject}*\n${text}\n\nby _${email}_`,
+    //   name: name,
+    //   channel: '#contact-us'
+    // })
     res.status(200).json({ error: null })
   } catch (ex) {
     res.status(500).json({ error: ex.message || ex })
   }
 })
 
-if (!config.dev) {
-  // Init Nuxt.js
-  const nuxt = new Nuxt(config)
-  nuxt.ready()
-  // Give nuxt middleware to express
-  app.use(nuxt.render)
-}
 
 const expressInitialize = async () => {
+  await touno.open()
+  console.log('MongoDB Connected.') // eslint-disable-line no-console
+  
+  if (!config.dev) {
+    // Init Nuxt.js
+    const nuxt = new Nuxt(config)
+    await nuxt.ready()
+    app.use(nuxt.render)
+  }
+
   // Listen the server
   await app.listen(port, host)
   console.log('Server listening on http://' + host + ':' + port) // eslint-disable-line no-console

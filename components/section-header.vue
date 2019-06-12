@@ -85,7 +85,11 @@ export default {
           birthday: new Date(),
           national: '',
           language: '',
-          salary: '',
+          salary: {
+            base: 1,
+            rate: 1,
+            currency: 'THB'
+          },
           interview: '',
           location: '',
           job: '',

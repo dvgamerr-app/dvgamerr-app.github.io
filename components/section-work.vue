@@ -37,16 +37,12 @@ export default {
       return marked(text)
     },
     toDateRange (range) {
-      if (range instanceof Object) {
-        let begin = moment(range.begin)
-        let end = range.end ? moment(range.end) : moment()
-        let diff = end.diff(begin, 'year', true)
-        let month = parseInt((diff - parseInt(diff)) * 12)
-        let year = parseInt(diff)
-        return `${begin.format('MMMM YYYY')} - ${range.end ? end.format('MMMM YYYY') : 'Present'} (${year > 0 ? `${year} year` : ''}${month > 0 ? ` ${month} month` : ''})`
-      } else {
-        return range
-      }
+      let begin = moment(range.begin)
+      let end = range.end ? moment(range.end) : moment()
+      let diff = end.diff(begin, 'year', true)
+      let month = parseInt((diff - parseInt(diff)) * 12)
+      let year = parseInt(diff)
+      return `${begin.format('MMMM YYYY')} - ${range.end ? end.format('MMMM YYYY') : 'Present'} (${year > 0 ? `${year} year` : ''}${month > 0 ? ` ${month} month` : ''})`
     }
   }
 }

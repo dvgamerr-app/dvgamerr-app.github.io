@@ -1,12 +1,16 @@
 const app = require('express')()
-const { website } = require('@touno-io/db/mongo')
+const { touno } = require('@touno-io/db/schema')
 router = app
 
 router.get('/', async (req, res) => {
   try {
-    const { WebResume } = await website.open()
-    let data = await WebResume.findOne({ data: 'web-resume-profile' })
-    res.status(200).json(data.content)
+    await touno.open()
+    const { Resume } = touno.get()
+    let data = {}
+    for (const raw of (await Resume.find({}))) {
+      data[raw.section] = raw.content
+    }
+    res.json(data)
   } catch (ex) {
     res.status(500).json({ error: ex.message || ex })
   }

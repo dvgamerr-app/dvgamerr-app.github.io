@@ -1,40 +1,34 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
 version: 2
 jobs:
   build:
     environment:
-      DEPLOY_PATH: "/app/.build/"
-      PROJECT: "web-profile"
+      PROJECT: "website-profile"
     working_directory: ~/app
     docker:
       - image: circleci/node
     steps:
       - checkout
-      - run:
-          name: Current Branch
-          command: echo ${CIRCLE_BRANCH}
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-      - run:
-          name: Package Install
-          command: npm i
+          - v1-builder-{{ checksum "package.json" }}
+          - v1-builder-
+      - run: npm i
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run:
-          name: ESLint JavaScript linter
-          command: npm run eslint
-      - run:
-          name: Project Building
-          command: npm run build
-      - run:
-          name: Project Compress
-          command: tar czf ~/$PROJECT-$CIRCLE_BUILD_NUM-$(date +%Y%m%d%H%M%S).tar.gz  ./.nuxt/**/*.* ./static/**/*.* ./dist/*.js ./package.json
-      - run:
-          name: Project Deploy AWS
-          command: scp -o StrictHostKeyChecking=no ~/$PROJECT-$CIRCLE_BUILD_NUM-$(date +%Y%m%d%H%M%S).tar.gz ec2-user@$SSH_SERVER:$DEPLOY_PATH
+          key: v1-builder-{{ checksum "package.json" }}
+      - run: npm run eslint
+      - run: npm run build
+      - run: rm -Rf node_modules
+      - restore_cache:
+          keys:
+          - v1-production-{{ checksum "package.json" }}
+          - v1-production-
+      - run: npm i --only=production
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-production-{{ checksum "package.json" }}
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: docker build -t container.touno.io/$PROJECT:v3.0.0 .
+      - run: docker push container.touno.io/$PROJECT:v3.0.0
