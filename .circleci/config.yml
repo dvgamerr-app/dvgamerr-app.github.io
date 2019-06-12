@@ -29,6 +29,6 @@ jobs:
           paths:
             - node_modules
           key: v1-production-{{ checksum "package.json" }}
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: docker login -u $DOCKER_USER --password $DOCKER_PASS container.touno.io
       - run: docker build -t container.touno.io/$PROJECT:v3.0.0 .
       - run: docker push container.touno.io/$PROJECT:v3.0.0
