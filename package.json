@@ -9,7 +9,7 @@
     "dev": "env-cmd nuxt",
     "serv": "env-cmd backpack",
     "build": "nuxt build && backpack build",
-    "start": "env-cmd node dist/main.js --no-deprecation --no-warnings",
+    "start": "node dist/main.js --no-deprecation --no-warnings",
     "eslint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
