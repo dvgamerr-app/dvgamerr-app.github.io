@@ -3,6 +3,7 @@ jobs:
   build:
     environment:
       PROJECT: "website-profile"
+      VERSION: "v3.0.1"
     working_directory: ~/app
     docker:
       - image: circleci/node
@@ -31,5 +32,6 @@ jobs:
           key: v1-production-{{ checksum "package.json" }}
       - setup_remote_docker
       - run: docker login -u $DOCKER_USER --password $DOCKER_PASS container.touno.io
-      - run: docker build -t container.touno.io/$PROJECT:v3.0.0 .
-      - run: docker push container.touno.io/$PROJECT:v3.0.1
+      - run: docker build -t container.touno.io/$PROJECT:latest .
+      - run: docker tag $VERSION container.touno.io/$PROJECT:latest
+      - run: docker push container.touno.io/$PROJECT:latest
