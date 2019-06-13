@@ -1,6 +1,6 @@
 {
   "name": "profile-resume",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
   "main": "nuxt.config.js",
   "author": "Kananek T. <info.dvgamer@gmail.com>",
