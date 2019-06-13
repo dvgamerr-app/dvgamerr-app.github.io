@@ -33,5 +33,5 @@ jobs:
       - setup_remote_docker
       - run: docker login -u $DOCKER_USER --password $DOCKER_PASS container.touno.io
       - run: docker build -t container.touno.io/$PROJECT:latest .
-      - run: docker tag $PROJECT:latest container.touno.io/$PROJECT:$VERSION 
+      - run: docker tag container.touno.io/$PROJECT:latest container.touno.io/$PROJECT:$VERSION 
       - run: docker push container.touno.io/$PROJECT
