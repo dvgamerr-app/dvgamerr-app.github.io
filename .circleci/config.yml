@@ -3,7 +3,6 @@ jobs:
   build:
     environment:
       PROJECT: "website-profile"
-      VERSION: "v3.0.1"
     working_directory: ~/app
     docker:
       - image: circleci/node
@@ -33,5 +32,5 @@ jobs:
       - setup_remote_docker
       - run: docker login -u $DOCKER_USER --password $DOCKER_PASS container.touno.io
       - run: docker build -t container.touno.io/$PROJECT:latest .
-      - run: docker tag container.touno.io/$PROJECT:latest container.touno.io/$PROJECT:$VERSION 
+      - run: PACKAGE_VERSION=v$(cat package.json | grep version | head -1 | sed 's/[version :\",]//g') && docker tag container.touno.io/$PROJECT:latest container.touno.io/$PROJECT:$PACKAGE_VERSION 
       - run: docker push container.touno.io/$PROJECT

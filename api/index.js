@@ -58,7 +58,7 @@ app.post('/api/email', async (req, res) => {
       created: new Date()
     }, req.body)).save()
 
-    const { name, email, subject, text } = req.body
+    // const { name, email, subject, text } = req.body
     // await debuger.Slack({ 
     //   text: `*${subject}*\n${text}\n\nby _${email}_`,
     //   name: name,
