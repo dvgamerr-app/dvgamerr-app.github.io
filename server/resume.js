@@ -1,8 +1,7 @@
 const app = require('express')()
 const { touno } = require('@touno-io/db/schema')
-router = app
 
-router.get('/', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     await touno.open()
     const { Resume } = touno.get()
@@ -17,4 +16,4 @@ router.get('/', async (req, res) => {
 })
 
 // Export the server middleware
-module.exports = router
+module.exports = app

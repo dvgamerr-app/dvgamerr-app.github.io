@@ -226,7 +226,7 @@ export default {
       }
     }
   },
-  async asyncData ({ $axios }) {
+  async asyncData () {
     return {
       wallet: {
         paypal: '',

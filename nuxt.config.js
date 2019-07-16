@@ -95,7 +95,7 @@ module.exports = {
     [ '@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' } ],
     [ '@nuxtjs/pwa', { icon: true } ],
     [ '@nuxtjs/google-adsense', { id: 'ca-pub-4905039106786059' } ],
-    [ '@nuxtjs/google-analytics', { id: 'UA-134623154-1', test: process.env.NODE_ENV === 'development' } ],
+    [ '@nuxtjs/google-analytics', { id: 'UA-134623154-1', test: process.env.NODE_ENV !== 'development' } ],
     [ 'nuxt-fontawesome', {
         component: 'fa', 
         imports: [
@@ -117,17 +117,6 @@ module.exports = {
   //   '/my-resume': 'http://127.0.0.1:3001/my-resume',
   //   '/api': { target: 'http://127.0.0.1:3001/api', pathRewrite: { '^/api/': '' } }
   // },
-  build: {
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  }
+  build: { }
 }
 

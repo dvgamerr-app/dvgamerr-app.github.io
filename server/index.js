@@ -1,12 +1,12 @@
 const app = require('express')()
 const bodyParser = require('body-parser')
 const request = require('request-promise')
-// const { debuger } = require('@touno-io/debuger')
+const debuger = require('@touno-io/debuger')
 const { touno } = require('@touno-io/db/schema')
-const { Nuxt } = require('nuxt')
+const { Nuxt, Builder } = require('nuxt')
 
 const host = process.env.HOST || '127.0.0.1'
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 const reSecret = process.env.RECAPTCHA_SECRET
 const reEndpoint = process.env.RECAPTCHA_ENDPOINT || 'https://www.google.com/recaptcha/api/siteverify'
 // Import and Set Nuxt.js options
@@ -72,18 +72,22 @@ app.post('/api/email', async (req, res) => {
 
 
 const expressInitialize = async () => {
+  let logger = await debuger('SERVER')
   await touno.open()
-  console.log('MongoDB Connected.') // eslint-disable-line no-console
-  
-  if (!config.dev) {
-    // Init Nuxt.js
-    const nuxt = new Nuxt(config)
+  logger.info('Mongo connected.')
+  // Init Nuxt.js
+  const nuxt = new Nuxt(config)
+
+  if (config.dev) {
+    const builder = new Builder(nuxt)
+    await builder.build()
+  } else {
     await nuxt.ready()
-    app.use(nuxt.render)
   }
+  app.use(nuxt.render)
 
   // Listen the server
   await app.listen(port, host)
-  console.log('Server listening on http://' + host + ':' + port) // eslint-disable-line no-console
+  logger.start('Server listening on http://' + host + ':' + port) // eslint-disable-line no-console
 }
 expressInitialize()

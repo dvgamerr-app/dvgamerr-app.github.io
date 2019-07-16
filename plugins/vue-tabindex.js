@@ -41,8 +41,6 @@ const elementFind = (el, tagname) => {
 }
 
 Vue.directive('tabindex', {
-  bind: (el) => {
-  },
   inserted: (el, binding) => {
     el.$elem = []
     const settings = { enterKey: !!binding.modifiers.enter } // v-if="!activate || !enabled" 
