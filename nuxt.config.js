@@ -4,6 +4,7 @@ let website = `https://mr.touno.io`
 let date = new Date().toISOString()
 
 module.exports = {
+  mode: 'universal',
   head: {
     titleTemplate: t => `${t || ''}Mr.Kananek T.`,
     link: [
