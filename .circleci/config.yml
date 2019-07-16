@@ -14,8 +14,7 @@ jobs:
           - v1-builder-{{ checksum "package.json" }}
           - v1-builder-
       - run: npm i
-      - run: npm i -g babel-cli
-      - run: babel --version
+      - run: npm i babel-cli
       - save_cache:
           paths:
             - node_modules
