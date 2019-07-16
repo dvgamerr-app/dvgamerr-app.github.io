@@ -117,17 +117,6 @@ module.exports = {
   //   '/my-resume': 'http://127.0.0.1:3001/my-resume',
   //   '/api': { target: 'http://127.0.0.1:3001/api', pathRewrite: { '^/api/': '' } }
   // },
-  build: {
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  }
+  build: { }
 }
 

@@ -32,7 +32,7 @@
     "md5": "^2.2.1",
     "moment": "^2.24.0",
     "numeral": "^2.0.6",
-    "nuxt": "^2.6.2",
+    "nuxt": "^2.8.1",
     "nuxt-fontawesome": "^0.4.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
@@ -51,5 +51,20 @@
     "node-sass": "^4.11.0",
     "nodemon": "^1.19.1",
     "sass-loader": "^7.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvgamerr/web.profile-resume.git"
+  },
+  "keywords": [
+    "resume",
+    "website",
+    "profile",
+    "cv"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dvgamerr/web.profile-resume/issues"
+  },
+  "homepage": "https://github.com/dvgamerr/web.profile-resume#readme"
 }
