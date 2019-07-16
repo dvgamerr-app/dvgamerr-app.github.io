@@ -3,6 +3,7 @@ jobs:
   build:
     environment:
       PROJECT: "website-profile"
+      NODE_ENV: "production"
     working_directory: ~/app
     docker:
       - image: circleci/node
