@@ -3,7 +3,6 @@ jobs:
   build:
     environment:
       PROJECT: "website-profile"
-      NODE_ENV: "production"
     working_directory: ~/app
     docker:
       - image: circleci/node
@@ -14,7 +13,6 @@ jobs:
           - v1-builder-{{ checksum "package.json" }}
           - v1-builder-
       - run: npm i
-      - run: npm i babel-cli
       - save_cache:
           paths:
             - node_modules
