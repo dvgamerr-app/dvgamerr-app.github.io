@@ -18,7 +18,8 @@ jobs:
             - node_modules
           key: v1-builder-{{ checksum "package.json" }}
       - run: npm run eslint
-      - run: npm run build
+      - run: npm run build:server
+      - run: npm run build:client
       - run: ls -al ./.nuxt/dist/server
       - run: rm -Rf node_modules
       - restore_cache:
