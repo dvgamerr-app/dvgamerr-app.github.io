@@ -7,9 +7,7 @@
   "private": false,
   "scripts": {
     "dev": "env-cmd nodemon --watch server server/index.js --exec \"npm run eslint && babel-node\"",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "nuxt build",
-    "build:server": "babel -d ./.build ./server -s",
+    "build": "nuxt build && babel -d ./.build ./server -s",
     "eslint": "eslint --ext .js --ignore-path .eslintignore .",
     "start": "node .build/index.js"
   },
