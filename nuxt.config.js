@@ -86,12 +86,15 @@ module.exports = {
     '~assets/scss/index.scss'
   ],
   plugins: [
-    '~/plugins/vue-tabindex.js'
+    '~/plugins/vue-tabindex.js',
+    '~/plugins/vue-clipboards.js',
+    '~/plugins/vue-tippy.js'
   ],
   modules: [
     [ '@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' } ],
     [ '@nuxtjs/pwa', { icon: true } ],
-    [ '@nuxtjs/google-analytics', { id: 'UA-134623154-1' } ],
+    [ '@nuxtjs/google-adsense', { id: 'ca-pub-4905039106786059' } ],
+    [ '@nuxtjs/google-analytics', { id: 'UA-134623154-1', test: process.env.NODE_ENV === 'development' } ],
     [ 'nuxt-fontawesome', {
         component: 'fa', 
         imports: [

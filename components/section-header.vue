@@ -117,14 +117,6 @@ export default {
 /*-----------------------------
 * NAVIGATION & HEADER STYLE
 *-----------------------------*/
-
-.header {
-  padding    : 50px 0;
-  margin     : 0;
-  position   : relative;
-  border-top : 5px solid #ff5722;
-}
-
 @media print {
   .header {
     border-top : none !important;
