@@ -103,7 +103,7 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="/images/QR_TRUE.jpg" class="card-img" alt="True Wallet">
+                <img src="/images/QR_True.jpg" class="card-img" alt="True Wallet">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
