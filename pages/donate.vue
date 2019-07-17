@@ -27,10 +27,10 @@
         </div>
         <div class="col-lg-4">
           <div class="card p-3 mb-3">
-            <adsbygoogle ad-slot="4036313164" ad-format="auto" :ad-style="{ display: 'block' }" />
+            <adsbygoogle ad-slot="4314984147" ad-format="auto" data-full-width-responsive="true" :ad-style="{ display: 'block' }" />
           </div>
           <div class="card p-3 mb-3">
-            <adsbygoogle ad-slot="5093711134" ad-format="auto" :ad-style="{ display: 'block' }" />
+            <adsbygoogle ad-slot="1949934436" ad-format="auto" data-full-width-responsive="true" :ad-style="{ display: 'block' }" />
           </div>
         </div>
       </div>
