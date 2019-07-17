@@ -65,3 +65,4 @@ static/sw.js
 
 # next.js build output
 .next
+.build
