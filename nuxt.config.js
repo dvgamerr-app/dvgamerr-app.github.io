@@ -112,6 +112,8 @@ module.exports = {
     dev: process.env.NODE_ENV === 'development',
     baseURL: process.env.AXIOS_BASE_URL || 'https://mr.touno.io/'
   },
-  build: { }
+  build: {
+    quiet: false
+  }
 }
 
