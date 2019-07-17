@@ -247,7 +247,7 @@ export default {
   },
   methods: {
     markdown (content) {
-      return marked(content, { sanitize: true })
+      return marked(content)
     },
     moment (date) {
       return moment(date)
@@ -293,6 +293,18 @@ export default {
         this.toogleEdit()
       }
     }
+  },
+  created () {
+    marked.setOptions({
+      renderer: new marked.Renderer(),
+      pedantic: false,
+      gfm: true,
+      breaks: false,
+      sanitize: false,
+      smartLists: true,
+      smartypants: false,
+      xhtml: false
+    })
   }
 }
 </script>

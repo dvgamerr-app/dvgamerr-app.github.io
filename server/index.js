@@ -13,19 +13,6 @@ const reEndpoint = process.env.RECAPTCHA_ENDPOINT || 'https://www.google.com/rec
 let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
-if (config.dev) {
-  app.use((req, res, next) => {
-    const methodAllow = [ 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT' ]
-    res.setHeader('Content-Type', 'application/json')
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Headers', '*')
-    res.setHeader('Access-Control-Allow-Credentials', 'true')
-    res.setHeader('Access-Control-Allow-Methods', methodAllow.join(','))
-    if (req.method === 'OPTIONS') return res.sendStatus(200)
-    next()
-  })
-}
-
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
@@ -80,6 +67,8 @@ const expressInitialize = async () => {
   if (config.dev) {
     const builder = new Builder(nuxt)
     await builder.build()
+  } else {
+    await nuxt.ready()
   }
   app.use(nuxt.render)
 

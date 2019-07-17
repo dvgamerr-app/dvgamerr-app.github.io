@@ -47,7 +47,7 @@ export default {
       return this.$route.params && (this.$route.params.admin || '').indexOf('editor') === 0
     }
   },
-  async asyncData ({ isDev, app, $axios}) {
+  async asyncData ({ $axios}) {
     const { data } = await $axios.get(`/my-resume`)
     if (!data) throw new Error('Profile not found.')
     return data
