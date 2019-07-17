@@ -49,7 +49,7 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">
-                    <h5>Siam Commercial Bank <small class="d-none d-md-inline">(บัญชีธนาคารไทยพาณิชย์)</small></h5>
+                    Siam Commercial Bank <small class="d-none d-md-inline">(บัญชีธนาคารไทยพาณิชย์)</small>
                   </h5>
                   <div class="card-text">
                     <button v-tippy="tooltip" v-clipboard="wallet.bank.scb" type="button" class="btn btn-link btn-tooltip" title="copied">
@@ -88,7 +88,7 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">
-                    <h5>Bangkok Bank <small class="d-none d-md-inline">(บัญชีธนาคารกรุงเทพ)</small></h5>
+                    Bangkok Bank <small class="d-none d-md-inline">(บัญชีธนาคารกรุงเทพ)</small>
                   </h5>
                   <div class="card-text">
                     <button v-tippy="tooltip" v-clipboard="wallet.bank.bbl" type="button" class="btn btn-link btn-tooltip" title="copied">

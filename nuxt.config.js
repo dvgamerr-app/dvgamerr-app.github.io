@@ -114,6 +114,11 @@ module.exports = {
   },
   build: {
     quiet: false
+  },
+  generate: {
+    minify: {
+      collapseWhitespace: false
+    }
   }
 }
 
