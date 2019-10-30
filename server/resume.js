@@ -11,7 +11,7 @@ app.get('/', async (req, res) => {
     }
     res.json(data)
   } catch (ex) {
-    res.status(500).json({ error: ex.message || ex })
+    res.json({ error: ex.message || ex })
   }
 })
 
