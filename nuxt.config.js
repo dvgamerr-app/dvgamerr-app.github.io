@@ -16,6 +16,7 @@ module.exports = {
       { name: 'application-name', content: title },
       { name: 'description', content: desc, id: 'desc' },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+      { name: 'robots', content: 'noindex,noarchive,nofollow' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
@@ -92,6 +93,7 @@ module.exports = {
     '~/plugins/vue-tippy.js'
   ],
   modules: [
+    [ "nuxt-compress", { gzip: { cache: true }, brotli: { threshold: 10240 } } ],
     [ '@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' } ],
     [ '@nuxtjs/pwa', { icon: true } ],
     [ '@nuxtjs/google-adsense', { id: 'ca-pub-4905039106786059' } ],

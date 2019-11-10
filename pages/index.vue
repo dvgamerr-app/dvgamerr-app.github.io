@@ -1,17 +1,19 @@
 <template>
   <div id="main-wrapper">
-    <section-header :editor="allowEditor" :resume="{ fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
-    <section-coding :editor="allowEditor" :coding="coding" />
-    <section-coding-history :editor="allowEditor" :coding="coding" />
-    <section-expertise :editor="allowEditor" :expertise="expertise" />
-    <section-skill :editor="allowEditor" :skill="skill" />
-    <p class="pagebreak" />
-    <section-work :editor="allowEditor" :work="work" />
-    <p class="pagebreak" />
-    <section-education :editor="allowEditor" :education="education" />
-    <section-certificate :editor="allowEditor" :certificate="certificate" />
-    <section-portfolio :editor="allowEditor" :portfolio="portfolio" />
-    <section-contact :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
+    <div v-if="fullname">
+      <section-header :editor="allowEditor" :resume="{ fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
+      <section-coding :editor="allowEditor" :coding="coding" />
+      <section-coding-history :editor="allowEditor" :coding="coding" />
+      <section-expertise :editor="allowEditor" :expertise="expertise" />
+      <section-skill :editor="allowEditor" :skill="skill" />
+      <p class="pagebreak" />
+      <section-work :editor="allowEditor" :work="work" />
+      <p class="pagebreak" />
+      <section-education :editor="allowEditor" :education="education" />
+      <section-certificate :editor="allowEditor" :certificate="certificate" />
+      <section-portfolio :editor="allowEditor" :portfolio="portfolio" />
+      <section-contact :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
+    </div>
     <page-footer :editor="allowEditor" />
   </div>
 </template>
@@ -48,8 +50,7 @@ export default {
     }
   },
   async asyncData ({ $axios}) {
-    const { data } = await $axios.get(`/my-resume`)
-    if (!data) throw new Error('Profile not found.')
+    const { data } = await $axios.post(`/api/resume`)
     return data
   }
 }

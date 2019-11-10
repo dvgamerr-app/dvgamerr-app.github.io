@@ -13,12 +13,11 @@ const reEndpoint = process.env.RECAPTCHA_ENDPOINT || 'https://www.google.com/rec
 let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
-// parse application/x-www-form-urlencoded
+// parse application/x-www-form-urlencoded and application/json
 app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
 app.use(bodyParser.json())
 
-app.use('/my-resume', require('./resume.js'))
+app.use('/api', require('./resume.js'))
 
 app.post('/api/email', async (req, res) => {
   try {
