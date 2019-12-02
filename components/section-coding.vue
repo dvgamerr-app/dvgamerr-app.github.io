@@ -21,7 +21,7 @@
               <div class="item-stats">
                 <div class="item-stats-value" v-text="toNumber(coding.contributions)" />
                 <div class="item-stats-name">
-                  Contributions
+                  Line Of Codes
                 </div>
               </div>
             </div>
@@ -29,7 +29,7 @@
               <div class="item-stats">
                 <div class="item-stats-value" v-text="toNumber(coding.project)" />
                 <div class="item-stats-name">
-                  My Projects
+                  Projects
                 </div>
               </div>
             </div>

@@ -61,6 +61,9 @@
             </div>
           </div>
           <ul class="social-icon d-print-none">
+            <li id="img-print" class="mr-3">
+              <a href="#" rel="noopener" @click.prevent="onPrint"><fa icon="print" /></a>
+            </li>
             <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
               <a :href="e.link" target="_blank" rel="noopener"><fa :icon="e.icon" /></a>
               <!-- <b-tooltip :target="`img-${e.name}`">{{e.alt}}</b-tooltip> -->
@@ -107,6 +110,11 @@ export default {
     showSalary () {
       let perHour = Math.round(this.resume.salary.base / 20 / 8 / this.resume.salary.rate * 100) / 100
       return `${this.resume.salary.currency}${perHour} per hour`
+    }
+  },
+  methods: {
+    onPrint () {
+      print()
     }
   }
 }
