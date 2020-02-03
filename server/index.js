@@ -28,6 +28,11 @@ const expressInitialize = async () => {
   } else {
     await nuxt.ready()
   }
+  app.use((req, res, next) => {
+    res.setHeader('Set-Cookie', 'HttpOnly;Secure;SameSite=Strict')
+    next()
+  })
+
   app.use(nuxt.render)
 
   // Listen the server

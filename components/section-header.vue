@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="profile-img">
-            <img src="~assets/icon.jpg" class="img-fluid" alt="">
+            <img src="~assets/icon.jpg" loading="lazy" class="img-fluid" alt="">
           </div>
           <!-- Profile Image -->
         </div>

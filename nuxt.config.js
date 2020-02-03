@@ -1,7 +1,8 @@
-let title = 'Mr.Kananek T.'
-let desc = `Hey there, My name is Kananek Thongkam and i'm a Full-Stack developer specialist.`
-let website = `https://mr.touno.io`
-let date = new Date().toISOString()
+const title = 'Mr.Kananek T.'
+const desc = `Hey there, My name is Kananek Thongkam and i'm a Full-Stack developer specialist.`
+const website = `https://mr.touno.io`
+const date = new Date().toISOString()
+const production = !(process.env.NODE_ENV === 'development')
 
 module.exports = {
   mode: 'universal',
@@ -92,6 +93,15 @@ module.exports = {
     '~/plugins/vue-clipboards.js',
     '~/plugins/vue-tippy.js'
   ],
+  render: {
+    csp: true,
+    http2: {
+      push: true,
+      pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+        .filter(f => f.asType === 'script' && f.file === 'runtime.js')
+        .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+    }
+  },
   modules: [
     [ "nuxt-compress", { gzip: { cache: true }, brotli: { threshold: 10240 } } ],
     [ '@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' } ],
@@ -109,17 +119,23 @@ module.exports = {
       }
     ]
   ],
+  server: { port: 3000, host: '0.0.0.0', timing: false },
   axios: { baseURL: process.env.AXIOS_BASE_URL || 'https://mr.touno.io/' },
   env: {
     dev: process.env.NODE_ENV === 'development',
     baseURL: process.env.AXIOS_BASE_URL || 'https://mr.touno.io/'
   },
   build: {
-    quiet: false
-  },
-  generate: {
-    minify: {
-      collapseWhitespace: false
+    quiet: false,
+    parallel: !production,
+    cache: true,
+    extractCSS: production,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: { name: 'styles', test: /\.(css|vue)$/, chunks: 'all', enforce: true }
+        }
+      }
     }
   }
 }

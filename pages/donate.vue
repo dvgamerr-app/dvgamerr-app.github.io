@@ -44,7 +44,7 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="/images/donate/scb-logo.jpg" class="card-img" alt="SCB">
+                <img src="/images/donate/scb-logo.jpg" class="card-img" loading="lazy" alt="SCB">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -64,7 +64,7 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="/images/QR_SCB.jpg" class="card-img" alt="SCB">
+                <img src="/images/QR_SCB.jpg" class="card-img" loading="lazy" alt="SCB">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -83,7 +83,7 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="/images/donate/bbl-logo.jpg" class="card-img" alt="SCB">
+                <img src="/images/donate/bbl-logo.jpg" class="card-img" loading="lazy" alt="SCB">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -103,7 +103,7 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="/images/QR_True.jpg" class="card-img" alt="True Wallet">
+                <img src="/images/QR_True.jpg" class="card-img" loading="lazy" alt="True Wallet">
               </div>
               <div class="col-md-8">
                 <div class="card-body">

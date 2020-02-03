@@ -14,7 +14,7 @@
                 <div class="media">
                   <div class="media-left">
                     <a target="_blank" :href="e.cert">
-                      <img class="media-object" :src="e.icon" :alt="e.exam">
+                      <img class="media-object" :src="e.icon" loading="lazy" :alt="e.exam">
                     </a>
                   </div>
                   <div class="media-body">
