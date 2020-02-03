@@ -134,7 +134,7 @@
                   <small class="d-block text-muted">Bitcoin</small>
                 </div>
               </div>
-              <div class="d-flex align-items-center pt-2 mt-auto">
+              <!-- <div class="d-flex align-items-center pt-2 mt-auto">
                 <div class="avatar avatar-md mr-3">
                   ETH
                 </div>
@@ -144,7 +144,7 @@
                   </button>
                   <small class="d-block text-muted">Ethereum</small>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
