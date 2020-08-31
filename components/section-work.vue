@@ -14,7 +14,9 @@
                 <small v-text="toDateRange(e.range)" />
                 <h3 v-text="e.job" />
                 <h4 v-text="e.work" />
-                <div class="markdown pt-1" v-html="markedown(e.description)" />
+                <div class="markdown pt-1">
+                  {{ markedown(e.description) }}
+                </div>
               </div>
             </div>
           </div>
@@ -37,11 +39,11 @@ export default {
       return marked(text)
     },
     toDateRange (range) {
-      let begin = moment(range.begin)
-      let end = range.end ? moment(range.end) : moment()
-      let diff = end.diff(begin, 'year', true)
-      let month = parseInt((diff - parseInt(diff)) * 12)
-      let year = parseInt(diff)
+      const begin = moment(range.begin)
+      const end = range.end ? moment(range.end) : moment()
+      const diff = end.diff(begin, 'year', true)
+      const month = parseInt((diff - parseInt(diff)) * 12)
+      const year = parseInt(diff)
       return `${begin.format('MMMM YYYY')} - ${range.end ? end.format('MMMM YYYY') : 'Present'} (${year > 0 ? `${year} year` : ''}${month > 0 ? ` ${month} month` : ''})`
     }
   }

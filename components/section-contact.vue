@@ -22,20 +22,44 @@
               <h3>GET IN TOUCH</h3>
               <form v-tabindex @submit.prevent="onSendMessage">
                 <div class="form-group">
-                  <input v-model="msg.name" type="text" required="" tabindex="1" class="form-control" placeholder="Full Name">
+                  <input
+                    v-model="msg.name"
+                    type="text"
+                    required=""
+                    tabindex="1"
+                    class="form-control"
+                    placeholder="Full Name"
+                  >
                 </div>
                 <div class="form-group">
-                  <input v-model="msg.email" type="email" required="" tabindex="2" class="form-control" placeholder="Email">
+                  <input
+                    v-model="msg.email"
+                    type="email"
+                    required=""
+                    tabindex="2"
+                    class="form-control"
+                    placeholder="Email"
+                  >
                 </div>
                 <div class="form-group">
                   <input v-model="msg.subject" type="text" class="form-control" tabindex="3" placeholder="Subject">
                 </div>
                 <div class="form-group">
-                  <textarea v-model="msg.text" class="form-control" rows="4" required="" tabindex="4" placeholder="Write message" />
+                  <textarea
+                    v-model="msg.text"
+                    class="form-control"
+                    rows="4"
+                    required=""
+                    tabindex="4"
+                    placeholder="Write message"
+                  />
                 </div>
-                <button 
-                  type="submit" tabindex="5" class="btn btn-primary"
-                  :disabled="!msg.token || sending" v-text="!msg.token ? 'Human Verify...' : sending ? 'Sending...' : 'Send'"
+                <button
+                  type="submit"
+                  tabindex="5"
+                  class="btn btn-primary"
+                  :disabled="!msg.token || sending"
+                  v-text="!msg.token ? 'Human Verify...' : sending ? 'Sending...' : 'Send'"
                 />
               </form>
             </div>
@@ -54,10 +78,8 @@
   </section>
 </template>
 <script>
+/* eslint-disable nuxt/no-globals-in-created */
 export default {
-  head: {
-    script: [ { src: 'https://www.google.com/recaptcha/api.js?render=6LeefYsUAAAAAGhMamT5dd5gNOXvrtUl4ZG_IayA' } ]
-  },
   props: {
     editor: { type: Boolean },
     contact: { type: Array, default: () => ([]) },
@@ -77,11 +99,11 @@ export default {
   }),
   created () {
     if (process.client) {
-      let vm = this
-      let recaptcha = () => {
+      const vm = this
+      const recaptcha = () => {
         setTimeout(() => {
-          if (!window.grecaptcha) return recaptcha()
-          
+          if (!window.grecaptcha) { return recaptcha() }
+
           window.grecaptcha.ready(async () => {
             vm.msg.token = await window.grecaptcha.execute(this.grecaptcha, { action: 'action_name' })
           })
@@ -92,17 +114,21 @@ export default {
   },
   methods: {
     async onSendMessage () {
-      if (!this.msg.name || !this.msg.email || !this.msg.subject || !this.msg.text || !this.msg.token) return
+      if (!this.msg.name || !this.msg.email || !this.msg.subject || !this.msg.text || !this.msg.token) { return }
 
       this.sending = true
       try {
         const { data } = await this.$axios.post('/api/email', this.msg)
+        this.error = data.error
       } catch (ex) {
         this.error = ex.response.data.error
       }
       this.sended = true
       this.sending = false
     }
+  },
+  head: {
+    script: [{ src: 'https://www.google.com/recaptcha/api.js?render=6LeefYsUAAAAAGhMamT5dd5gNOXvrtUl4ZG_IayA' }]
   }
 }
 </script>

@@ -1,132 +1,105 @@
-const title = 'Mr.Kananek T.'
-const desc = `Hey there, My name is Kananek Thongkam and i'm a Full-Stack developer specialist.`
-const website = `https://mr.touno.io`
-const date = new Date().toISOString()
+/* eslint-disable nuxt/no-cjs-in-config */
 const production = !(process.env.NODE_ENV === 'development')
 
 module.exports = {
   mode: 'universal',
+  target: 'server',
+  telemetry: false,
   head: {
-    titleTemplate: t => `${t || ''}Mr.Kananek T.`,
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'favicon.png' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700' }
-    ],
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'application-name', content: title },
-      { name: 'description', content: desc, id: 'desc' },
-      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
-      { name: 'robots', content: 'noindex,noarchive,nofollow' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
-      { name: 'apple-mobile-web-app-capable', content: 'yes' },
-      { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-      { name: 'MobileOptimized', content: 'width' },
-      { name: 'HandheldFriendly', content: 'true' },
-      { name: 'google-site-verification', content: '8a9UqVi_ZQz5803x05WQzQZKK5E7XtKedN646oAHpas' },
-      { property: 'og:locale', content: 'en_US' },
-      { property: 'og:type', content: 'article' },
-      { property: 'og:title', content: title },
-      { property: 'og:description', content: desc },
-      { property: 'og:url', content: `${website}/` },
-      { property: 'og:site_name', content: title },
-      { property: 'og:updated_time', content: date },
-      { property: 'og:image', content: `${website}/fb-image.jpg` },
-      { property: 'article:publisher', content: 'https://www.facebook.com/dvgamerr' },
-      { property: 'article:author', content: 'https://www.facebook.com/dvgamerr' },
-      { property: 'article:section', content: 'STORIES' },
-      { property: 'article:published_time', content: date },
-      { property: 'article:modified_time', content: date },
-      { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:description', content: desc },
-      { property: 'twitter:title', content: title },
-      { property: 'twitter:site', content: '@dvgamerr' },
-      { property: 'twitter:image', content: `${website}/fb-image.jpg` },
-      { property: 'twitter:creator', content: '@dvgamerr' }
-    ]
+    titleTemplate: title => `${title ? `${title} • ` : ''}DigitalLover Fansub`
   },
-  icons: {
-    sizes: [ 32, 57, 72, 144, 512 ]
-  },
-  manifest: {
-    name: title,
-    lang: 'en',
-    dir: 'rtl',
-    description: '',
-    short_name: title,
-    icons: [
-      { src: '/favicon.png', sizes: '64x64' },
-      { src: '/favicon.png', sizes: '128x128' },
-      { src: '/favicon.png', sizes: '144x144' }
-    ], 
-    scope: '/',
-    start_url: '/',
-    display: 'fullscreen',
-    orientation: 'portrait',
-    theme_color: '#ffffff',
-    background_color: '#ffffff',
-    screenshots: [
-      {
-        src: '/images/fb-image.jpg',
-        sizes: '640x480',
-        type: 'image/jpeg'
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'application-name', content: 'DigitalLover Fansub' },
+    { name: 'name', content: 'DigitalLover Fansub' },
+    { name: 'description', content: 'DigitalLover Fansub Non-Profit Thai Fansub Group', id: 'desc' },
+    { name: 'keywords', content: 'dl-fs,dl,fansub,anime,manga,novel' },
+    { name: 'viewport', content: 'width=device-width, user-scalable=no' },
+    { name: 'apple-mobile-web-app-title', content: 'DigitalLover Fansub' },
+    { name: 'author', content: 'Mr.Kananek T.' }
+  ],
+  pwa: {
+    manifest: {
+      name: 'DL-Fansub',
+      lang: 'en',
+      description: '',
+      short_name: 'DL-Fansub',
+      start_url: '/',
+      display: 'fullscreen',
+      orientation: 'portrait',
+      theme_color: '#F7F7F7',
+      background_color: '#F7F7F7',
+      browser_action: {
+        default_icon: '/icon-16.png',
+        default_popup: '/'
       },
-      {
-        src: '/images/fb-image.jpg',
-        sizes: '1280x920',
-        type: 'image/jpeg'
-      }
-    ],
-    browser_action: {
-      default_icon: '/favicon.png',
-      default_popup: '/'
+      icons: [
+        {
+          src: '/icon-16.png',
+          sizes: '16x16',
+          type: 'image/png',
+          purpose: 'any maskable'
+        },
+        {
+          src: '/icon-64.png',
+          sizes: '64x64',
+          type: 'image/png',
+          purpose: 'any maskable'
+        },
+        {
+          src: '/icon-256.png',
+          sizes: '196x196',
+          type: 'image/png',
+          purpose: 'any maskable'
+        }
+      ]
+    },
+    workbox: {
+      offlinePage: ['/'],
+      runtimeCaching: [
+        {
+          urlPattern: 'https://localhost:3000/.*',
+          handler: 'networkFirst',
+          method: 'GET',
+          strategyOptions: {
+            cacheName: 'my-api-cache',
+            cacheableResponse: { statuses: [0, 200] }
+          }
+        }
+      ]
     }
   },
-  workbox: {
-    // Workbox options
-  },
+  loading: '~/components/top-loading.vue',
   css: [
-    '~assets/scss/index.scss'
+    './assets/scss/index.scss'
   ],
   plugins: [
     '~/plugins/vue-tabindex.js',
-    '~/plugins/vue-clipboards.js',
-    '~/plugins/vue-tippy.js'
+    '~/plugins/vue-orm-axios.js'
   ],
-  render: {
-    csp: true,
-    http2: {
-      push: true,
-      pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
-        .filter(f => f.asType === 'script' && f.file === 'runtime.js')
-        .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
-    }
-  },
+  components: false,
+  buildModules: [
+    '@nuxtjs/fontawesome',
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module'
+  ],
   modules: [
-    [ "nuxt-compress", { gzip: { cache: true }, brotli: { threshold: 10240 } } ],
-    [ '@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' } ],
-    [ '@nuxtjs/pwa', { icon: true } ],
-    [ '@nuxtjs/google-adsense', { id: 'ca-pub-4905039106786059' } ],
-    [ '@nuxtjs/google-analytics', { id: 'UA-134623154-1', test: process.env.NODE_ENV !== 'development' } ],
-    [ 'nuxt-fontawesome', {
-        component: 'fa', 
-        imports: [
-          //import whole set
-          { set: '@fortawesome/free-solid-svg-icons', icons: [ 'fas' ] },
-          { set: '@fortawesome/free-brands-svg-icons', icons: [ 'fab' ] },
-          { set: '@fortawesome/free-regular-svg-icons', icons: [ 'far', 'faCopyright' ] }
-        ]
-      }
-    ]
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    '@nuxtjs/pwa'
   ],
-  server: { port: 3000, host: '0.0.0.0', timing: false },
-  axios: { baseURL: process.env.AXIOS_BASE_URL || 'https://mr.touno.io/' },
-  env: {
-    dev: process.env.NODE_ENV === 'development',
-    baseURL: process.env.AXIOS_BASE_URL || 'https://mr.touno.io/'
+  router: {
+    middleware: ['auth'],
+    linkActiveClass: 'active',
+    linkExactActiveClass: 'exact-active'
+  },
+  bootstrapVue: { bootstrapCSS: false },
+  fontawesome: {
+    component: 'fa',
+    icons: { solid: true, regular: true, brands: true }
   },
   build: {
-    quiet: false,
     parallel: !production,
     cache: true,
     extractCSS: production,
@@ -137,6 +110,30 @@ module.exports = {
         }
       }
     }
+  },
+  render: {
+    http2: {
+      push: true,
+      pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+        .filter(f => f.asType === 'script' && f.file === 'runtime.js')
+        .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+    }
+  },
+  auth: {
+    strategies: {
+      local: {
+        //       endpoints: {
+        //         login: { url: '/auth/login', method: 'post', propertyName: 'token' },
+        //         logout: { url: '/auth/logout', method: 'post' },
+        //         user: { url: '/auth/user', method: 'get', propertyName: 'user' }
+        //       }
+      }
+    }
+    //   redirect: { login: '/sign-in', logout: '/sign-in', home: '/' }
+  },
+  server: { port: 3000, host: '0.0.0.0', timing: false },
+  axios: { baseURL: process.env.AXIOS_BASE_URL },
+  env: {
+    dev: !production
   }
 }
-

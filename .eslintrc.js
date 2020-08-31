@@ -1,26 +1,18 @@
 module.exports = {
+  root: true,
   env: {
-      browser: true,
-      es6: true,
-      node: true
-  },
-  extends: [ 'eslint:recommended', 'plugin:vue/essential' ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    browser: true,
+    node: true
   },
   parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module'
+    parser: 'babel-eslint'
   },
-  plugins: [ 'vue' ],
-  rules: {
-    'no-console': 'off',
-    'no-debugger': 'off',
-    'vue/no-v-html': 'off',
-    'vue/max-attributes-per-line': [ 2, {
-      'singleline': 16,
-      'multiline': { 'max': 8, 'allowFirstLine': false }
-    }]
-  }
+  extends: [
+    '@nuxtjs',
+    'plugin:nuxt/recommended'
+  ],
+  plugins: [
+  ],
+  // add your custom rules here
+  rules: {}
 }

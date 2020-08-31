@@ -7,7 +7,6 @@
             <h2>Education</h2>
           </div>
         </div>
-
         <div class="col-md-9">
           <div class="row">
             <div v-for="e in education" :key="education.indexOf(e)" class="col-md-6">

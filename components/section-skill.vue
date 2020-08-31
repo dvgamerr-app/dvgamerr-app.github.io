@@ -36,7 +36,7 @@ export default {
 </script>
 <style scoped>
 .skill-list h3 {
-  text-transform: uppercase; 
+  text-transform: uppercase;
 }
 .skill-list li {
   display: inline-block;
@@ -90,7 +90,6 @@ export default {
   border-top   : 6px solid #313131;
   border-right : 8px solid transparent;
 }
-
 
 @media (max-width: 768px) {
   .progress-wrapper {

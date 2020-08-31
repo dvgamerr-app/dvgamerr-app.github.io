@@ -73,7 +73,6 @@ export default {
   line-height: 1;
 }
 
-
 @media (max-width: 768px) {
   .item-stats{
     margin-bottom: 30px;

@@ -12,12 +12,15 @@
           <div class="name-wrapper">
             <h1 class="name">
               {{ resume.fullname }} <fa v-if="editor" icon="pen-square" />
-            </h1> 
+            </h1>
             <span>
               {{ resume.job }} <fa v-if="editor" icon="pen-square" />
             </span>
           </div>
-          <fa v-if="editor" icon="pen-square" /> <p v-html="resume.detail" />
+          <fa v-if="editor" icon="pen-square" />
+          <p>
+            {{ resume.detail }}
+          </p>
           <div class="row">
             <div class="col-md-4">
               <div class="personal-details">
@@ -33,7 +36,7 @@
             </div>
             <div class="col-md-5">
               <div class="personal-details">
-                <strong v-html="resume.language" />
+                <strong>{{ resume.language }}</strong>
                 <small>LANGUAGE</small>
               </div>
             </div>
@@ -84,7 +87,7 @@ export default {
       type: Object,
       default () {
         return {
-          fullname:'',
+          fullname: '',
           birthday: new Date(),
           national: '',
           language: '',
@@ -104,11 +107,11 @@ export default {
   },
   computed: {
     showBirthday () {
-      let bd = moment(this.resume.birthday)
+      const bd = moment(this.resume.birthday)
       return `${bd.format('MMMM DD, YYYY')} (${bd.fromNow()})`
     },
     showSalary () {
-      let perHour = Math.round(this.resume.salary.base / 20 / 8 / this.resume.salary.rate * 100) / 100
+      const perHour = Math.round(this.resume.salary.base / 20 / 8 / this.resume.salary.rate * 100) / 100
       return `${this.resume.salary.currency}${perHour} per hour`
     }
   },
@@ -192,8 +195,7 @@ export default {
   }
 }
 
-
-/* 
+/*
  * -------------------
  * Social Icon
  * -------------------

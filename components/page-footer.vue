@@ -8,7 +8,7 @@
               Copyright <fa :icon="['far', 'copyright']" /> {{ getYear }} {{ orgs }},  <br class="d-block d-sm-none"> all rights reserved ∙
               Design By <a :href="url" target="_blank" v-text="name" />
             </div>
-          </div> 
+          </div>
         </div>
       </div>
     </div>

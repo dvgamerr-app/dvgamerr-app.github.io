@@ -44,14 +44,14 @@ export default {
     sectionContact,
     pageFooter
   },
+  async asyncData ({ $axios }) {
+    const { data } = await $axios.get('/api/resume')
+    return data
+  },
   computed: {
     allowEditor () {
       return this.$route.params && (this.$route.params.admin || '').indexOf('editor') === 0
     }
-  },
-  async asyncData ({ $axios}) {
-    const { data } = await $axios.post(`/api/resume`)
-    return data
   }
 }
 </script>

@@ -6,20 +6,27 @@
           <div class="card" style="overflow: hidden">
             <div v-if="false" class="card-manu">
               <button
-                type="button" class="btn btn-icon btn-primary btn-secondary" 
-                :class="{ 'btn-loading': btnEdit.loading }" @click="onDonateEdit"
+                type="button"
+                class="btn btn-icon btn-primary btn-secondary"
+                :class="{ 'btn-loading': btnEdit.loading }"
+                @click="onDonateEdit"
               >
                 <i :class="['fe', (!btnEdit.mode ? 'fe-edit' : 'fe-x') ]" />
               </button>
             </div>
             <div v-if="!btnEdit.mode" class="donate-image" />
-            <div v-if="!btnEdit.mode" class="card-body" v-html="markdown(donate.content)" />
+            <div v-if="!btnEdit.mode" class="card-body">
+              {{ markdown(donate.content) }}
+            </div>
             <div v-else class="card-body">
               <div class="form-group" style="margin-top: -20px;">
                 <label class="form-label">Donate description</label>
                 <textarea
-                  v-model="donate.content" rows="12" class="form-control"
-                  :disabled="!btnEdit.textarea" placeholder="Here can be your donate description with markdown."
+                  v-model="donate.content"
+                  rows="12"
+                  class="form-control"
+                  :disabled="!btnEdit.textarea"
+                  placeholder="Here can be your donate description with markdown."
                 />
               </div>
             </div>
@@ -196,18 +203,23 @@ import numeral from 'numeral'
 import moment from 'moment'
 
 export default {
-  head () {
+  asyncData () {
     return {
-      title: 'Donate Me ❤ ',
-      meta: [
-        { property: 'fb:app_id', content: `1819497478353835` },
-        { property: 'og:url', content: `https://mr.touno.io/donate` },
-        { property: 'og:type', content: `article` },
-        { property: 'og:title', content: `Donate me ❤` },
-        { property: 'og:updated_time', content: 1537712005 },
-        { property: 'og:description', content: `If you like my software and other modules, please consider buying me a coffee. Thank you for your support!` },
-        { property: 'og:image', content: `https://mr.touno.io/images/fb-donate.jpg` }
-      ]
+      wallet: {
+        paypal: '',
+        coffee: 'https://www.buymeacoffee.com/dvgamerr',
+        bitcoin: '3JbW8wZNy16JTUPhWunZb9zsESnATcAJjW',
+        ethereum: '0xbfc756dcBeFa3921fa2D5125115f85e20a88f3B6',
+        bank: {
+          scb: '4088294384',
+          bbl: '0867214769'
+        }
+      },
+      donate: {
+        content: '**Thank you everyone for supporting me**,  whether donations. \n\nArticle publishing Sharing information with me This is the kind of help that I would like to thank everyone very much.\n\nOpen source software of the developer. No policy to charge. Or any trading. To access add-ons in the developer\'s software or applications. But it will be necessary to advertise. All expenses incurred through the development of open source software or applications are paid by **Google Adsense**. The donation to the developer directly is only a user\'s choice.',
+        member: 0,
+        paid: 0
+      }
     }
   },
   data () {
@@ -226,24 +238,17 @@ export default {
       }
     }
   },
-  async asyncData () {
-    return {
-      wallet: {
-        paypal: '',
-        coffee: 'https://www.buymeacoffee.com/dvgamerr',
-        bitcoin: '3JbW8wZNy16JTUPhWunZb9zsESnATcAJjW',
-        ethereum: '0xbfc756dcBeFa3921fa2D5125115f85e20a88f3B6',
-        bank: {
-          scb: '4088294384',
-          bbl: '0867214769'
-        }
-      },
-      donate: {
-        content: '**Thank you everyone for supporting me**,  whether donations. \n\nArticle publishing Sharing information with me This is the kind of help that I would like to thank everyone very much.\n\nOpen source software of the developer. No policy to charge. Or any trading. To access add-ons in the developer\'s software or applications. But it will be necessary to advertise. All expenses incurred through the development of open source software or applications are paid by **Google Adsense**. The donation to the developer directly is only a user\'s choice.',
-        member: 0,
-        paid: 0
-      }
-    }
+  created () {
+    marked.setOptions({
+      renderer: new marked.Renderer(),
+      pedantic: false,
+      gfm: true,
+      breaks: false,
+      sanitize: false,
+      smartLists: true,
+      smartypants: false,
+      xhtml: false
+    })
   },
   methods: {
     markdown (content) {
@@ -294,17 +299,19 @@ export default {
       }
     }
   },
-  created () {
-    marked.setOptions({
-      renderer: new marked.Renderer(),
-      pedantic: false,
-      gfm: true,
-      breaks: false,
-      sanitize: false,
-      smartLists: true,
-      smartypants: false,
-      xhtml: false
-    })
+  head () {
+    return {
+      title: 'Donate Me ❤ ',
+      meta: [
+        { property: 'fb:app_id', content: '1819497478353835' },
+        { property: 'og:url', content: 'https://mr.touno.io/donate' },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:title', content: 'Donate me ❤' },
+        { property: 'og:updated_time', content: 1537712005 },
+        { property: 'og:description', content: 'If you like my software and other modules, please consider buying me a coffee. Thank you for your support!' },
+        { property: 'og:image', content: 'https://mr.touno.io/images/fb-donate.jpg' }
+      ]
+    }
   }
 }
 </script>
