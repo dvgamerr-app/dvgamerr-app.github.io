@@ -14,9 +14,7 @@
                 <small v-text="toDateRange(e.range)" />
                 <h3 v-text="e.job" />
                 <h4 v-text="e.work" />
-                <div class="markdown pt-1">
-                  {{ markedown(e.description) }}
-                </div>
+                <div class="markdown pt-1" v-html="markedown(e.description)" />
               </div>
             </div>
           </div>

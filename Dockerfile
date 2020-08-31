@@ -1,14 +1,33 @@
-FROM node:12.13.0-alpine
-LABEL maintainer="Mr.Kananek T. <info@touno.io>"
- 
-WORKDIR /src
-COPY node_modules /src/node_modules
-COPY .nuxt /src/.nuxt
-COPY .build /src/.build
-COPY static /src/static
-COPY nuxt.config.js /src
-COPY package.json /src
+FROM node:lts AS builder
 
-EXPOSE 3000
+WORKDIR /app
+COPY . /app
 
-CMD [ "npm", "start" ]
+RUN npm i
+RUN npm run build
+RUN rm -Rf ./.github \
+  ./assets \
+  ./components \
+  ./docs \
+  ./layouts \
+  ./pages \
+  ./node_modules
+
+FROM node:lts-alpine  
+
+ENV TZ Asia/Bangkok
+ENV NODE_ENV production
+ENV API_URL https://mr.touno.io
+ENV AXIOS_BASE_URL https://mr.touno.io
+
+WORKDIR /app
+COPY --from=builder /app .
+RUN npm i
+
+CMD ["npm", "start"]
+
+# FROM golang:1.7.3 AS builder
+# WORKDIR /go/src/github.com/alexellis/href-counter/
+# RUN go get -d -v golang.org/x/net/html  
+# COPY app.go    .
+# RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .

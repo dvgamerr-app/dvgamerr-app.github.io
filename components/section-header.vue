@@ -18,9 +18,7 @@
             </span>
           </div>
           <fa v-if="editor" icon="pen-square" />
-          <p>
-            {{ resume.detail }}
-          </p>
+          <p v-html="resume.detail" />
           <div class="row">
             <div class="col-md-4">
               <div class="personal-details">
@@ -36,7 +34,7 @@
             </div>
             <div class="col-md-5">
               <div class="personal-details">
-                <strong>{{ resume.language }}</strong>
+                <strong v-html="resume.language" />
                 <small>LANGUAGE</small>
               </div>
             </div>

@@ -15,9 +15,7 @@
               </button>
             </div>
             <div v-if="!btnEdit.mode" class="donate-image" />
-            <div v-if="!btnEdit.mode" class="card-body">
-              {{ markdown(donate.content) }}
-            </div>
+            <div v-if="!btnEdit.mode" class="card-body" v-html="markdown(donate.content)" />
             <div v-else class="card-body">
               <div class="form-group" style="margin-top: -20px;">
                 <label class="form-label">Donate description</label>

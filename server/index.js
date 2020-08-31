@@ -2,9 +2,9 @@ const app = require('express')()
 const bodyParser = require('body-parser')
 const debuger = require('@touno-io/debuger')
 const { touno } = require('@touno-io/db/schema')
-// const { Nuxt, Builder } = require('nuxt')
+const { Nuxt, Builder } = require('nuxt')
 
-const host = process.env.HOST || '127.0.0.1'
+const host = process.env.HOST || '0.0.0.0'
 const port = process.env.PORT || 3000
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -21,15 +21,15 @@ const expressInitialize = async () => {
   await touno.open()
   logger.info('Mongo connected.')
   // Init Nuxt.js
-  // const nuxt = new Nuxt(config)
-  // if (config.dev) {
-  //   const builder = new Builder(nuxt)
-  //   await builder.build()
-  // }
+  const nuxt = new Nuxt(config)
+  if (config.dev) {
+    const builder = new Builder(nuxt)
+    await builder.build()
+  }
 
-  // await nuxt.ready()
+  await nuxt.ready()
 
-  // app.use(nuxt.render)
+  app.use(nuxt.render)
 
   // Listen the server
   app.listen(port, host)

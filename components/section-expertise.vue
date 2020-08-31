@@ -12,7 +12,7 @@
             <div v-for="e in expertise" :key="expertise.indexOf(e)" class="col-md-6">
               <div class="expertise-item">
                 <h3 v-text="e.subject" />
-                <p>e.detail</p>
+                <p v-html="e.detail" />
               </div>
             </div>
           </div>
