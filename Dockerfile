@@ -4,6 +4,7 @@ WORKDIR /app
 COPY . /app
 
 ENV API_URL_BROWSER https://mr.touno.io
+ENV AXIOS_BASE_URL https://mr.touno.io 
 
 RUN npm i
 RUN npm run build
@@ -19,6 +20,8 @@ FROM node:lts-alpine
 
 ENV TZ Asia/Bangkok
 ENV NODE_ENV production
+ENV AXIOS_BASE_URL https://mr.touno.io 
+ENV API_URL_BROWSER https://mr.touno.io
 
 WORKDIR /app
 COPY --from=builder /app .

@@ -45,8 +45,14 @@ export default {
     pageFooter
   },
   async asyncData ({ $axios }) {
-    const { data } = await $axios.get('/api/resume')
-    return data
+    try {
+      const { data } = await $axios.get('/api/resume')
+      return data
+    } catch (ex) {
+      // eslint-disable-next-line no-console
+      console.log(ex)
+      return {}
+    }
   },
   computed: {
     allowEditor () {
