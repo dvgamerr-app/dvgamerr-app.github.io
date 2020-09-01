@@ -20,8 +20,6 @@ RUN rm -Rf ./.github \
 
 FROM node:lts-alpine  
 
-RUN apk add curl
-
 ENV TZ Asia/Bangkok
 ENV NODE_ENV production
 ENV AXIOS_BASE_URL https://mr.touno.io 
@@ -31,8 +29,8 @@ WORKDIR /app
 COPY --from=builder /app .
 RUN npm i
 
-HEALTHCHECK --interval=10s --timeout=3s --retries=30 \
-  CMD curl -f http://localhost:3000/_health || exit 1
+HEALTHCHECK --interval=12s --timeout=3s --retries=5 --start-period=30s  \
+  CMD node /app/healthcheck.js
 
 CMD ["npm", "start"]
 
