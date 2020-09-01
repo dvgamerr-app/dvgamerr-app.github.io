@@ -9,7 +9,7 @@
     "dev": "env-cmd nodemon --watch server server/index.js",
     "build": "nuxt build",
     "eslint": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
-    "start": "env-cmd node server/index.js"
+    "start": "node server/index.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
