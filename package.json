@@ -7,7 +7,7 @@
   "private": false,
   "scripts": {
     "dev": "env-cmd nodemon --watch server server/index.js",
-    "build": "nuxt generate",
+    "build": "nuxt build",
     "eslint": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
     "start": "node server/index.js"
   },
