@@ -120,11 +120,11 @@ module.exports = {
       ]
     }]
   ],
-  server: { port: 3000, host: '0.0.0.0', timing: false },
-  axios: { baseURL: process.env.AXIOS_BASE_URL || 'https://mr.touno.io/' },
+  server: { port: 3000, host: '0.0.0.0' },
+  axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://mr.touno.io/' },
   env: {
     dev: process.env.NODE_ENV === 'development',
-    baseURL: process.env.AXIOS_BASE_URL || 'https://mr.touno.io/'
+    baseURL: process.env.AXIOS_BASE_URL || 'http://mr.touno.io/'
   },
   build: {
     quiet: false,

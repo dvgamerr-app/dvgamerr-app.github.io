@@ -3,10 +3,12 @@ FROM node:lts AS builder
 WORKDIR /app
 COPY . /app
 
-ENV API_URL_BROWSER https://mr.touno.io
-ENV AXIOS_BASE_URL https://mr.touno.io 
-
 RUN npm i
+
+ENV NODE_ENV production
+ENV AXIOS_BASE_URL https://mr.touno.io 
+ENV API_URL_BROWSER https://mr.touno.io
+
 RUN npm run build
 RUN rm -Rf ./.github \
   ./assets \
