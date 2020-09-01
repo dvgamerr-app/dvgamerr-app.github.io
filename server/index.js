@@ -10,6 +10,8 @@ const port = process.env.PORT || 3000
 const config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
+app.get('/_health', (req, res) => res.status(200).end('OK'))
+
 // parse application/x-www-form-urlencoded and application/json
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
