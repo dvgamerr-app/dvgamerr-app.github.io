@@ -109,8 +109,6 @@ module.exports = {
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 10240 } }],
     ['@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' }],
     ['@nuxtjs/pwa', { icon: true }],
-    ['@nuxtjs/google-adsense', { id: 'ca-pub-4905039106786059' }],
-    ['@nuxtjs/google-analytics', { id: 'UA-134623154-1', test: process.env.NODE_ENV !== 'development' }],
     ['nuxt-fontawesome', {
       component: 'fa',
       imports: [
