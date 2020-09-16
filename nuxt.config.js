@@ -97,13 +97,13 @@ module.exports = {
     '~/plugins/vue-tippy.js'
   ],
   render: {
-    csp: true,
-    http2: {
-      push: true,
-      pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
-        .filter(f => f.asType === 'script' && f.file === 'runtime.js')
-        .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
-    }
+    // csp: true,
+    // http2: {
+    //   push: true,
+    //   pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+    //     .filter(f => f.asType === 'script' && f.file === 'runtime.js')
+    //     .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+    // }
   },
   modules: [
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 10240 } }],
@@ -119,10 +119,14 @@ module.exports = {
     }]
   ],
   server: { port: 3000, host: '0.0.0.0' },
-  axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://mr.touno.io/' },
+  axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://localhost:3000/' },
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
   env: {
-    dev: process.env.NODE_ENV === 'development',
-    baseURL: process.env.AXIOS_BASE_URL || 'http://mr.touno.io/'
+    dev: process.env.NODE_ENV === 'development'
   },
   build: {
     quiet: false,

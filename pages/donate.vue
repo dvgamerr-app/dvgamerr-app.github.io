@@ -2,7 +2,7 @@
   <header class="header">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <div class="card" style="overflow: hidden">
             <div v-if="false" class="card-manu">
               <button
@@ -30,16 +30,8 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
-          <div class="card p-3 mb-3">
-            <adsbygoogle ad-slot="4314984147" ad-format="auto" data-full-width-responsive="true" :ad-style="{ display: 'block' }" />
-          </div>
-          <div class="card p-3 mb-3">
-            <adsbygoogle ad-slot="1949934436" ad-format="auto" data-full-width-responsive="true" :ad-style="{ display: 'block' }" />
-          </div>
-        </div>
       </div>
-      <div class="page-header">
+      <div class="page-header mt-5">
         <h1 class="page-title">
           Donate
         </h1>
@@ -139,7 +131,7 @@
                   <small class="d-block text-muted">Bitcoin</small>
                 </div>
               </div>
-              <!-- <div class="d-flex align-items-center pt-2 mt-auto">
+              <div class="d-flex align-items-center pt-2 mt-auto">
                 <div class="avatar avatar-md mr-3">
                   ETH
                 </div>
@@ -149,7 +141,7 @@
                   </button>
                   <small class="d-block text-muted">Ethereum</small>
                 </div>
-              </div> -->
+              </div>
             </div>
           </div>
         </div>
@@ -206,8 +198,8 @@ export default {
       wallet: {
         paypal: '',
         coffee: 'https://www.buymeacoffee.com/dvgamerr',
-        bitcoin: '3JbW8wZNy16JTUPhWunZb9zsESnATcAJjW',
-        ethereum: '0xbfc756dcBeFa3921fa2D5125115f85e20a88f3B6',
+        bitcoin: '31wheXmo7CvnP3V19Xyn7wTd8MJuhJFkAW',
+        ethereum: '0xf8e2a83eB14dEa6769cA19E6a75dAA7DA43B1A77',
         bank: {
           scb: '4088294384',
           bbl: '0867214769'
@@ -347,7 +339,10 @@ export default {
   width: 100%;
   background-size: cover;
   margin-top: -10px;
-
+}
+.card-img {
+  height: 100%;
+  object-fit: cover;
 }
 @media (min-width: 320px) {
   .donate-image {

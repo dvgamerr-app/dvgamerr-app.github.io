@@ -12,7 +12,7 @@
       <section-education :editor="allowEditor" :education="education" />
       <section-certificate :editor="allowEditor" :certificate="certificate" />
       <section-portfolio :editor="allowEditor" :portfolio="portfolio" />
-      <section-contact :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
+      <section-contact v-if="grecaptcha" :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
     </div>
     <page-footer :editor="allowEditor" />
   </div>
@@ -54,6 +54,27 @@ export default {
       return {}
     }
   },
+  data: () => ({
+    fullname: {},
+    birthday: {},
+    national: {},
+    language: {},
+    job: {},
+    detail: {},
+    social: {},
+    salary: {},
+    interview: {},
+    location: {},
+    coding: {},
+    expertise: [],
+    skill: {},
+    work: [],
+    education: [],
+    certificate: [],
+    portfolio: [],
+    contact: [],
+    grecaptcha: ''
+  }),
   computed: {
     allowEditor () {
       return this.$route.params && (this.$route.params.admin || '').indexOf('editor') === 0
