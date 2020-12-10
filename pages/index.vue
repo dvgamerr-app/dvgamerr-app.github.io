@@ -83,7 +83,6 @@ export default {
   },
   created () {
     if (!process.client) { return }
-    console.log('client')
     const raw = localStorage.getItem('resume')
     if (!raw) { return }
 
