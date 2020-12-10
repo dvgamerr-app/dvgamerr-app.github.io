@@ -228,6 +228,20 @@ export default {
       }
     }
   },
+  head () {
+    return {
+      title: 'Donate Me ❤ ',
+      meta: [
+        { property: 'fb:app_id', content: '1819497478353835' },
+        { property: 'og:url', content: 'https://mr.touno.io/donate' },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:title', content: 'Donate me ❤' },
+        { property: 'og:updated_time', content: 1537712005 },
+        { property: 'og:description', content: 'If you like my software and other modules, please consider buying me a coffee. Thank you for your support!' },
+        { property: 'og:image', content: 'https://mr.touno.io/images/fb-donate.jpg' }
+      ]
+    }
+  },
   created () {
     marked.setOptions({
       renderer: new marked.Renderer(),
@@ -287,20 +301,6 @@ export default {
       } else {
         this.toogleEdit()
       }
-    }
-  },
-  head () {
-    return {
-      title: 'Donate Me ❤ ',
-      meta: [
-        { property: 'fb:app_id', content: '1819497478353835' },
-        { property: 'og:url', content: 'https://mr.touno.io/donate' },
-        { property: 'og:type', content: 'article' },
-        { property: 'og:title', content: 'Donate me ❤' },
-        { property: 'og:updated_time', content: 1537712005 },
-        { property: 'og:description', content: 'If you like my software and other modules, please consider buying me a coffee. Thank you for your support!' },
-        { property: 'og:image', content: 'https://mr.touno.io/images/fb-donate.jpg' }
-      ]
     }
   }
 }

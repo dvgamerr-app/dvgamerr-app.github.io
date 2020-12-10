@@ -4,15 +4,13 @@ const website = 'https://mr.touno.io'
 const date = new Date().toISOString()
 const production = !(process.env.NODE_ENV === 'development')
 
-// eslint-disable-next-line nuxt/no-cjs-in-config
-module.exports = {
-  mode: 'universal',
-  target: 'server',
+export default {
+  target: 'static',
   telemetry: false,
   head: {
-    titleTemplate: t => `${t || ''}Mr.Kananek T.`,
+    titleTemplate: t => `${t || ''}`,
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'favicon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: 'icon.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700' }
     ],
     meta: [
@@ -34,9 +32,9 @@ module.exports = {
       { property: 'og:url', content: `${website}/` },
       { property: 'og:site_name', content: title },
       { property: 'og:updated_time', content: date },
-      { property: 'og:image', content: `${website}/fb-image.jpg` },
-      { property: 'article:publisher', content: 'https://www.facebook.com/dvgamerr' },
-      { property: 'article:author', content: 'https://www.facebook.com/dvgamerr' },
+      { property: 'og:image', content: `${website}/fb-image.png` },
+      { property: 'article:publisher', content: 'https://twitter.com/dvgamerr' },
+      { property: 'article:author', content: 'https://twitter.com/dvgamerr' },
       { property: 'article:section', content: 'STORIES' },
       { property: 'article:published_time', content: date },
       { property: 'article:modified_time', content: date },
@@ -44,49 +42,51 @@ module.exports = {
       { property: 'twitter:description', content: desc },
       { property: 'twitter:title', content: title },
       { property: 'twitter:site', content: '@dvgamerr' },
-      { property: 'twitter:image', content: `${website}/fb-image.jpg` },
+      { property: 'twitter:image', content: `${website}/fb-image.png` },
       { property: 'twitter:creator', content: '@dvgamerr' }
     ]
   },
   icons: {
     sizes: [32, 57, 72, 144, 512]
   },
-  manifest: {
-    name: title,
-    lang: 'en',
-    dir: 'rtl',
-    description: '',
-    short_name: title,
-    icons: [
-      { src: '/favicon.png', sizes: '64x64' },
-      { src: '/favicon.png', sizes: '128x128' },
-      { src: '/favicon.png', sizes: '144x144' }
-    ],
-    scope: '/',
-    start_url: '/',
-    display: 'fullscreen',
-    orientation: 'portrait',
-    theme_color: '#ffffff',
-    background_color: '#ffffff',
-    screenshots: [
-      {
-        src: '/images/fb-image.jpg',
-        sizes: '640x480',
-        type: 'image/jpeg'
-      },
-      {
-        src: '/images/fb-image.jpg',
-        sizes: '1280x920',
-        type: 'image/jpeg'
+  pwa: {
+    manifest: {
+      name: title,
+      lang: 'en',
+      dir: 'rtl',
+      description: '',
+      short_name: title,
+      start_url: '/',
+      scope: '/',
+      display: 'fullscreen',
+      orientation: 'portrait',
+      theme_color: '#f8f8f8',
+      background_color: '#f8f8f8',
+      icons: [
+        { src: '/icon-64.png', sizes: '64x64' },
+        { src: '/icon-128.png', sizes: '128x128' },
+        { src: '/icon-144.png', sizes: '144x144' }
+      ],
+      screenshots: [
+        {
+          src: '/images/fb-image.png',
+          sizes: '640x480',
+          type: 'image/jpeg'
+        },
+        {
+          src: '/images/fb-image.png',
+          sizes: '1280x920',
+          type: 'image/jpeg'
+        }
+      ],
+      browser_action: {
+        default_icon: '/icon.png',
+        default_popup: '/'
       }
-    ],
-    browser_action: {
-      default_icon: '/favicon.png',
-      default_popup: '/'
+    },
+    workbox: {
+      // Workbox options
     }
-  },
-  workbox: {
-    // Workbox options
   },
   css: [
     '~assets/scss/index.scss'
@@ -96,15 +96,15 @@ module.exports = {
     '~/plugins/vue-clipboards.js',
     '~/plugins/vue-tippy.js'
   ],
-  render: {
-    // csp: true,
-    // http2: {
-    //   push: true,
-    //   pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
-    //     .filter(f => f.asType === 'script' && f.file === 'runtime.js')
-    //     .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
-    // }
-  },
+  // render: {
+  //   csp: true,
+  //   http2: {
+  //     push: true,
+  //     pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+  //       .filter(f => f.asType === 'script' && f.file === 'runtime.js')
+  //       .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+  //   }
+  // },
   modules: [
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 10240 } }],
     ['@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' }],
@@ -119,12 +119,12 @@ module.exports = {
     }]
   ],
   server: { port: 3000, host: '0.0.0.0' },
-  axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://localhost:3000/' },
-  publicRuntimeConfig: {
-    axios: {
-      browserBaseURL: process.env.BROWSER_BASE_URL
-    }
-  },
+  axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://api-touno-io:3000/api/' },
+  // publicRuntimeConfig: {
+  //   axios: {
+  //     browserBaseURL: process.env.BROWSER_BASE_URL
+  //   }
+  // },
   env: {
     dev: process.env.NODE_ENV === 'development'
   },

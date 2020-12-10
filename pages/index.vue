@@ -46,15 +46,16 @@ export default {
   },
   async asyncData ({ $axios }) {
     try {
-      const { data } = await $axios.get('/api/resume')
+      const { data } = await $axios.get('/resume')
       return data
     } catch (ex) {
-      // eslint-disable-next-line no-console
-      console.log(ex)
-      return {}
+      return {
+        error: true
+      }
     }
   },
   data: () => ({
+    error: false,
     fullname: {},
     birthday: {},
     national: {},
@@ -78,6 +79,18 @@ export default {
   computed: {
     allowEditor () {
       return this.$route.params && (this.$route.params.admin || '').indexOf('editor') === 0
+    }
+  },
+  created () {
+    if (!process.client) { return }
+    console.log('client')
+    const raw = localStorage.getItem('resume')
+    if (!raw) { return }
+
+    if (this.error) {
+      this.$data = JSON.parse(raw)
+    } else {
+      localStorage.setItem('resume', JSON.stringify(this.$data))
     }
   }
 }
