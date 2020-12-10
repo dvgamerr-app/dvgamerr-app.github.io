@@ -19,7 +19,7 @@
           </div>
           <fa v-if="editor" icon="pen-square" />
           <p v-html="resume.detail" />
-          <div class="row">
+          <div v-if="!resume.error" class="row">
             <div class="col-md-4">
               <div class="personal-details">
                 <strong v-text="showBirthday" />
@@ -39,7 +39,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div v-if="!resume.error" class="row">
             <div class="col-md-4">
               <div class="personal-details">
                 <strong v-text="resume.location" />
@@ -85,6 +85,7 @@ export default {
       type: Object,
       default () {
         return {
+          error: null,
           fullname: '',
           birthday: new Date(),
           national: '',

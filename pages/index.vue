@@ -1,20 +1,22 @@
 <template>
-  <div id="main-wrapper">
-    <div v-if="fullname">
-      <section-header :editor="allowEditor" :resume="{ fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
-      <section-coding :editor="allowEditor" :coding="coding" />
-      <section-coding-history :editor="allowEditor" :coding="coding" />
-      <section-expertise :editor="allowEditor" :expertise="expertise" />
-      <section-skill :editor="allowEditor" :skill="skill" />
-      <p class="pagebreak" />
-      <section-work :editor="allowEditor" :work="work" />
-      <p class="pagebreak" />
-      <section-education :editor="allowEditor" :education="education" />
-      <section-certificate :editor="allowEditor" :certificate="certificate" />
-      <section-portfolio :editor="allowEditor" :portfolio="portfolio" />
-      <section-contact v-if="grecaptcha" :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
-    </div>
-    <page-footer :editor="allowEditor" />
+  <div>
+    <client-only>
+      <section-header :editor="allowEditor" :resume="{ error, fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
+      <div v-if="!error">
+        <section-coding :editor="allowEditor" :coding="coding" />
+        <section-coding-history :editor="allowEditor" :coding="coding" />
+        <section-expertise :editor="allowEditor" :expertise="expertise" />
+        <section-skill :editor="allowEditor" :skill="skill" />
+        <p class="pagebreak" />
+        <section-work :editor="allowEditor" :work="work" />
+        <p class="pagebreak" />
+        <section-education :editor="allowEditor" :education="education" />
+        <section-certificate :editor="allowEditor" :certificate="certificate" />
+        <section-portfolio :editor="allowEditor" :portfolio="portfolio" />
+        <section-contact v-if="grecaptcha" :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
+      </div>
+      <page-footer :editor="allowEditor" />
+    </client-only>
   </div>
 </template>
 <script>
@@ -44,24 +46,14 @@ export default {
     sectionContact,
     pageFooter
   },
-  async asyncData ({ $axios }) {
-    try {
-      const { data } = await $axios.get('/resume')
-      return data
-    } catch (ex) {
-      return {
-        error: true
-      }
-    }
-  },
   data: () => ({
-    error: false,
-    fullname: {},
+    error: true,
+    fullname: 'Kananek Thongkam',
+    job: 'Programmer',
     birthday: {},
     national: {},
     language: {},
-    job: {},
-    detail: {},
+    detail: 'Server is maintenance.',
     social: {},
     salary: {},
     interview: {},
@@ -81,15 +73,40 @@ export default {
       return this.$route.params && (this.$route.params.admin || '').indexOf('editor') === 0
     }
   },
-  created () {
-    if (!process.client) { return }
-    const raw = localStorage.getItem('resume')
-    if (!raw) { return }
+  async mounted () {
+    const raw = window.localStorage.getItem('resume')
+    if (!this.error) {
+      await this.updateData(JSON.parse(raw))
+    }
 
-    if (this.error) {
-      this.$data = JSON.parse(raw)
-    } else {
-      localStorage.setItem('resume', JSON.stringify(this.$data))
+    const { data } = await this.$axios.get('/resume')
+    await this.updateData(data)
+    window.localStorage.setItem('resume', JSON.stringify(data))
+  },
+  async created () {
+  },
+  methods: {
+    updateData (data = {}) {
+      this.error = false
+      this.fullname = data.fullname
+      this.job = data.job
+      this.birthday = data.birthday
+      this.national = data.national
+      this.language = data.language
+      this.detail = data.detail
+      this.social = data.social
+      this.salary = data.salary
+      this.interview = data.interview
+      this.location = data.location
+      this.coding = data.coding
+      this.expertise = data.expertise
+      this.skill = data.skill
+      this.work = data.work
+      this.education = data.education
+      this.certificate = data.certificate
+      this.portfolio = data.portfolio
+      this.contact = data.contact
+      this.grecaptcha = data.grecaptcha
     }
   }
 }

@@ -119,7 +119,7 @@ export default {
     }]
   ],
   server: { port: 3000, host: '0.0.0.0' },
-  axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://api-touno-io:3000/api/' },
+  axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://grpc.touno.io/api/' },
   // publicRuntimeConfig: {
   //   axios: {
   //     browserBaseURL: process.env.BROWSER_BASE_URL
