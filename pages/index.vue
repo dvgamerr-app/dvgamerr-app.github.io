@@ -49,11 +49,11 @@ export default {
   data: () => ({
     error: true,
     fullname: 'Kananek Thongkam',
-    job: 'Programmer',
+    job: 'Full Stack Engineer',
     birthday: {},
     national: {},
     language: {},
-    detail: 'Server is maintenance.',
+    detail: 'Loading...',
     social: {},
     salary: {},
     interview: {},
@@ -75,13 +75,18 @@ export default {
   },
   async mounted () {
     const raw = window.localStorage.getItem('resume')
-    if (!this.error) {
+    if (raw) {
       await this.updateData(JSON.parse(raw))
     }
 
-    const { data } = await this.$axios.get('/resume')
-    await this.updateData(data)
-    window.localStorage.setItem('resume', JSON.stringify(data))
+    try {
+      const { data } = await this.$axios.get('/resume')
+      if (!raw) { await this.updateData(data) }
+      window.localStorage.setItem('resume', JSON.stringify(data))
+    } catch {
+      const { data } = await this.$axios.get('https://mr.touno.io/data.json')
+      await this.updateData(data)
+    }
   },
   async created () {
   },

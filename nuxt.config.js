@@ -106,7 +106,7 @@ export default {
   //   }
   // },
   modules: [
-    ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 10240 } }],
+    ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }],
     ['@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' }],
     ['@nuxtjs/pwa', { icon: true }],
     ['nuxt-fontawesome', {
