@@ -190,7 +190,6 @@
 import md5 from 'md5'
 import marked from 'marked'
 import numeral from 'numeral'
-import moment from 'moment'
 
 export default {
   asyncData () {
@@ -257,9 +256,6 @@ export default {
   methods: {
     markdown (content) {
       return marked(content)
-    },
-    moment (date) {
-      return moment(date)
     },
     toNumber (value) {
       return numeral(value).format('0,0')

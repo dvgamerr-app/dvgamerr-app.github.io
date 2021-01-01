@@ -97,6 +97,9 @@ export default {
       text: ''
     }
   }),
+  head: {
+    script: [{ src: 'https://www.google.com/recaptcha/api.js?render=6LeefYsUAAAAAGhMamT5dd5gNOXvrtUl4ZG_IayA' }]
+  },
   created () {
     if (process.client) {
       const vm = this
@@ -126,9 +129,6 @@ export default {
       this.sended = true
       this.sending = false
     }
-  },
-  head: {
-    script: [{ src: 'https://www.google.com/recaptcha/api.js?render=6LeefYsUAAAAAGhMamT5dd5gNOXvrtUl4ZG_IayA' }]
   }
 }
 </script>

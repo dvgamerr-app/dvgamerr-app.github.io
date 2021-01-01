@@ -48,7 +48,10 @@
   </section>
 </template>
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+dayjs.extend(relativeTime)
 
 export default {
   props: {
@@ -57,7 +60,7 @@ export default {
   },
   computed: {
     getExperience () {
-      return moment(this.coding.experience).fromNow(true)
+      return dayjs(this.coding.experience).fromNow(true)
     }
   },
   methods: {

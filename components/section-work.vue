@@ -25,7 +25,7 @@
 </template>
 <script>
 import marked from 'marked'
-import moment from 'moment'
+import dayjs from 'dayjs'
 
 export default {
   props: {
@@ -37,8 +37,8 @@ export default {
       return marked(text)
     },
     toDateRange (range) {
-      const begin = moment(range.begin)
-      const end = range.end ? moment(range.end) : moment()
+      const begin = dayjs(range.begin)
+      const end = range.end ? dayjs(range.end) : dayjs()
       const diff = end.diff(begin, 'year', true)
       const month = parseInt((diff - parseInt(diff)) * 12)
       const year = parseInt(diff)

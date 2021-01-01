@@ -34,7 +34,7 @@
   </section>
 </template>
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
 export default {
   props: {
     editor: { type: Boolean },
@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     toAchievement (e) {
-      return moment(e.achievement).format('MMMM DD, YYYY')
+      return dayjs(e.achievement).format('MMMM DD, YYYY')
     }
   }
 }

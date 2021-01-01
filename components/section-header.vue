@@ -62,7 +62,7 @@
             </div>
           </div>
           <ul class="social-icon d-print-none">
-            <li id="img-print" class="mr-3">
+            <li v-show="resume.social.length" id="img-print" class="mr-3">
               <a href="#" rel="noopener" @click.prevent="onPrint"><fa icon="print" /></a>
             </li>
             <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
@@ -76,7 +76,10 @@
   </header>
 </template>
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+dayjs.extend(relativeTime)
 
 export default {
   props: {
@@ -106,7 +109,7 @@ export default {
   },
   computed: {
     showBirthday () {
-      const bd = moment(this.resume.birthday)
+      const bd = dayjs(this.resume.birthday)
       return `${bd.format('MMMM DD, YYYY')} (${bd.fromNow()})`
     },
     showSalary () {
