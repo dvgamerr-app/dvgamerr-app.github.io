@@ -10,7 +10,8 @@
         <div class="col-md-9">
           <div class="row">
             <div v-for="e in work" :key="work.indexOf(e)" class="col-md-12">
-              <div class="content-item">
+              <p v-if="e.pagebreak" class="pagebreak" />
+              <div v-else class="content-item">
                 <small v-text="toDateRange(e.range)" />
                 <h3 v-text="e.job" />
                 <h4 v-text="e.work" />
