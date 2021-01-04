@@ -3,7 +3,7 @@
     <client-only>
       <section-header :editor="allowEditor" :resume="{ error, fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
       <div v-if="!error">
-        <section-contact class="d-none print-only" :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
+        <section-contact :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
         <section-coding :editor="allowEditor" :coding="coding" />
         <section-coding-history :editor="allowEditor" :coding="coding" />
         <section-expertise :editor="allowEditor" :expertise="expertise" />
@@ -15,7 +15,6 @@
         <section-education class="d-print-none" :editor="allowEditor" :education="education" />
         <section-certificate class="d-print-none" :editor="allowEditor" :certificate="certificate" />
         <section-portfolio class="d-print-none" :editor="allowEditor" :portfolio="portfolio" />
-        <section-contact class="d-print-none" :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
       </div>
       <page-footer :editor="allowEditor" />
     </client-only>
