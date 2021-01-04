@@ -22,7 +22,7 @@ jobs:
         # uses: kitabisa/sonarqube-action@a40c5bc8f6f33b9e0d5035caf5910807ce1d554d
         uses: kitabisa/sonarqube-action@v1.1.0
         with:
-          host: https://code.touno.io
+          host: https://sonar.touno.io
           projectKey: project-mr-touno-io
           projectVersion: v1.0.0
 
