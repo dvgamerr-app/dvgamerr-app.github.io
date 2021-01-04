@@ -11,7 +11,7 @@
           <div class="row">
             <div v-for="(e, i) in contactPrint" :key="'print-'+i" :class="['d-none', 'print-only','col-md-' + (12 / (contactPrint.length + 1)), 'col-sm-' + (12 / (contactPrint.length + 1) * 2) ]">
               <address>
-                <img :src="e.qrcode" height="160">
+                <img :src="e.qrcode" height="160" :alt="'QR ' + e.label">
               </address>
             </div>
             <div :class="['d-none', 'print-only','col-md-' + (12 / (contactPrint.length + 1)), 'col-sm-' + (12 / (contactPrint.length + 1) * 2) ]">

@@ -10,9 +10,7 @@
                 class="btn btn-icon btn-primary btn-secondary"
                 :class="{ 'btn-loading': btnEdit.loading }"
                 @click="onDonateEdit"
-              >
-                <i :class="['fe', (!btnEdit.mode ? 'fe-edit' : 'fe-x') ]" />
-              </button>
+              />
             </div>
             <div v-if="!btnEdit.mode" class="donate-image" />
             <div v-if="!btnEdit.mode" class="card-body" v-html="markdown(donate.content)" />
@@ -50,7 +48,7 @@
                   </h5>
                   <div class="card-text">
                     <button v-tippy="tooltip" v-clipboard="wallet.bank.scb" type="button" class="btn btn-link btn-tooltip" title="copied">
-                      <b v-text="cleave(wallet.bank.scb, [3, 6])" />
+                      <strong v-text="cleave(wallet.bank.scb, [3, 6])" />
                     </button>
                     <small class="d-block text-muted">นายกัณฑ์อเนก ทองคำ</small>
                   </div>
@@ -89,7 +87,7 @@
                   </h5>
                   <div class="card-text">
                     <button v-tippy="tooltip" v-clipboard="wallet.bank.bbl" type="button" class="btn btn-link btn-tooltip" title="copied">
-                      <b v-text="cleave(wallet.bank.bbl, [3, 1, 5])" />
+                      <strong v-text="cleave(wallet.bank.bbl, [3, 1, 5])" />
                     </button>
                     <small class="d-block text-muted">นายกัณฑ์อเนก ทองคำ</small>
                   </div>
