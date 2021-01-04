@@ -206,7 +206,7 @@ button:focus,
   background-size: 80px 16px;
   background-repeat: no-repeat;
   content: "";
-  }
+}
 
 // #review .rating-progress::before{
 //   background-image: url('~/assets/rating-background.svg');
@@ -388,4 +388,32 @@ button:focus,
 .pagebreak {
   margin: 0px;
   page-break-before: always;
+}
+
+@media print {
+  .section-wrapper {
+    padding: 20px 0 !important;
+  }
+  .no-print {
+    display: none;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  body, h1, h2, h3, h4, h5, h6 {
+    background: #fff;
+    color: #444 !important;
+  }
+
+  body:before,
+  body:after {
+    display: none !important;
+  }
+
+}
+
+.clear-p > p {
+  margin-bottom: 0px !important;
 }

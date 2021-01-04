@@ -11,13 +11,13 @@
         <div class="col-md-9">
           <div class="name-wrapper">
             <h1 class="name">
-              {{ resume.fullname }} <fa v-if="editor" icon="pen-square" />
+              {{ resume.fullname }}
             </h1>
             <span>
-              {{ resume.job }} <fa v-if="editor" icon="pen-square" />
+              {{ resume.job }}
             </span>
+            <div class="d-print-none clear-p" v-html="marked('![](https://komarev.com/ghpvc/?username=dvgamerr&color=orange&label=Page%20View&style=flat-square)')" />
           </div>
-          <fa v-if="editor" icon="pen-square" />
           <p v-html="resume.detail" />
           <div v-if="!resume.error" class="row">
             <div class="col-md-4">
@@ -48,16 +48,19 @@
             </div>
             <div class="col-md-3">
               <div class="personal-details">
-                <strong v-text="showSalary" />
+                <strong class="d-print-none" v-text="showSalary" />
+                <strong class="d-none print-only" v-text="showSalaryFull" />
                 <small>CURRENT SALARY</small>
               </div>
             </div>
             <div class="col-md-5">
               <div class="personal-details">
-                <span class="badge" :class="resume.interview ? 'badge-success' : 'badge-danger'">
+                <span class="badge" :class="[resume.interview ? 'badge-success' : 'badge-danger','d-print-none']">
                   {{ resume.interview ? 'YES' : 'NO' }}
                 </span>
-                <small>INTERVIEW AVAILABILITY</small>
+                <small class="d-print-none">INTERVIEW AVAILABILITY</small>
+                <strong class="d-none print-only" v-text="showExpect" />
+                <small class="d-none print-only">EXPECT SALARY</small>
               </div>
             </div>
           </div>
@@ -77,6 +80,8 @@
 </template>
 <script>
 import dayjs from 'dayjs'
+import marked from 'marked'
+import numeral from 'numeral'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
 dayjs.extend(relativeTime)
@@ -95,7 +100,10 @@ export default {
           language: '',
           salary: {
             base: 1,
+            expect: 1,
             rate: 1,
+            day: 30,
+            hour: 8,
             currency: 'THB'
           },
           interview: '',
@@ -115,18 +123,26 @@ export default {
     showSalary () {
       const perHour = Math.round(this.resume.salary.base / 20 / 8 / this.resume.salary.rate * 100) / 100
       return `${this.resume.salary.currency}${perHour} per hour`
+    },
+    showSalaryFull () {
+      return `${numeral(this.resume.salary.base).format('0,0')} THB`
+    },
+    showExpect () {
+      return `${numeral(this.resume.salary.expect).format('0,0')} THB`
     }
   },
   methods: {
     onPrint () {
       print()
+    },
+    marked (text) {
+      return marked(text)
     }
   }
 }
 </script>
 
 <style scoped>
-
 /*-----------------------------
 * NAVIGATION & HEADER STYLE
 *-----------------------------*/
@@ -229,4 +245,11 @@ export default {
 .social-icon li a:hover {
   border-color : #cccccc;
 }
+
+@media print {
+  .header .personal-details small {
+    font-weight: bold;
+  }
+}
+
 </style>

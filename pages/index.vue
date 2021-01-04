@@ -3,17 +3,19 @@
     <client-only>
       <section-header :editor="allowEditor" :resume="{ error, fullname, birthday, national, language, job, detail, social, salary, interview, location }" />
       <div v-if="!error">
+        <section-contact class="d-none print-only" :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
         <section-coding :editor="allowEditor" :coding="coding" />
         <section-coding-history :editor="allowEditor" :coding="coding" />
         <section-expertise :editor="allowEditor" :expertise="expertise" />
         <section-skill :editor="allowEditor" :skill="skill" />
+        <section-education class="d-none print-only" :editor="allowEditor" :education="education" />
         <p class="pagebreak" />
         <section-work :editor="allowEditor" :work="work" />
         <p class="pagebreak" />
-        <section-education :editor="allowEditor" :education="education" />
-        <section-certificate :editor="allowEditor" :certificate="certificate" />
-        <section-portfolio :editor="allowEditor" :portfolio="portfolio" />
-        <section-contact v-if="grecaptcha" :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
+        <section-education class="d-print-none" :editor="allowEditor" :education="education" />
+        <section-certificate class="d-print-none" :editor="allowEditor" :certificate="certificate" />
+        <section-portfolio class="d-print-none" :editor="allowEditor" :portfolio="portfolio" />
+        <section-contact class="d-print-none" :editor="allowEditor" :contact="contact" :grecaptcha="grecaptcha" />
       </div>
       <page-footer :editor="allowEditor" />
     </client-only>
@@ -84,7 +86,7 @@ export default {
       if (!raw) { await this.updateData(data) }
       window.localStorage.setItem('resume', JSON.stringify(data))
     } catch {
-      const { data } = await this.$axios.get('https://mr.touno.io/data.json')
+      const { data } = await this.$axios.get(`${document.location.origin}/data.json`)
       await this.updateData(data)
     }
   },

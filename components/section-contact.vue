@@ -9,15 +9,27 @@
         </div>
         <div class="col-md-9">
           <div class="row">
-            <div v-for="e in contact" :key="contact.indexOf(e)" :class="[ 'col-md-' + (12 / contact.length), 'col-sm-' + (12 / contact.length * 2)]">
+            <div v-for="(e, i) in contactPrint" :key="'print-'+i" :class="['d-none', 'print-only','col-md-' + (12 / (contactPrint.length + 1)), 'col-sm-' + (12 / (contactPrint.length + 1) * 2) ]">
+              <address>
+                <img :src="e.qrcode" height="160">
+              </address>
+            </div>
+            <div :class="['d-none', 'print-only','col-md-' + (12 / (contactPrint.length + 1)), 'col-sm-' + (12 / (contactPrint.length + 1) * 2) ]">
+              <address v-for="(e, i) in contactTel" :key="'tel-'+i">
+                <strong v-text="e.label" /><br>
+                <fa :icon="e.icon" class="mr-1" />
+                <a :href="e.url" :target="e.label !== 'EMAIL' && e.label !== 'MOBILE' ? '_blank' : ''" v-text="e.text" />
+              </address>
+            </div>
+            <div v-for="(e, i) in contactView" :key="'view-'+i" :class="['d-print-none','col-md-' + (12 / (contactView.length)), 'col-sm-' + (12 / (contactView.length) * 2) ]">
               <address>
                 <strong v-text="e.label" /><br>
-                <fa :icon="e.icon" />
-                <a :href="e.url" :target="e.label !== 'EMAIL' ? '_blank' : ''" v-text="e.text" />
+                <fa :icon="e.icon" class="mr-1" />
+                <a :href="e.url" :target="e.label !== 'EMAIL' && e.label !== 'MOBILE' ? '_blank' : ''" v-text="e.text" />
               </address>
             </div>
           </div>
-          <div class="feedback-form d-print-none">
+          <div class="feedback-form d-print-none d-none">
             <div v-if="!sended">
               <h3>GET IN TOUCH</h3>
               <form v-tabindex @submit.prevent="onSendMessage">
@@ -66,7 +78,7 @@
           </div>
         </div>
       </div>
-      <div v-if="sended" class="row d-print-none">
+      <div v-if="sended" class="row d-print-none d-none">
         <div class="col-md-12 text-center">
           <h2 v-if="!error">
             Thank you for your interest in us.
@@ -97,8 +109,19 @@ export default {
       text: ''
     }
   }),
-  head: {
-    script: [{ src: 'https://www.google.com/recaptcha/api.js?render=6LeefYsUAAAAAGhMamT5dd5gNOXvrtUl4ZG_IayA' }]
+  // head: {
+  //   script: [{ src: 'https://www.google.com/recaptcha/api.js?render=6LeefYsUAAAAAGhMamT5dd5gNOXvrtUl4ZG_IayA' }]
+  // },
+  computed: {
+    contactPrint () {
+      return this.contact.filter(e => e.print && e.label !== 'MOBILE' && e.label !== 'EMAIL')
+    },
+    contactTel () {
+      return this.contact.filter(e => e.print && (e.label === 'MOBILE' || e.label === 'EMAIL'))
+    },
+    contactView () {
+      return this.contact.filter(e => !e.print)
+    }
   },
   created () {
     if (process.client) {
@@ -135,5 +158,12 @@ export default {
 <style>
 .grecaptcha-badge {
   display: none;
+}
+@media print {
+  address a {
+    color: #444;
+    font-weight: bold;
+    text-decoration: none !important;
+  }
 }
 </style>
