@@ -66,10 +66,10 @@
           </div>
           <ul class="social-icon d-print-none">
             <li v-show="resume.social.length" id="img-print" class="mr-3">
-              <a href="#" rel="noopener" @click.prevent="onPrint"><fa icon="print" /></a>
+              <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><fa icon="print" /></a>
             </li>
             <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
-              <a :href="e.link" target="_blank" rel="noopener"><fa :icon="e.icon" /></a>
+              <a :href="e.link" target="_blank" rel="noopener noreferrer"><fa :icon="e.icon" /></a>
               <!-- <b-tooltip :target="`img-${e.name}`">{{e.alt}}</b-tooltip> -->
             </li>
           </ul>

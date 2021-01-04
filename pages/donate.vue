@@ -145,9 +145,9 @@
         </div>
         <div class="col-sm-12 col-lg-6 mb-3 d-none">
           <div class="card card-aside">
-            <a href="https://www.paypal.me/touno" target="_blank" class="card-aside-column paypal-logo d-none d-md-inline" />
+            <a href="https://www.paypal.me/touno" target="_blank" rel="noopener noreferrer" class="card-aside-column paypal-logo d-none d-md-inline" />
             <div class="card-body d-flex flex-column">
-              <h5><a href="https://www.paypal.me/touno" target="_blank">Paypal.me <small class="d-none d-md-inline">(เพย์แพล)</small></a></h5>
+              <h5><a href="https://www.paypal.me/touno" target="_blank" rel="noopener noreferrer">Paypal.me <small class="d-none d-md-inline">(เพย์แพล)</small></a></h5>
               <div class="text-muted">
                 https://www.paypal.me/touno
               </div>
@@ -163,9 +163,9 @@
         </div>
         <div class="col-sm-36 col-lg-18 d-none">
           <div class="card card-aside">
-            <a href="https://www.buymeacoffee.com/tounoio" target="_blank" class="card-aside-column coffee-logo d-none d-md-inline" />
+            <a href="https://www.buymeacoffee.com/tounoio" target="_blank" rel="noopener noreferrer" class="card-aside-column coffee-logo d-none d-md-inline" />
             <div class="card-body d-flex flex-column">
-              <h5><a href="https://www.buymeacoffee.com/tounoio" target="_blank">Buy me a Coffee <small class="d-none d-md-inline">(ซื้อกาแฟให้ผมสิ)</small></a></h5>
+              <h5><a href="https://www.buymeacoffee.com/tounoio" target="_blank" rel="noopener noreferrer">Buy me a Coffee <small class="d-none d-md-inline">(ซื้อกาแฟให้ผมสิ)</small></a></h5>
               <div class="text-muted">
                 https://www.buymeacoffee.com/tounoio
               </div>
