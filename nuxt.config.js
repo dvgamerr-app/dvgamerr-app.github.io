@@ -1,4 +1,4 @@
-const title = 'Mr.Kananek T.'
+const title = 'Mr. Kananek T.'
 const desc = 'Hey there, My name is Kananek Thongkam and i\'m a Full Stack Engineer specialist.'
 const website = 'https://mr.touno.io'
 const date = new Date().toISOString()
@@ -11,20 +11,18 @@ export default {
     titleTemplate: t => `${t || ''}`,
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'icon.png' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700&display=swap' }
     ],
     meta: [
       { charset: 'utf-8' },
       { name: 'application-name', content: title },
       { name: 'description', content: desc, id: 'desc' },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
-      { name: 'robots', content: 'noindex,noarchive,nofollow' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
       { name: 'MobileOptimized', content: 'width' },
       { name: 'HandheldFriendly', content: 'true' },
-      { name: 'google-site-verification', content: '8a9UqVi_ZQz5803x05WQzQZKK5E7XtKedN646oAHpas' },
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:type', content: 'article' },
       { property: 'og:title', content: title },
