@@ -106,6 +106,8 @@ export default {
   //   }
   // },
   modules: [
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }],
     ['@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' }],
     ['@nuxtjs/pwa', { icon: true }],
@@ -118,6 +120,11 @@ export default {
       ]
     }]
   ],
+  sitemap: {
+    hostname: 'https://mr.touno.io',
+    gzip: true,
+    exclude: []
+  },
   server: { port: 3000, host: '0.0.0.0' },
   axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://grpc.touno.io/api/' },
   // publicRuntimeConfig: {
