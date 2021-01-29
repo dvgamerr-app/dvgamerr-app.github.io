@@ -132,9 +132,13 @@ export default {
   //     browserBaseURL: process.env.BROWSER_BASE_URL
   //   }
   // },
+  googleAnalytics: { id: 'UA-70130307-4' },
   env: {
     dev: process.env.NODE_ENV === 'development'
   },
+  buildModules: [
+    '@nuxtjs/google-analytics'
+  ],
   build: {
     quiet: false,
     parallel: !production,
