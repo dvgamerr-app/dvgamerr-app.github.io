@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="profile-img">
-            <img src="~assets/icon.jpg" loading="lazy" class="img-fluid" alt="">
+            <img v-lazy-load data-src="~assets/logo.jpg" class="img-fluid" alt="">
           </div>
           <!-- Profile Image -->
         </div>

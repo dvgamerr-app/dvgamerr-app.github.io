@@ -108,6 +108,7 @@ export default {
   modules: [
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
+    'nuxt-lazy-load',
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }],
     ['@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' }],
     ['@nuxtjs/pwa', { icon: true }],
@@ -132,12 +133,14 @@ export default {
   //     browserBaseURL: process.env.BROWSER_BASE_URL
   //   }
   // },
+  optimizedImages: { optimizeImages: true },
   googleAnalytics: { id: 'UA-70130307-4' },
   env: {
     dev: process.env.NODE_ENV === 'development'
   },
   buildModules: [
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@aceforth/nuxt-optimized-images'
   ],
   build: {
     quiet: false,
