@@ -131,6 +131,12 @@ export default {
   //     browserBaseURL: process.env.BROWSER_BASE_URL
   //   }
   // },
+
+  robots: {
+    UserAgent: '*',
+    Allow: '/',
+    Sitemap: 'https://mr.touno.io/sitemap.xml'
+  },
   optimizedImages: { optimizeImages: true },
   googleAnalytics: { id: 'UA-70130307-4' },
   env: {
