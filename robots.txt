@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: 
+Allow: /
+Sitemap: https://mr.touno.io/sitemap.xml
