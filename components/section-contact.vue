@@ -17,14 +17,14 @@
             <div :class="['d-none', 'print-only','col-md-' + (12 / (contactPrint.length + 1)), 'col-sm-' + (12 / (contactPrint.length + 1) * 2) ]">
               <address v-for="(e, i) in contactTel" :key="'tel-'+i">
                 <strong v-text="e.label" /><br>
-                <fa :icon="e.icon" class="mr-1" />
+                <font-awesome-icon :icon="e.icon" class="mr-1" />
                 <a :href="e.url" :target="e.label !== 'EMAIL' && e.label !== 'MOBILE' ? '_blank' : ''" v-text="e.text" />
               </address>
             </div>
             <div v-for="(e, i) in contactView" :key="'view-'+i" :class="['d-print-none','col-md-' + (12 / (contactView.length)), 'col-sm-' + (12 / (contactView.length) * 2) ]">
               <address>
                 <strong v-text="e.label" /><br>
-                <fa :icon="e.icon" class="mr-1" />
+                <font-awesome-icon :icon="e.icon" class="mr-1" />
                 <a :href="e.url" :target="e.label !== 'EMAIL' && e.label !== 'MOBILE' ? '_blank' : ''" v-text="e.text" />
               </address>
             </div>
