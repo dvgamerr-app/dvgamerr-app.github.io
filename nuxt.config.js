@@ -16,6 +16,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'application-name', content: title },
+      { name: 'keywords', content: 'kananek,t.,kananek-thongkam,thongkam,tk,resume,kem,kanane,kt' },
       { name: 'description', content: desc, id: 'desc' },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
@@ -86,6 +87,7 @@ export default {
       // Workbox options
     }
   },
+  loading: false,
   css: [
     '~assets/scss/index.scss'
   ],
@@ -109,15 +111,7 @@ export default {
     'nuxt-lazy-load',
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }],
     ['@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' }],
-    ['@nuxtjs/pwa', { icon: true }],
-    ['nuxt-fontawesome', {
-      component: 'fa',
-      imports: [
-        { set: '@fortawesome/free-solid-svg-icons', icons: ['fas'] },
-        { set: '@fortawesome/free-brands-svg-icons', icons: ['fab'] },
-        { set: '@fortawesome/free-regular-svg-icons', icons: ['far', 'faCopyright'] }
-      ]
-    }]
+    ['@nuxtjs/pwa', { icon: true }]
   ],
   sitemap: {
     hostname: 'https://mr.touno.io',
@@ -142,7 +136,15 @@ export default {
   env: {
     dev: process.env.NODE_ENV === 'development'
   },
+  fontawesome: {
+    icons: {
+      solid: true,
+      regular: ['faCopyright'],
+      brands: true
+    }
+  },
   buildModules: [
+    '@nuxtjs/fontawesome',
     '@nuxtjs/google-analytics',
     '@aceforth/nuxt-optimized-images'
   ],
