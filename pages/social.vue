@@ -26,9 +26,6 @@ export default {
 }
 </script>
 <style lang="scss">
-#__nuxt, #__layout, .container {
-  height: 100vh;
-}
 .panel {
   block-size: 100%;
   box-sizing: border-box;
