@@ -1,22 +1,62 @@
-# Profile Resume & CV Project
+### Hi, I'm KEM <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
+![](https://komarev.com/ghpvc/?username=dvgamerr&color=green&label=VIEWS&style=flat-square)
 
-> Nuxt.js project
+This is the place where I opensource stuff and break things :rofl:
 
-## Build Setup
+- 🔭 I’m currently working on something cool :wink:
+- 💬 Ask me about anything related to K8s,Docker,NuxtJs,Nodejs,Golang
+- 📫 How to reach me: [@dvgamerr](https://twitter.com/dvgamerr)
 
-``` bash
-# install dependencies
-$ npm i # Or yarn i
+[![](https://github-readme-stats.vercel.app/api?username=dvgamerr&count_private=true&title_color=FD9047&icon_color=FD9047&text_color=0C2233&custom_title=Kananek+T.+Stats&show_icons=true)](https://mr.touno.io)
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+-------------------------
+#### Wakatime Dashboard
 
-# build for production and launch server
-$ npm run build
-$ npm start
-```
+[![](https://github-readme-stats.vercel.app/api/wakatime?username=dvgamerr)](https://mr.touno.io)
 
-## Thanks
-- [Nuxt.js](https://github.com/nuxt/nuxt.js). For detailed explanation on how things work.
-- [Bootstrap](https://getbootstrap.com/). For web front-end component library.
-- [themehippo.com](https://themehippo.com). For the original template for the design.
+-------------------------
+
+# Touno™ Project
+โครงการที่เริ่มมาตั้งปี 2016 เพื่อเป็นเว็บและเครื่องมือที่คอยช่วยเหลือ ในทำงานต่างๆ
+
+## Web API
+- **mr.touno.io** deploy ไว้ที่ GithubPages ด้วย nuxt
+- **notice.touno.io** deploy ไว้ที่ NAS-Synology ด้วย express+nuxt
+
+### Task
+- **ris-timesheet** ทำ timesheet ภายในบริษัท RIS เช็คทุกๆ วันหลัง 6 โมงเย็น `(รันไว้ที่ Github Actions)` 
+
+![Dashboard](https://raw.githubusercontent.com/dvgamerr/dvgamerr/master/docs/ris-timesheet.png)
+
+- **task-wakatime** ดึงข้อมูลจาก wakatime เข้า mongodb เที่ยงคืนของทุกวัน `(รันไว้ที่ NAS-Synology)`
+
+![Dashboard](https://raw.githubusercontent.com/dvgamerr/dvgamerr/master/docs/task-wakatime.png)
+
+- **task-cinema** ดึงข้อมูล sf และ major เข้า mongodb ทุกๆ เช้า และแจ้งเตือนเข้าไลน์ทุกวันจันทร์ `(รันไว้ที่ NAS-Synology)`
+
+![Dashboard](https://raw.githubusercontent.com/dvgamerr/dvgamerr/master/docs/task-cinema.png)
+
+- **task-notify** ดึงข้อมูล จากที่น่าสนใจต่างๆ มาแจ้งเตือนโดยตรง
+
+![timesheet](https://raw.githubusercontent.com/dvgamerr/dvgamerr/master/docs/ris-timesheet-2.png)
+![github](https://raw.githubusercontent.com/dvgamerr/dvgamerr/master/docs/task-github.png)
+
+## Tech/Framework used
+- [Go Programming Language](https://golang.org/)
+- [Nuxt.js - The Intuitive Vue Framework](https://nuxtjs.org/)
+
+## API Reference
+- [wakatime.com](https://wakatime.com/developers)
+- [github.com](https://developer.github.com/v3/)
+
+### Open source projects
+- [exhentai-downloader](https://touno.io/project/exhentai-downloader)
+- [psp-library](https://touno.io/project/exhentai-downloader)
+
+### Contacts
+[![](https://img.shields.io/badge/-twitter-1C9CEA?style=flat-square)](https://twitter.com/dvgamerr)
+[![](https://img.shields.io/badge/-facebook-3B5998?style=flat-square)](http://fb.com/dvgamerr)
+[![](https://img.shields.io/badge/-linkedin-0073B1?style=flat-square)](http://linkedin.com/in/kananek-thongkam)
+
+### License
+MIT © 2021 Touno™

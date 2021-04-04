@@ -1,5 +1,5 @@
 {
-  "name": "profile-resume",
+  "name": "dvgamerr",
   "version": "3.6.1",
   "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
   "main": "server/index.js",
@@ -51,7 +51,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dvgamerr/web.profile-resume.git"
+    "url": "git+https://github.com/dvgamerr/dvgamerr.git"
   },
   "keywords": [
     "resume",
@@ -63,7 +63,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dvgamerr/web.profile-resume/issues"
+    "url": "https://github.com/dvgamerr/dvgamerr/issues"
   },
-  "homepage": "https://github.com/dvgamerr/web.profile-resume#readme"
+  "homepage": "https://github.com/dvgamerr/dvgamerr#readme"
 }
