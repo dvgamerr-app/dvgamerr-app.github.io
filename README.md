@@ -3,8 +3,8 @@
 
 This is the place where I opensource stuff and break things :rofl:
 
-- 🔭 I’m currently working on something cool :wink:
-- 💬 Ask me about anything related to K8s,Docker,NuxtJs,Nodejs,Golang
+- 🔭 I’m currently working on big something cool :wink:
+- 💬 Ask me about anything related to k8s,docker,nuxtjs,reactjs,deno,nodejs,golang,rustlang
 - 📫 How to reach me: [@dvgamerr](https://twitter.com/dvgamerr)
 
 [![](https://github-readme-stats.vercel.app/api?username=dvgamerr&count_private=true&title_color=FD9047&icon_color=FD9047&text_color=0C2233&custom_title=Kananek+T.+Stats&show_icons=true)](https://mr.touno.io)
@@ -17,10 +17,11 @@ This is the place where I opensource stuff and break things :rofl:
 -------------------------
 
 # Touno™ Project
-โครงการที่เริ่มมาตั้งปี 2016 เพื่อเป็นเว็บและเครื่องมือที่คอยช่วยเหลือ ในทำงานต่างๆ
+โครงการที่เริ่มต้นขีันปี 2016 เพื่อเป็นเว็บและเครื่องมือที่คอยช่วยเหลือ ในทำงานต่างๆ
 
 ## Web API
 - **mr.touno.io** deploy ไว้ที่ GithubPages ด้วย nuxt
+- **blog.touno.io** deploy ไว้ที่ GithubPages ด้วย nuxt
 - **notice.touno.io** deploy ไว้ที่ NAS-Synology ด้วย express+nuxt
 
 ### Task
