@@ -1,4 +1,4 @@
-![https://profile.codersrank.io/user/dvgamerr/](https://cr-ss-service.azurewebsites.net/api/ScreenShot?widget=summary&username=dvgamerr&badges=2&show-avatar=false&branding=false&style=--header-bg-color:%23edf1f3;--border-radius:0px;--header-text-color:%23222)
+![https://profile.codersrank.io/user/dvgamerr/](https://cr-ss-service.azurewebsites.net/api/ScreenShot?widget=summary&username=dvgamerr&badges=2&show-avatar=false&branding=false&style=--header-bg-color:%23FFFF;--bg-color:%23FFFF;--border-radius:0px;--header-text-color:%23222)
 
 ### Hi, I'm KEM <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
 ![](https://komarev.com/ghpvc/?username=dvgamerr&color=green&label=VIEWS&style=flat-square)
