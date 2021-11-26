@@ -2,7 +2,7 @@ const title = 'Mr. Kananek T.'
 const desc = 'Hey there, My name is Kananek Thongkam and i\'m a Full Stack Engineer specialist.'
 const website = 'https://mr.touno.io'
 const date = new Date().toISOString()
-const production = !(process.env.NODE_ENV === 'development')
+const production = process.env.NODE_ENV !== 'development'
 
 export default {
   target: 'static',
@@ -109,6 +109,7 @@ export default {
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     'nuxt-lazy-load',
+    '@nuxtjs/markdownit',
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }],
     ['@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' }],
     ['@nuxtjs/pwa', { icon: true }]
@@ -125,7 +126,16 @@ export default {
   //     browserBaseURL: process.env.BROWSER_BASE_URL
   //   }
   // },
-
+  markdownit: {
+    runtime: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true
+    // use: [
+    //   'markdown-it-div',
+    //   'markdown-it-attrs'
+    // ]
+  },
   robots: {
     UserAgent: '*',
     Allow: '/',
@@ -145,8 +155,7 @@ export default {
   },
   buildModules: [
     '@nuxtjs/fontawesome',
-    '@nuxtjs/google-analytics',
-    '@aceforth/nuxt-optimized-images'
+    '@nuxtjs/google-analytics'
   ],
   build: {
     quiet: false,

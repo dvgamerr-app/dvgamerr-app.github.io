@@ -13,7 +13,7 @@
               />
             </div>
             <div v-if="!btnEdit.mode" class="donate-image" />
-            <div v-if="!btnEdit.mode" class="card-body" v-html="markdown(donate.content)" />
+            <div v-if="!btnEdit.mode" class="card-body" v-html="$md.render(donate.content)" />
             <div v-else class="card-body">
               <div class="form-group" style="margin-top: -20px;">
                 <label class="form-label">Donate description</label>
@@ -186,7 +186,6 @@
 
 <script>
 import md5 from 'md5'
-import marked from 'marked'
 import numeral from 'numeral'
 
 export default {
@@ -239,22 +238,7 @@ export default {
       ]
     }
   },
-  created () {
-    marked.setOptions({
-      renderer: new marked.Renderer(),
-      pedantic: false,
-      gfm: true,
-      breaks: false,
-      sanitize: false,
-      smartLists: true,
-      smartypants: false,
-      xhtml: false
-    })
-  },
   methods: {
-    markdown (content) {
-      return marked(content)
-    },
     toNumber (value) {
       return numeral(value).format('0,0')
     },

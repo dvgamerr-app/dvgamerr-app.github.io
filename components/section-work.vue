@@ -15,7 +15,7 @@
                 <small v-text="toDateRange(e.range)" />
                 <h3 v-text="e.job" />
                 <h4 v-text="e.work" />
-                <div class="markdown pt-1" v-html="markedown(e.description)" />
+                <div class="markdown pt-1" v-html="$md.render(e.description)" />
               </div>
             </div>
           </div>
@@ -25,7 +25,6 @@
   </section>
 </template>
 <script>
-import marked from 'marked'
 import dayjs from 'dayjs'
 
 export default {
@@ -34,9 +33,6 @@ export default {
     work: { type: Array, default: () => ([]) }
   },
   methods: {
-    markedown (text) {
-      return marked(text)
-    },
     toDateRange (range) {
       const begin = dayjs(range.begin)
       const end = range.end ? dayjs(range.end) : dayjs()

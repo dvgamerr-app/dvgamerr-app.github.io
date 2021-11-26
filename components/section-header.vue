@@ -16,7 +16,7 @@
             <span>
               {{ resume.job }}
             </span>
-            <div class="d-print-none clear-p" v-html="marked('![](https://komarev.com/ghpvc/?username=dvgamerr&color=orange&label=Page%20View&style=flat-square)')" />
+            <div class="d-print-none clear-p" v-html="$md.render('![](https://komarev.com/ghpvc/?username=dvgamerr&color=orange&label=Page%20View&style=flat-square)')" />
           </div>
           <p v-html="resume.detail" />
           <div v-if="!resume.error" class="row">
@@ -70,7 +70,6 @@
             </li>
             <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
               <a :href="e.link" target="_blank" rel="noopener noreferrer"><font-awesome-icon :icon="e.icon" /></a>
-              <!-- <b-tooltip :target="`img-${e.name}`">{{e.alt}}</b-tooltip> -->
             </li>
           </ul>
         </div>
@@ -80,7 +79,6 @@
 </template>
 <script>
 import dayjs from 'dayjs'
-import marked from 'marked'
 import numeral from 'numeral'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
@@ -134,9 +132,6 @@ export default {
   methods: {
     onPrint () {
       print()
-    },
-    marked (text) {
-      return marked(text)
     }
   }
 }

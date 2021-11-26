@@ -26,7 +26,7 @@
                     <small v-text="toDateRange(e.range)" />
                     <h3 v-text="e.job" />
                     <h4 v-text="e.work" />
-                    <div class="markdown pt-1" v-html="markedown(e.description)" />
+                    <div class="markdown pt-1" v-html="$md.render(e.description)" />
                   </div>
                 </div>
               </div>
@@ -45,7 +45,6 @@
   </div>
 </template>
 <script>
-import marked from 'marked'
 import dayjs from 'dayjs'
 
 import sectionHeader from '~/components/section-header.vue'
@@ -53,7 +52,6 @@ import sectionCoding from '~/components/section-coding.vue'
 import sectionCodingHistory from '~/components/section-coding-history.vue'
 import sectionExpertise from '~/components/section-expertise.vue'
 import sectionSkill from '~/components/section-skill.vue'
-// import sectionWork from '~/components/section-work.vue'
 import sectionEducation from '~/components/section-education.vue'
 import sectionPortfolio from '~/components/section-portfolio.vue'
 import sectionCertificate from '~/components/section-certificate.vue'
@@ -67,7 +65,6 @@ export default {
     sectionCodingHistory,
     sectionExpertise,
     sectionSkill,
-    // sectionWork,
     sectionEducation,
     sectionPortfolio,
     sectionCertificate,
@@ -102,26 +99,10 @@ export default {
     }
   },
   async mounted () {
-    const raw = window.localStorage.getItem('resume')
-    if (raw) {
-      await this.updateData(JSON.parse(raw))
-    }
-
-    try {
-      const { data } = await this.$axios.get('/resume')
-      if (!raw) { await this.updateData(data) }
-      window.localStorage.setItem('resume', JSON.stringify(data))
-    } catch {
-      const { data } = await this.$axios.get(`${document.location.origin}/data.json`)
-      await this.updateData(data)
-    }
-  },
-  async created () {
+    const { data } = await this.$axios.get(`${document.location.origin}/data.json`)
+    return this.updateData(data)
   },
   methods: {
-    markedown (text) {
-      return marked(text)
-    },
     toDateRange (range) {
       const begin = dayjs(range.begin)
       const end = range.end ? dayjs(range.end) : dayjs()

@@ -12,7 +12,7 @@
             <div v-for="e in expertise" :key="expertise.indexOf(e)" class="col-md-6">
               <div class="expertise-item">
                 <h3 v-text="e.subject" />
-                <p v-html="marked(e.detail)" />
+                <p v-html="$md.render(e.detail)" />
               </div>
             </div>
           </div>
@@ -22,17 +22,11 @@
   </section>
 </template>
 <script>
-import marked from 'marked'
 
 export default {
   props: {
     editor: { type: Boolean },
     expertise: { type: Array, default: () => ([]) }
-  },
-  methods: {
-    marked (text) {
-      return marked(text)
-    }
   }
 }
 </script>
