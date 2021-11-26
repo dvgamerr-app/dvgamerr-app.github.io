@@ -1,13 +1,9 @@
-/*!
-  * vue-router v3.5.1
-  * (c) 2021 Evan You
-  * @license MIT
-  */
-
-/*!
- * Vue.js v2.6.12
- * (c) 2014-2020 Evan You
- * Released under the MIT License.
+/*! @preserve
+ * numeral.js
+ * version : 2.0.6
+ * author : Adam Draper
+ * license : MIT
+ * http://adamwdraper.github.com/Numeral-js/
  */
 
 
@@ -19,23 +15,27 @@
  */
 
 
-/*! @preserve
- * numeral.js
- * version : 2.0.6
- * author : Adam Draper
- * license : MIT
- * http://adamwdraper.github.com/Numeral-js/
+/*!
+  * vue-router v3.5.3
+  * (c) 2021 Evan You
+  * @license MIT
+  */
+
+/*!
+ * Vue.js v2.6.14
+ * (c) 2014-2021 Evan You
+ * Released under the MIT License.
  */
 
 
 /*!
- * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 
 /*!
- * vue-client-only v2.0.0
- * (c) 2019-present egoist <0x142857@gmail.com>
+ * vue-client-only v0.0.0-semantic-release
+ * (c) 2021-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
  */
 
@@ -44,6 +44,8 @@
  * (c) 2018-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
  */
+
+/*! https://mths.be/punycode v1.4.1 by @mathias */
 
 /**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
