@@ -12,6 +12,9 @@
     "start": "node server/index.js"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/google-analytics": "^2.4.0",
@@ -33,9 +36,6 @@
     "vue-tippy": "^4.10.0"
   },
   "devDependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.15.3",
-    "@fortawesome/free-regular-svg-icons": "^5.15.3",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@nuxtjs/eslint-config": "^7.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "env-cmd": "^10.1.0",
