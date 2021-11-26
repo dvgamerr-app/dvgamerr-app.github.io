@@ -40,15 +40,5 @@ export default {
   text-transform : uppercase;
   margin-bottom  : 5px;
 }
-.expertise-item code {
-  font-size: 90%;
-  color: #ff5722;
-}
-@media print {
-  .expertise-item code {
-    color: #444;
-    font-weight: bold;
-  }
-}
 
 </style>

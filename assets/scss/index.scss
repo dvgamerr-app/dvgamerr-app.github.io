@@ -1,2 +1,18 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import 'markdown.scss';
+
+
+code {
+  font-size: 90%;
+  color: #ff5722;
+  font-family: var(--font-family-sans-serif);
+  background-color: #f2f2f2;
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+@media print {
+  code {
+    color: #444;
+    font-weight: bold;
+  }
+}
