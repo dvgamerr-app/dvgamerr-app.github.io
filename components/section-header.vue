@@ -16,7 +16,7 @@
             <span>
               {{ resume.job }}
             </span>
-            <div class="d-print-none clear-p" v-html="$md.render('![](https://komarev.com/ghpvc/?username=dvgamerr&color=orange&label=Page%20View&style=flat-square)')" />
+            <div class="d-print-none clear-p" v-html="$md.render('![counter](https://komarev.com/ghpvc/?username=dvgamerr&color=orange&label=Page%20View&style=flat-square) [![wakatime](https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg)](https://wakatime.com/@06633b1c-3ba7-44c2-ab5d-08e47ccc87ab)')" />
           </div>
           <p v-html="resume.detail" />
           <div v-if="!resume.error" class="row">
