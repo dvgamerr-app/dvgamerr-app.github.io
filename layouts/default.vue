@@ -18,6 +18,7 @@ Author: themehippo.com
   color       : #989898;
   font-weight : 300;
   background  : #f8f8f8;
+  min-height      : 100vh;
 
   @-webkit-keyframes rotating /* Safari and Chrome */ {
     from {
@@ -57,7 +58,7 @@ Author: themehippo.com
     width: 400px;
     height: 400px;
     border: 2px solid rgba(0, 0, 0, 0.05);
-    z-index: -1;
+    z-index: 1;
     -webkit-transform: rotate(20deg);
     -moz-transform: rotate(20deg);
     -ms-transform: rotate(20deg);
@@ -78,7 +79,7 @@ Author: themehippo.com
     width: 400px;
     height: 600px;
     border: 2px solid rgba(0, 0, 0, 0.05);
-    z-index: -1;
+    z-index: 1;
     -webkit-transform: rotate(-30deg);
     -moz-transform: rotate(-30deg);
     -ms-transform: rotate(-30deg);
@@ -166,7 +167,7 @@ Author: themehippo.com
 
   strong {
     color : #444444;
-    }
+  }
 
   ul {
     margin     : 0;
@@ -180,26 +181,6 @@ Author: themehippo.com
     position   : relative;
     border-top : 5px solid #ff5722;
   }
-
-  /*------------------
-  * Button Style
-  *------------------*/
-  .btn {
-    padding        : 14px 30px 11px;
-    margin-bottom  : 0;
-    font-size      : 14px;
-    font-weight    : 500;
-    border-radius  : 0;
-    border         : 0;
-    text-transform : uppercase;
-    transition     : all .3s;
-    }
-
-  .btn-lg {
-    font-weight : 700;
-    font-size   : 24px;
-    padding     : 15px 30px;
-    }
 
   /*btn-primary*/
   .btn-primary {
@@ -225,12 +206,6 @@ Author: themehippo.com
     background   : #2a54f5;
     color        : #ffffff;
     border-color : #2a54f5;
-    }
-
-  button:focus,
-  .btn:focus,
-  .btn:active:focus {
-    outline : none;
     }
 
   /* --------------------

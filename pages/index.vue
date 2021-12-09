@@ -58,6 +58,7 @@ import sectionCertificate from '~/components/section-certificate.vue'
 import sectionContact from '~/components/section-contact.vue'
 import pageFooter from '~/components/page-footer.vue'
 
+const data = require('../static/data.json')
 export default {
   components: {
     sectionHeader,
@@ -71,36 +72,11 @@ export default {
     sectionContact,
     pageFooter
   },
-  data: () => ({
-    error: true,
-    fullname: 'Kananek Thongkam',
-    job: 'Full Stack Engineer',
-    birthday: {},
-    national: {},
-    language: {},
-    detail: 'Loading...',
-    social: {},
-    salary: {},
-    interview: {},
-    location: {},
-    coding: {},
-    expertise: [],
-    skill: {},
-    work: [],
-    education: [],
-    certificate: [],
-    portfolio: [],
-    contact: [],
-    grecaptcha: ''
-  }),
+  data: () => (Object.assign({ error: false }, data)),
   computed: {
     allowEditor () {
       return this.$route.params && (this.$route.params.admin || '').indexOf('editor') === 0
     }
-  },
-  async mounted () {
-    const { data } = await this.$axios.get(`${document.location.origin}/data.json`)
-    return this.updateData(data)
   },
   methods: {
     toDateRange (range) {
@@ -110,28 +86,6 @@ export default {
       const month = parseInt((diff - parseInt(diff)) * 12)
       const year = parseInt(diff)
       return `${begin.format('MMMM YYYY')} - ${range.end ? end.format('MMMM YYYY') : 'Present'} (${year > 0 ? `${year} year` : ''}${month > 0 ? ` ${month} month` : ''})`
-    },
-    updateData (data = {}) {
-      this.error = false
-      this.fullname = data.fullname
-      this.job = data.job
-      this.birthday = data.birthday
-      this.national = data.national
-      this.language = data.language
-      this.detail = data.detail
-      this.social = data.social
-      this.salary = data.salary
-      this.interview = data.interview
-      this.location = data.location
-      this.coding = data.coding
-      this.expertise = data.expertise
-      this.skill = data.skill
-      this.work = data.work
-      this.education = data.education
-      this.certificate = data.certificate
-      this.portfolio = data.portfolio
-      this.contact = data.contact
-      this.grecaptcha = data.grecaptcha
     }
   }
 }
