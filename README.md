@@ -1,5 +1,6 @@
 ### Hi, I'm KEM <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
-![](https://komarev.com/ghpvc/?username=dvgamerr&color=green&label=VIEWS&style=flat-square)
+![counter](https://komarev.com/ghpvc/?username=dvgamerr&color=green&label=VIEWS&style=flat-square)
+[![wakatime](https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg)](https://wakatime.com/@06633b1c-3ba7-44c2-ab5d-08e47ccc87ab)
 
 This is the place where I opensource stuff and break things :rofl:
 
