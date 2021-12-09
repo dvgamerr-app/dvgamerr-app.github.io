@@ -19,7 +19,7 @@ This is the place where I opensource stuff and break things :rofl:
 
 # Touno™ Project
 โครงการที่เริ่มต้นขีันปี 2016 เพื่อเป็นเว็บและเครื่องมือที่คอยช่วยเหลือ ในทำงานต่างๆ
-- [Discord](https://www.facebook.com/touno.io)
+- [Discord](https://discord.gg/4GSnfVCqYb)
 - [GitHub](https://github.com/touno-io)
 
 ## Current Project
