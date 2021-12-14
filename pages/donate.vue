@@ -115,6 +115,7 @@
             </div>
           </div>
         </div>
+        
         <div class="col-sm-12 col-lg-6 mb-3">
           <div class="card card-aside">
             <div class="row no-gutters">
@@ -181,6 +182,14 @@
           </div>
         </div>
       </div>
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4905039106786059"
+        data-ad-slot="6805867372"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
     </div>
   </header>
 </template>
