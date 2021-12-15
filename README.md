@@ -6,25 +6,25 @@ This is the place where I opensource stuff and break things :rofl:
 
 - 🔭 I’m currently working on big something cool :wink:
 - 💬 Ask me about anything related to k8s,docker,nuxtjs,reactjs,deno,nodejs,golang,rustlang
-- 📫 How to reach me: [@dvgamerr](https://twitter.com/dvgamerr)
+- 📫 How to reach me: [@dvgamerr](https://touno.io/s/8ae4)
 
-[![](https://github-readme-stats.vercel.app/api?username=dvgamerr&count_private=true&title_color=FD9047&icon_color=FD9047&text_color=0C2233&custom_title=Kananek+T.+Stats&show_icons=true)](https://mr.touno.io)
+[![](https://github-readme-stats.vercel.app/api?username=dvgamerr&count_private=true&title_color=FD9047&icon_color=FD9047&text_color=0C2233&custom_title=Kananek+T.+Stats&show_icons=true)](https://touno.io/s/rfd6)
 
 -------------------------
 #### Wakatime Dashboard
 
-[![](https://github-readme-stats.vercel.app/api/wakatime?username=dvgamerr)](https://mr.touno.io)
+[![](https://github-readme-stats.vercel.app/api/wakatime?username=dvgamerr)](https://touno.io/s/rfd6)
 
 -------------------------
 
 # Touno™ Project
 โครงการที่เริ่มต้นขีันปี 2016 เพื่อเป็นเว็บและเครื่องมือที่คอยช่วยเหลือ ในทำงานต่างๆ
-- [Discord](https://discord.gg/4GSnfVCqYb)
-- [GitHub](https://github.com/touno-io)
+- [Discord](https://touno.io/s/ixj7)
+- [GitHub](https://touno.io/s/l7cq)
 
 ## Current Project
 - [gokub-bot](https://github.com/touno-io/gokub-bot) Bitkub Trading Bot.
-- [go-bitkub](https://github.com/touno-io/go-bitkub) Bitkub API and WebSocket golang.
+- [go-bitkub](https://github.com/touno-io/bitkub-go) Bitkub API and WebSocket golang.
 
 ## Web API
 - **mr.touno.io** deploy ไว้ที่ GithubPages ด้วย nuxt
@@ -58,14 +58,14 @@ This is the place where I opensource stuff and break things :rofl:
 - [github.com](https://developer.github.com/v3/)
 
 ### Open source projects
-- [line-notice](https://github.com/touno-io/line-notice)
-- [exhentai-downloader](https://github.com/touno-io/hentai-downloader)
-- [psp-library](https://github.com/touno-io/psp-library-win)
+- [line-notice](https://touno.io/s/684h)
+- [exhentai-downloader](https://touno.io/s/whvg)
+- [psp-library](https://touno.io/s/ddb0)
 
 ### Contacts
-[![](https://img.shields.io/badge/-twitter-1C9CEA?style=flat-square)](https://twitter.com/dvgamerr)
-[![](https://img.shields.io/badge/-facebook-3B5998?style=flat-square)](http://fb.com/dvgamerr)
-[![](https://img.shields.io/badge/-linkedin-0073B1?style=flat-square)](http://linkedin.com/in/kananek-thongkam)
+[![](https://img.shields.io/badge/-twitter-1C9CEA?style=flat-square)](https://touno.io/s/8ae4)
+[![](https://img.shields.io/badge/-facebook-3B5998?style=flat-square)](https://touno.io/s/zo2h)
+[![](https://img.shields.io/badge/-linkedin-0073B1?style=flat-square)](https://touno.io/s/ig6h)
 
 ### License
 MIT © 2021 Touno™
