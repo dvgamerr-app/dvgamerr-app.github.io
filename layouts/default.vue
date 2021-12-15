@@ -3,19 +3,6 @@
     <nuxt />
   </div>
 </template>
-<script>
-export default {
-  head: {
-    script: [
-      {
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4905039106786059',
-        async: true,
-        crossorigin: 'anonymous'
-      }
-    ]
-  }
-}
-</script>
 <style lang="scss">
 /*
 Template Name: My Profile

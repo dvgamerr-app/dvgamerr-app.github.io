@@ -117,6 +117,20 @@
         </div>
         <div class="col-sm-12 col-lg-6 mb-3">
           <div class="card card-aside">
+            <ins
+              class="adsbygoogle"
+              style="display:block"
+              data-ad-test="on"
+              data-ad-client="ca-pub-4905039106786059"
+              data-ad-slot="6828018294"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+          <div class="card card-aside">
             <div class="row no-gutters">
               <div class="col-md-5">
                 <img src="/images/donate/stripe-icon-17.jpg" class="card-img" loading="lazy" alt="KBank">
@@ -181,14 +195,6 @@
           </div>
         </div>
       </div>
-      <ins
-        class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-4905039106786059"
-        data-ad-slot="6805867372"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
     </div>
   </header>
 </template>

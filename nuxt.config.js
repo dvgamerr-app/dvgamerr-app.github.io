@@ -13,6 +13,19 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: 'icon.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700&display=swap' }
     ],
+    script: [
+      {
+        defer: true,
+        src: 'https://static.cloudflareinsights.com/beacon.min.js',
+        'data-cf-beacon': '{"token": "fb5b3ae4504f483f8a77f9d83d215c9c"}',
+        body: true
+      },
+      {
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4905039106786059',
+        async: true,
+        crossorigin: 'anonymous'
+      }
+    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'application-name', content: title },
@@ -121,11 +134,11 @@ export default {
   },
   server: { port: 3000, host: '0.0.0.0' },
   axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://grpc.touno.io/api/' },
-  // publicRuntimeConfig: {
-  //   axios: {
-  //     browserBaseURL: process.env.BROWSER_BASE_URL
-  //   }
-  // },
+  publicRuntimeConfig: {
+    // axios: {
+    //   browserBaseURL: process.env.BROWSER_BASE_URL
+    // }
+  },
   markdownit: {
     runtime: true,
     preset: 'default',
@@ -154,8 +167,7 @@ export default {
     }
   },
   buildModules: [
-    '@nuxtjs/fontawesome',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/fontawesome'
   ],
   build: {
     quiet: false,
