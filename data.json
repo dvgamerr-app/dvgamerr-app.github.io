@@ -6,9 +6,9 @@
   "location": "Bangkok, Sathorn",
   "interview": true,
   "salary": {
-    "base": 42810,
+    "base": 43005,
     "expect": 62000,
-    "rate": 32.84,
+    "rate": 32.70,
     "day": 30,
     "hour": 8,
     "currency": "$"
