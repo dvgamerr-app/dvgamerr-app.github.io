@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="profile-img">
-            <img v-lazy-load data-src="~assets/logo.jpg" class="img-fluid" alt="">
+            <img src="~assets/logo.jpg" loading="lazy" class="img-fluid" alt="">
           </div>
           <!-- Profile Image -->
         </div>
@@ -13,13 +13,13 @@
             <h1 class="name">
               {{ resume.fullname }}
             </h1>
-            <span>
+            <span contenteditable="true">
               {{ resume.job }}
             </span>
             <div class="d-print-none clear-p" v-html="$md.render(badge)" />
           </div>
           <p v-html="resume.detail" />
-          <div v-if="!resume.error" class="row">
+          <div class="row">
             <div class="col-md-4">
               <div class="personal-details">
                 <strong v-text="showBirthday" />
@@ -39,7 +39,7 @@
               </div>
             </div>
           </div>
-          <div v-if="!resume.error" class="row">
+          <div class="row">
             <div class="col-md-4">
               <div class="personal-details">
                 <strong v-text="resume.location" />
@@ -65,7 +65,7 @@
             </div>
           </div>
           <ul class="social-icon d-print-none">
-            <li v-show="resume.social.length" id="img-print" class="mr-3">
+            <li v-show="resume.social.length" content="If want CV." v-tippy="printTippy" id="img-print" class="mr-3">
               <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
             </li>
             <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
@@ -81,8 +81,12 @@
 import dayjs from 'dayjs'
 import numeral from 'numeral'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import data from '../static/data.json'
 
 dayjs.extend(relativeTime)
+
+const { birthday, salary, interview, social } = data
+const { fullname, national, language, location, job, detail } = data['en']
 
 export default {
   props: {
@@ -91,30 +95,29 @@ export default {
       type: Object,
       default () {
         return {
-          error: null,
-          fullname: '',
-          birthday: new Date(),
-          national: '',
-          language: '',
-          salary: {
-            base: 1,
-            expect: 1,
-            rate: 1,
-            day: 30,
-            hour: 8,
-            currency: 'THB'
-          },
-          interview: '',
-          location: '',
-          job: '',
-          detail: '',
-          social: []
+          fullname,
+          birthday,
+          national,
+          language,
+          salary,
+          interview,
+          location,
+          job,
+          detail,
+          social
         }
       }
     }
   },
   data () {
     return {
+      printTippy: {
+        arrow: true,
+        arrowType: 'round',
+        showOnInit: true,
+        animateFill: false,
+        animation : 'shift-toward'
+      },
       badge: '![counter](https://komarev.com/ghpvc/?username=dvgamerr&color=orange&label=Page%20View&style=flat-square) [![wakatime](https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?&color=orange&style=flat-square)](https://wakatime.com/@06633b1c-3ba7-44c2-ab5d-08e47ccc87ab)'
     }
   },

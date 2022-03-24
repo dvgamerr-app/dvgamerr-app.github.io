@@ -9,16 +9,12 @@
         </div>
         <div class="col-md-9">
           <div class="row">
-            <div v-for="e in education" :key="education.indexOf(e)" class="col-md-6">
+            <div v-for="(e, i) in education" :key="i" class="col-md-6">
               <div class="content-item">
                 <small v-text="e.range" />
                 <h3 v-text="e.major" />
-                <h4 v-text="e.location">
-                  University of California
-                </h4>
-                <p v-text="e.branch">
-                  United Kingdom, London
-                </p>
+                <h4 v-text="e.location" />
+                <p v-text="e.branch" />
               </div>
             </div>
           </div>
@@ -28,10 +24,11 @@
   </section>
 </template>
 <script>
+import data from '../static/data.json'
+
+const { education } = data['en']
+
 export default {
-  props: {
-    editor: { type: Boolean },
-    education: { type: Array, default: () => ([]) }
-  }
+  data: () => ({ education })
 }
 </script>

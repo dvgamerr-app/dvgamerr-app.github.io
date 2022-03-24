@@ -22,12 +22,12 @@
   </section>
 </template>
 <script>
+import data from '../static/data.json'
+
+const { expertise } = data['en']
 
 export default {
-  props: {
-    editor: { type: Boolean },
-    expertise: { type: Array, default: () => ([]) }
-  }
+  data: () => ({ expertise })
 }
 </script>
 

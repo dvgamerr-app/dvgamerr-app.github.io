@@ -48,11 +48,10 @@
   </section>
 </template>
 <script>
+import { coding } from '../static/data.json'
+
 export default {
-  props: {
-    editor: { type: Boolean },
-    coding: { type: Object, default: () => ({}) }
-  },
+  data: () => ({ coding }),
   methods: {
     parseTime (seconds = 0) {
       return `${seconds > 60 * 60 ? `${parseInt(seconds / 60 / 60)}h ` : ''}${parseInt(seconds / 60 % 60)}m`

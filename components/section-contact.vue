@@ -1,5 +1,5 @@
 <template>
-  <section v-if="contact.length > 0" class="section-wrapper section-contact">
+  <section class="section-wrapper section-contact">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -90,14 +90,15 @@
   </section>
 </template>
 <script>
+import { contact } from '../static/data.json'
 /* eslint-disable nuxt/no-globals-in-created */
 export default {
   props: {
     editor: { type: Boolean },
-    contact: { type: Array, default: () => ([]) },
     grecaptcha: { type: String, default: () => ('') }
   },
   data: () => ({
+    contact,
     sending: false,
     sended: false,
     error: '',

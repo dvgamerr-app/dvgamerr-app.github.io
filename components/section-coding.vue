@@ -50,14 +50,12 @@
 <script>
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { coding } from '../static/data.json'
 
 dayjs.extend(relativeTime)
 
 export default {
-  props: {
-    editor: { type: Boolean },
-    coding: { type: Object, default: () => ({}) }
-  },
+  data: () => ({ coding }),
   computed: {
     getExperience () {
       return dayjs(this.coding.experience).fromNow(true)

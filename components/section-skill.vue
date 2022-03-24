@@ -1,5 +1,5 @@
 <template>
-  <section v-if="skillHeader.length > 0" class="section-wrapper section-skills">
+  <section class="section-wrapper section-skills">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -9,10 +9,10 @@
         </div>
         <div class="col-md-9">
           <div class="row">
-            <div v-for="i in skillHeader" :key="i" class="col-md-6 skill-list">
-              <h3 class="mb-1" v-text="i" />
+            <div v-for="(e, i) in skillHeader()" :key="i" class="col-md-6 skill-list">
+              <h3 class="mb-1" v-text="e" />
               <ul class="pb-3">
-                <li v-for="item in skill[i]" :key="skill[i].indexOf(item)" v-text="item" />
+                <li v-for="(item, l) in skill[e]" :key="l" v-text="item" />
               </ul>
             </div>
           </div>
@@ -22,12 +22,11 @@
   </section>
 </template>
 <script>
+import { skill } from '../static/data.json'
+
 export default {
-  props: {
-    editor: { type: Boolean },
-    skill: { type: Object, default: () => ({}) }
-  },
-  computed: {
+  data: () => ({ skill }),
+  methods: {
     skillHeader () {
       return Object.keys(this.skill)
     }
@@ -41,6 +40,7 @@ export default {
 .skill-list li {
   display: inline-block;
   padding-right: 4px;
+  font-size: .85rem;
 }
 .skill-list li:after {
   content: ',';

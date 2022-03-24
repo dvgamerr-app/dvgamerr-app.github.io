@@ -35,11 +35,10 @@
 </template>
 <script>
 import dayjs from 'dayjs'
+import { certificate } from '../static/data.json'
+
 export default {
-  props: {
-    editor: { type: Boolean },
-    certificate: { type: Array, default: () => ([]) }
-  },
+  data: () => ({ certificate }),
   methods: {
     toAchievement (e) {
       return dayjs(e.achievement).format('MMMM DD, YYYY')

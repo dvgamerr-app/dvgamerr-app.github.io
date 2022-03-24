@@ -10,9 +10,9 @@
 
         <div class="col-md-9">
           <div class="row">
-            <div v-for="e in portfolio" :key="portfolio.indexOf(e)" class="col-md-4 col-sm-6">
+            <div v-for="(e, i) in portfolio" :key="i" class="col-md-4 col-sm-6">
               <a class="portfolio-item" :href="e.url">
-                <div class="portfolio-thumb"><img v-lazy-load :data-src="`work/${e.thumb}`" loading="lazy" alt=""></div>
+                <div class="portfolio-thumb"><img :src="`work/${e.thumb}`" loading="lazy" alt=""></div>
                 <div class="portfolio-info">
                   <h3 v-text="e.title" />
                   <small v-text="e.subtitle" />
@@ -26,12 +26,10 @@
   </section>
 </template>
 <script>
+import { portfolio } from '../static/data.json'
 
 export default {
-  props: {
-    editor: { type: Boolean },
-    portfolio: { type: Array, default: () => ([]) }
-  }
+  data: () => ({ portfolio })
 }
 </script>
 <style scoped>
