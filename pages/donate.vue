@@ -126,9 +126,6 @@
               data-ad-format="auto"
               data-full-width-responsive="true"
             />
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
           </div>
           <div class="card card-aside">
             <div class="row no-gutters">
