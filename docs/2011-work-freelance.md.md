@@ -1,0 +1,1 @@
+- Design software within the enterprise, organizations, schools and individuals.\n- A general web site's web profile.\n- Advisor to complete the project and to complete the project.\n- Designs, logos, websites, pages.
