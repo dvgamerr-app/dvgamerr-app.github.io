@@ -111,7 +111,7 @@ export default {
     '~/plugins/vue-tippy.js'
   ],
   modules: [
-    'bootstrap-vue/nuxt',
+    ['bootstrap-vue/nuxt', { icon: false }],
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     '@nuxtjs/markdownit',

@@ -128,7 +128,7 @@
               "end": null
             },
             "job": "Full Stack Engineer",
-            "file": "/2018-work-central-group-2.md"
+            "file": "2018-work-central-group-2.md"
           },
           {
             "range": {
@@ -136,7 +136,7 @@
               "end": "2019-01-01T00:00:00.000+07:00"
             },
             "job": "Senior Development asst. Division Manager",
-            "file": "/2018-work-central-group-1.md"
+            "file": "2018-work-central-group-1.md"
           }
         ]
       },
@@ -150,7 +150,7 @@
         },
         "job": "Full Stack Developer",
         "work": "Nippon SySits Co.,Ltd, Sathorn.",
-        "file": "/2013-work-nippon-sysits.md"
+        "file": "2013-work-nippon-sysits.md"
       },
       {
         "range": {
@@ -159,7 +159,7 @@
         },
         "job": "Freelance — Programmer",
         "work": "Phetchaburi",
-        "file": "/2011-work-freelance.md"
+        "file": "2011-work-freelance.md"
       }
     ],
     "education": [
@@ -196,7 +196,7 @@
         "fab",
         "github"
       ],
-      "link": "https://goo2url.com/NRlGg",
+      "link": "https://touno.io/s/w9z5",
       "alt": "github.com"
     },
     {
@@ -205,7 +205,7 @@
         "fab",
         "linkedin"
       ],
-      "link": "https://goo2url.com/2RQEt",
+      "link": "https://touno.io/s/ig6h",
       "alt": "linkedin"
     },
     {
@@ -214,17 +214,17 @@
         "fas",
         "clock"
       ],
-      "link": "https://goo2url.com/4Cwy8",
+      "link": "https://touno.io/s/7y9r",
       "alt": "wakatime.com"
     },
     {
-      "name": "codersrank",
+      "name": "community",
       "icon": [
         "fab",
         "codepen"
       ],
-      "link": "https://goo2url.com/FYG7J",
-      "alt": "codersrank.io"
+      "link": "https://touno.io/s/ixj7",
+      "alt": "discord.com"
     }
   ],
   "skill": {
@@ -291,7 +291,7 @@
     {
       "print": false,
       "label": "INSTRGRAM",
-      "url": "https://goo2url.com/ZOw9O",
+      "url": "https://touno.io/s/u01t",
       "text": "Kananek Thongkam",
       "icon": [
         "fab",
@@ -301,7 +301,7 @@
     {
       "print": false,
       "label": "FACEBOOK",
-      "url": "https://goo2url.com/hCfvB",
+      "url": "https://touno.io/s/zo2h",
       "text": "Kananek Thongkam",
       "icon": [
         "fab",
@@ -311,7 +311,7 @@
     {
       "print": false,
       "label": "TWITTER",
-      "url": "https://goo2url.com/JfLHQ",
+      "url": "https://touno.io/s/8ae4",
       "text": "Kananek T.",
       "icon": [
         "fab",
@@ -321,8 +321,8 @@
     {
       "print": false,
       "label": "EMAIL",
-      "url": "mailto:dvgamerr@gmail.com",
-      "text": "dvgamerr@gmail.com",
+      "url": "mailto:kananek.dev@touno.io",
+      "text": "kananek.dev@touno.io",
       "icon": [
         "fas",
         "envelope"
@@ -332,7 +332,7 @@
       "print": true,
       "label": "LINE ACCOUNT",
       "qrcode": "/qr_line.png",
-      "url": "https://goo2url.com/i7kb6",
+      "url": "https://touno.io/s/5sri",
       "text": "dvgamer (KEM)",
       "icon": [
         "fab",
@@ -343,7 +343,7 @@
       "print": true,
       "label": "Website",
       "qrcode": "/qr_website.png",
-      "url": "https://goo2url.com/i7kb6",
+      "url": "https://touno.io/s/rfd6",
       "text": "dvgamer (KEM)",
       "icon": [
         "fab",

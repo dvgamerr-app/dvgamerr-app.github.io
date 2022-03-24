@@ -6,8 +6,8 @@
   "author": "Mr.Kananek T. <info.dvgamer@gmail.com>",
   "private": false,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt generate",
+    "dev": "node plugins/workfile.js && nuxt",
+    "build": "node plugins/workfile.js && nuxt generate",
     "eslint": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
     "start": "node server/index.js"
   },

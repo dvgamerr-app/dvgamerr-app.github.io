@@ -13,12 +13,12 @@
             <h1 class="name">
               {{ resume.fullname }}
             </h1>
-            <span contenteditable="true">
+            <span>
               {{ resume.job }}
             </span>
             <div class="d-print-none clear-p" v-html="$md.render(badge)" />
           </div>
-          <p v-html="resume.detail" />
+          <p contenteditable="false" v-html="$md.render(resume.detail)" />
           <div class="row">
             <div class="col-md-4">
               <div class="personal-details">
@@ -81,7 +81,7 @@
 import dayjs from 'dayjs'
 import numeral from 'numeral'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import data from '../static/data.json'
+import data from '~/docs/data.json'
 
 dayjs.extend(relativeTime)
 

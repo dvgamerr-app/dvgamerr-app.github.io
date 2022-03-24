@@ -23,9 +23,9 @@
               <div class="col-md-12">
                 <div class="content-item">
                   <small v-text="toDateRange(e.range)" />
-                  <h3 v-text="e.job" />
+                  <h3 v-if="!e.jobs" v-text="e.job" />
                   <h4 v-text="e.work" />
-                  <div class="markdown pt-1" v-html="$md.render('')" />
+                  <div v-if="!e.jobs" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
                 </div>
               </div>
             </div>
@@ -35,8 +35,8 @@
     </section>
     <p class="pagebreak" />
     <div>
-      <section-education class="d-print-none" :education="education" />
-      <section-certificate class="d-print-none" :certificate="certificate" />
+      <section-education class="d-print-none" />
+      <section-certificate class="d-print-none" />
       <!-- <section-portfolio class="d-print-none" :portfolio="portfolio" /> -->
     </div>
     <page-footer />
@@ -44,17 +44,14 @@
 </template>
 <script>
 import dayjs from 'dayjs'
-import data from '../static/data.json'
+import data from '~/docs/data.json'
+import workfile from '~/docs/work.json'
 
 const { work } = data['en']
 
+console.log(workfile)
 export default {
-  data: () => ({ work }),
-  computed: {
-    allowEditor () {
-      return this.$route.params && (this.$route.params.admin || '').indexOf('editor') === 0
-    }
-  },
+  data: () => ({ work, workfile }),
   methods: {
     toDateRange (range) {
       const begin = dayjs(range.begin)

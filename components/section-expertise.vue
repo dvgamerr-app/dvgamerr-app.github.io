@@ -22,7 +22,7 @@
   </section>
 </template>
 <script>
-import data from '../static/data.json'
+import data from '~/docs/data.json'
 
 const { expertise } = data['en']
 

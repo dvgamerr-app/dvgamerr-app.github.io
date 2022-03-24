@@ -1,5 +1,5 @@
 <template>
-  <section v-if="education.length > 0" class="section-wrapper section-education">
+  <section class="section-wrapper section-education">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -24,7 +24,7 @@
   </section>
 </template>
 <script>
-import data from '../static/data.json'
+import data from '~/docs/data.json'
 
 const { education } = data['en']
 

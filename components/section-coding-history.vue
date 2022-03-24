@@ -48,7 +48,7 @@
   </section>
 </template>
 <script>
-import { coding } from '../static/data.json'
+import { coding } from '~/docs/data.json'
 
 export default {
   data: () => ({ coding }),

@@ -50,7 +50,7 @@
 <script>
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { coding } from '../static/data.json'
+import { coding } from '~/docs/data.json'
 
 dayjs.extend(relativeTime)
 
