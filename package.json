@@ -6,7 +6,7 @@
   "author": "Mr.Kananek T. <info.dvgamer@gmail.com>",
   "private": false,
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "nuxt",
     "build": "nuxt generate",
     "eslint": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
     "start": "node server/index.js"
@@ -24,6 +24,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "axios": "^0.24.0",
     "bootstrap": "4.6.1",
+    "bootstrap-vue": "^2.21.2",
     "dayjs": "^1.10.4",
     "marked": "^4.0.5",
     "md5": "^2.3.0",
@@ -31,21 +32,23 @@
     "nuxt": "^2.15.8",
     "nuxt-compress": "^5.0.0",
     "nuxt-lazy-load": "^1.2.4",
-    "sass-loader": "10",
+    "vue": "^2.6.14",
     "vue-clipboards": "^1.3.0",
-    "vue-tippy": "^4.10.0"
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "vue-tippy": "^4.10.0",
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^7.0.0",
-    "@nuxtjs/eslint-module": "^3.0.2",
-    "env-cmd": "^10.1.0",
-    "eslint": "^8.3.0",
-    "eslint-plugin-nuxt": "^3.0.0",
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
+    "core-js": "^3.21.1",
     "nodemon": "^2.0.7",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
     "responsive-loader": "^2.3.0",
-    "sass": "^1.43.5"
+    "sass": "^1.43.5",
+    "sass-loader": "10"
   },
   "repository": {
     "type": "git",

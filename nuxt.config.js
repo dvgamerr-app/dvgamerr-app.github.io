@@ -4,11 +4,16 @@ const website = 'https://mr.touno.io'
 const date = new Date().toISOString()
 const production = process.env.NODE_ENV !== 'development'
 
+
 export default {
+  ssr: false,
   target: 'static',
   telemetry: false,
   head: {
     titleTemplate: t => `${t || ''}`,
+    htmlAttrs: {
+      lang: 'en'
+    },
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'icon.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700&display=swap' }
@@ -19,11 +24,6 @@ export default {
         src: 'https://static.cloudflareinsights.com/beacon.min.js',
         'data-cf-beacon': '{"token": "fb5b3ae4504f483f8a77f9d83d215c9c"}',
         body: true
-      },
-      {
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4905039106786059',
-        async: true,
-        crossorigin: 'anonymous'
       }
     ],
     meta: [
@@ -101,6 +101,7 @@ export default {
     }
   },
   loading: false,
+  components: true,
   css: [
     '~assets/scss/index.scss'
   ],
@@ -109,22 +110,12 @@ export default {
     '~/plugins/vue-clipboards.js',
     '~/plugins/vue-tippy.js'
   ],
-  // render: {
-  //   csp: true,
-  //   http2: {
-  //     push: true,
-  //     pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
-  //       .filter(f => f.asType === 'script' && f.file === 'runtime.js')
-  //       .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
-  //   }
-  // },
   modules: [
+    'bootstrap-vue/nuxt',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
-    'nuxt-lazy-load',
     '@nuxtjs/markdownit',
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }],
-    ['@nuxtjs/axios', { https: process.env.NODE_ENV !== 'development' }],
     ['@nuxtjs/pwa', { icon: true }]
   ],
   sitemap: {
@@ -132,32 +123,16 @@ export default {
     gzip: true,
     exclude: []
   },
-  server: { port: 3000, host: '0.0.0.0' },
-  axios: { baseURL: process.env.AXIOS_BASE_URL || 'http://grpc.touno.io/api/' },
-  publicRuntimeConfig: {
-    // axios: {
-    //   browserBaseURL: process.env.BROWSER_BASE_URL
-    // }
-  },
   markdownit: {
     runtime: true,
     preset: 'default',
     linkify: true,
     breaks: true
-    // use: [
-    //   'markdown-it-div',
-    //   'markdown-it-attrs'
-    // ]
   },
   robots: {
     UserAgent: '*',
     Allow: '/',
     Sitemap: 'https://mr.touno.io/sitemap.xml'
-  },
-  optimizedImages: { optimizeImages: true },
-  googleAnalytics: { id: 'UA-70130307-4' },
-  env: {
-    dev: process.env.NODE_ENV === 'development'
   },
   fontawesome: {
     icons: {
@@ -167,19 +142,72 @@ export default {
     }
   },
   buildModules: [
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
+    '@nuxt/typescript-build',
   ],
   build: {
-    quiet: false,
-    parallel: !production,
-    cache: true,
-    extractCSS: production,
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: { name: 'styles', test: /\.(css|vue)$/, chunks: 'all', enforce: true }
-        }
-      }
-    }
   }
 }
+
+
+// export default {
+//   // render: {
+//   //   csp: true,
+//   //   http2: {
+//   //     push: true,
+//   //     pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+//   //       .filter(f => f.asType === 'script' && f.file === 'runtime.js')
+//   //       .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+//   //   }
+//   // },
+//   sitemap: {
+//     hostname: 'https://mr.touno.io',
+//     gzip: true,
+//     exclude: []
+//   },
+//   publicRuntimeConfig: {
+//     // axios: {
+//     //   browserBaseURL: process.env.BROWSER_BASE_URL
+//     // }
+//   },
+//   markdownit: {
+//     runtime: true,
+//     preset: 'default',
+//     linkify: true,
+//     breaks: true
+//   },
+//   robots: {
+//     UserAgent: '*',
+//     Allow: '/',
+//     Sitemap: 'https://mr.touno.io/sitemap.xml'
+//   },
+//   optimizedImages: { optimizeImages: true },
+//   googleAnalytics: { id: 'UA-70130307-4' },
+//   env: {
+//     dev: process.env.NODE_ENV === 'development'
+//   },
+//   fontawesome: {
+//     icons: {
+//       solid: true,
+//       regular: ['faCopyright'],
+//       brands: true
+//     }
+//   },
+//   buildModules: [
+//     '@nuxtjs/fontawesome',
+//     '@nuxt/typescript-build'
+//   ],
+//   build: {
+//     quiet: false,
+//     parallel: !production,
+//     cache: true,
+//     extractCSS: production,
+//     optimization: {
+//       splitChunks: {
+//         cacheGroups: {
+//           styles: { name: 'styles', test: /\.(css|vue)$/, chunks: 'all', enforce: true }
+//         }
+//       }
+//     }
+//   }
+// }
