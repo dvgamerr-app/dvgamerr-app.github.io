@@ -25,7 +25,7 @@
                   <small v-text="toDateRange(e.range)" />
                   <h3 v-if="!e.jobs" v-text="e.job" />
                   <h4 v-text="e.work" />
-                  <div v-if="!e.jobs" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
+                  <div v-if="!e.jobs" class="markdown pt-1" v-html="$md.render(workfile[e.file] || '**N/A**')" />
                 </div>
               </div>
             </div>
@@ -49,17 +49,16 @@ import workfile from '~/docs/work.json'
 
 const { work } = data['en']
 
-console.log(workfile)
 export default {
   data: () => ({ work, workfile }),
   methods: {
     toDateRange (range) {
       const begin = dayjs(range.begin)
-      const end = range.end ? dayjs(range.end) : dayjs()
-      const diff = end.diff(begin, 'year', true)
+      const quit = range.quit ? dayjs(range.quit) : dayjs()
+      const diff = quit.diff(begin, 'year', true)
       const month = parseInt((diff - parseInt(diff)) * 12)
       const year = parseInt(diff)
-      return `${begin.format('MMMM YYYY')} - ${range.end ? end.format('MMMM YYYY') : 'Present'} (${year > 0 ? `${year} year` : ''}${month > 0 ? ` ${month} month` : ''})`
+      return `${begin.format('MMMM YYYY')} - ${range.quit ? quit.format('MMMM YYYY') : 'Present'} (${year > 0 ? `${year} year` : ''}${month > 0 ? ` ${month} month` : ''})`
     }
   }
 }
