@@ -130,13 +130,17 @@ export default {
 <style lang="scss">
 
 #charts-daytime, #charts-weektime {
-  height: 160px;
   max-width: 95%;
   margin: 0 auto;
 }
+#charts-daytime {
+  height: 184px;
+}
+#charts-weektime {
+  height: 160px;
+}
 
 table.charts-css {
-  height: 184px;
   > caption {
     font-size: .85rem;
     position: absolute;
