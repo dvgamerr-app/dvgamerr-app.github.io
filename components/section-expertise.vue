@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 .expertise-item {
   margin-bottom : 20px;
 }

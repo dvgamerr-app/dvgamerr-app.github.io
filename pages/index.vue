@@ -5,6 +5,7 @@
       <section-contact/>
       <section-coding />
       <section-coding-history />
+      <section-coding-daytime />
       <section-expertise />
       <section-skill />
       <section-education class="d-none print-only" />

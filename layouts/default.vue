@@ -4,12 +4,6 @@
   </div>
 </template>
 <style lang="scss">
-/*
-Template Name: My Profile
-Description: HTML5 / CSS3 One Page
-Version: 1.0
-Author: themehippo.com
-*/
 .resume-profile {
   font-family : 'Hind', sans-serif;
   font-size   : 15px;

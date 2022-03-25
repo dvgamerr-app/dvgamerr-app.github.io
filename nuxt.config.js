@@ -61,45 +61,45 @@ export default {
   icons: {
     sizes: [32, 57, 72, 144, 512]
   },
-  pwa: {
-    manifest: {
-      name: title,
-      lang: 'en',
-      dir: 'rtl',
-      description: '',
-      short_name: title,
-      start_url: '/',
-      scope: '/',
-      display: 'fullscreen',
-      orientation: 'portrait',
-      theme_color: '#f8f8f8',
-      background_color: '#f8f8f8',
-      icons: [
-        { src: '/icon-64.png', sizes: '64x64' },
-        { src: '/icon-128.png', sizes: '128x128' },
-        { src: '/icon-144.png', sizes: '144x144' }
-      ],
-      screenshots: [
-        {
-          src: '/images/fb-image.png',
-          sizes: '640x480',
-          type: 'image/jpeg'
-        },
-        {
-          src: '/images/fb-image.png',
-          sizes: '1280x920',
-          type: 'image/jpeg'
-        }
-      ],
-      browser_action: {
-        default_icon: '/icon.png',
-        default_popup: '/'
-      }
-    },
-    workbox: {
-      // Workbox options
-    }
-  },
+  // pwa: {
+  //   manifest: {
+  //     name: title,
+  //     lang: 'en',
+  //     dir: 'rtl',
+  //     description: '',
+  //     short_name: title,
+  //     start_url: '/',
+  //     scope: '/',
+  //     display: 'fullscreen',
+  //     orientation: 'portrait',
+  //     theme_color: '#f8f8f8',
+  //     background_color: '#f8f8f8',
+  //     icons: [
+  //       { src: '/icon-64.png', sizes: '64x64' },
+  //       { src: '/icon-128.png', sizes: '128x128' },
+  //       { src: '/icon-144.png', sizes: '144x144' }
+  //     ],
+  //     screenshots: [
+  //       {
+  //         src: '/images/fb-image.png',
+  //         sizes: '640x480',
+  //         type: 'image/jpeg'
+  //       },
+  //       {
+  //         src: '/images/fb-image.png',
+  //         sizes: '1280x920',
+  //         type: 'image/jpeg'
+  //       }
+  //     ],
+  //     browser_action: {
+  //       default_icon: '/icon.png',
+  //       default_popup: '/'
+  //     }
+  //   },
+  //   workbox: {
+  //     // Workbox options
+  //   }
+  // },
   loading: false,
   components: true,
   css: [
@@ -115,8 +115,7 @@ export default {
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     '@nuxtjs/markdownit',
-    ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }],
-    ['@nuxtjs/pwa', { icon: true }]
+    ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }]
   ],
   sitemap: {
     hostname: 'https://mr.touno.io',
@@ -146,6 +145,7 @@ export default {
     '@nuxt/typescript-build',
   ],
   build: {
+    babel: { compact: true }
   }
 }
 

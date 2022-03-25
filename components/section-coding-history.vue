@@ -1,5 +1,5 @@
 <template>
-  <section v-if="!!coding" class="section-wrapper section-coding-history d-print-none">
+  <section class="section-wrapper section-coding-history d-print-none">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -44,6 +44,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </template>
@@ -59,21 +60,32 @@ export default {
   }
 }
 </script>
-<style scoped>
-.item-stats .item-stats-value{
-  font-size: 18px;
-  color: #444;
-  font-weight: 500;
+<style lang="scss">
+
+.charts-css.column {
+  height: 240px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+.charts-css.column > tbody td {
+  --color: var(--color-7);
 }
 
-.item-stats .item-stats-name{
-  font-size: 12px;
-  text-transform: uppercase;
-  line-height: 1;
+.item-stats {
+  .item-stats-value{
+    font-size: 18px;
+    color: #444;
+    font-weight: 500;
+  }
+  .item-stats-name {
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
 }
 
 @media (max-width: 768px) {
-  .item-stats{
+  .item-stats {
     margin-bottom: 30px;
   }
 }
