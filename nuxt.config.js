@@ -20,12 +20,12 @@ export default {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700&display=swap' }
     ],
     script: [
-      {
+      production ? {
         defer: true,
         src: 'https://static.cloudflareinsights.com/beacon.min.js',
         'data-cf-beacon': '{"token": "fb5b3ae4504f483f8a77f9d83d215c9c"}',
         body: true
-      }
+      } : ''
     ],
     meta: [
       { charset: 'utf-8' },

@@ -19,9 +19,9 @@
             </div>
             <div class="col-sm-3">
               <div class="item-stats">
-                <div class="item-stats-value" v-text="toNumber(coding.contributions)" />
+                <div class="item-stats-value" v-text="toNumber(coding.loc)" />
                 <div class="item-stats-name">
-                  Line Of Codes
+                  Lines of Code
                 </div>
               </div>
             </div>
