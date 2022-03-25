@@ -35,7 +35,7 @@
 </template>
 <script>
 import dayjs from 'dayjs'
-import { certificate } from '~/docs/data.json'
+import { certificate } from '~/../docs/data.json'
 
 export default {
   data: () => ({ certificate }),

@@ -22,7 +22,7 @@
   </section>
 </template>
 <script>
-import { skill } from '~/docs/data.json'
+import { skill } from '~/../docs/data.json'
 
 export default {
   data: () => ({ skill }),

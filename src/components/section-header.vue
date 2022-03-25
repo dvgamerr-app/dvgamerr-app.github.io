@@ -81,7 +81,7 @@
 import dayjs from 'dayjs'
 import numeral from 'numeral'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import data from '~/docs/data.json'
+import data from '~/../docs/data.json'
 
 dayjs.extend(relativeTime)
 

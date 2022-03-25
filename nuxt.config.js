@@ -9,6 +9,7 @@ export default {
   ssr: false,
   target: 'static',
   telemetry: false,
+  srcDir: 'src',
   head: {
     titleTemplate: t => `${t || ''}`,
     htmlAttrs: {

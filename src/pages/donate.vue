@@ -200,7 +200,7 @@
 import md5 from 'md5'
 import numeral from 'numeral'
 
-const { wallet, donate } = require('~/docs/data.json')
+const { wallet, donate } = require('~/../docs/data.json')
 
 export default {
   data () {
