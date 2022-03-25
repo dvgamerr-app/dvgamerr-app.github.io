@@ -27,17 +27,17 @@
             </div>
             <div class="col-sm-3">
               <div class="item-stats">
-                <div class="item-stats-value" v-text="toNumber(coding.project)" />
+                <div class="item-stats-value" v-text="`${toNumber(coding.project)} (${toNumber(coding.opensource)})`" />
                 <div class="item-stats-name">
-                  Projects
+                  Projects (opensource)
                 </div>
               </div>
             </div>
             <div class="col-sm-3">
               <div class="item-stats">
-                <div class="item-stats-value" v-text="toNumber(coding.opensource)" />
+                <div class="item-stats-value" v-text="toNumber(coding.commits)" />
                 <div class="item-stats-name">
-                  Opensource Projects
+                  Commits
                 </div>
               </div>
             </div>
