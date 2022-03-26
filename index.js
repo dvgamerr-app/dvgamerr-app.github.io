@@ -12,12 +12,13 @@ const updateJSONfile = async (file, updated) => {
 
     const data = JSON.parse(rawData.toString())
     for (const key in updated) {
+      if (typeof updated[key] != 'object') continue
       data[key] = Object.assign(data[key], updated[key])
     }
 
-    await writeFile(join(dirData, file), JSON.stringify(data, null, 4))
+    await writeFile(join(dirData, file), JSON.stringify(data, null, 2))
   } else {
-    await writeFile(join(dirData, file), JSON.stringify(updated), null, 4)
+    await writeFile(join(dirData, file), JSON.stringify(updated), null, 2)
   }
 }
 
@@ -39,7 +40,8 @@ const markdownToJson = async (filename) => {
     const data = await readFile(join(dirData, file))
     workData[file] = data.toString()
   }
-  await updateJSONfile(filename, workData)
+
+  await writeFile(join(dirData, 'data', filename), JSON.stringify(workData, null, 2))
 }
 
 const fetchContributors = r => apiGitHub.request('GET /repos/{owner}/{repos}/stats/contributors', { owner: r.owner.login, repos: r.name })
