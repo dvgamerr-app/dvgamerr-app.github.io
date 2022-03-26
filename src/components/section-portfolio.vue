@@ -26,7 +26,7 @@
   </section>
 </template>
 <script>
-import { portfolio } from '~/../docs/data.json'
+import { portfolio } from '~/../docs/data/resume.json'
 
 export default {
   data: () => ({ portfolio })

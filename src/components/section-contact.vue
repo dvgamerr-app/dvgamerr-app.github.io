@@ -90,7 +90,7 @@
   </section>
 </template>
 <script>
-import { contact } from '~/../docs/data.json'
+import { contact } from '~/../docs/data/resume.json'
 /* eslint-disable nuxt/no-globals-in-created */
 export default {
   props: {

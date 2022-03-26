@@ -45,8 +45,8 @@
 </template>
 <script>
 import dayjs from 'dayjs'
-import data from '~/../docs/data.json'
-import workfile from '~/../docs/work.json'
+import data from '~/../docs/data/resume.json'
+import workfile from '~/../docs/data/work.json'
 
 const { work } = data['en']
 

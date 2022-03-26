@@ -1,8 +1,26 @@
 const { Octokit } = require("@octokit/core");
 
 const { readdir, readFile, writeFile } = require('fs/promises')
+const { existsSync } = require('fs')
 const { extname, join } = require('path');
 const process = require("process");
+
+const updateJSONfile = async (file, updated) => {
+  const dirData = './docs/data'
+  if (existsSync(join(dirData, file))) {
+    const rawData = await readFile(join(dirData, file))
+
+    const data = JSON.parse(rawData.toString())
+    for (const key in updated) {
+      data[key] = Object.assign(data[key], updated[key])
+    }
+
+    await writeFile(join(dirData, file), JSON.stringify(data, null, 4))
+  } else {
+    await writeFile(join(dirData, file), JSON.stringify(updated), null, 4)
+  }
+}
+
 
 // const apiGitHub = Octokit.defaults()
 
@@ -12,27 +30,24 @@ const apiGitHub = new Octokit({
   Accept: "application/vnd.github.v3+json",
 })
 
-const markdownToJson = async (mdPath, filename) => {
-  let workfile = {}
-  const files = await readdir(mdPath)
+const markdownToJson = async (filename) => {
+  const dirData = './docs'
+  let workData = {}
+  const files = await readdir(dirData)
   for await (const file of files) {
     if (extname(file) !== '.md') continue
-    const data = await readFile(join(mdPath, file))
-    workfile[file] = data.toString()
+    const data = await readFile(join(dirData, file))
+    workData[file] = data.toString()
   }
-  await writeFile(join(mdPath, filename), JSON.stringify(workfile))
+  await updateJSONfile(filename, workData)
 }
 
 const fetchContributors = r => apiGitHub.request('GET /repos/{owner}/{repos}/stats/contributors', { owner: r.owner.login, repos: r.name })
 
-const getGithubStats = async (mdPath) => {
+const getGithubStats = async () => {
   if (!process.env.GITHUB_TOKEN) return
 
   console.log('Query Repositories')
-
-  // const data = await readFile(join(mdPath, 'data.json'))
-  // const body = JSON.parse(data.toString())
-
   const coding = {
     // Total Repos
     project: 0,
@@ -93,7 +108,6 @@ const getGithubStats = async (mdPath) => {
         savedRepos[repo.full_name].added += c.weeks.reduce((sum, { a }) => sum + a, 0)
         savedRepos[repo.full_name].deleted += c.weeks.reduce((sum, { d }) => sum + d, 0)
       }
-      console.log(savedRepos[repo.full_name])
 
       coding.commits += savedRepos[repo.full_name].commits
       coding.loc += savedRepos[repo.full_name].added + savedRepos[repo.full_name].deleted
@@ -120,8 +134,9 @@ const getGithubStats = async (mdPath) => {
     //   console.log(`   - loc: N/A (status:${frequency.status})`)
     // }
   }
-
-  console.log('coding:', coding)
+  // savedRepos
+  await updateJSONfile('repos.json', savedRepos)
+  await updateJSONfile('resume.json', { coding })
 
   // https://api.github.com/repos/dvgamerr/dvgamerr/stats/code_frequency
   // for (const repos of res2.data) {
@@ -132,10 +147,11 @@ const getGithubStats = async (mdPath) => {
 }
 
 Promise.all([
-  // markdownToJson('./docs/', 'work.json')
-  getGithubStats('./docs/')
+  markdownToJson('work.json'),
+  getGithubStats()
 ]).then(() => {
-  console.log('Done')
+  console.log('Complated')
 }).catch(ex => {
   console.error(ex)
 })
+

@@ -49,7 +49,7 @@
   </section>
 </template>
 <script>
-import { coding } from '~/../docs/data.json'
+import { coding } from '~/../docs/data/resume.json'
 
 export default {
   data: () => ({ coding }),

@@ -95,7 +95,7 @@
 </template>
 <script>
 import dayjs from 'dayjs'
-import { coding } from '~/../docs/data.json'
+import { coding } from '~/../docs/data/resume.json'
 
 
 let maxDayTime = 0
