@@ -7,7 +7,6 @@ module.exports = {
   parserOptions: {
   },
   extends: [
-    '@nuxtjs',
     'plugin:nuxt/recommended'
   ],
   plugins: [

@@ -1523,6 +1523,15 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
+"@touno-io/debuger@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@touno-io/debuger/-/debuger-2.4.1.tgz#1accaa78871b646baa3c241ca6e734b760c91706"
+  integrity sha512-ROq/d/siKRVOF2isVoJm3LZgpJJZEQJEFOYLASuIL+kaMWTpEaDixqfvQy7QCasEh9WebX/U0PpBvzxrhWf1rA==
+  dependencies:
+    chalk "^2.4.1"
+    cli-progress "^3.8.2"
+    date-format "^4.0.6"
+
 "@types/anymatch@*":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-3.0.0.tgz#c95ff14401dbb2869913afac3935af4ad0d37f1a"
@@ -2954,6 +2963,13 @@ cli-cursor@^3.1.0:
   dependencies:
     restore-cursor "^3.1.0"
 
+cli-progress@^3.8.2:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/cli-progress/-/cli-progress-3.10.0.tgz#63fd9d6343c598c93542fdfa3563a8b59887d78a"
+  integrity sha512-kLORQrhYCAtUPLZxqsAt2YJGOvRdt34+O6jl5cQGb7iF3dM55FQZlTR+rQyIK9JUcO9bBMwZsTlND+3dmFU2Cw==
+  dependencies:
+    string-width "^4.2.0"
+
 cli-width@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-3.0.0.tgz#a2f48437a2caa9a22436e794bf071ec9e61cedf6"
@@ -3489,6 +3505,11 @@ cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
+
+date-format@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/date-format/-/date-format-4.0.6.tgz#f6138b8f17968df9815b3d101fc06b0523f066c5"
+  integrity sha512-B9vvg5rHuQ8cbUXE/RMWMyX2YA5TecT3jKF5fLtGNlzPlU7zblSPmAm2OImDbWL+LDOQ6pUm+4LOFz+ywS41Zw==
 
 dayjs@^1.10.4:
   version "1.11.0"
@@ -8054,7 +8075,7 @@ string-width@^1.0.1:
     is-fullwidth-code-point "^1.0.0"
     strip-ansi "^3.0.0"
 
-"string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.2, string-width@^4.2.3:
+"string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.2, string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==

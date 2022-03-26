@@ -1,4 +1,5 @@
-const { Octokit } = require("@octokit/core");
+const { Octokit } = require("@octokit/core")
+const debuger = require('@touno-io/debuger')
 
 const { readdir, readFile, writeFile } = require('fs/promises')
 const { existsSync } = require('fs')
@@ -22,7 +23,7 @@ const updateJSONfile = async (file, updated) => {
   }
 }
 
-
+const logger = debuger('GEN')
 // const apiGitHub = Octokit.defaults()
 
 const apiGitHub = new Octokit({
@@ -49,7 +50,7 @@ const fetchContributors = r => apiGitHub.request('GET /repos/{owner}/{repos}/sta
 const getGithubStats = async () => {
   if (!process.env.GITHUB_TOKEN) return
 
-  console.log('Query Repositories')
+  logger.info('Query Repositories')
   const coding = {
     // Total Repos
     project: 0,
@@ -64,11 +65,11 @@ const getGithubStats = async () => {
 
   let orgRepos = []
   let nextPage = false
-  console.log(' - GET /user/orgs')
+  logger.log(' - GET /user/orgs')
   const { data: orgs } = await apiGitHub.request('GET /user/orgs')
   for await (const org of orgs) {
     let page = 0
-    console.log(` - GET /orgs/${org.login}/repos`)
+    logger.log(` - GET /orgs/${org.login}/repos`)
     do {
       page++
       const { data: repos } = await apiGitHub.request('GET /orgs/{org}/repos', { org: org.login, per_page: 100, page })
@@ -77,7 +78,7 @@ const getGithubStats = async () => {
     } while(nextPage)
   }
 
-  console.log(` - GET /user/repos`)
+  logger.log(` - GET /user/repos`)
   let page = 0
   do {
     page++
@@ -88,7 +89,7 @@ const getGithubStats = async () => {
 
   coding.project = orgRepos.length
 
-  console.log('Contributors')
+  logger.log('Contributors')
   const savedRepos = {}
   for await (const repo of orgRepos) {
     if (!repo.private) coding.opensource++
@@ -113,9 +114,9 @@ const getGithubStats = async () => {
 
       coding.commits += savedRepos[repo.full_name].commits
       coding.loc += savedRepos[repo.full_name].added + savedRepos[repo.full_name].deleted
-      console.log(` - ${repo.full_name} (${repo.default_branch}) commits: ${savedRepos[repo.full_name].commits}`)
+      logger.log(` - ${repo.full_name} (${repo.default_branch}) commits: ${savedRepos[repo.full_name].commits}`)
     } else {
-      console.log(` - ${repo.full_name} (${repo.default_branch}) commits: N/A (status:${contri.status})`)
+      logger.log(` - ${repo.full_name} (${repo.default_branch}) commits: N/A (status:${contri.status})`)
     }
 
     // const fetchFrequency = () => apiGitHub.request('GET /repos/{owner}/{repos}/stats/code_frequency', { owner: repo.owner.login, repos: repo.name })
@@ -131,29 +132,22 @@ const getGithubStats = async () => {
     // if (frequency.status === 200) {
     //   savedRepos[repo.full_name].loc = frequency.data.reduce((sum, [ tstamp, inserted, deleted ]) => sum + inserted + deleted, 0)
     //   coding.contributions += savedRepos[repo.full_name].loc
-    //   console.log(`   - loc: ${savedRepos[repo.full_name].loc}`)
+    //   logger.log(`   - loc: ${savedRepos[repo.full_name].loc}`)
     // } else {
-    //   console.log(`   - loc: N/A (status:${frequency.status})`)
+    //   logger.log(`   - loc: N/A (status:${frequency.status})`)
     // }
   }
   // savedRepos
   await updateJSONfile('repos.json', savedRepos)
   await updateJSONfile('resume.json', { coding })
-
-  // https://api.github.com/repos/dvgamerr/dvgamerr/stats/code_frequency
-  // for (const repos of res2.data) {
-  //   if (repos.private) {
-  //     console.log('- ', repos.full_name)
-  //   }
-  // }
 }
 
 Promise.all([
   markdownToJson('work.json'),
   getGithubStats()
 ]).then(() => {
-  console.log('Complated')
+  logger.log('Complated')
 }).catch(ex => {
-  console.error(ex)
+  logger.error(ex)
 })
 

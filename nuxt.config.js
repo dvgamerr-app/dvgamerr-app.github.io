@@ -11,7 +11,7 @@ export default {
   telemetry: false,
   srcDir: 'src',
   head: {
-    titleTemplate: t => `${t || ''}`,
+    titleTemplate: t => `${t || ''} Mr. Kananek T.`,
     htmlAttrs: {
       lang: 'en'
     },
