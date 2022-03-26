@@ -22,11 +22,18 @@
           <div class="col-md-9">
             <div class="row">
               <div class="col-md-12">
-                <div class="content-item">
+                <div class="content-job">
                   <small v-text="toDateRange(e.range)" />
                   <h3 v-if="!e.jobs" v-text="e.job" />
                   <h4 v-text="e.work" />
                   <div v-if="!e.jobs" class="markdown pt-1" v-html="$md.render(workfile[e.file] || '**N/A**')" />
+                  <div class="content-subjob" v-else>
+                    <div v-for="(j, l) in e.jobs" :key="l">
+                      <h3 v-text="j.job" />
+                      <small v-text="toDateRange(j.range)" />
+                      <div class="markdown pt-1" v-html="$md.render(workfile[j.file] || '**N/A**')" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -64,3 +71,33 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.content-job {
+  margin-bottom: 20px;
+}
+
+.content-subjob {
+  padding: 15px 0px 0px 0px;
+  > div {
+    padding: 10px 0px;
+    h3 {
+      margin: 0px;
+    }
+  }
+}
+.content-job h3 {
+  margin: 0 0 10px;
+  line-height: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.content-job h4 {
+  margin: 0;
+  line-height: 1;
+}
+.content-job small {
+  color: #888888;
+}
+
+</style>

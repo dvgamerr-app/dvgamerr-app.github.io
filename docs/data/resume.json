@@ -124,7 +124,7 @@
         "jobs": [
           {
             "range": {
-              "begin": "2019-01-01T00:00:00.000+07:00",
+              "begin": "2019-02-01T00:00:00.000+07:00",
               "quit": null
             },
             "job": "Full Stack Engineer",
@@ -133,7 +133,7 @@
           {
             "range": {
               "begin": "2018-02-01T00:00:00.000+07:00",
-              "quit": "2019-01-01T00:00:00.000+07:00"
+              "quit": "2019-02-01T00:00:00.000+07:00"
             },
             "job": "Senior Development asst. Division Manager",
             "file": "2018-work-central-group-1.md"
