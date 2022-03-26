@@ -11,14 +11,14 @@
   },
   "coding": {
     "experience": "2013-04-29T01:30:00.000+07:00",
-    "loc": 5578634,
+    "loc": 5582710,
     "project": 189,
     "opensource": 147,
     "yesterday_seconds": 6432.880261,
     "average_seconds": 16323,
     "best_seconds": 41713.086716,
-    "languages": 0,
-    "commits": 7262,
+    "languages": 40,
+    "commits": 7266,
     "daytime": [
       440,
       214.383,

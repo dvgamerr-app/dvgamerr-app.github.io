@@ -113,8 +113,16 @@ const getGithubStats = async () => {
       }
 
       coding.commits += savedRepos[repo.full_name].commits
-      coding.loc += savedRepos[repo.full_name].added + savedRepos[repo.full_name].deleted
-      logger.log(` - ${repo.full_name} (${repo.default_branch}) commits: ${savedRepos[repo.full_name].commits}`)
+      coding.loc += savedRepos[repo.full_name].added
+      coding.loc += savedRepos[repo.full_name].deleted
+
+      const languages = await apiGitHub.request('GET /repos/{owner}/{repos}/languages', { owner: repo.owner.login, repos: repo.name })
+      if (languages.status === 200) {
+        savedRepos[repo.full_name].languages = languages.data
+        coding.languages = Object.assign(coding.languages, languages.data)
+      }
+
+      logger.log(` - [${repo.fork ? 'fork' : 'owner'}] ${repo.full_name} (${repo.default_branch}) commits: ${savedRepos[repo.full_name].commits}`)
     } else {
       logger.log(` - ${repo.full_name} (${repo.default_branch}) commits: N/A (status:${contri.status})`)
     }
@@ -137,6 +145,8 @@ const getGithubStats = async () => {
     //   logger.log(`   - loc: N/A (status:${frequency.status})`)
     // }
   }
+
+  coding.languages = Object.keys(coding.languages).length
   // savedRepos
   await updateJSONfile('repos.json', savedRepos)
   await updateJSONfile('resume.json', { coding })
