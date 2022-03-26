@@ -1,10 +1,10 @@
-const { Octokit } = require("@octokit/core")
+const { Octokit } = require('@octokit/core')
 const debuger = require('@touno-io/debuger')
+const dayjs = require('dayjs')
 
 const { readdir, readFile, writeFile } = require('fs/promises')
 const { existsSync } = require('fs')
-const { extname, join } = require('path');
-const process = require("process");
+const { extname, join } = require('path')
 
 const updateJSONfile = async (file, updated) => {
   const dirData = './docs/data'
@@ -28,8 +28,12 @@ const logger = debuger('GEN')
 
 const apiGitHub = new Octokit({
   auth: process.env.GITHUB_TOKEN,
-  baseUrl: "https://api.github.com",
-  Accept: "application/vnd.github.v3+json",
+  baseUrl: 'https://api.github.com',
+  Accept: 'application/vnd.github.v3+json',
+})
+
+const apiWaka = new Octokit({
+  baseUrl: 'https://wakatime.com/api/v1'
 })
 
 const markdownToJson = async (filename) => {
@@ -46,6 +50,8 @@ const markdownToJson = async (filename) => {
 }
 
 const fetchContributors = r => apiGitHub.request('GET /repos/{owner}/{repos}/stats/contributors', { owner: r.owner.login, repos: r.name })
+
+const fetchCommitActivity = r => apiGitHub.request('GET /repos/{owner}/{repos}/stats/commit_activity', { owner: r.owner.login, repos: r.name })
 
 const getGithubStats = async () => {
   if (!process.env.GITHUB_TOKEN) return
@@ -65,11 +71,9 @@ const getGithubStats = async () => {
 
   let orgRepos = []
   let nextPage = false
-  logger.log(' - GET /user/orgs')
   const { data: orgs } = await apiGitHub.request('GET /user/orgs')
   for await (const org of orgs) {
     let page = 0
-    logger.log(` - GET /orgs/${org.login}/repos`)
     do {
       page++
       const { data: repos } = await apiGitHub.request('GET /orgs/{org}/repos', { org: org.login, per_page: 100, page })
@@ -78,7 +82,6 @@ const getGithubStats = async () => {
     } while(nextPage)
   }
 
-  logger.log(` - GET /user/repos`)
   let page = 0
   do {
     page++
@@ -89,75 +92,87 @@ const getGithubStats = async () => {
 
   coding.project = orgRepos.length
 
-  logger.log('Contributors')
+  logger.info('Contributors Task...')
   const savedRepos = {}
+  const reposTask = []
   for await (const repo of orgRepos) {
     if (!repo.private) coding.opensource++
     savedRepos[repo.full_name] = { commits: 0, added: 0, deleted: 0 }
-
-
-    let tries = 4
-    let contri = await fetchContributors(repo)
-    while (contri.status === 202 && tries > 0) {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      contri = await fetchContributors(repo)
-      tries--
-    }
-
-    if (contri.status === 200) {
-      for (const c of contri.data) {
-        if (c.author.login !== 'dvgamerr') continue
-        savedRepos[repo.full_name].commits += c.total
-        savedRepos[repo.full_name].added += c.weeks.reduce((sum, { a }) => sum + a, 0)
-        savedRepos[repo.full_name].deleted += c.weeks.reduce((sum, { d }) => sum + d, 0)
+    reposTask.push((async () => {
+      let tries = 4
+      let contri = await fetchContributors(repo)
+      while (contri.status === 202 && tries > 0) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        contri = await fetchContributors(repo)
+        tries--
       }
 
-      coding.commits += savedRepos[repo.full_name].commits
-      coding.loc += savedRepos[repo.full_name].added
-      coding.loc += savedRepos[repo.full_name].deleted
+      if (contri.status === 200) {
+        for (const c of contri.data) {
+          if (c.author.login !== 'dvgamerr') continue
+          savedRepos[repo.full_name].commits += c.total
+          savedRepos[repo.full_name].added += c.weeks.reduce((sum, { a }) => sum + a, 0)
+          savedRepos[repo.full_name].deleted += c.weeks.reduce((sum, { d }) => sum + d, 0)
+        }
+
+        coding.commits += savedRepos[repo.full_name].commits
+        coding.loc += savedRepos[repo.full_name].added
+        coding.loc += savedRepos[repo.full_name].deleted
+      } else {
+        logger.log(` - ${repo.full_name} commits:${contri.status})`)
+      }
 
       const languages = await apiGitHub.request('GET /repos/{owner}/{repos}/languages', { owner: repo.owner.login, repos: repo.name })
       if (languages.status === 200) {
         savedRepos[repo.full_name].languages = languages.data
         coding.languages = Object.assign(coding.languages, languages.data)
+      } else {
+        logger.log(` - ${repo.full_name} languages:${contri.status})`)
       }
-
-      logger.log(` - [${repo.fork ? 'fork' : 'owner'}] ${repo.full_name} (${repo.default_branch}) commits: ${savedRepos[repo.full_name].commits}`)
-    } else {
-      logger.log(` - ${repo.full_name} (${repo.default_branch}) commits: N/A (status:${contri.status})`)
-    }
-
-    // const fetchFrequency = () => apiGitHub.request('GET /repos/{owner}/{repos}/stats/code_frequency', { owner: repo.owner.login, repos: repo.name })
-
-    // let tries = 4
-    // let frequency = await fetchFrequency()
-    // while (frequency.status === 202 && tries > 0) {
-    //   await new Promise(resolve => setTimeout(resolve, 5000));
-    //   frequency = await fetchFrequency()
-    //   tries--
-    // }
-
-    // if (frequency.status === 200) {
-    //   savedRepos[repo.full_name].loc = frequency.data.reduce((sum, [ tstamp, inserted, deleted ]) => sum + inserted + deleted, 0)
-    //   coding.contributions += savedRepos[repo.full_name].loc
-    //   logger.log(`   - loc: ${savedRepos[repo.full_name].loc}`)
-    // } else {
-    //   logger.log(`   - loc: N/A (status:${frequency.status})`)
-    // }
+    })())
   }
-
+  logger.info('Github API...')
+  await Promise.all(reposTask)
   coding.languages = Object.keys(coding.languages).length
   // savedRepos
+  logger.info('Saving...')
   await updateJSONfile('repos.json', savedRepos)
   await updateJSONfile('resume.json', { coding })
 }
 
+const getWakaTime = async () => {
+  if (!process.env.WAKATIME_TOKEN) return
+  // https://wakatime.com/api/v1/users/current/durations?api_key=f389e6d1-207e-4c49-9526-d2623ce7b6d1&date=2022-03-26
+  const { status, data: { data: durations } } = await apiWaka.request('GET /users/current/durations', {
+    api_key: process.env.WAKATIME_TOKEN,
+    date: '2022-03-26'
+  })
+  if (status !== 200) return logger.error(status)
+
+  let dayTime = {}
+  for (const data of durations) {
+    if (data.duration == 0) continue
+    const beginTime = dayjs(data.time * 1000).hour()
+    const endTime = dayjs((data.time + data.duration) * 1000).hour()
+
+    dayTime[beginTime] = 1
+    if (beginTime != endTime) {
+      for (let i = beginTime; i <= endTime; i++) {
+        dayTime[i] = 1
+      }
+    }
+    // console.log(`begin: ${dayjs(beginTime).format('HH:mm:ssZ')} to ${dayjs(endTime).format('HH:mm:ssZ')}`)
+  }
+  console.log('dayTime:', dayTime)
+}
+
 Promise.all([
   markdownToJson('work.json'),
-  getGithubStats()
+  getGithubStats(),
+  getWakaTime()
 ]).then(() => {
   logger.log('Complated')
 }).catch(ex => {
-  logger.error(ex)
+  logger.error(ex.message)
 })
 
