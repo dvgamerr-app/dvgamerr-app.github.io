@@ -1,0 +1,19 @@
+name: pages-data-collector
+
+on:
+  schedule:
+    - cron:  '30 23 * * 0'
+
+jobs:
+  push:
+    name: Generate Data
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout SourceCode
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install and Build
+        run: |
+          yarn --production --frozen-lockfile
+          yarn start
