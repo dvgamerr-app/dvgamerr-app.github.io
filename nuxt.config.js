@@ -146,7 +146,18 @@ export default {
     '@nuxt/typescript-build',
   ],
   build: {
-    babel: { compact: true }
+    // babel: { compact: true },
+    quiet: false,
+    parallel: !production,
+    cache: true,
+    extractCSS: production,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: { name: 'styles', test: /\.(css|vue)$/, chunks: 'all', enforce: true }
+        }
+      }
+    }
   }
 }
 
