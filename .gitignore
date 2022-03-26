@@ -90,4 +90,4 @@ sw.*
 *.swp
 
 # Generate File
-docs/work.json
+docs/data/work.json
