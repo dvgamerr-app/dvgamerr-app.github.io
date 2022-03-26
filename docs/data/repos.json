@@ -1402,7 +1402,8 @@
   "dvgamerr/task-horriblesubs.info": {
     "commits": 0,
     "added": 0,
-    "deleted": 0
+    "deleted": 0,
+    "languages": {}
   },
   "dvgamerr/task-igdb.com": {
     "commits": 4,
