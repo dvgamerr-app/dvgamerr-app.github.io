@@ -134,6 +134,13 @@ export default {
     Allow: '/',
     Sitemap: 'https://mr.touno.io/sitemap.xml'
   },
+  fontawesome: {
+    icons: {
+      solid: true,
+      regular: ['faCopyright'],
+      brands: true
+    }
+  },
   buildModules: [
     '@nuxtjs/fontawesome',
     '@nuxt/typescript-build',
