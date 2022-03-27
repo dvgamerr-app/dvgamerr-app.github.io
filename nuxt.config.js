@@ -11,7 +11,7 @@ export default {
   telemetry: false,
   srcDir: 'src',
   head: {
-    titleTemplate: t => `${t || ''} Mr. Kananek T.`,
+    titleTemplate: t => `${t || ''}`,
     htmlAttrs: {
       lang: 'en'
     },
@@ -133,13 +133,6 @@ export default {
     UserAgent: '*',
     Allow: '/',
     Sitemap: 'https://mr.touno.io/sitemap.xml'
-  },
-  fontawesome: {
-    icons: {
-      solid: true,
-      regular: ['faCopyright'],
-      brands: true
-    }
   },
   buildModules: [
     '@nuxtjs/fontawesome',

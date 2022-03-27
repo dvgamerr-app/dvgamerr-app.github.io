@@ -59,6 +59,11 @@ const { work } = data['en']
 
 export default {
   data: () => ({ work, workfile }),
+  head () {
+    return {
+      title: 'Mr. Kananek T.'
+    }
+  },
   methods: {
     toDateRange (range) {
       const begin = dayjs(range.begin)
