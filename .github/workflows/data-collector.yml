@@ -15,5 +15,10 @@ jobs:
           fetch-depth: 0
       - name: Install and Build
         run: |
-          yarn --production --frozen-lockfile
-          yarn start
+          yarn
+          yarn github
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated Change resume.json, repos.json
+          repository: .

@@ -81,7 +81,7 @@
                 <tbody>
                   <tr v-for="(e, i) of coding.weektime" :key="i">
                     <th scope="row" :class="{ 'highlight': maxWeekTime === e }" v-text="dayOfWeek(i)" />
-                    <td :style="{ '--size': `calc( ${e * 100 / 560} / 100 )`}" :class="{ 'highlight': maxWeekTime === e }"/>
+                    <td :style="{ '--size': `calc( ${e * 100 / maxWeekTime} / 100 )`}" :class="{ 'highlight': maxWeekTime === e }"/>
                   </tr>
                 </tbody>
               </table>

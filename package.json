@@ -5,8 +5,10 @@
   "author": "Mr.Kananek T. <info.dvgamer@gmail.com>",
   "private": false,
   "scripts": {
-    "start": "env-cmd node .",
     "dev": "node . && nuxt",
+    "dev:gen": "env-cmd node .",
+    "github": "node . --github",
+    "wakatime": "node . --wakatime",
     "build": "node . && nuxt generate",
     "eslint": "eslint --fix --ext .js,.vue --ignore-path .eslintignore ."
   },
@@ -32,10 +34,10 @@
     "numeral": "^2.0.6",
     "nuxt": "^2.2.0",
     "nuxt-compress": "^4.1.1",
+    "sass": "^1.49.9",
+    "sass-loader": "10",
     "vue-clipboards": "^1.3.0",
-    "vue-tippy": "^4.10.0",
-    "sass": "^1.43.5",
-    "sass-loader": "10"
+    "vue-tippy": "^4.10.0"
   },
   "repository": {
     "type": "git",

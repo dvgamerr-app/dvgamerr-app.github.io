@@ -6,11 +6,16 @@ const { readdir, readFile, writeFile } = require('fs/promises')
 const { existsSync } = require('fs')
 const { extname, join } = require('path')
 
+const logger = debuger('GEN')
+const enableGithub = process.argv.filter(e => e === '--github').length > 0
+const enableWakatime = process.argv.filter(e => e === '--wakatime').length > 0
+
 const updateJSONfile = async (file, updated) => {
   const dirData = './docs/data'
   if (existsSync(join(dirData, file))) {
     const rawData = await readFile(join(dirData, file))
-
+    logger.log('updated:')
+    console.log(updated)
     const data = JSON.parse(rawData.toString())
     for (const key in updated) {
       if (typeof updated[key] != 'object') continue
@@ -23,7 +28,6 @@ const updateJSONfile = async (file, updated) => {
   }
 }
 
-const logger = debuger('GEN')
 // const apiGitHub = Octokit.defaults()
 
 const apiGitHub = new Octokit({
@@ -54,7 +58,7 @@ const fetchContributors = r => apiGitHub.request('GET /repos/{owner}/{repos}/sta
 const fetchCommitActivity = r => apiGitHub.request('GET /repos/{owner}/{repos}/stats/commit_activity', { owner: r.owner.login, repos: r.name })
 
 const getGithubStats = async () => {
-  if (!process.env.GITHUB_TOKEN) return
+  if (!process.env.GITHUB_TOKEN || !enableGithub) return
 
   logger.info('Query Repositories')
   const coding = {
@@ -141,29 +145,78 @@ const getGithubStats = async () => {
 }
 
 const getWakaTime = async () => {
-  if (!process.env.WAKATIME_TOKEN) return
+  if (!process.env.WAKATIME_TOKEN || !enableWakatime) return
   // https://wakatime.com/api/v1/users/current/durations?api_key=f389e6d1-207e-4c49-9526-d2623ce7b6d1&date=2022-03-26
-  const { status, data: { data: durations } } = await apiWaka.request('GET /users/current/durations', {
-    api_key: process.env.WAKATIME_TOKEN,
-    date: '2022-03-26'
-  })
-  if (status !== 200) return logger.error(status)
 
-  let dayTime = {}
-  for (const data of durations) {
-    if (data.duration == 0) continue
-    const beginTime = dayjs(data.time * 1000).hour()
-    const endTime = dayjs((data.time + data.duration) * 1000).hour()
 
-    dayTime[beginTime] = 1
-    if (beginTime != endTime) {
-      for (let i = beginTime; i <= endTime; i++) {
-        dayTime[i] = 1
-      }
-    }
-    // console.log(`begin: ${dayjs(beginTime).format('HH:mm:ssZ')} to ${dayjs(endTime).format('HH:mm:ssZ')}`)
+  const coding = {
+    yesterday_seconds: 0,
+    average_seconds: 0,
+    best_seconds: 0,
+    daytime: [],
+    weektime: []
   }
-  console.log('dayTime:', dayTime)
+
+  let beginDateTime = ''
+  let dayTime = {}
+  let weekTime = {}
+
+  for (let i = 0; i <= 23; i++) dayTime[i] = 0
+  for (let i = 0; i <= 6; i++) weekTime[i] = 0
+
+  wakaTask = []
+  const totalDay = 30
+  let cDate = dayjs().startOf('d')
+  for (let i = totalDay; i > 0; i--) {
+    cDate = dayjs().startOf('d')
+    const currDateTime = cDate.add(i * -1, 'd').format('YYYY-MM-DD')
+    const currDay = cDate.add(i * -1, 'd').day()
+    if (!beginDateTime) beginDateTime = currDateTime
+    wakaTask.push((async () => {
+      const { status, data: { data: durations } } = await apiWaka.request('GET /users/current/durations', {
+        api_key: process.env.WAKATIME_TOKEN,
+        date: currDateTime
+      })
+      if (status !== 200) return logger.error(status)
+
+      let totalDuration = 0
+      for (const data of durations) {
+        if (data.duration == 0) continue
+        const beginTime = dayjs(data.time * 1000).hour()
+        const endTime = dayjs((data.time + data.duration) * 1000).hour()
+
+        for (let i = beginTime; i <= endTime; i++) {
+          dayTime[i] = (dayTime[i] || 0) + 1
+        }
+        totalDuration += data.duration
+      }
+      coding.average_seconds += totalDuration
+
+      if (totalDuration > coding.best_seconds) coding.best_seconds = totalDuration
+      if (i === 1) coding.yesterday_seconds = totalDuration
+
+      weekTime[currDay] = (weekTime[currDay] || 0) + totalDuration
+    })())
+    if (wakaTask.length == 10) {
+      console.log(`fetch: ${beginDateTime} to ${currDateTime}`)
+      await Promise.all(wakaTask)
+      wakaTask = []
+      beginDateTime = ''
+    }
+  }
+
+  if (wakaTask.length > 0) {
+    console.log(`fetch: ${beginDateTime} to ${dateTime}`)
+    await Promise.all(wakaTask)
+  }
+
+  coding.average_seconds /= totalDay
+  coding.daytime = Object.values(dayTime)
+  weekTime = Object.values(weekTime).map(e => parseInt(e / 60 / 60 * 100) / 100)
+  weekTime.push(weekTime.shift())
+
+  coding.weektime = weekTime
+  await updateJSONfile('resume.json', { coding })
 }
 
 Promise.all([
