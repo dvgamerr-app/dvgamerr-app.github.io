@@ -158,6 +158,7 @@ const getWakaTime = async () => {
   }
 
   let beginDateTime = ''
+  let currDateTime = ''
   let dayTime = {}
   let weekTime = {}
 
@@ -165,11 +166,11 @@ const getWakaTime = async () => {
   for (let i = 0; i <= 6; i++) weekTime[i] = 0
 
   wakaTask = []
-  const totalDay = 30
+  const totalDay = 365
   let cDate = dayjs().startOf('d')
   for (let i = totalDay; i > 0; i--) {
     cDate = dayjs().startOf('d')
-    const currDateTime = cDate.add(i * -1, 'd').format('YYYY-MM-DD')
+    currDateTime = cDate.add(i * -1, 'd').format('YYYY-MM-DD')
     const currDay = cDate.add(i * -1, 'd').day()
     if (!beginDateTime) beginDateTime = currDateTime
     wakaTask.push((async () => {
@@ -206,7 +207,7 @@ const getWakaTime = async () => {
   }
 
   if (wakaTask.length > 0) {
-    console.log(`fetch: ${beginDateTime} to ${dateTime}`)
+    console.log(`fetch: ${beginDateTime} to ${currDateTime}`)
     await Promise.all(wakaTask)
   }
 
