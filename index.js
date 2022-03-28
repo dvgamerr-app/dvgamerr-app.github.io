@@ -31,7 +31,7 @@ const updateJSONfile = async (file, updated) => {
 // const apiGitHub = Octokit.defaults()
 
 const apiGitHub = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
+  auth: process.env.GH_TOKEN,
   baseUrl: 'https://api.github.com',
   Accept: 'application/vnd.github.v3+json',
 })
@@ -58,7 +58,7 @@ const fetchContributors = r => apiGitHub.request('GET /repos/{owner}/{repos}/sta
 const fetchCommitActivity = r => apiGitHub.request('GET /repos/{owner}/{repos}/stats/commit_activity', { owner: r.owner.login, repos: r.name })
 
 const getGithubStats = async () => {
-  if (!process.env.GITHUB_TOKEN || !enableGithub) return
+  if (!process.env.GH_TOKEN || !enableGithub) return
 
   logger.info('Query Repositories')
   const coding = {
@@ -145,7 +145,7 @@ const getGithubStats = async () => {
 }
 
 const getWakaTime = async () => {
-  if (!process.env.WAKATIME_TOKEN || !enableWakatime) return
+  if (!process.env.WK_TOKEN || !enableWakatime) return
   // https://wakatime.com/api/v1/users/current/durations?api_key=f389e6d1-207e-4c49-9526-d2623ce7b6d1&date=2022-03-26
 
 
@@ -175,7 +175,7 @@ const getWakaTime = async () => {
     if (!beginDateTime) beginDateTime = currDateTime
     wakaTask.push((async () => {
       const { status, data: { data: durations } } = await apiWaka.request('GET /users/current/durations', {
-        api_key: process.env.WAKATIME_TOKEN,
+        api_key: process.env.WK_TOKEN,
         date: currDateTime
       })
       if (status !== 200) return logger.error(status)
