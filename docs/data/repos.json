@@ -589,14 +589,14 @@
     }
   },
   "dvgamerr/dvgamerr": {
-    "commits": 217,
-    "added": 106282,
-    "deleted": 88281,
+    "commits": 220,
+    "added": 106452,
+    "deleted": 88390,
     "languages": {
-      "Vue": 88833,
+      "Vue": 88841,
       "HTML": 48359,
+      "JavaScript": 17019,
       "CSS": 15578,
-      "JavaScript": 15377,
       "SCSS": 583,
       "Dockerfile": 162
     }
