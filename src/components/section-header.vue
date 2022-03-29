@@ -2,21 +2,26 @@
   <header class="header">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 d-none d-md-block">
           <div class="profile-img">
             <img src="~assets/logo.jpg" loading="lazy" class="img-fluid" alt="">
           </div>
-          <!-- Profile Image -->
         </div>
         <div class="col-md-9">
-          <div class="name-wrapper">
-            <h1 class="name">
-              {{ resume.fullname }}
-            </h1>
-            <span>
-              {{ resume.job }}
-            </span>
-            <div class="d-print-none clear-p" v-html="$md.render(badge)" />
+          <div class="row">
+            <div class="d-none">
+            </div>
+            <div class="col-md-12">
+              <div class="name-wrapper">
+                <h1 class="name">
+                  {{ resume.fullname }}
+                </h1>
+                <span>
+                  {{ resume.job }}
+                </span>
+                <div class="d-print-none clear-p" v-html="$md.render(badge)" />
+              </div>
+            </div>
           </div>
           <p contenteditable="false" v-html="$md.render(resume.detail)" />
           <div class="row">

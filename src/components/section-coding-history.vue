@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-9">
           <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-6 col-md-3">
               <div class="item-stats">
                 <div class="item-stats-value" v-text="parseTime(coding.yesterday_seconds)" />
                 <div class="item-stats-name">
@@ -17,7 +17,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-6 col-md-3">
               <div class="item-stats">
                 <div class="item-stats-value" v-text="parseTime(coding.average_seconds)" />
                 <div class="item-stats-name">
@@ -25,7 +25,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-6 col-md-3">
               <div class="item-stats">
                 <div class="item-stats-value" v-text="parseTime(coding.best_seconds)" />
                 <div class="item-stats-name">
@@ -33,7 +33,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-6 col-md-3">
               <div class="item-stats">
                 <div class="item-stats-value" v-text="coding.languages" />
                 <div class="item-stats-name">

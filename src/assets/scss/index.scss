@@ -1,6 +1,7 @@
 @import 'bootstrap/scss/bootstrap.scss';
 @import 'charts.css/dist/charts.css';
 @import 'markdown.scss';
+@import 'global.scss';
 
 @import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -16,5 +17,8 @@ code {
   code {
     color: #444;
     font-weight: bold;
+  }
+  .tippy-popper {
+    display: none !important;
   }
 }
