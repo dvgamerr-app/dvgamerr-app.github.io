@@ -1,10 +1,10 @@
 **Research and Develop**
-- Face Recognition (Python, OpenCV, SocketIO)
-- Robot Project - Arduino Robotics Model
+- Research Face Recognition (`Python`, `OpenCV`, `SocketIO`)
+- Research Robot Project - `Arduino` Robotics Model
 
 **Front-end and Back-end Website**
 - Develop Clocking System and Clocking Online
-- Maintenance and Develop Travox Midback-Office™ and Travox Hotel™ 
+- Maintenance and Develop Travox `Midback-Office™` and  
 - Join Stock Team and Develop Stock Web for Siamchai, TCRadio 
 - Join Clalet Team and Develop Clalet Web for Red Cross
 - Develop Payment Service (Paysbuy Modules)
@@ -18,8 +18,8 @@
 - Recommend Git-Source Control Server for Programmer Department (Gitlab)
 
 **Windows Application**
-- Analyze, Design System and Develop Travox Sentinel™ 
+- Analyze, Design System and Develop `Travox Sentinel™ `
 
 **Android Application**
-- Maintenance and Develop Android App CheckStock™ Barcode
+- Maintenance and Develop Android App `CheckStock™` Barcode
 
