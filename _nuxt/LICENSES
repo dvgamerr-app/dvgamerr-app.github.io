@@ -1,12 +1,3 @@
-/*! @preserve
- * numeral.js
- * version : 2.0.6
- * author : Adam Draper
- * license : MIT
- * http://adamwdraper.github.com/Numeral-js/
- */
-
-
 /*!
  * Determine if an object is a Buffer
  *
@@ -25,6 +16,15 @@
  * Vue.js v2.6.14
  * (c) 2014-2021 Evan You
  * Released under the MIT License.
+ */
+
+
+/*! @preserve
+ * numeral.js
+ * version : 2.0.6
+ * author : Adam Draper
+ * license : MIT
+ * http://adamwdraper.github.com/Numeral-js/
  */
 
 
