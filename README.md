@@ -46,19 +46,17 @@ This is the place where I opensource stuff and break things :rofl:
 <p align="left"> <a href="https://discord.com/users/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" width="32" height="32" /></a> <a href="https://www.facebook.com/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/facebook.svg" width="32" height="32" /></a> <a href="https://www.github.com/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github-dark.svg" width="32" height="32" /></a> <a href="http://www.instagram.com/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/instagram.svg" width="32" height="32" /></a> <a href="https://www.linkedin.com/in/kananek-thongkam" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" width="32" height="32" /></a> <a href="https://www.twitter.com/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" width="32" height="32" /></a></p>
 
 -------------------------
-#### Wakatime Dashboard
+#### Wakatime Language (code activity last 7 days)
 
 [![](https://github-readme-stats.vercel.app/api/wakatime?username=@dvgamerr&bg_color=1c1917&color=ffffff)](https://wakatime.com/@dvgamerr)
-
 -------------------------
-### My GitHub Stats
 
+#### My GitHub Stats
 <a href="http://www.github.com/dvgamerr"><img src="https://github-readme-stats.vercel.app/api?username=dvgamerr&show_icons=true&hide=prs,&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&show_icons=true" alt="dvgamerr's GitHub stats" /></a>
 
 <a href="http://www.github.com/dvgamerr"><img src="https://activity-graph.herokuapp.com/graph?username=dvgamerr&bg_color=1c1917&color=ffffff&line=0891b2&point=ffffff&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph" alt="GitHub Commits Graph" /></a>
 
 <a href="https://github.com/dvgamerr" align="left"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dvgamerr&langs_count=10&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&locale=en&custom_title=Top%20%Languages" alt="Top Languages" /></a>
-
 -------------------------
 
 # Touno™ Project
