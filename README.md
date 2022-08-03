@@ -48,7 +48,7 @@ This is the place where I opensource stuff and break things :rofl:
 -------------------------
 #### Wakatime Dashboard
 
-[![](https://github-readme-stats.vercel.app/api/wakatime?username=dvgamerr&bg_color=1c1917&color=ffffff)](https://touno.io/s/rfd6)
+[![](https://github-readme-stats.vercel.app/api/wakatime?username=@dvgamerr&bg_color=1c1917&color=ffffff)](https://wakatime.com/@dvgamerr)
 
 -------------------------
 ### My GitHub Stats
