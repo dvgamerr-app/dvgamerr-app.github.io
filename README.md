@@ -74,10 +74,6 @@ This is the place where I opensource stuff and break things :rofl:
 - **notice.touno.io** deploy ไว้ที่ NAS-Synology ด้วย express+nuxt
 
 ### Task
-- **ris-timesheet** ทำ timesheet ภายในบริษัท RIS เช็คทุกๆ วันหลัง 6 โมงเย็น `(รันไว้ที่ Github Actions)` 
-
-![Dashboard](./docs/ris-timesheet.png)
-
 - **task-wakatime** ดึงข้อมูลจาก wakatime เข้า mongodb เที่ยงคืนของทุกวัน `(รันไว้ที่ NAS-Synology)`
 
 ![Dashboard](./docs/task-wakatime.png)
@@ -86,10 +82,6 @@ This is the place where I opensource stuff and break things :rofl:
 
 ![Dashboard](./docs/task-cinema.png)
 
-- **task-notify** ดึงข้อมูล จากที่น่าสนใจต่างๆ มาแจ้งเตือนโดยตรง
-
-![timesheet](./docs/ris-timesheet-2.png)
-![github](./docs/task-github.png)
 
 ## Tech/Framework used
 - [Go Programming Language](https://golang.org/)
