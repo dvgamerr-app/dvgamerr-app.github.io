@@ -4,21 +4,21 @@
   "salary": {
     "base": 43005,
     "expect": 85000,
-    "rate": 35.690406,
+    "rate": 35.689714,
     "day": 30,
     "hour": 8,
     "currency": "$"
   },
   "coding": {
     "experience": "2013-04-29T01:30:00.000+07:00",
-    "loc": 5905949,
+    "loc": 5911301,
     "project": 210,
     "opensource": 165,
     "yesterday_seconds": 28781.553912,
     "average_seconds": 10493.766308991779,
     "best_seconds": 44422.207450999995,
     "languages": 40,
-    "commits": 7674,
+    "commits": 7679,
     "daytime": [
       193,
       124,

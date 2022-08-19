@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "node . && nuxt",
     "dev:gen": "env-cmd node .",
-    "github": "node . --github",
+    "collector": "node . --github --wakatime",
     "wakatime": "node . --wakatime",
-    "build": "node . --github --wakatime && nuxt generate",
+    "build": "nuxt generate",
     "eslint": "eslint --fix --ext .js,.vue --ignore-path .eslintignore ."
   },
   "dependencies": {

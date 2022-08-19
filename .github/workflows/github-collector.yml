@@ -10,14 +10,27 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout SourceCode
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
+      - name: Get yarn cache directory path 🛠
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node_modules 📦
+        uses: actions/cache@v3.0.7
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Install and Build
         run: |
           yarn
-          yarn github
-          yarn wakatime
+          yarn collector
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
