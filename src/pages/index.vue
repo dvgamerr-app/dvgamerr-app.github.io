@@ -45,7 +45,6 @@
     <div>
       <section-education class="d-print-none" />
       <section-certificate class="d-print-none" />
-      <!-- <section-portfolio class="d-print-none" :portfolio="portfolio" /> -->
     </div>
     <page-footer />
   </div>

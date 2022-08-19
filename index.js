@@ -1,10 +1,14 @@
+require('dotenv').config()
+
 const { Octokit } = require('@octokit/core')
 const debuger = require('@touno-io/debuger')
 const dayjs = require('dayjs')
 
 const { readdir, readFile, writeFile } = require('fs/promises')
-const { existsSync } = require('fs')
+const { existsSync, unlinkSync } = require('fs')
 const { extname, join } = require('path')
+
+
 
 const logger = debuger('GEN')
 const enableGithub = process.argv.filter(e => e === '--github').length > 0
@@ -14,17 +18,15 @@ const updateJSONfile = async (file, updated) => {
   const dirData = './docs/data'
   if (existsSync(join(dirData, file))) {
     const rawData = await readFile(join(dirData, file))
-    logger.log('updated:')
-    console.log(updated)
     const data = JSON.parse(rawData.toString())
     for (const key in updated) {
       if (typeof updated[key] != 'object') continue
-      data[key] = Object.assign(data[key], updated[key])
+      data[key] = Object.assign(data[key] || {}, updated[key])
     }
 
     await writeFile(join(dirData, file), JSON.stringify(data, null, 2))
   } else {
-    await writeFile(join(dirData, file), JSON.stringify(updated), null, 2)
+    await writeFile(join(dirData, file), JSON.stringify(updated, null, 2))
   }
 }
 
@@ -140,6 +142,8 @@ const getGithubStats = async () => {
   coding.languages = Object.keys(coding.languages).length
   // savedRepos
   logger.info('Saving...')
+
+  unlinkSync('./docs/data/repos.json')
   await updateJSONfile('repos.json', savedRepos)
   await updateJSONfile('resume.json', { coding })
 }
@@ -220,13 +224,33 @@ const getWakaTime = async () => {
   await updateJSONfile('resume.json', { coding })
 }
 
+const apiLayer = new Octokit({
+  baseUrl: 'https://api.apilayer.com/exchangerates_data'
+})
+
+const getCurrencryUSD = async () => {
+  if (process.env.APILAYER_TOKEN === '') return Promise.resolve()
+
+  logger.info('Query Exchangerates THB-USD')
+  const symbols = 'THB'
+  const { data, status } = await apiLayer.request('GET /latest{?symbols}{&base}', {
+    headers: { apikey: process.env.APILAYER_TOKEN },
+    base: 'USD',
+    symbols
+  })
+
+  const salary = { rate: data.rates[symbols] }
+  await updateJSONfile('resume.json', { salary })
+}
+
 Promise.all([
   markdownToJson('work.json'),
+  getCurrencryUSD(),
   getGithubStats(),
   getWakaTime()
 ]).then(() => {
   logger.log('Complated')
 }).catch(ex => {
-  logger.error(ex.message)
+  console.error(ex)
 })
 

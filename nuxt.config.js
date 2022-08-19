@@ -16,8 +16,7 @@ export default {
       lang: 'en'
     },
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'icon.png' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700&display=swap' }
+      { rel: 'icon', type: 'image/x-icon', href: 'icon.webp' },
     ],
     script: [
       production ? {
@@ -45,7 +44,7 @@ export default {
       { property: 'og:url', content: `${website}/` },
       { property: 'og:site_name', content: title },
       { property: 'og:updated_time', content: date },
-      { property: 'og:image', content: `${website}/fb-image.png` },
+      { property: 'og:image', content: `${website}/fb-image.webp` },
       { property: 'article:publisher', content: 'https://twitter.com/dvgamerr' },
       { property: 'article:author', content: 'https://twitter.com/dvgamerr' },
       { property: 'article:section', content: 'STORIES' },
@@ -55,58 +54,60 @@ export default {
       { property: 'twitter:description', content: desc },
       { property: 'twitter:title', content: title },
       { property: 'twitter:site', content: '@dvgamerr' },
-      { property: 'twitter:image', content: `${website}/fb-image.png` },
+      { property: 'twitter:image', content: `${website}/fb-image.webp` },
       { property: 'twitter:creator', content: '@dvgamerr' }
     ]
   },
   icons: {
     sizes: [32, 57, 72, 144, 512]
   },
-  // pwa: {
-  //   manifest: {
-  //     name: title,
-  //     lang: 'en',
-  //     dir: 'rtl',
-  //     description: '',
-  //     short_name: title,
-  //     start_url: '/',
-  //     scope: '/',
-  //     display: 'fullscreen',
-  //     orientation: 'portrait',
-  //     theme_color: '#f8f8f8',
-  //     background_color: '#f8f8f8',
-  //     icons: [
-  //       { src: '/icon-64.png', sizes: '64x64' },
-  //       { src: '/icon-128.png', sizes: '128x128' },
-  //       { src: '/icon-144.png', sizes: '144x144' }
-  //     ],
-  //     screenshots: [
-  //       {
-  //         src: '/images/fb-image.png',
-  //         sizes: '640x480',
-  //         type: 'image/jpeg'
-  //       },
-  //       {
-  //         src: '/images/fb-image.png',
-  //         sizes: '1280x920',
-  //         type: 'image/jpeg'
-  //       }
-  //     ],
-  //     browser_action: {
-  //       default_icon: '/icon.png',
-  //       default_popup: '/'
-  //     }
-  //   },
-  //   workbox: {
-  //     // Workbox options
-  //   }
-  // },
+  pwa: {
+    // manifest: {
+    //   name: title,
+    //   lang: 'en',
+    //   dir: 'rtl',
+    //   description: '',
+    //   short_name: title,
+    //   start_url: '/',
+    //   scope: '/',
+    //   display: 'fullscreen',
+    //   orientation: 'portrait',
+    //   theme_color: '#f8f8f8',
+    //   background_color: '#f8f8f8',
+    //   icons: [
+    //     { src: '/icon-64.webp', sizes: '64x64' },
+    //     { src: '/icon-128.webp', sizes: '128x128' },
+    //     { src: '/icon-144.webp', sizes: '144x144' }
+    //   ],
+    //   screenshots: [
+    //     {
+    //       src: '/images/fb-image.webp',
+    //       sizes: '640x480',
+    //       type: 'image/jpeg'
+    //     },
+    //     {
+    //       src: '/images/fb-image.webp',
+    //       sizes: '1280x920',
+    //       type: 'image/jpeg'
+    //     }
+    //   ],
+    //   browser_action: {
+    //     default_icon: '/icon.webp',
+    //     default_popup: '/'
+    //   }
+    // },
+    workbox: {
+      // Workbox options
+    }
+  },
   loading: false,
   components: true,
   css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
     '~assets/scss/index.scss'
   ],
   plugins: [
+    '~/plugins/vue-fontawesome.js',
     '~/plugins/vue-tabindex.js',
     '~/plugins/vue-clipboards.js',
     '~/plugins/vue-tippy.js'
@@ -123,6 +124,14 @@ export default {
     gzip: true,
     exclude: []
   },
+  googleFonts: {
+    prefetch: true,
+    display: 'swap',
+    families: {
+      Roboto: true,
+      Hind: [300,400,500,600,700]
+    },
+  },
   markdownit: {
     runtime: true,
     preset: 'default',
@@ -134,31 +143,23 @@ export default {
     Allow: '/',
     Sitemap: 'https://mr.touno.io/sitemap.xml'
   },
-  fontawesome: {
-    icons: {
-      solid: true,
-      regular: ['faCopyright'],
-      brands: true
-    }
-  },
   buildModules: [
     '@nuxtjs/fontawesome',
     '@nuxt/typescript-build',
+    '@nuxtjs/google-fonts'
   ],
   build: {
-    // babel: { compact: true },
-    quiet: false,
-    parallel: !production,
-    cache: true,
-    extractCSS: production,
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: { name: 'styles', test: /\.(css|vue)$/, chunks: 'all', enforce: true }
-        }
-      }
-    }
-  }
+    babel: { compact: true },
+    parallel: true,
+    terser: {
+      parallel: true,
+      cache: true,
+      sourceMap: false,
+    },
+  },
+  loaders: {
+    scss: {},
+  },
 }
 
 

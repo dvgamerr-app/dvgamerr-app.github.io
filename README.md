@@ -76,11 +76,11 @@ This is the place where I opensource stuff and break things :rofl:
 ### Task
 - **task-wakatime** ดึงข้อมูลจาก wakatime เข้า mongodb เที่ยงคืนของทุกวัน `(รันไว้ที่ NAS-Synology)`
 
-![Dashboard](./docs/task-wakatime.png)
+![Dashboard](./docs/task-wakatime.webp)
 
 - **task-cinema** ดึงข้อมูล sf และ major เข้า mongodb ทุกๆ เช้า และแจ้งเตือนเข้าไลน์ทุกวันจันทร์ `(รันไว้ที่ NAS-Synology)`
 
-![Dashboard](./docs/task-cinema.png)
+![Dashboard](./docs/task-cinema.webp)
 
 
 ## Tech/Framework used

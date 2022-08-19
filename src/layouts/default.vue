@@ -6,7 +6,7 @@
 <style lang="scss">
 .resume-profile {
   font-family: "Hind", sans-serif;
-  font-size: 15px;
+  font-size: 1rem;
   margin: 0px;
   line-height: 1.8em;
   color: #989898;
@@ -58,11 +58,11 @@
     -ms-transform: rotate(20deg);
     -o-transform: rotate(20deg);
     transform: rotate(20deg);
-    -webkit-animation: rotating 120s linear infinite;
-    -moz-animation: rotating 120s linear infinite;
-    -ms-animation: rotating 120s linear infinite;
-    -o-animation: rotating 120s linear infinite;
-    animation: rotating 120s linear infinite;
+    -webkit-animation: rotating 180s linear infinite;
+    -moz-animation: rotating 180s linear infinite;
+    -ms-animation: rotating 180s linear infinite;
+    -o-animation: rotating 180s linear infinite;
+    animation: rotating 180s linear infinite;
   }
   &:after {
     position: fixed;
@@ -79,11 +79,11 @@
     -ms-transform: rotate(-30deg);
     -o-transform: rotate(-30deg);
     transform: rotate(-30deg);
-    -webkit-animation: rotating 120s linear infinite;
-    -moz-animation: rotating 120s linear infinite;
-    -ms-animation: rotating 120s linear infinite;
-    -o-animation: rotating 120s linear infinite;
-    animation: rotating 120s linear infinite;
+    -webkit-animation: rotating 180s linear infinite;
+    -moz-animation: rotating 180s linear infinite;
+    -ms-animation: rotating 180s linear infinite;
+    -o-animation: rotating 180s linear infinite;
+    animation: rotating 180s linear infinite;
   }
   /* --------------------------------------
   * Global Typography

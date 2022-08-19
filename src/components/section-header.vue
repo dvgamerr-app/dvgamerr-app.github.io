@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3 d-none d-md-block">
           <div class="profile-img">
-            <img src="~assets/logo.jpg" loading="lazy" class="img-fluid" alt="">
+            <img src="~assets/avatar_20221008.webp" loading="lazy" width="225" height="225" class="img-fluid" alt="">
           </div>
         </div>
         <div class="col-md-9">
@@ -150,113 +150,104 @@ export default {
 }
 </script>
 
-<style scoped>
-/*-----------------------------
-* NAVIGATION & HEADER STYLE
-*-----------------------------*/
-@media print {
+<style lang="scss" scoped>
+@media (max-width: 768px) {
   .header {
-    border-top : none !important;
+    padding: 20px 0;
+
+    .profile-img {
+      margin: 0 0 30px;
+    }
   }
 }
 
-.header .profile-img {
-  margin-right : 30px;
-}
-
-.header .name-wrapper {
-  margin-bottom : 30px;
-}
-
-.header .name-wrapper h1 {
-  text-transform : uppercase;
-  line-height    : 1;
-  margin         : 0 0 5px;
-}
-
-.header .name-wrapper span {
-  font-size : 24px;
-  color     : #ff5722;
-}
-
-.header .personal-details {
-  margin : 10px 0;
-}
-
-.header .personal-details strong {
-  font-size   : 13px;
-  color       : #444444;
-  display     : block;
-  line-height : 1;
-}
-
-.header .personal-details small {
-  font-size : 12px;
-}
-
-.header .personal-details span {
-  color : #989898;
-}
-
-.header .personal-details span.badge {
-  color : #FFF;
-  display: table;
-  padding: 4px 5px 2px;
-  margin-top: -4px;
-}
-
-@media (max-width : 768px) {
-  .header {
-    padding    : 20px 0;
-  }
-
-  .header .profile-img {
-    margin: 0 0 30px;
-  }
-}
-
-@media (max-width : 600px){
+@media (max-width: 600px){
   .header {
     padding: 20px;
   }
 }
 
-/*
- * -------------------
- * Social Icon
- * -------------------
- */
+@media print {
+  .header {
+    border-top: none !important;
+    .personal-details small {
+      font-weight: bold;
+    }
+  }
+}
+
+.header {
+  .profile-img {
+    margin-right: 30px;
+  }
+
+  .name-wrapper {
+    margin-bottom: 30px;
+  }
+
+  .name-wrapper h1 {
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0 0 5px;
+  }
+
+  .name-wrapper span {
+    font-size: 24px;
+    color: #ff5722;
+  }
+
+  .personal-details {
+    margin: 10px 0;
+
+    strong {
+      font-size: 13px;
+      font-weight: 700;
+      color: #444444;
+      display: block;
+      line-height: 1;
+    }
+
+    small {
+      font-size: 12px;
+    }
+
+    span {
+      color: #989898;
+    }
+
+    span.badge {
+      color: #FFF;
+      display: table;
+      padding: 4px 5px 2px;
+      margin-top: -4px;
+    }
+  }
+}
 
 .social-icon {
-  margin  : 20px 0;
-  padding : 0;
-  display : block;
-}
+  margin: 20px 0;
+  padding: 0;
+  display: block;
 
-.social-icon li {
-  display : inline-block;
-  margin  : 0 2px;
-}
+  li {
+    display: inline-block;
+    margin: 0 2px;
+  }
 
-.social-icon li a {
-  display       : block;
-  font-size     : 12px;
-  color         : #333333;
-  width         : 34px;
-  height        : 34px;
-  line-height   : 33px;
-  text-align    : center;
-  border-radius : 2px;
-  border        : 2px solid #eeeeee;
-}
+  li a {
+    display: block;
+    font-size: 12px;
+    color: #333333;
+    width: 34px;
+    height: 34px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 2px;
+    border: 2px solid #eeeeee;
+  }
 
-.social-icon li a:hover {
-  border-color : #cccccc;
-}
-
-@media print {
-  .header .personal-details small {
-    font-weight: bold;
+  li a:hover {
+    border-color: #cccccc;
   }
 }
 
