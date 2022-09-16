@@ -1,4 +1,4 @@
-name: pages-data-collector
+name: github-collector
 
 on:
   schedule:
