@@ -208,6 +208,7 @@ export default {
     }
 
     small {
+      font-weight: normal;
       font-size: 12px;
     }
 

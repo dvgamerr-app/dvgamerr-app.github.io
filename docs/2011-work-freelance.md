@@ -1,4 +1,4 @@
-- Design software within the enterprise, schools and individuals with wordpress and php framework.
-- Advisor to complete the project and to complete the projects.
-- A general web site's web profile.
-- Design a logo, websites, facebook pages.
+  - Design software within the enterprise, schools and individuals with wordpress and php framework.
+  - Advisor to complete the project and to complete the projects.
+  - A general web site's web profile.
+  - Design a logo, websites, facebook pages.

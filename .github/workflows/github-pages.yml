@@ -58,6 +58,7 @@ jobs:
       - name: Install and Build 🔧
         run: |
           yarn
+          yarn collector
           yarn build
 
       - name: Upload artifact 🚀

@@ -160,10 +160,6 @@
     color: #ff5722;
   }
 
-  p {
-    margin-bottom: 20px;
-  }
-
   strong {
     color: #444444;
   }
