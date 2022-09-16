@@ -991,28 +991,28 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.3.0"
 
-"@fortawesome/fontawesome-svg-core@^6.1.1":
+"@fortawesome/fontawesome-svg-core@^6.2.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.2.0.tgz#11856eaf4dd1d865c442ddea1eed8ee855186ba2"
   integrity sha512-Cf2mAAeMWFMzpLC7Y9H1I4o3wEU+XovVJhTiNG8ZNgSQj53yl7OCJaS80K4YjrABWZzbAHVaoHE1dVJ27AAYXw==
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.2.0"
 
-"@fortawesome/free-brands-svg-icons@^6.1.1":
+"@fortawesome/free-brands-svg-icons@^6.2.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-6.2.0.tgz#ce072179677f9b5d6767f918cfbf296f357cc1d0"
   integrity sha512-fm1y4NyZ2qKYNmYhdMz9VAWRw1Et7PMHNunSw3W0SVAwKwv6o0qiJworLH3Y9SnmhHzAymXJwCX1op22FFvGiA==
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.2.0"
 
-"@fortawesome/free-regular-svg-icons@^6.1.1":
+"@fortawesome/free-regular-svg-icons@^6.2.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-6.2.0.tgz#947e1f03be17da3a60bfeb2666b5348b19448ce2"
   integrity sha512-M1dG+PAmkYMTL9BSUHFXY5oaHwBYfHCPhbJ8qj8JELsc9XCrUJ6eEHWip4q0tE+h9C0DVyFkwIM9t7QYyCpprQ==
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.2.0"
 
-"@fortawesome/free-solid-svg-icons@^6.1.1":
+"@fortawesome/free-solid-svg-icons@^6.2.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.2.0.tgz#8dcde48109354fd7a5ece8ea48d678bb91d4b5f0"
   integrity sha512-UjCILHIQ4I8cN46EiQn0CZL/h8AwCGgR//1c4R96Q5viSRwuKVo0NdQEc4bm+69ZwC0dUvjbDqAHF1RR5FA3XA==
@@ -7056,7 +7056,7 @@ nuxt-compress@^4.1.1:
     brotli-webpack-plugin "^1.1.0"
     compression-webpack-plugin "^6.1.1"
 
-nuxt@^2.15.8:
+nuxt@^2.12.2:
   version "2.15.8"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.15.8.tgz#946cba46bdaaf0e3918aa27fd9ea0fed8ed303b0"
   integrity sha512-ceK3qLg/Baj7J8mK9bIxqw9AavrF+LXqwYEreBdY/a4Sj8YV4mIvhqea/6E7VTCNNGvKT2sJ/TTJjtfQ597lTA==
