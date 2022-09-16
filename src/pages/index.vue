@@ -93,7 +93,7 @@ export default {
       quit = quit ? `- ${dayjs(quit).format('MMMM YYYY')}` : !newJob ? '- Present' : ''
 
       const month = parseInt(worked % 1 * 12)
-      const timeDiff = (worked > 0 ? `${worked.toFixed(0)} year` : '') + (month > 0 ? ` ${month} month` : '')
+      const timeDiff = (worked > 0 ? `${Math.floor(worked)} year` : '') + (month > 0 ? ` ${month} month` : '')
       return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
     }
   },
