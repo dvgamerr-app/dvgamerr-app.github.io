@@ -44,7 +44,7 @@ export default {
       { property: 'og:url', content: `${website}/` },
       { property: 'og:site_name', content: title },
       { property: 'og:updated_time', content: date },
-      { property: 'og:image', content: `${website}/fb-image.webp` },
+      { property: 'og:image', content: `${website}/fb-image.png` },
       { property: 'article:publisher', content: 'https://twitter.com/dvgamerr' },
       { property: 'article:author', content: 'https://twitter.com/dvgamerr' },
       { property: 'article:section', content: 'STORIES' },
@@ -54,7 +54,7 @@ export default {
       { property: 'twitter:description', content: desc },
       { property: 'twitter:title', content: title },
       { property: 'twitter:site', content: '@dvgamerr' },
-      { property: 'twitter:image', content: `${website}/fb-image.webp` },
+      { property: 'twitter:image', content: `${website}/fb-image.png` },
       { property: 'twitter:creator', content: '@dvgamerr' }
     ]
   },
@@ -81,12 +81,12 @@ export default {
     //   ],
     //   screenshots: [
     //     {
-    //       src: '/images/fb-image.webp',
+    //       src: '/images/fb-image.png',
     //       sizes: '640x480',
     //       type: 'image/jpeg'
     //     },
     //     {
-    //       src: '/images/fb-image.webp',
+    //       src: '/images/fb-image.png',
     //       sizes: '1280x920',
     //       type: 'image/jpeg'
     //     }
