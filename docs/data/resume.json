@@ -4,7 +4,7 @@
   "salary": {
     "base": 69000,
     "expect": 124000,
-    "rate": 37.096501,
+    "rate": 36.422038,
     "day": 30,
     "hour": 8,
     "currency": "$"
@@ -132,7 +132,7 @@
           "begin": "2018-02-01T00:00:00.000+07:00",
           "quit": "2022-10-31T23:59:59.999+07:00"
         },
-        "work": "CENTRALGroup, RIS Co.,Ltd., Bangruk",
+        "work": "CENTRALGROUP, RIS Company Limited, Bang Rak",
         "jobs": [
           {
             "range": {
@@ -157,7 +157,7 @@
       },
       {
         "range": {
-          "begin": "2013-03-28T00:00:00.000+07:00",
+          "begin": "2013-04-29T00:00:00.000+07:00",
           "quit": "2018-12-31T23:59:59.999+07:00"
         },
         "job": "Full Stack Developer",
@@ -166,8 +166,8 @@
       },
       {
         "range": {
-          "begin": "2011-03-27T00:00:00.000+07:00",
-          "quit": "2013-03-27T23:59:59.999+07:00"
+          "begin": "2011-04-28T00:00:00.000+07:00",
+          "quit": "2013-04-28T23:59:59.999+07:00"
         },
         "job": "Freelance — Programmer",
         "work": "Phetchaburi",

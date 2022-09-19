@@ -10,6 +10,7 @@ export default {
   target: 'static',
   telemetry: false,
   srcDir: 'src',
+  server: { port: 8080 },
   head: {
     titleTemplate: t => `${t || ''}`,
     htmlAttrs: {

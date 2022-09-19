@@ -24,14 +24,15 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="content-job">
-                  <small v-text="toDateRange(e.range)" style="margin-top: -2px;display: block;" />
+                  <small v-if="isResigning(e.range)" v-text="getWorkPeriod(e.range)" style="margin-top: -2px;display: block;" />
+                  <small v-else v-text="getWorkStart(e.range)" style="margin-top: -2px;display: block;" />
                   <h3 v-show="!e.jobs" v-text="e.job" />
                   <h4 v-text="e.work" />
                   <div v-if="!e.jobs" v-show="workfile[e.file]" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
                   <div class="content-subjob" v-else>
                     <div v-for="(j, l) in e.jobs" :key="l">
                       <h3 v-text="j.job" />
-                      <small v-text="toDateRange(j.range)" />
+                      <small v-text="getWorkPeriod(j.range)" />
                       <div class="markdown pt-1" v-html="$md.render(workfile[j.file])" />
                     </div>
                   </div>
@@ -85,15 +86,32 @@ export default {
       title: 'Mr. Kananek T.'
     }
   },
+  computed: {
+    isNewJob () {
+      return
+    }
+  },
   methods: {
-    toDateRange ({ worked, begin, quit }) {
+    isResigning ({ quit }) {
+      return !!quit
+    },
+    getWorkStart ({ begin }) {
+      begin = dayjs(begin).diff(dayjs().add(-1, 's'), 'month', true)
+      const day = parseInt((begin % 1) * dayjs().daysInMonth())
+      return `Start in ${Math.floor(begin) > 0 ? `${Math.floor(begin)} month` : ''} ${day} day${day > 1 ? 's' : ''}`
+    },
+    getWorkPeriod ({ worked, begin, quit }) {
       const newJob = dayjs(begin).diff(dayjs(), 'second') > 0
 
       begin = dayjs(begin).format('MMMM YYYY')
       quit = quit ? `- ${dayjs(quit).format('MMMM YYYY')}` : !newJob ? '- Present' : ''
 
-      const month = parseInt(worked % 1 * 12)
-      const timeDiff = (worked > 0 ? `${Math.floor(worked)} year` : '') + (month > 0 ? ` ${month} month` : '')
+      const month = worked % 1 * 12
+      const day = parseInt(worked % 1 * dayjs().daysInMonth())
+
+      console.log({ year: worked, month, day })
+
+      const timeDiff = (worked > 0 ? `${Math.floor(worked)} year` : '') + (parseInt(month) > 0 ? ` ${parseInt(month)} month` : '')
       return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
     }
   },
