@@ -91,10 +91,10 @@
   },
   "en": {
     "fullname": "Kananek Thongkam",
-    "national": "THAILAND",
+    "national": "THAI",
     "location": "Bangkok, Sathorn",
     "language": "THAI <span>(NATIVE)</span>, ENGLISH <span>(BASIC)</span>",
-    "job": "Application Integration Engineer",
+    "job": "Technology Developer",
     "detail": "Hi, I'm KEM. I live in Bangkok Thailand, I graduated with a bachelor science in Information Technology  from Phetchaburi Rajabhat University, I would like a jobs which allows for personal professional growth.",
     "expertise": [
       {
@@ -120,7 +120,7 @@
           "begin": "2022-11-01T00:00:00.000+07:00",
           "quit": null
         },
-        "job": "Application Integration Engineer",
+        "job": "Technology Developer",
         "work": "SCG Digital Office, Bang Sue.",
         "file": "2022-work-scg-do.md"
       },
@@ -202,11 +202,11 @@
     ]
   },
   "th": {
-    "fullname": "คณาเน็ก ทองคำ",
+    "fullname": "กัณฑ์อเนก ทองคำ",
     "national": "ประเทศไทย",
     "location": "กรุงเทพฯ สาทร",
-    "language": "THAI <span>(NATIVE)</span>, ENGLISH <span>(BASIC)</span>",
-    "job": "วิศวกรเต็มกอง",
+    "language": "ไทย <span>(หลัก)</span>, อังกฤษ <span>(พื้นฐาน)</span>",
+    "job": "Technology Developer",
     "detail": "ฉันรักการเขียนโปรแกรมและเทคโนโลยีใหม่ ๆ ฉันสามารถเพิ่มความสามารถในการพัฒนาตัวเองได้ตลอดเวลา ฉันจะมีความสุขมาก ถ้าซอฟต์แวร์สามารถพัฒนาให้ผู้ใช้สามารถทำงานได้ราบรื่นยิ่งขึ้น",
     "expertise": [
       {
