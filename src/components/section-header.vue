@@ -62,6 +62,16 @@ export default {
     }
   },
   methods: {
+    getSSOKey() {
+      return Buffer.from(new Date().toISOString(), 'utf8').toString('base64')
+    },
+    onSignIn () {
+      const appId = ''
+      const redirectUrl = 'https://mr.touno.io/'
+      const once = this.getSSOKey()
+      const uri = `https://sso.touno.io/sign-in?applicationId=${appId}&redirectUrl=${redirectUrl}&once=${once}`
+      window.location.href = uri
+    },
     onPrint () {
       print()
     },
@@ -131,13 +141,16 @@ export default {
             </div>
 
             <ul class="social-icon my-3 d-print-none">
-              <li content="If want CV." v-tippy="printTippy" style="margin-right:1em">
-                <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
-              </li>
               <li>
+                <a href="#" @click.prevent="onSignIn"><font-awesome-icon icon="right-to-bracket" /></a>
+              </li>
+              <li style="margin-right:1em">
                 <a href="#" rel="noopener noreferrer" @click.prevent="onSchemaMode">
                   <font-awesome-icon :icon="$colorMode.value != 'light' ? 'lightbulb' : 'moon'" />
                 </a>
+              </li>
+              <li content="If want CV." v-tippy="printTippy">
+                <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
               </li>
 
 
@@ -205,13 +218,6 @@ export default {
 //     padding: 1.8em;
 //   }
 // }
-@media print {
-  .personal {
-    strong {
-      color: var(--text-primary) !important;
-    }
-  }
-}
 
 .header {
   .profile-img img {
@@ -240,41 +246,41 @@ export default {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: .2em;
     grid-row-gap: .2em;
-  }
-  .personal {
-    margin: 10px 0;
+    .personal {
+      margin: 10px 0;
 
-    strong {
-      text-transform: uppercase;
-      font-size: 13px;
-      font-weight: bold;
-      color: var(--text-secondary-value);
-      display: block;
-      line-height: 1;
+      strong {
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: bold;
+        color: var(--text-secondary-value);
+        display: block;
+        line-height: 1;
+      }
+
+      small {
+        font-weight: normal;
+        font-size: 12px;
+      }
+
+      span {
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      span.badge {
+        color: #FFF;
+        display: table;
+        padding: 4px 5px 2px;
+        margin: -4px 0 -3px 0;
+      }
+
+      .lang {
+        display: inline-block;
+        margin-right: 0.4em;
+      }
+
     }
-
-    small {
-      font-weight: normal;
-      font-size: 12px;
-    }
-
-    span {
-      text-transform: uppercase;
-      color: var(--text-secondary);
-    }
-
-    span.badge {
-      color: #FFF;
-      display: table;
-      padding: 4px 5px 2px;
-      margin: -4px 0 -3px 0;
-    }
-
-    .lang {
-      display: inline-block;
-      margin-right: 0.4em;
-    }
-
   }
 }
 
@@ -285,18 +291,18 @@ export default {
 
   li a {
     display: block;
-    font-size: 12px;
-    color: #333333;
+    font-size: .85rem;
+    color: var(--menu-color);
     width: 34px;
     height: 34px;
     line-height: 33px;
     text-align: center;
     border-radius: 2px;
-    border: 2px solid #eeeeee;
-  }
+    border: 2px solid var(--menu-border-color);
 
-  li a:hover {
-    border-color: #cccccc;
+    &:hover {
+      border-color: var(--menu-border-color-hover);
+    }
   }
 }
 
