@@ -1,56 +1,4 @@
-<template>
-  <div>
-    <section-header />
-    <div>
-      <section-contact/>
-      <section-coding />
-      <section-coding-history />
-      <section-coding-daytime />
-      <section-expertise />
-      <section-skill />
-      <section-education class="d-none print-only" />
-    </div>
-    <p class="pagebreak" />
-    <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
-      <div v-if="!e.pagebreak" class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="section-title">
-              <h2>Work Experience</h2>
-              <span v-show="e.range.worked <= 0" class="badge badge-success">NEW JOB</span>
-            </div>
-          </div>
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="content-job">
-                  <small v-if="isResigning(e.range)" v-text="getWorkPeriod(e.range)" style="margin-top: -2px;display: block;" />
-                  <small v-else v-text="getWorkStart(e.range)" style="margin-top: -2px;display: block;" />
-                  <h3 v-show="!e.jobs" v-text="e.job" />
-                  <h4 v-text="e.work" />
-                  <div v-if="!e.jobs" v-show="workfile[e.file]" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
-                  <div class="content-subjob" v-else>
-                    <div v-for="(j, l) in e.jobs" :key="l">
-                      <h3 v-text="j.job" />
-                      <small v-text="getWorkPeriod(j.range)" />
-                      <div class="markdown pt-1" v-html="$md.render(workfile[j.file])" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <p class="pagebreak" />
-    <div>
-      <section-education class="d-print-none" />
-      <section-certificate class="d-print-none" />
-    </div>
-    <page-footer />
-  </div>
-</template>
+
 <script>
 import dayjs from 'dayjs'
 import data from '~/../docs/data/resume.json'
@@ -113,12 +61,88 @@ export default {
 
       const timeDiff = (worked > 0 ? `${Math.floor(worked)} year` : '') + (parseInt(month) > 0 ? ` ${parseInt(month)} month` : '')
       return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
+    },
+    onSchema () {
+
     }
   },
 }
 </script>
+<template>
+  <div class="resume">
+    <!-- <div class="fixed-top">
+      <span>Color mode: {{ $colorMode.value }}</span>
+      <select v-model="$colorMode.preference">
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+      </select>
+    </div> -->
+    <section-header />
+    <div class="container">
+      <section-contact/>
+      <!-- <section-coding />
+      <section-coding-history />
+      <section-coding-daytime />
+      <section-expertise />
+      <section-skill />
+      <section-education class="d-none print-only" /> -->
+    </div>
+    <!-- <p class="pagebreak" />
+    <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
+      <div v-if="!e.pagebreak" class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="section-title">
+              <h2>Work Experience</h2>
+              <span v-show="e.range.worked <= 0" class="badge badge-success">NEW JOB</span>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="content-job">
+                  <small v-if="isResigning(e.range)" v-text="getWorkPeriod(e.range)" style="margin-top: -2px;display: block;" />
+                  <small v-else v-text="getWorkStart(e.range)" style="margin-top: -2px;display: block;" />
+                  <h3 v-show="!e.jobs" v-text="e.job" />
+                  <h4 v-text="e.work" />
+                  <div v-if="!e.jobs" v-show="workfile[e.file]" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
+                  <div class="content-subjob" v-else>
+                    <div v-for="(j, l) in e.jobs" :key="l">
+                      <h3 v-text="j.job" />
+                      <small v-text="getWorkPeriod(j.range)" />
+                      <div class="markdown pt-1" v-html="$md.render(workfile[j.file])" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <p class="pagebreak" />
+    <div>
+      <section-education class="d-print-none" />
+      <section-certificate class="d-print-none" />
+    </div>
+    <page-footer /> -->
+  </div>
+</template>
 
 <style lang="scss">
+@media print {
+  .resume {
+    border-top: none !important;
+  }
+}
+
+.resume {
+  border-top: 5px solid var(--text-color-link);
+  padding: 4em 0;
+}
+
 .content-job {
   margin-bottom: 20px;
 

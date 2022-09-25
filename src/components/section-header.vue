@@ -1,87 +1,3 @@
-<template>
-  <header class="header">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 d-none d-md-block">
-          <div class="profile-img">
-            <img src="~assets/avatar_20221008.webp" loading="lazy" width="225" height="225" class="img-fluid" alt="">
-          </div>
-        </div>
-        <div class="col-md-9">
-          <div class="row">
-            <div class="d-none">
-            </div>
-            <div class="col-md-12">
-              <div class="name-wrapper">
-                <h1 class="name">
-                  {{ resume.fullname }}
-                </h1>
-                <span>
-                  {{ resume.job }}
-                </span>
-                <div class="d-print-none clear-p" v-html="$md.render(badge)" />
-              </div>
-            </div>
-          </div>
-          <p contenteditable="false" v-html="$md.render(resume.detail)" />
-          <div class="row">
-            <div class="col-md-4">
-              <div class="personal-details">
-                <strong v-text="showBirthday" />
-                <small>BIRTH</small>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="personal-details">
-                <strong v-text="resume.national" />
-                <small>NATIONALITY</small>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="personal-details">
-                <strong v-html="resume.language" />
-                <small>LANGUAGE</small>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="personal-details">
-                <strong v-text="resume.location" />
-                <small>CURRENT LOCATION</small>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="personal-details">
-                <strong class="d-print-none" v-text="showSalary" />
-                <strong class="d-none print-only" v-text="showSalaryFull" />
-                <small>CURRENT SALARY</small>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="personal-details">
-                <span class="badge" :class="[resume.interview ? 'badge-success' : 'badge-danger','d-print-none']">
-                  {{ resume.interview ? 'YES' : 'NO' }}
-                </span>
-                <small class="d-print-none">INTERVIEW AVAILABILITY</small>
-                <strong class="d-none print-only" v-text="showExpect" />
-                <small class="d-none print-only">EXPECT SALARY</small>
-              </div>
-            </div>
-          </div>
-          <ul class="social-icon d-print-none">
-            <li v-show="resume.social.length" content="If want CV." v-tippy="printTippy" id="img-print" class="mr-3">
-              <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
-            </li>
-            <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
-              <a :href="e.link" target="_blank" rel="noopener noreferrer"><font-awesome-icon :icon="e.icon" /></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </header>
-</template>
 <script>
 import dayjs from 'dayjs'
 import numeral from 'numeral'
@@ -122,14 +38,17 @@ export default {
         showOnInit: true,
         animateFill: false,
         animation : 'shift-toward'
-      },
-      badge: '![counter](https://komarev.com/ghpvc/?username=dvgamerr&color=orange&label=Page%20View&style=flat-square) [![wakatime](https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?&color=orange&style=flat-square)](https://wakatime.com/@06633b1c-3ba7-44c2-ab5d-08e47ccc87ab)'
+      }
     }
   },
   computed: {
     showBirthday () {
       const bd = dayjs(this.resume.birthday)
-      return `${bd.format('MMMM DD, YYYY')} (${bd.fromNow()})`
+      return bd.format('MMMM DD, YYYY')
+    },
+    showAge () {
+      const bd = dayjs(this.resume.birthday)
+      return bd.fromNow(true)
     },
     showSalary () {
       const perHour = Math.round(this.resume.salary.base / 20 / 8 / this.resume.salary.rate * 100) / 100
@@ -145,64 +64,191 @@ export default {
   methods: {
     onPrint () {
       print()
+    },
+    onSchemaMode () {
+      if (this.$colorMode.preference == 'light') {
+        this.$colorMode.preference = 'dark'
+      } else {
+        this.$colorMode.preference = 'light'
+      }
     }
   }
 }
 </script>
+<template>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-11 d-none d-md-block">
+          <div class="profile-img d-flex justify-content-end">
+            <img src="~assets/avatar_20221008.webp" loading="lazy" width="230" height="280" alt="">
+          </div>
+        </div>
+        <div class="col-lg-27 col-md-25 col-sm-36 name-wrapper">
+          <h1 class="name" v-text="resume.fullname" />
+          <span v-text="resume.job" />
+          <div class="d-print-none mt-1">
+            <img alt="wakatime" width="190" height="20" src="https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square&color=blue" />
+            <img alt="follow" width="100" height="20" src="https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=yellow" />
+            <img alt="counter" width="120" height="20" src="https://komarev.com/ghpvc/?username=dvgamerr&label=page views&style=flat-square&color=green" />
+          </div>
+          <p contenteditable="false" class="mt-3" v-text="resume.detail" />
+          <div>
+            <div class="grid-personal">
+              <div class="personal">
+                <strong v-text="showBirthday" />
+                <small>BIRTH ({{ showAge }} old)</small>
+              </div>
+              <div class="personal">
+                <strong v-text="resume.national" />
+                <small>NATIONALITY</small>
+              </div>
+              <div class="personal">
+                <strong>
+                  <div v-for="(v, i) in resume.language" :key="i" class="lang">
+                    {{ i }}
+                    <span class="level" v-text="`(${v})`" />
+                  </div>
+                </strong>
+                <small>LANGUAGE</small>
+              </div>
+              <div class="personal">
+                <strong v-text="resume.location" />
+                <small>CURRENT LOCATION</small>
+              </div>
+              <div class="personal">
+                <strong class="d-print-none" v-text="showSalary" />
+                <strong class="d-none print-only" v-text="showSalaryFull" />
+                <small>CURRENT SALARY</small>
+              </div>
+              <div class="personal">
+                <span v-if="!resume.interview" class="badge bg-danger d-print-none">NO</span>
+                <span v-else class="badge bg-success">YES</span>
+                <small class="d-print-none">INTERVIEW AVAILABILITY</small>
+                <strong class="d-none print-only" v-text="showExpect" />
+                <small class="d-none print-only">EXPECT SALARY</small>
+              </div>
+            </div>
 
-<style lang="scss" scoped>
-@media (max-width: 768px) {
-  .header {
-    padding: 20px 0;
+            <ul class="social-icon my-3 d-print-none">
+              <li content="If want CV." v-tippy="printTippy" style="margin-right:1em">
+                <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
+              </li>
+              <li>
+                <a href="#" rel="noopener noreferrer" @click.prevent="onSchemaMode">
+                  <font-awesome-icon :icon="$colorMode.value != 'light' ? 'lightbulb' : 'moon'" />
+                </a>
+              </li>
 
-    .profile-img {
-      margin: 0 0 30px;
-    }
-  }
-}
 
-@media (max-width: 600px){
-  .header {
-    padding: 20px;
-  }
-}
+              <!-- <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
+                <a :href="e.link" target="_blank" rel="noopener noreferrer"><font-awesome-icon :icon="e.icon" /></a>
+              </li> -->
+            </ul>
+          </div>
 
+        </div>
+        <!-- <div class="col-36 d-md-none">
+          <div class="grid-personal">
+            <div class="personal">
+              <strong v-text="showBirthday" />
+              <small>BIRTH</small>
+            </div>
+            <div class="personal">
+              <strong v-text="resume.national" />
+              <small>NATIONALITY</small>
+            </div>
+            <div class="personal">
+              <strong>
+                <div v-for="(v, i) in resume.language" :key="i" class="lang">
+                  {{ i }}
+                  <span class="level" v-text="`(${v})`" />
+                </div>
+              </strong>
+              <small>LANGUAGE</small>
+            </div>
+            <div class="personal">
+              <strong v-text="resume.location" />
+              <small>CURRENT LOCATION</small>
+            </div>
+            <div class="personal">
+              <strong class="d-print-none" v-text="showSalary" />
+              <strong class="d-none print-only" v-text="showSalaryFull" />
+              <small>CURRENT SALARY</small>
+            </div>
+            <div class="personal">
+              <strong v-if="!resume.interview" class="d-print-none">NO</strong>
+              <span v-else class="badge badge-success">YES</span>
+              <small class="d-print-none">INTERVIEW AVAILABILITY</small>
+              <strong class="d-none print-only" v-text="showExpect" />
+              <small class="d-none print-only">EXPECT SALARY</small>
+            </div>
+          </div>
+
+          <ul class="social-icon d-print-none">
+            <li v-show="resume.social.length" content="If want CV." v-tippy="printTippy" id="img-print" class="mr-3">
+              <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
+            </li>
+            <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
+              <a :href="e.link" target="_blank" rel="noopener noreferrer"><font-awesome-icon :icon="e.icon" /></a>
+            </li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+  </header>
+</template>
+
+<style lang="scss">
+// @media (max-width: 576px){
+//   .header {
+//     padding: 1.8em;
+//   }
+// }
 @media print {
-  .header {
-    border-top: none !important;
-    .personal-details small {
-      font-weight: bold;
+  .personal {
+    strong {
+      color: var(--text-primary) !important;
     }
   }
 }
 
 .header {
-  .profile-img {
-    margin-right: 30px;
+  .profile-img img {
+    object-fit: cover;
+    max-width: 230px;
+    width: 100%;
   }
 
   .name-wrapper {
-    margin-bottom: 30px;
-  }
+    margin-bottom: 2em;
 
-  .name-wrapper h1 {
-    text-transform: uppercase;
-    line-height: 1;
-    margin: 0 0 5px;
-  }
+    > h1 {
+      text-transform: uppercase;
+      color: var(--text-primary);
+      line-height: 2rem;
+      margin: 0 0 5px;
+    }
 
-  .name-wrapper span {
-    font-size: 24px;
-    color: #ff5722;
+    > span {
+      font-size: 24px;
+      color: var(--text-color-link);
+    }
   }
-
-  .personal-details {
+  .grid-personal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: .2em;
+    grid-row-gap: .2em;
+  }
+  .personal {
     margin: 10px 0;
 
     strong {
+      text-transform: uppercase;
       font-size: 13px;
-      font-weight: 700;
-      color: #444444;
+      font-weight: bold;
+      color: var(--text-secondary-value);
       display: block;
       line-height: 1;
     }
@@ -213,27 +259,29 @@ export default {
     }
 
     span {
-      color: #989898;
+      text-transform: uppercase;
+      color: var(--text-secondary);
     }
 
     span.badge {
       color: #FFF;
       display: table;
       padding: 4px 5px 2px;
-      margin-top: -4px;
+      margin: -4px 0 -3px 0;
     }
+
+    .lang {
+      display: inline-block;
+      margin-right: 0.4em;
+    }
+
   }
 }
 
 .social-icon {
-  margin: 20px 0;
-  padding: 0;
-  display: block;
-
-  li {
-    display: inline-block;
-    margin: 0 2px;
-  }
+  display: flex;
+  flex-direction: row;
+  gap: .3em;
 
   li a {
     display: block;
