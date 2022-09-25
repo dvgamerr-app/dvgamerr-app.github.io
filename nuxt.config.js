@@ -36,8 +36,6 @@ export default {
       { name: 'viewport', content: 'width=device-width, user-scalable=no' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-      { name: 'MobileOptimized', content: 'width' },
-      { name: 'HandheldFriendly', content: 'true' },
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:type', content: 'article' },
       { property: 'og:title', content: title },
@@ -114,6 +112,7 @@ export default {
     '~/plugins/vue-tippy.js'
   ],
   modules: [
+    '@nuxtjs/color-mode',
     ['bootstrap-vue/nuxt', { icon: false }],
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
