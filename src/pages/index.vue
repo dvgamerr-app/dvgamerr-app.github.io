@@ -67,24 +67,15 @@ export default {
 </script>
 <template>
   <div class="resume">
-    <!-- <div class="fixed-top">
-      <span>Color mode: {{ $colorMode.value }}</span>
-      <select v-model="$colorMode.preference">
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="sepia">Sepia</option>
-      </select>
-    </div> -->
     <section-1-header />
     <div class="container">
       <section-2-contact/>
       <section-3-coding />
       <section-3-coding-history />
-      <!-- <section-coding-daytime />
-      <section-expertise />
-      <section-skill />
-      <section-education class="d-none print-only" /> -->
+      <section-3-coding-daytime />
+      <section-4-expertise />
+      <section-5-skill />
+      <!-- <section-education class="d-none print-only" /> -->
     </div>
     <!-- <p class="pagebreak" />
     <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">

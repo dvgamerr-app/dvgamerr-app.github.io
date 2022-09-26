@@ -10,7 +10,7 @@
     "currency": "$"
   },
   "coding": {
-    "experience": "2013-04-30T00:00:00.000+07:00",
+    "experience": "2013-04-29T00:00:00.000+07:00",
     "loc": 5192647,
     "project": 217,
     "opensource": 170,
@@ -98,15 +98,15 @@
       "english": "Basic"
     },
     "job": "Technology Developer",
-    "detail": "Hi, I'm KEM. I live in Bangkok Thailand, I graduated with a bachelor science in Information Technology  from Phetchaburi Rajabhat University, I would like a jobs which allows for personal professional growth.",
+    "detail": "Hi, I'm KEM. I live in Bangkok Thailand, I graduated with a bachelor of science in Information Technology from Phetchaburi Rajabhat University, and I would like a job that allows for personal and professional growth.",
     "expertise": [
       {
         "subject": "Frontend developer",
-        "detail": "Specializing in using Framework like `Nuxt.js`, `Next.js`, `Astro` to create Web applications."
+        "detail": "Specializing in using Frameworks like `Nuxt.js`, `Next.js` and `Astro` to create Web applications."
       },
       {
         "subject": "Backend developer",
-        "detail": "Programing on `Golang`, `Nodejs`, `Python` and security is extremely important."
+        "detail": "Programming on `Golang`, `Nodejs`, `Python` and security is extremely important."
       },
       {
         "subject": "DevOps",
@@ -343,37 +343,36 @@
     }
   ],
   "skill": {
-    "coding skill": [
-      "Dart",
+    "coding": [
       "Golang",
-      "Python",
       "Nodejs",
-      "NuxtJs",
+      "Python",
+      "Dart",
       "React",
       "Vue.js",
       "SCSS",
-      "LESS",
       "SecureShell",
-      "YML",
+      "K8S-YAML",
       "Dockerfile",
       "ES2022",
       "C#",
       "VB"
     ],
-    "tools skill": [
-      "Visual Code",
+    "tools": [
+      "Git",
+      "VSCode",
       "Visual Studio",
       "Kubernates",
       "Putty",
       "Docker",
       "Postman",
-      "NuxtJs",
-      "AstroJs",
-      ".NET 6",
+      "Nuxtjs",
+      "Nextjs",
+      "Astro",
       "Bootstrap",
-      "ElctronJs"
+      "Elctronjs"
     ],
-    "SQL & NOSQL skill": [
+    "SQL & NOSQL": [
       "PostgreSQL",
       "Redis",
       "MongoDB",
@@ -383,12 +382,10 @@
       "MSSQL",
       "SQLite"
     ],
-    "Others skill": [
+    "OS & Cloud": [
       "CentOS",
       "Debian",
       "Ubuntu",
-      "ArchLinux",
-      "Git",
       "AWS",
       "GCloud",
       "Azure"

@@ -4,6 +4,8 @@ import numeral from 'numeral'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import data from '~/../docs/data/resume.json'
 
+import 'bootstrap/dist/js/bootstrap.esm'
+
 dayjs.extend(relativeTime)
 
 const { birthday, salary, interview, social } = data
@@ -65,8 +67,8 @@ export default {
     onSignIn () {
       if (this.$auth.loggedIn) {
         this.$notify({
-          title: 'Important message',
-          text: 'Hello user!'
+          title: `Hello, ${this.$auth.user.fullName}!`,
+          text: `${this.$auth.user.job} (${this.$auth.user.level})`
         })
         return
       }
@@ -153,13 +155,22 @@ export default {
               <li style="margin-right:1em">
                 <a href="#" rel="noopener noreferrer" @click.prevent="onSchemaMode">
                   <font-awesome-icon :icon="$colorMode.value != 'light' ? 'lightbulb' : 'moon'" />
+                  <span v-text="`${$colorMode.value == 'light' ? 'dark' : 'light'} Mode`" style="text-transform: capitalize;" />
                 </a>
               </li>
+              <div class="dropdown d-none">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <font-awesome-icon icon="globe" />
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item active" href="#">EN</a></li>
+                  <li><a class="dropdown-item" href="#">TH</a></li>
+                </ul>
+              </div>
+
               <li content="If want CV." v-tippy="printTippy">
                 <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
               </li>
-
-
               <!-- <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
                 <a :href="e.link" target="_blank" rel="noopener noreferrer"><font-awesome-icon :icon="e.icon" /></a>
               </li> -->
@@ -167,52 +178,6 @@ export default {
           </div>
 
         </div>
-        <!-- <div class="col-36 d-md-none">
-          <div class="grid-personal">
-            <div class="personal">
-              <strong v-text="showBirthday" />
-              <small>BIRTH</small>
-            </div>
-            <div class="personal">
-              <strong v-text="resume.national" />
-              <small>NATIONALITY</small>
-            </div>
-            <div class="personal">
-              <strong>
-                <div v-for="(v, i) in resume.language" :key="i" class="lang">
-                  {{ i }}
-                  <span class="level" v-text="`(${v})`" />
-                </div>
-              </strong>
-              <small>LANGUAGE</small>
-            </div>
-            <div class="personal">
-              <strong v-text="resume.location" />
-              <small>CURRENT LOCATION</small>
-            </div>
-            <div class="personal">
-              <strong class="d-print-none" v-text="showSalary" />
-              <strong class="d-none print-only" v-text="showSalaryFull" />
-              <small>CURRENT SALARY</small>
-            </div>
-            <div class="personal">
-              <strong v-if="!resume.interview" class="d-print-none">NO</strong>
-              <span v-else class="badge badge-success">YES</span>
-              <small class="d-print-none">INTERVIEW AVAILABILITY</small>
-              <strong class="d-none print-only" v-text="showExpect" />
-              <small class="d-none print-only">EXPECT SALARY</small>
-            </div>
-          </div>
-
-          <ul class="social-icon d-print-none">
-            <li v-show="resume.social.length" content="If want CV." v-tippy="printTippy" id="img-print" class="mr-3">
-              <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
-            </li>
-            <li v-for="e in resume.social" :id="`img-${e.name}`" :key="e.name">
-              <a :href="e.link" target="_blank" rel="noopener noreferrer"><font-awesome-icon :icon="e.icon" /></a>
-            </li>
-          </ul>
-        </div> -->
       </div>
       <notifications position="bottom right"/>
     </div>
@@ -296,13 +261,12 @@ export default {
   flex-direction: row;
   gap: .3em;
 
-  li a {
+  > li > a {
     display: block;
     font-size: .85rem;
     color: var(--menu-color);
-    width: 34px;
-    height: 34px;
-    line-height: 33px;
+    line-height: 2.1rem;
+    padding: 0 .75em;
     text-align: center;
     border-radius: 2px;
     border: 2px solid var(--menu-border-color);

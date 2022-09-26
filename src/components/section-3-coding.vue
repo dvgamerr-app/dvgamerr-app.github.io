@@ -8,7 +8,7 @@
       </div>
       <div class="col-lg-27 col-md-25 col-sm-36 d-grid stats">
         <div class="stats-item">
-          <div class="value" v-text="getExperience" />
+          <div class="value" v-text="getExperience()" />
           <div class="name">
             Work Experience
           </div>
@@ -45,12 +45,12 @@ dayjs.extend(relativeTime)
 
 export default {
   data: () => ({ coding }),
-  computed: {
-    getExperience () {
-      return dayjs(this.coding.experience).fromNow(true)
-    }
-  },
   methods: {
+    getExperience () {
+      const worked = dayjs().diff(this.coding.experience, 'month') / 12
+      const month = worked % 1 * 12
+      return `${Math.floor(worked)} years ${Math.floor(month)} month${month > 1 ? 's' : ''}`
+    },
     toNumber (n = 0) {
       return n / 1000000 < 1 && n / 1000 >= 1 ? `${parseInt(n / 1000 * 10) / 10}K` : (n / 1000000 >= 1 ? `${parseInt(n / 1000000 * 10) / 10}M` : n)
     }

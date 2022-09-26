@@ -118,7 +118,6 @@ export default {
     '@nuxtjs/color-mode',
     ['cookie-universal-nuxt', { alias: 'cookiz' }],
     '@nuxtjs/auth-next',
-    ['bootstrap-vue/nuxt', { icon: false }],
     '@nuxtjs/robots',
     '@nuxtjs/markdownit',
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }]

@@ -23,9 +23,13 @@ $btn-font-weight: 600;
 //   lg: 1140px,
 //   xl: 1140px
 // );
+:root {
+  --bg-light: #f8f8f8;
+  --bg-dark: #191919;
+}
 
 .light-mode {
-  --bg-color: #f8f8f8;
+  --bg-color: var(--bg-light);
   --text-color-link: #ff5722;
   --border-square-rotating: 2px solid #0000000d;
   --text-primary: #212529;
@@ -34,6 +38,7 @@ $btn-font-weight: 600;
   --menu-color: #333333;
   --menu-border-color: #eeeeee;
   --menu-border-color-hover: #cccccc;
+  --code-label-color: #f2f2f2;
 
   --logo-color: #ee5151;
   --menu-active-color: #1f2937;
@@ -44,7 +49,7 @@ $btn-font-weight: 600;
 }
 
 .dark-mode {
-  --bg-color: #191919;
+  --bg-color: var(--bg-dark);
   --text-color-link: #C84B31;
   --border-square-rotating: 2px solid #ffffff0d;
   --text-primary: #f7f7f7;
@@ -53,6 +58,7 @@ $btn-font-weight: 600;
   --menu-color: #f9f9f9;
   --menu-border-color: #383838;
   --menu-border-color-hover: #424242;
+  --code-label-color: #101010;
 
   --bg-navbar: #0f121f;
   --border-navbar: #212436;
@@ -67,14 +73,6 @@ $btn-font-weight: 600;
 @import './1-header';
 @import './2-contact';
 @import './3-coding';
-
-code {
-  font-size: 90%;
-  font-family: var(--font-family-sans-serif);
-  background-color: #f2f2f2;
-  padding: 1px 5px;
-  border-radius: 5px;
-}
 
 @media print {
   .dark-mode {
@@ -120,7 +118,9 @@ code {
   code {
     color: #444;
     font-weight: bold;
+    padding: 2px 2px 0 !important;
   }
+
   .tippy-popper {
     display: none !important;
   }
@@ -151,7 +151,13 @@ code {
   }
 }
 
+html.light-mode #__layout {
+  animation: fadeLight .3s ease-in-out;
+}
 
+html.dark-mode #__layout {
+  animation: fadeDark .3s ease-in-out;
+}
 
 
 #__layout {
@@ -163,19 +169,18 @@ code {
   font-weight: 300;
   background: var(--bg-color);
   min-height: 100vh;
+  background-image:none !important;
 
-  @-webkit-keyframes rotating /* Safari and Chrome */ {
-    from {
-      -webkit-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    to {
-      -webkit-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
+  @keyframes fadeDark {
+    0%   { background-color: var(--bg-light); }
+    100% { background-color: var(--bg-dark); }
   }
+
+  @keyframes fadeLight {
+    0%   { background-color: var(--bg-dark); }
+    100% { background-color: var(--bg-light); }
+  }
+
   @keyframes rotating {
     from {
       -ms-transform: rotate(0deg);
@@ -235,10 +240,15 @@ code {
     -o-animation: rotating 180s linear infinite;
     animation: rotating 180s linear infinite;
   }
+}
 
-  /* --------------------------------------
-  * Global Typography
-  *------------------------------------------*/
+code {
+  font-size: 90%;
+  font-family: var(--font-family-sans-serif);
+  background-color: var(--code-label-color);
+  padding: 2px 5px 0;
+  border-radius: 5px;
+  line-height: .9rem;
 }
 
 h1,
