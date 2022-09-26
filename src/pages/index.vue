@@ -76,12 +76,12 @@ export default {
         <option value="sepia">Sepia</option>
       </select>
     </div> -->
-    <section-header />
+    <section-1-header />
     <div class="container">
-      <section-contact/>
-      <!-- <section-coding />
-      <section-coding-history />
-      <section-coding-daytime />
+      <section-2-contact/>
+      <section-3-coding />
+      <section-3-coding-history />
+      <!-- <section-coding-daytime />
       <section-expertise />
       <section-skill />
       <section-education class="d-none print-only" /> -->
@@ -123,8 +123,8 @@ export default {
     <div>
       <section-education class="d-print-none" />
       <section-certificate class="d-print-none" />
-    </div>
-    <page-footer /> -->
+    </div> -->
+    <page-footer />
   </div>
 </template>
 
