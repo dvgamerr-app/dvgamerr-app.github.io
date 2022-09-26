@@ -1,21 +1,21 @@
 <template>
   <section class="section-wrapper section-skills">
-      <div class="row">
-        <div class="col-lg-9 col-md-11">
-          <div class="section-title">
-            <h2>Skills</h2>
+    <div class="row">
+      <div class="col-lg-9 col-md-11">
+        <div class="section-title">
+          <h2>Skills</h2>
+        </div>
+      </div>
+      <div class="col-lg-27 col-md-25 col-sm-36">
+        <div class="row">
+          <div v-for="(e, i) in skillHeader()" :key="i" class="col-md-18 skill-list">
+            <h3 class="mb-1" v-text="e" />
+            <ul class="pb-3">
+              <li v-for="(item, l) in skill[e]" :key="l" v-text="item" />
+            </ul>
           </div>
         </div>
-        <div class="col-lg-27 col-md-25 col-sm-36">
-          <div class="row">
-            <div v-for="(e, i) in skillHeader()" :key="i" class="col-md-18 skill-list">
-              <h3 class="mb-1" v-text="e" />
-              <ul class="pb-3">
-                <li v-for="(item, l) in skill[e]" :key="l" v-text="item" />
-              </ul>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
   </section>
 </template>
