@@ -139,7 +139,7 @@ export default {
     line-height: 1;
   }
   small {
-    color: #888888;
+    color: var(--text-secondary);
   }
   p {
     margin-top: 15px;

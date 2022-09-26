@@ -106,8 +106,7 @@ $btn-font-weight: 600;
   h4,
   h5,
   h6 {
-    background: #fff !important;
-    color: var(--text-secondary) !important;
+    color: var(--text-secondary);
   }
 
   body:before,
@@ -251,6 +250,9 @@ code {
   line-height: .9rem;
 }
 
+
+
+
 h1,
 h2,
 h3,
@@ -258,7 +260,18 @@ h4,
 h5,
 h6 {
   margin: 0 0 15px;
-  color: #444444;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-secondary-value) !important;
+}
+
+h5,
+h6 {
+  color: var(--text-secondary);
 }
 
 h1 {
@@ -323,7 +336,7 @@ a:focus {
 }
 
 strong {
-  color: #444444;
+  color: var(--text-secondary-value);
 }
 
 ul {
