@@ -1,0 +1,19 @@
+#__layout {
+  @include media-breakpoint-down(md) {
+    .header {
+      padding: 2em 0 0 0;
+
+      .name-wrapper {
+        margin-bottom: 0em;
+      }
+
+      .profile-img {
+        margin-bottom: 5em;
+      }
+
+      .section-wrapper.grid-personal {
+        grid-template-columns: repeat(1, 1fr) !important;
+      }
+    }
+  }
+}

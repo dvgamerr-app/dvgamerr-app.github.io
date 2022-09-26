@@ -63,7 +63,13 @@ export default {
   },
   methods: {
     onSignIn () {
-      if (this.$auth.loggedIn) return
+      if (this.$auth.loggedIn) {
+        this.$notify({
+          title: 'Important message',
+          text: 'Hello user!'
+        })
+        return
+      }
 
       return this.$auth.loginWith('sso')
     },
@@ -208,6 +214,7 @@ export default {
           </ul>
         </div> -->
       </div>
+      <notifications position="bottom right"/>
     </div>
   </header>
 </template>

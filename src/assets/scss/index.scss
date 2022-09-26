@@ -24,10 +24,6 @@ $btn-font-weight: 600;
 //   xl: 1140px
 // );
 
-// Finally load bootstrap
-@import 'bootstrap/scss/bootstrap.scss';
-@import 'charts.css/dist/charts.css';
-
 .light-mode {
   --bg-color: #f8f8f8;
   --text-color-link: #ff5722;
@@ -63,6 +59,15 @@ $btn-font-weight: 600;
   --link-color: #a2a2b3;
 }
 
+
+// Finally load bootstrap
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'charts.css/dist/charts.css';
+
+@import './1-header';
+@import './2-contact';
+@import './3-coding';
+
 code {
   font-size: 90%;
   font-family: var(--font-family-sans-serif);
@@ -74,19 +79,19 @@ code {
 @media print {
   .dark-mode {
     --border-square-rotating: 2px solid #0000000d;
+    --text-color-link: #ff5722;
     --text-secondary: #444444;
     --text-secondary-value: #444444;
   }
+
   @page {
     size: A3;
   }
+
   .container {
     max-width: 1000px;
   }
 
-  .section-wrapper {
-    padding: 20px 0 !important;
-  }
   .no-print {
     display: none !important;
   }
@@ -95,6 +100,7 @@ code {
     display: block !important;
   }
 
+  html,
   body,
   h1,
   h2,
@@ -102,8 +108,8 @@ code {
   h4,
   h5,
   h6 {
-    background: #fff;
-    color: #444 !important;
+    background: #fff !important;
+    color: var(--text-secondary) !important;
   }
 
   body:before,
@@ -121,18 +127,32 @@ code {
 }
 
 @include media-breakpoint-down(md) {
-  .header {
-    padding: 1.8em 0;
-
-    .profile-img {
-      margin-bottom: 5em;
-    }
-
-    .grid-personal {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
+  .section-title {
+    padding-top: 4em;
   }
 }
+
+
+@include media-breakpoint-up(sm) {
+  .section-wrapper {
+    padding: .5em 0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .section-wrapper {
+    padding: 1em 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .section-wrapper {
+    padding: 1.5em 0;
+  }
+}
+
+
+
 
 #__layout {
   font-family: "Hind", sans-serif;
@@ -334,25 +354,6 @@ ul {
 * -------------------*/
 #main-wrapper {
   overflow: hidden;
-}
-
-/*-------------------
-* Section Wrapper
-*-------------------*/
-.section-wrapper {
-  padding: 50px 0;
-}
-
-@media (max-width: 768px) {
-  .section-wrapper {
-    padding: 20px 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .section-wrapper {
-    padding: 20px;
-  }
 }
 
 /*---------------------------
@@ -612,32 +613,32 @@ ul {
 
 /* Copyright */
 
-.footer {
-  padding: 30px 0;
-  text-align: right;
-}
+// .footer {
+//   padding: 30px 0;
+//   text-align: right;
+// }
 
-.footer .copyright-section {
-  font-size: 13px;
-}
+// .footer .copyright-section {
+//   font-size: 13px;
+// }
 
-.footer .copyright-section .copytext {
-  font-weight: 400;
-  display: block;
-}
+// .footer .copyright-section .copytext {
+//   font-weight: 400;
+//   display: block;
+// }
 
-@media (max-width: 768px) {
-  .footer {
-    text-align: left;
-  }
-}
+// @media (max-width: 768px) {
+//   .footer {
+//     text-align: left;
+//   }
+// }
 
-@media (max-width: 600px) {
-  .footer {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
+// @media (max-width: 600px) {
+//   .footer {
+//     padding-left: 20px;
+//     padding-right: 20px;
+//   }
+// }
 
 .pagebreak {
   margin: 0px;
