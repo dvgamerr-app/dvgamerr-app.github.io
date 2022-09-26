@@ -1,0 +1,30 @@
+#__layout {
+  @include media-breakpoint-down(lg) {
+    .section-coding {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+.section-coding {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: .2em;
+    grid-row-gap: 1em;
+  }
+}
+.stats-item {
+  .name {
+    color: var(--text-secondary);
+    font-size: .75rem;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .value {
+    color: var(--text-secondary-value);
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+}
