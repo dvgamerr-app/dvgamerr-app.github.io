@@ -62,15 +62,10 @@ export default {
     }
   },
   methods: {
-    getSSOKey() {
-      return Buffer.from(new Date().toISOString(), 'utf8').toString('base64')
-    },
     onSignIn () {
-      const appId = ''
-      const redirectUrl = 'https://mr.touno.io/'
-      const once = this.getSSOKey()
-      const uri = `https://sso.touno.io/sign-in?applicationId=${appId}&redirectUrl=${redirectUrl}&once=${once}`
-      window.location.href = uri
+      if (this.$auth.loggedIn) return
+
+      return this.$auth.loginWith('sso')
     },
     onPrint () {
       print()
@@ -82,6 +77,9 @@ export default {
         this.$colorMode.preference = 'light'
       }
     }
+  },
+  created () {
+    console.log('loggedIn:', this.$auth.loggedIn)
   }
 }
 </script>
@@ -98,9 +96,9 @@ export default {
           <h1 class="name" v-text="resume.fullname" />
           <span v-text="resume.job" />
           <div class="d-print-none mt-1">
-            <img alt="wakatime" width="190" height="20" src="https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square&color=blue" />
-            <img alt="follow" width="100" height="20" src="https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=yellow" />
-            <img alt="counter" width="120" height="20" src="https://komarev.com/ghpvc/?username=dvgamerr&label=page views&style=flat-square&color=green" />
+            <img alt="wakatime" height="20" loading="lazy" src="https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square&color=blue" />
+            <img alt="follow" width="100" height="20" loading="lazy" src="https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=yellow" />
+            <img alt="counter" width="120" height="20" loading="lazy" src="https://komarev.com/ghpvc/?username=dvgamerr&label=page views&style=flat-square&color=green" />
           </div>
           <p contenteditable="false" class="mt-3" v-text="resume.detail" />
           <div>
@@ -142,7 +140,9 @@ export default {
 
             <ul class="social-icon my-3 d-print-none">
               <li>
-                <a href="#" @click.prevent="onSignIn"><font-awesome-icon icon="right-to-bracket" /></a>
+                <a href="#" @click.prevent="onSignIn">
+                  <font-awesome-icon :icon="$auth.loggedIn ? 'user-tie' : 'right-to-bracket'" />
+                </a>
               </li>
               <li style="margin-right:1em">
                 <a href="#" rel="noopener noreferrer" @click.prevent="onSchemaMode">

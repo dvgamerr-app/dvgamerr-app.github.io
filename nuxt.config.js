@@ -106,23 +106,34 @@ export default {
     '~assets/scss/index.scss'
   ],
   plugins: [
+    { src: '~/plugins/vue-notification.server.js', mode: 'server' },
+    { src: '~/plugins/vue-notification.client.js', mode: 'client' },
     '~/plugins/vue-fontawesome.js',
     '~/plugins/vue-tabindex.js',
     '~/plugins/vue-clipboards.js',
     '~/plugins/vue-tippy.js'
   ],
   modules: [
+    '@nuxtjs/axios',
     '@nuxtjs/color-mode',
+    ['cookie-universal-nuxt', { alias: 'cookiz' }],
+    '@nuxtjs/auth-next',
     ['bootstrap-vue/nuxt', { icon: false }],
     '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
     '@nuxtjs/markdownit',
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }]
   ],
-  sitemap: {
-    hostname: 'https://mr.touno.io',
-    gzip: true,
-    exclude: []
+  auth: {
+    strategies: {
+      sso: {
+        scheme: '~/auth/sso',
+        baseUrl: process.env.SSO_BASE_URL,
+        appId: process.env.SSO_APP_ID,
+        redirectUrl: process.env.SSO_APP_REDIRECT || 'http://localhost:8080'
+      }
+    },
+    localStorage: { prefix: 'sso.' },
+    cookie: { prefix: 'sso.' }
   },
   googleFonts: {
     prefetch: true,

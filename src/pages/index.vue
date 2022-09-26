@@ -23,7 +23,6 @@ for (const item of work) {
 
   if (!item.range) continue
   getWorkedYear(item.range)
-  console.log(item.range)
 }
 
 
@@ -56,8 +55,6 @@ export default {
 
       const month = worked % 1 * 12
       const day = parseInt(worked % 1 * dayjs().daysInMonth())
-
-      console.log({ year: worked, month, day })
 
       const timeDiff = (worked > 0 ? `${Math.floor(worked)} year` : '') + (parseInt(month) > 0 ? ` ${parseInt(month)} month` : '')
       return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
