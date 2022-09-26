@@ -75,35 +75,29 @@ export default {
       <section-3-coding-daytime />
       <section-4-expertise />
       <section-5-skill />
-      <!-- <section-education class="d-none print-only" /> -->
+      <section-6-education class="d-none print-only" />
     </div>
-    <!-- <p class="pagebreak" />
+    <p class="pagebreak" />
     <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
       <div v-if="!e.pagebreak" class="container">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-lg-9 col-md-11">
             <div class="section-title">
               <h2>Work Experience</h2>
-              <span v-show="e.range.worked <= 0" class="badge badge-success">NEW JOB</span>
+              <span v-show="e.range.worked <= 0" class="badge bg-success">NEW JOB</span>
             </div>
           </div>
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="content-job">
-                  <small v-if="isResigning(e.range)" v-text="getWorkPeriod(e.range)" style="margin-top: -2px;display: block;" />
-                  <small v-else v-text="getWorkStart(e.range)" style="margin-top: -2px;display: block;" />
-                  <h3 v-show="!e.jobs" v-text="e.job" />
-                  <h4 v-text="e.work" />
-                  <div v-if="!e.jobs" v-show="workfile[e.file]" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
-                  <div class="content-subjob" v-else>
-                    <div v-for="(j, l) in e.jobs" :key="l">
-                      <h3 v-text="j.job" />
-                      <small v-text="getWorkPeriod(j.range)" />
-                      <div class="markdown pt-1" v-html="$md.render(workfile[j.file])" />
-                    </div>
-                  </div>
-                </div>
+          <div class="col-lg-27 col-md-25 col-sm-36 content-job">
+            <small v-if="isResigning(e.range)" v-text="getWorkPeriod(e.range)" style="margin-top: -2px;display: block;" />
+            <small v-else v-text="getWorkStart(e.range)" style="margin-top: -2px;display: block;" />
+            <h3 v-show="!e.jobs" v-text="e.job" />
+            <h4 v-text="e.work" />
+            <div v-if="!e.jobs" v-show="workfile[e.file]" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
+            <div class="content-subjob" v-else>
+              <div v-for="(j, l) in e.jobs" :key="l">
+                <h3 v-text="j.job" />
+                <small v-text="getWorkPeriod(j.range)" />
+                <div class="markdown pt-1" v-html="$md.render(workfile[j.file])" />
               </div>
             </div>
           </div>
@@ -111,7 +105,7 @@ export default {
       </div>
     </section>
     <p class="pagebreak" />
-    <div>
+    <!-- <div>
       <section-education class="d-print-none" />
       <section-certificate class="d-print-none" />
     </div> -->
