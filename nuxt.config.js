@@ -138,8 +138,8 @@ export default {
     prefetch: true,
     display: 'swap',
     families: {
-      Roboto: true,
-      Hind: [300,400,500,600,700]
+      Hind: [300,400,500,600,700],
+      'Bai+Jamjuree': [400,700]
     },
   },
   markdownit: {
@@ -150,8 +150,7 @@ export default {
   },
   robots: {
     UserAgent: '*',
-    Allow: '/',
-    Sitemap: 'https://mr.touno.io/sitemap.xml'
+    Allow: '/'
   },
   buildModules: [
     '@nuxtjs/fontawesome',

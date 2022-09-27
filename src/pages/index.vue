@@ -73,9 +73,9 @@ export default {
       <section-3-coding />
       <section-3-coding-history />
       <section-3-coding-daytime />
-      <section-4-expertise />
+      <!-- <section-4-expertise /> -->
       <section-5-skill />
-      <section-6-education class="d-none print-only" />
+      <section-6-education class="d-print-only" />
     </div>
     <p class="pagebreak" />
     <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
@@ -104,7 +104,7 @@ export default {
         </div>
       </div>
     </section>
-    <p class="pagebreak" />
+    <!-- <p class="pagebreak" /> -->
     <!-- <div>
       <section-education class="d-print-none" />
       <section-certificate class="d-print-none" />

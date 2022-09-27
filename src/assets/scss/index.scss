@@ -74,6 +74,10 @@ $btn-font-weight: 600;
 @import './2-contact';
 @import './3-coding';
 
+.d-print-only {
+  display: none !important;
+}
+
 @media print {
   .dark-mode {
     --border-square-rotating: 2px solid #0000000d;
@@ -94,7 +98,7 @@ $btn-font-weight: 600;
     display: none !important;
   }
 
-  .print-only {
+  .d-print-only {
     display: block !important;
   }
 
@@ -123,6 +127,11 @@ $btn-font-weight: 600;
   .tippy-popper {
     display: none !important;
   }
+
+  .th-label {
+    opacity: 1 !important;
+  }
+
 }
 
 @include media-breakpoint-down(md) {
@@ -158,6 +167,9 @@ html.dark-mode #__layout {
   animation: fadeDark .3s ease-in-out;
 }
 
+.th-label {
+  font-family: 'Bai Jamjuree', 'Segoe UI';
+}
 
 #__layout {
   font-family: "Hind", sans-serif;

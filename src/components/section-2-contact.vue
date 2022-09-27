@@ -29,12 +29,12 @@ export default {
       </div>
       <div class="col-lg-27 col-md-25 col-sm-36">
         <div class="d-grid contact-item">
-          <div v-for="(e, i) in contactPrint()" :key="'print-'+i" class="d-none print-only">
+          <div v-for="(e, i) in contactPrint()" :key="'print-'+i" class="d-print-only">
             <address>
               <img :src="e.qrcode" height="160" :alt="'QR ' + e.label" data-not-lazy>
             </address>
           </div>
-          <div class="d-none print-only">
+          <div class="d-print-only">
             <address v-for="(e, i) in contactTel()" :key="'tel-'+i">
               <strong v-text="e.label" /><br>
               <font-awesome-icon :icon="e.icon" class="mr-1" />
