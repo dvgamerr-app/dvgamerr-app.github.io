@@ -114,14 +114,29 @@ export default {
     '~/plugins/vue-tippy.js'
   ],
   modules: [
+    '@nuxtjs/i18n',
     '@nuxtjs/axios',
     '@nuxtjs/color-mode',
-    ['cookie-universal-nuxt', { alias: 'cookiz' }],
     '@nuxtjs/auth-next',
     '@nuxtjs/robots',
     '@nuxtjs/markdownit',
     ['nuxt-compress', { gzip: { cache: true }, brotli: { threshold: 1024 } }]
   ],
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en-US.js'
+      },
+      {
+        code: 'th',
+        file: 'th-TH.js'
+      }
+    ],
+    lazy: false,
+    langDir: 'lang/',
+    defaultLocale: 'en'
+  },
   auth: {
     strategies: {
       sso: {
