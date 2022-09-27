@@ -1,0 +1,79 @@
+{
+  "loc": 5192647,
+  "project": 217,
+  "opensource": 170,
+  "yesterday_seconds": 0,
+  "average_seconds": 9565.611957805473,
+  "best_seconds": 44422.207450999995,
+  "languages": 42,
+  "commits": 7310,
+  "daytime": [
+    172,
+    94,
+    16,
+    6,
+    1,
+    3,
+    3,
+    9,
+    24,
+    102,
+    225,
+    316,
+    380,
+    444,
+    500,
+    581,
+    596,
+    403,
+    326,
+    292,
+    270,
+    201,
+    215,
+    204
+  ],
+  "weektime": [
+    168.75,
+    146.1,
+    148.73,
+    197.58,
+    160.45,
+    66.67,
+    81.54
+  ],
+  "top5": [
+    {
+      "caption": "JavaScript",
+      "commits": 3941,
+      "loc": 782828
+    },
+    {
+      "caption": "CSS",
+      "commits": 1247,
+      "loc": 751121
+    },
+    {
+      "caption": "HTML",
+      "commits": 670,
+      "loc": 343673
+    },
+    {
+      "caption": "C#",
+      "commits": 349,
+      "loc": 1391018
+    },
+    {
+      "caption": "Shell",
+      "commits": 307,
+      "loc": 390
+    },
+    {
+      "caption": "SQL",
+      "commits": 156,
+      "loc": 81635
+    }
+  ],
+  "best_languages": "Vue.js",
+  "day_of_year": 315
+}

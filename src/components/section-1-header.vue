@@ -38,6 +38,9 @@ export default {
     }
   },
   computed: {
+    availableLocales () {
+      return this.$i18n.locales.filter(i => i.code === this.$i18n.locale)
+    },
     showNationalD () {
       const [ , ...id ] = /(\d)(\d{4})(\d{5})(\d{2})(\d{1}).*/ig.exec(this.national_id)
       return id.join(' ')
@@ -99,9 +102,9 @@ export default {
           </div>
         </div>
         <div class="col-lg-27 col-md-25 col-sm-36 name-wrapper">
-          <h1 class="name th-label" v-text="enName" />
-          <span class="d-print-none th-label" v-text="job" />
-          <span class="d-print-only th-label th-name" v-text="thName" />
+          <h1 class="name th-label" v-text="$t('fullname')" />
+          <span class="d-print-none th-label" v-text="$t('job')" />
+          <span class="d-print-only th-label th-name" v-text="$t('subname')" />
           <div class="d-print-none mt-1">
             <img alt="wakatime" height="20" loading="lazy" src="https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square&color=blue" />
             <img alt="follow" width="100" height="20" loading="lazy" src="https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=yellow" />
@@ -110,49 +113,54 @@ export default {
           <p contenteditable="false" class="mt-3" v-text="detail" />
           <div>
             <div class="grid-personal">
-              <div class="personal">
+              <div class="personal nickname">
+                <strong class="d-print-none">KEM</strong>
+                <strong class="d-print-only">KEM <span class="th-label">(เขม)</span></strong>
+                <small>Nick Name</small>
+              </div>
+              <div class="personal birthday">
                 <strong v-text="showBirthday" />
                 <small>birth ({{ showAge }} old)</small>
               </div>
-              <div class="personal">
+              <div class="personal language">
+                <strong>
+                  <div v-for="(v, i) in language" :key="i" class="lang">
+                    {{ i }}
+                    <small class="level" v-text="`(${v})`" />
+                  </div>
+                </strong>
+                <small>language</small>
+              </div>
+              <div class="personal religion d-print-only">
                 <strong v-text="religion" />
                 <small>religion</small>
               </div>
 
-              <div class="personal">
+              <div class="personal nationality d-print-only">
                 <strong v-text="national" />
                 <small>nationality</small>
               </div>
-              <div class="personal d-print-only">
+              <div class="personal national-id d-print-only">
                 <strong v-text="showNationalD" />
                 <small>National ID</small>
               </div>
-              <div class="personal">
+              <div class="personal location">
                 <strong v-text="location" />
                 <small>current location</small>
               </div>
-              <div class="personal">
+              <div class="personal current-salary">
                 <strong class="d-print-none" v-text="showSalary" />
                 <strong class="d-print-only" v-text="showSalaryFull" />
                 <small>current salary</small>
               </div>
-              <div class="personal d-print-only">
+              <div class="personal expect-salary d-print-only">
                 <strong v-text="showExpect" />
                 <small>Expect salary</small>
               </div>
-              <div class="personal d-print-none">
+              <div class="personal interview d-print-none">
                 <span v-if="!interview" class="badge bg-danger">NO</span>
                 <span v-else class="badge bg-success">YES</span>
                 <small>interview availability</small>
-              </div>
-              <div class="personal">
-                <strong>
-                  <div v-for="(v, i) in language" :key="i" class="lang">
-                    {{ i }}
-                    <span class="level" v-text="`(${v})`" />
-                  </div>
-                </strong>
-                <small>language</small>
               </div>
             </div>
 
@@ -161,12 +169,6 @@ export default {
               <li>
                 <a href="#" @click.prevent="onSignIn">
                   <font-awesome-icon :icon="$auth.loggedIn ? 'user-tie' : 'right-to-bracket'" />
-                </a>
-              </li>
-              <li style="margin-right:1em">
-                <a href="#" rel="noopener noreferrer" @click.prevent="onSchemaMode">
-                  <font-awesome-icon :icon="$colorMode.value != 'light' ? 'lightbulb' : 'moon'" />
-                  <span v-text="`${$colorMode.value == 'light' ? 'dark' : 'light'} Mode`" style="text-transform: capitalize;" />
                 </a>
               </li>
               <div class="dropdown d-none">
@@ -179,8 +181,17 @@ export default {
                 </ul>
               </div>
 
-              <li content="If want CV." v-tippy="printTippy">
+              <li style="margin-right:1em" content="If want CV." v-tippy="printTippy">
                 <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
+              </li>
+              <li>
+                <a href="#" rel="noopener noreferrer" @click.prevent="onSchemaMode">
+                  <font-awesome-icon :icon="$colorMode.value == 'light' ? 'lightbulb' : 'moon'" />
+                  <span v-text="`${$colorMode.value != 'light' ? 'dark' : 'light'} Mode`" style="text-transform: capitalize;" />
+                </a>
+              </li>
+              <li style="margin-right:1em;text-transform:uppercase;">
+                <nuxt-link v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code === 'th'?'en':'th')">{{ locale.code }}</nuxt-link>
               </li>
               <!-- <li v-for="e in social" :id="`img-${e.name}`" :key="e.name">
                 <a :href="e.link" target="_blank" rel="noopener noreferrer"><font-awesome-icon :icon="e.icon" /></a>
@@ -261,7 +272,7 @@ export default {
         color: #FFF;
         display: table;
         padding: 4px 5px 2px;
-        margin: -4px 0 -3px 0;
+        margin: -4px 0 1px 0;
       }
 
       .lang {
@@ -287,6 +298,7 @@ export default {
     text-align: center;
     border-radius: 2px;
     border: 2px solid var(--menu-border-color);
+    font-weight: bold;
 
     &:hover {
       border-color: var(--menu-border-color-hover);

@@ -1,0 +1,170 @@
+{
+  "birthday": "1988-09-30T00:00:00.000+07:00",
+  "experience": "2013-04-29T00:00:00.000+07:00",
+  "interview": false,
+  "salary": {
+    "base": 69000,
+    "expect": 124000,
+    "rate": 37.975959,
+    "day": 30,
+    "hour": 8,
+    "currency": "$"
+  },
+  "en": {
+    "fullname": "Kananek Thongkam",
+    "national": "Thai",
+    "religion": "Buddhist",
+    "national_id": "1860800038291",
+    "location": "Bangkok, Sathorn",
+    "language": {
+      "thai": "Native",
+      "english": "Basic"
+    },
+    "job": "Senior Full-Stack Engineer",
+    "detail": "Hi, I'm KEM. I live in Bangkok Thailand, I graduated with a bachelor of science in Information Technology from Phetchaburi Rajabhat University, and I would like a job that allows for personal and professional growth.",
+    "expertise": [
+      {
+        "subject": "Frontend developer",
+        "detail": "Specializing in using Frameworks like `Nuxt.js`, `Next.js` and `Astro` to create Web applications."
+      },
+      {
+        "subject": "Backend developer",
+        "detail": "Programming on `Golang`, `Nodejs`, `Python` and security is extremely important."
+      },
+      {
+        "subject": "DevOps",
+        "detail": "I can manage both `Windows` and `Linux` Server and ability to use `docker`, `k8s`, or cloud platform `aws`, `gcloud`, `azure`,`digital ocean`"
+      },
+      {
+        "subject": "Solution architecture",
+        "detail": "Expertise in infrastructure design with `container` and `microservice`."
+      }
+    ],
+    "education": [
+      {
+        "range": "2007 - 2011",
+        "major": "Bachelor of Science (B.S.)",
+        "location": "Phetchaburi Rajabhat University, Phetchaburi.",
+        "branch": "Information Technology."
+      },
+      {
+        "range": "2005 - 2007",
+        "major": "Vocational Certificate",
+        "location": "Chumphon Polytechnic College, Chumphon.",
+        "branch": "Business Computer"
+      },
+      {
+        "range": "2003 - 2005",
+        "major": "Grade 7-9",
+        "location": "Sawi Witthaya School, Sawi, Chumphon.",
+        "branch": "High school"
+      },
+      {
+        "range": "1998 - 2003",
+        "major": "Grade 1-6",
+        "location": "Barnnapoo school, Sawi, Chumphon.",
+        "branch": "Elementary school"
+      }
+    ]
+  },
+  "th": {
+    "fullname": "กัณฑ์อเนก ทองคำ",
+    "national": "ประเทศไทย",
+    "location": "กรุงเทพฯ สาทร",
+    "language": "ไทย <span>(หลัก)</span>, อังกฤษ <span>(พื้นฐาน)</span>",
+    "job": "Technology Developer",
+    "detail": "ฉันรักการเขียนโปรแกรมและเทคโนโลยีใหม่ ๆ ฉันสามารถเพิ่มความสามารถในการพัฒนาตัวเองได้ตลอดเวลา ฉันจะมีความสุขมาก ถ้าซอฟต์แวร์สามารถพัฒนาให้ผู้ใช้สามารถทำงานได้ราบรื่นยิ่งขึ้น",
+    "expertise": [
+      {
+        "subject": "ผู้พัฒนาส่วนหน้า",
+        "detail": "เชี่ยวชาญในการใช้ Framework เช่น `Nuxt.js`, `Next.js`, MVC เพื่อสร้างเว็บแอปพลิเคชัน"
+      },
+      {
+        "subject": "ผู้พัฒนาแบ็กเอนด์",
+        "detail": "การเขียนโปรแกรมบน 'Golang', 'Rustlang', 'Python', 'Nodejs' และ 'C#' .NET Framework เพื่อความปลอดภัยเป็นสิ่งสำคัญอย่างยิ่ง"
+      },
+      {
+        "subject": "ผู้ดูแลเซิร์ฟเวอร์",
+        "detail": "ฉันสามารถจัดการทั้งเซิร์ฟเวอร์ `Windows` และ `Linux` และความสามารถในการใช้ `docker`, `k8s`, `k3s`, `aws`, `gcloud`, `azure`"
+      },
+      {
+        "subject": "DevOps",
+        "detail": "เชี่ยวชาญในการออกแบบโครงสร้างพื้นฐานด้วย `คอนเทนเนอร์` และ `ไมโครเซอร์วิส`"
+      }
+    ],
+    "work": [
+      {
+        "range": {
+          "begin": "2018-02-01T00:00:00.000+07:00",
+          "quit": null
+        },
+        "work": "CENTRALGroup, RIS Co.,Ltd., บางรัก",
+        "jobs": [
+          {
+            "range": {
+              "begin": "2019-01-01T00:00:00.000+07:00",
+              "quit": null
+            },
+            "job": "วิศวกรเต็มกอง",
+            "file": "2018-work-central-group-2.md"
+          },
+          {
+            "range": {
+              "begin": "2018-02-01T00:00:00.000+07:00",
+              "จบ": "2019-01-01T00:00:00.000+07:00"
+            },
+            "job": "ผู้ช่วยผู้จัดการฝ่ายพัฒนาอาวุโส",
+            "file": "2018-work-central-group-1.md"
+          }
+        ]
+      },
+      {
+        "pagebreak": true
+      },
+      {
+        "range": {
+          "begin": "2013-03-28T00:00:00.000+07:00",
+          "quit": "2018-12-31T23:59:59.999+07:00"
+        },
+        "job": "ผู้พัฒนาเต็มกอง",
+        "work": "บริษัท นิปปอน ซิสซิท บจก. สาทร",
+        "file": "2013-work-nippon-sysits.md"
+      },
+      {
+        "range": {
+          "begin": "2011-03-30T00:00:00.000+07:00",
+          "quit": "2013-03-27T00:00:00.000+07:00"
+        },
+        "job": "ฟรีแลนซ์ — โปรแกรมเมอร์",
+        "work": "เพชรบุรี",
+        "file": "2011-work-freelance.md"
+      }
+    ],
+    "education": [
+      {
+        "range": "2007 - 2011",
+        "major": "วิทยาศาสตรบัณฑิต (วท.บ.)",
+        "location": "มหาวิทยาลัยราชภัฏเพชรบุรี เพชรบุรี.",
+        "branch": "เทคโนโลยีสารสนเทศ"
+      },
+      {
+        "range": "2005 - 2007",
+        "major": "ปวช.",
+        "location": "วิทยาลัยสารพัดช่างชุมพร ชุมพร.",
+        "branch": "ธุรกิจคอมพิวเตอร์"
+      },
+      {
+        "range": "2003 - 2005",
+        "major": "ป.7-9",
+        "location": "โรงเรียนสวีวิทยา สวี ชุมพร.",
+        "branch": "มัธยมศึกษาตอนปลาย"
+      },
+      {
+        "range": "2541 - 2546",
+        "major": "ป.1-6",
+        "location": "โรงเรียนพรรณภู สวี ชุมพร",
+        "branch": "ประถมศึกษา"
+      }
+    ]
+  }
+}

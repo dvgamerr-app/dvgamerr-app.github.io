@@ -44,8 +44,10 @@ export default {
           <div v-for="(e, i) in contactView()" :key="'view-'+i" class="d-print-none">
             <address>
               <strong v-text="e.label" /><br>
-              <font-awesome-icon :icon="e.icon" class="mr-1" />
-              <a :href="e.url" :target="e.label !== 'EMAIL' && e.label !== 'MOBILE' ? '_blank' : ''" v-text="e.text" />
+              <div class="d-flex align-items-baseline justify-content-start" style="gap: .2em;">
+                <font-awesome-icon :icon="e.icon" class="mr-1" />
+                <a :href="e.url" :target="e.label !== 'EMAIL' && e.label !== 'MOBILE' ? '_blank' : ''" v-text="e.text" />
+              </div>
             </address>
           </div>
         </div>

@@ -1,0 +1,84 @@
+[
+  {
+    "print": false,
+    "label": "INSTRGRAM",
+    "url": "https://touno.io/s/u01t",
+    "text": "Kananek Thongkam",
+    "icon": [
+      "fab",
+      "instagram"
+    ]
+  },
+  {
+    "print": false,
+    "label": "FACEBOOK",
+    "url": "https://touno.io/s/zo2h",
+    "text": "Kananek Thongkam",
+    "icon": [
+      "fab",
+      "facebook-f"
+    ]
+  },
+  {
+    "print": false,
+    "label": "TWITTER",
+    "url": "https://touno.io/s/8ae4",
+    "text": "Kananek T.",
+    "icon": [
+      "fab",
+      "twitter"
+    ]
+  },
+  {
+    "print": false,
+    "label": "EMAIL",
+    "url": "mailto:kananek.dev@touno.io",
+    "text": "kananek.dev@touno.io",
+    "icon": [
+      "fas",
+      "envelope"
+    ]
+  },
+  {
+    "print": true,
+    "label": "LINE ACCOUNT",
+    "qrcode": "/qr_line.webp",
+    "url": "https://touno.io/s/5sri",
+    "text": "dvgamer (KEM)",
+    "icon": [
+      "fab",
+      "line"
+    ]
+  },
+  {
+    "print": true,
+    "label": "Website",
+    "qrcode": "/qr_website.webp",
+    "url": "https://touno.io/s/rfd6",
+    "text": "dvgamer (KEM)",
+    "icon": [
+      "fab",
+      "chrome"
+    ]
+  },
+  {
+    "print": true,
+    "label": "MOBILE",
+    "url": "tel:0970347607",
+    "text": "+66-970-3476-07",
+    "icon": [
+      "fas",
+      "mobile"
+    ]
+  },
+  {
+    "print": true,
+    "label": "EMAIL",
+    "url": "mailto:kananek.dev@touno.io",
+    "text": "kananek.dev@touno.io",
+    "icon": [
+      "fas",
+      "envelope"
+    ]
+  }
+]

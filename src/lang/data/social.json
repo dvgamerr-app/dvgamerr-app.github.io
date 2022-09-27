@@ -1,0 +1,38 @@
+[
+  {
+    "name": "github",
+    "icon": [
+      "fab",
+      "github"
+    ],
+    "link": "https://touno.io/s/w9z5",
+    "alt": "github.com"
+  },
+  {
+    "name": "linkedin",
+    "icon": [
+      "fab",
+      "linkedin"
+    ],
+    "link": "https://touno.io/s/ig6h",
+    "alt": "linkedin"
+  },
+  {
+    "name": "wakatime",
+    "icon": [
+      "fas",
+      "clock"
+    ],
+    "link": "https://touno.io/s/7y9r",
+    "alt": "wakatime.com"
+  },
+  {
+    "name": "community",
+    "icon": [
+      "fab",
+      "codepen"
+    ],
+    "link": "https://touno.io/s/ixj7",
+    "alt": "discord.com"
+  }
+]
