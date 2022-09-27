@@ -171,7 +171,7 @@ html.dark-mode #__layout {
   font-family: 'Bai Jamjuree', 'Segoe UI';
 }
 
-#__layout {
+#__nuxt {
   font-family: "Hind", sans-serif;
   font-size: 1rem;
   margin: 0px;
@@ -218,7 +218,7 @@ html.dark-mode #__layout {
     width: 400px;
     height: 400px;
     border: var(--border-square-rotating);
-    z-index: 1;
+    z-index: 0;
     -webkit-transform: rotate(20deg);
     -moz-transform: rotate(20deg);
     -ms-transform: rotate(20deg);
@@ -239,7 +239,7 @@ html.dark-mode #__layout {
     width: 400px;
     height: 600px;
     border: var(--border-square-rotating);
-    z-index: 1;
+    z-index: 0;
     -webkit-transform: rotate(-30deg);
     -moz-transform: rotate(-30deg);
     -ms-transform: rotate(-30deg);
@@ -252,6 +252,13 @@ html.dark-mode #__layout {
     animation: rotating 180s linear infinite;
   }
 }
+
+#__layout {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
 
 code {
   font-size: 90%;
