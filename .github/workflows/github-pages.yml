@@ -17,6 +17,12 @@ jobs:
   build:
     name: Build NuxtJS
     runs-on: ubuntu-20.04
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      WK_TOKEN: ${{ secrets.WK_TOKEN }}
+      SSO_APP_ID: ${{ secrets.SSO_APP_ID }}
+      SSO_APP_REDIRECT: ${{ secrets.SSO_APP_REDIRECT }}
+      SSO_BASE_URL: ${{ secrets.SSO_BASE_URL }}
     steps:
       - name: Checkout SourceCode
         uses: actions/checkout@v3
