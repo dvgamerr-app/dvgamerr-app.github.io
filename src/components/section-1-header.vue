@@ -54,8 +54,10 @@ export default {
       return bd.fromNow(true)
     },
     showSalary () {
-      const perHour = Math.round(this.salary.base / 20 / 8 / this.salary.rate * 100) / 100
-      return `${this.salary.currency}${perHour} per hour`
+      const { base, rate, day, hour, currency } = this.salary
+
+      const perHour = Math.round(base / day / hour / rate * 100) / 100
+      return `${currency}${perHour} per hour`
     },
     showSalaryFull () {
       return `${numeral(this.salary.base).format('0,0')} THB`

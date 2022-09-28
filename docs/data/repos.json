@@ -46,9 +46,9 @@
     "languages": {}
   },
   "touno-io/node-mediainfo": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 14,
+    "added": 2905,
+    "deleted": 293,
     "languages": {
       "JavaScript": 4174
     }
@@ -80,9 +80,9 @@
     }
   },
   "touno-io/electronuxt": {
-    "commits": 5,
-    "added": 21036,
-    "deleted": 11590,
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
     "languages": {
       "JavaScript": 2625,
       "Vue": 885,
@@ -262,11 +262,11 @@
     "languages": {}
   },
   "touno-io/sso-team": {
-    "commits": 63,
-    "added": 22732,
-    "deleted": 10490,
+    "commits": 65,
+    "added": 22736,
+    "deleted": 10494,
     "languages": {
-      "Vue": 28772,
+      "Vue": 28771,
       "JavaScript": 5492,
       "SCSS": 5113,
       "Dockerfile": 99
@@ -437,9 +437,9 @@
     }
   },
   "dvgamerr/app.anistorage-master": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 70,
+    "added": 64374,
+    "deleted": 42905,
     "languages": {
       "Vue": 69952,
       "JavaScript": 30696,
@@ -488,6 +488,16 @@
       "Shell": 332
     }
   },
+  "dvgamerr/blog-cid.daemon": {
+    "commits": 3,
+    "added": 9477,
+    "deleted": 2,
+    "languages": {
+      "JavaScript": 2221,
+      "Vue": 115,
+      "SCSS": 22
+    }
+  },
   "dvgamerr/browser-authenticator": {
     "commits": 0,
     "added": 0,
@@ -519,6 +529,18 @@
     "deleted": 7518,
     "languages": {
       "JavaScript": 4199
+    }
+  },
+  "dvgamerr/csi-proxy": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
+    "languages": {
+      "Go": 358916,
+      "Shell": 97828,
+      "Makefile": 17006,
+      "Python": 6252,
+      "PowerShell": 1245
     }
   },
   "dvgamerr/daas-effective-schedule": {
@@ -588,9 +610,9 @@
     }
   },
   "dvgamerr/daas-pg-worker": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 96,
+    "added": 167989,
+    "deleted": 457716,
     "languages": {
       "Shell": 53901,
       "Batchfile": 1045,
@@ -726,16 +748,26 @@
     }
   },
   "dvgamerr/dvgamerr": {
-    "commits": 242,
-    "added": 110298,
-    "deleted": 90821,
+    "commits": 271,
+    "added": 115473,
+    "deleted": 94752,
     "languages": {
-      "Vue": 57383,
       "HTML": 48366,
-      "JavaScript": 17911,
-      "CSS": 15576,
-      "SCSS": 553,
+      "Vue": 47077,
+      "CSS": 22976,
+      "JavaScript": 21566,
+      "SCSS": 12821,
       "Dockerfile": 162
+    }
+  },
+  "dvgamerr/dvgamerr.github.io": {
+    "commits": 2,
+    "added": 9676,
+    "deleted": 11,
+    "languages": {
+      "JavaScript": 1932,
+      "Vue": 453,
+      "Stylus": 326
     }
   },
   "dvgamerr/electron-nuxt-template": {
@@ -954,9 +986,9 @@
     }
   },
   "dvgamerr/It-My.Selfip": {
-    "commits": 2,
-    "added": 6059,
-    "deleted": 2,
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
     "languages": {
       "PHP": 120532,
       "TSQL": 14533,
@@ -993,17 +1025,17 @@
     }
   },
   "dvgamerr/k3s-config-hosting": {
-    "commits": 53,
-    "added": 16058,
-    "deleted": 9979,
+    "commits": 56,
+    "added": 16214,
+    "deleted": 9991,
     "languages": {
       "Shell": 1554
     }
   },
   "dvgamerr/k8s-aks-sanbox": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 15,
+    "added": 1620,
+    "deleted": 778,
     "languages": {
       "Shell": 6235,
       "Dockerfile": 1037,
@@ -1477,9 +1509,9 @@
     }
   },
   "dvgamerr/rserver-trialstop": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 2,
+    "added": 76,
+    "deleted": 1,
     "languages": {
       "JavaScript": 5870
     }
@@ -1892,14 +1924,46 @@
     }
   },
   "dvgamerr/vue3-webassembly": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 4,
+    "added": 15065,
+    "deleted": 874,
     "languages": {
       "JavaScript": 18076,
       "Vue": 3346,
       "HTML": 611,
       "Go": 537
+    }
+  },
+  "dvgamerr/vuepress-theme-blog-cid": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
+    "languages": {
+      "CSS": 643446,
+      "Vue": 24631,
+      "JavaScript": 18398,
+      "SCSS": 10577
+    }
+  },
+  "dvgamerr/vuepress-theme-dvgamerr": {
+    "commits": 4,
+    "added": 4567,
+    "deleted": 3730,
+    "languages": {
+      "Vue": 27380,
+      "Stylus": 6516,
+      "JavaScript": 5843
+    }
+  },
+  "dvgamerr/vuepress-theme-fluid": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
+    "languages": {
+      "JavaScript": 81708,
+      "EJS": 64715,
+      "Stylus": 41435,
+      "CSS": 13294
     }
   },
   "dvgamerr/wakatime-discord": {
@@ -1919,19 +1983,29 @@
       "JavaScript": 1376
     }
   },
+  "dvgamerr/weather-app": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
+    "languages": {
+      "HTML": 64841,
+      "JavaScript": 53456,
+      "SCSS": 7583
+    }
+  },
   "dvgamerr/web.api-authenticate": {
-    "commits": 26,
-    "added": 23593,
-    "deleted": 22833,
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
     "languages": {
       "JavaScript": 6726,
       "Vue": 2983
     }
   },
   "dvgamerr/web.api-endpoint": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 10,
+    "added": 10825,
+    "deleted": 3430,
     "languages": {
       "JavaScript": 12218
     }
@@ -1983,9 +2057,9 @@
     }
   },
   "dvgamerr/wsam-datatable": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 6,
+    "added": 1462,
+    "deleted": 608,
     "languages": {
       "JavaScript": 17025,
       "Go": 6749,

@@ -5,7 +5,7 @@
   "author": "Mr.Kananek T. <info.dvgamer@gmail.com>",
   "private": false,
   "scripts": {
-    "dev": "node . && nuxt",
+    "dev": "nuxt",
     "dev:gen": "env-cmd node .",
     "collector": "node . --github --wakatime",
     "wakatime": "node . --wakatime",

@@ -203,7 +203,7 @@ const getWakaTime = async () => {
       weekTime[currDay] = (weekTime[currDay] || 0) + totalDuration
     })())
     if (wakaTask.length == 10) {
-      console.log(`fetch: ${beginDateTime} to ${currDateTime}`)
+      logger.log(`- fetch: ${beginDateTime} to ${currDateTime}`)
       await Promise.all(wakaTask)
       wakaTask = []
       beginDateTime = ''
@@ -211,7 +211,7 @@ const getWakaTime = async () => {
   }
 
   if (wakaTask.length > 0) {
-    console.log(`fetch: ${beginDateTime} to ${currDateTime}`)
+    logger.log(`- fetch: ${beginDateTime} to ${currDateTime}`)
     await Promise.all(wakaTask)
   }
 
@@ -225,21 +225,18 @@ const getWakaTime = async () => {
 }
 
 const apiLayer = new Octokit({
-  baseUrl: 'https://api.apilayer.com/exchangerates_data'
+  baseUrl: 'https://api.bitkub.com/api'
 })
 
 const getCurrencryUSD = async () => {
-  if (process.env.APILAYER_TOKEN === '') return Promise.resolve()
 
-  logger.info('Query Exchangerates THB-USD')
-  const symbols = 'THB'
-  const { data, status } = await apiLayer.request('GET /latest{?symbols}{&base}', {
-    headers: { apikey: process.env.APILAYER_TOKEN },
-    base: 'USD',
+  logger.info('Query bitkub.com THB-USDT')
+  const symbols = 'THB_USDT'
+  const { data, status } = await apiLayer.request('GET /market/ticker?sym={?symbols}', {
     symbols
   })
 
-  const salary = { rate: data.rates[symbols] }
+  const salary = { rate: data[symbols].highestBid }
   await updateJSONfile('resume.json', { salary })
 }
 

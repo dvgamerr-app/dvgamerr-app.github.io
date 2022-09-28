@@ -5,7 +5,7 @@
   "salary": {
     "base": 69000,
     "expect": 124000,
-    "rate": 37.975959,
+    "rate": 38.39,
     "day": 30,
     "hour": 8,
     "currency": "$"
@@ -20,7 +20,7 @@
       "thai": "Native",
       "english": "Basic"
     },
-    "job": "Senior Full-Stack Engineer",
+    "job": "Technology Developer",
     "detail": "Hi, I'm KEM. I live in Bangkok Thailand, I graduated with a bachelor of science in Information Technology from Phetchaburi Rajabhat University, and I would like a job that allows for personal and professional growth.",
     "expertise": [
       {
