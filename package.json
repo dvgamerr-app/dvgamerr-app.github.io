@@ -51,7 +51,7 @@
     "@nuxtjs/google-fonts": "^2.0.0",
     "@nuxtjs/markdownit": "^2.0.0",
     "@nuxtjs/robots": "^2.4.2",
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.3",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^4.0.0",
