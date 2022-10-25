@@ -10048,10 +10048,10 @@ vue-router@^3.5.1:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.6.5.tgz#95847d52b9a7e3f1361cb605c8e6441f202afad8"
   integrity sha512-VYXZQLtjuvKxxcshuRAwjHnciqZVoXAjTjcqBTz4rKc8qih9g9pI3hbDjmqXaHdgL3v8pV6P8Z335XvHzESxLQ==
 
-vue-server-renderer@^2.6.12, vue-server-renderer@^2.6.14:
-  version "2.7.10"
-  resolved "https://registry.yarnpkg.com/vue-server-renderer/-/vue-server-renderer-2.7.10.tgz#e73241c879fcc81de91882ceff135a40f756377c"
-  integrity sha512-hvlnyTZmDmnI7IpQE5YwIwexPi6yJq8eeNTUgLycPX3uhuEobygAQklHoeVREvwNKcET/MnVOtjF4c7t7mw6CQ==
+vue-server-renderer@^2.6.12, vue-server-renderer@^2.7.13:
+  version "2.7.13"
+  resolved "https://registry.yarnpkg.com/vue-server-renderer/-/vue-server-renderer-2.7.13.tgz#be153aa4486009a273901ac421d1c3bdfe8e996a"
+  integrity sha512-GvNnUSHE04+B7EhOrk4QWbLKFMdmj2wLEEJEvtVQ/s04nKIHtxSvG4l9/i+p8q7iN3osEhfh0b/cAmXHifgSaA==
   dependencies:
     chalk "^4.1.2"
     hash-sum "^2.0.0"
