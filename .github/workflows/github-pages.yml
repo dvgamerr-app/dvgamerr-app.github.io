@@ -66,11 +66,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Install and Build 🔧
-        run: |
-          yarn
-          yarn collector
-          yarn build
+      - name: Install 🔧
+        run: yarn
+
+      - name: Collector Data 🔧
+        if: github.event_name != 'pull_request'
+        run: yarn collector
+          
+      - name: Build 🔧
+        run: yarn build
 
       - name: Upload artifact 🚀
         if: success() && github.event_name != 'pull_request'
