@@ -26,7 +26,7 @@
     "@touno-io/debuger": "^2.4.1",
     "bootstrap": "^5.2.1",
     "charts.css": "^0.9.0",
-    "dayjs": "^1.11.0",
+    "dayjs": "^1.11.6",
     "env-cmd": "^10.1.0",
     "md5": "^2.3.0",
     "numeral": "^2.0.6",
