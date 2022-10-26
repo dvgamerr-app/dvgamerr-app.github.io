@@ -4,6 +4,9 @@ name: github-pages
 on:
   push:
     branches: ["main"]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [main]
   schedule:
     - cron:  '30 23 * * 0'
 
@@ -70,6 +73,7 @@ jobs:
           yarn build
 
       - name: Upload artifact 🚀
+        if: success() && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./dist
@@ -77,6 +81,7 @@ jobs:
   # Deployment job
   deploy:
     name: Deploy to GitHub Pages
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
