@@ -123,9 +123,9 @@
     }
   },
   "touno-io/node-request": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 5,
+    "added": 5141,
+    "deleted": 3370,
     "languages": {
       "JavaScript": 21254
     }
@@ -223,9 +223,9 @@
     }
   },
   "touno-io/core": {
-    "commits": 123,
-    "added": 9654,
-    "deleted": 4953,
+    "commits": 124,
+    "added": 9666,
+    "deleted": 4957,
     "languages": {
       "Go": 69488,
       "HTML": 51378,
@@ -337,9 +337,6 @@
     "languages": {}
   },
   "touno-io/proposal-approval": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
     "languages": {}
   },
   "touno-io/budget-app": {
@@ -354,17 +351,17 @@
     }
   },
   "touno-io/Infra-hades-app": {
-    "commits": 32,
-    "added": 8546,
-    "deleted": 1345,
+    "commits": 36,
+    "added": 8630,
+    "deleted": 1376,
     "languages": {
       "TypeScript": 16809,
       "CSS": 15710,
-      "Vue": 11042,
+      "Vue": 12349,
       "SCSS": 1892,
       "Rust": 954,
       "HTML": 435,
-      "Shell": 356,
+      "Shell": 359,
       "JavaScript": 69
     }
   },
@@ -401,9 +398,9 @@
     }
   },
   "dvgamerr/adum": {
-    "commits": 6,
-    "added": 672,
-    "deleted": 575,
+    "commits": 7,
+    "added": 675,
+    "deleted": 594,
     "languages": {
       "Rust": 31857
     }
@@ -421,9 +418,9 @@
     }
   },
   "dvgamerr/ai-classification-training": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 2,
+    "added": 30,
+    "deleted": 1,
     "languages": {
       "Python": 237
     }
@@ -785,16 +782,17 @@
     }
   },
   "dvgamerr/dvgamerr": {
-    "commits": 276,
-    "added": 115661,
-    "deleted": 94892,
+    "commits": 282,
+    "added": 115993,
+    "deleted": 95483,
     "languages": {
       "HTML": 48366,
       "Vue": 47108,
       "CSS": 22976,
-      "JavaScript": 21428,
+      "JavaScript": 21721,
       "SCSS": 12898,
-      "Dockerfile": 162
+      "Dockerfile": 162,
+      "Shell": 64
     }
   },
   "dvgamerr/dvgamerr.github.io": {
@@ -881,9 +879,9 @@
     "languages": {}
   },
   "dvgamerr/GhostLegend-Game": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 7,
+    "added": 36183,
+    "deleted": 34230,
     "languages": {
       "C#": 1165418
     }
@@ -1403,9 +1401,9 @@
     }
   },
   "dvgamerr/ouno_funcless": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 72,
+    "added": 20349,
+    "deleted": 17152,
     "languages": {
       "JavaScript": 22946,
       "Dockerfile": 176
@@ -1444,9 +1442,9 @@
     }
   },
   "dvgamerr/ppe-core-api": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 649,
+    "added": 81672,
+    "deleted": 66045,
     "languages": {
       "Go": 280068,
       "HTML": 24588,
@@ -1559,9 +1557,9 @@
     }
   },
   "dvgamerr/ris-script-tasks": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 57,
+    "added": 7857,
+    "deleted": 2522,
     "languages": {
       "Perl": 80213,
       "PowerShell": 56183,
@@ -1656,8 +1654,8 @@
     }
   },
   "dvgamerr/Site.Proxy-noip": {
-    "commits": 0,
-    "added": 0,
+    "commits": 5,
+    "added": 7521,
     "deleted": 0,
     "languages": {
       "PHP": 159948,
@@ -1809,9 +1807,9 @@
     }
   },
   "dvgamerr/task-pokemon-go": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 5,
+    "added": 4291,
+    "deleted": 116,
     "languages": {
       "JavaScript": 11843
     }
@@ -1869,9 +1867,9 @@
     }
   },
   "dvgamerr/template-nuxtjs-tabler-ui": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 1,
+    "added": 30935,
+    "deleted": 10,
     "languages": {
       "CSS": 273182,
       "JavaScript": 7152,
@@ -1989,9 +1987,9 @@
     }
   },
   "dvgamerr/university-timetable": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 7,
+    "added": 71942,
+    "deleted": 32,
     "languages": {
       "HTML": 804555,
       "PHP": 111972,
@@ -2119,9 +2117,9 @@
     }
   },
   "dvgamerr/web.api-notify": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
+    "commits": 49,
+    "added": 1183,
+    "deleted": 728,
     "languages": {
       "JavaScript": 12807
     }

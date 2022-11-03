@@ -125,7 +125,10 @@ const getGithubStats = async () => {
         coding.loc += savedRepos[repo.full_name].added
         coding.loc += savedRepos[repo.full_name].deleted
       } else {
-        logger.log(` - ${repo.full_name} commits:${contri.status})`)
+        logger.log(` - [commits] ${repo.full_name} status:${contri.status})`)
+        delete savedRepos[repo.full_name].commits
+        delete savedRepos[repo.full_name].added
+        delete savedRepos[repo.full_name].deleted
       }
 
       const languages = await apiGitHub.request('GET /repos/{owner}/{repos}/languages', { owner: repo.owner.login, repos: repo.name })
@@ -133,7 +136,8 @@ const getGithubStats = async () => {
         savedRepos[repo.full_name].languages = languages.data
         coding.languages = Object.assign(coding.languages, languages.data)
       } else {
-        logger.log(` - ${repo.full_name} languages:${contri.status})`)
+        logger.log(` - [languages] ${repo.full_name}  status:${contri.status})`)
+        delete savedRepos[repo.full_name].languages
       }
     })())
   }
@@ -145,7 +149,7 @@ const getGithubStats = async () => {
 
   unlinkSync('./docs/data/repos.json')
   await updateJSONfile('repos.json', savedRepos)
-  await updateJSONfile('resume.json', { coding })
+  await updateJSONfile('coding.json', coding)
 }
 
 const getWakaTime = async () => {
@@ -203,7 +207,7 @@ const getWakaTime = async () => {
       weekTime[currDay] = (weekTime[currDay] || 0) + totalDuration
     })())
     if (wakaTask.length == 10) {
-      logger.log(`- fetch: ${beginDateTime} to ${currDateTime}`)
+      // logger.log(`- fetch: ${beginDateTime} to ${currDateTime}`)
       await Promise.all(wakaTask)
       wakaTask = []
       beginDateTime = ''
@@ -211,7 +215,7 @@ const getWakaTime = async () => {
   }
 
   if (wakaTask.length > 0) {
-    logger.log(`- fetch: ${beginDateTime} to ${currDateTime}`)
+    // logger.log(`- fetch: ${beginDateTime} to ${currDateTime}`)
     await Promise.all(wakaTask)
   }
 
@@ -221,7 +225,7 @@ const getWakaTime = async () => {
   weekTime.push(weekTime.shift())
 
   coding.weektime = weekTime
-  await updateJSONfile('resume.json', { coding })
+  await updateJSONfile('coding.json', coding)
 }
 
 const apiLayer = new Octokit({

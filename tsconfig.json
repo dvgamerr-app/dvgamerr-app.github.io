@@ -1,5 +1,6 @@
 {
   "vueCompilerOptions": {
+    "target": 2.7,
     "experimentalDisableTemplateSupport": true,
     "jsx": "preserve"
   },

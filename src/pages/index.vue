@@ -30,7 +30,7 @@ export default {
   data: () => ({ work, workfile }),
   head () {
     return {
-      title: 'Mr. Kananek T.'
+      title: `${this.$t('fullname')} | ${this.$t('job')}`
     }
   },
   computed: {
@@ -39,8 +39,8 @@ export default {
     }
   },
   methods: {
-    isResigning ({ quit }) {
-      return !!quit
+    isResigning ({ begin, quit }) {
+      return !!quit || dayjs(begin).diff(dayjs().add(-1, 's'), 'day', true) <= 0
     },
     getWorkStart ({ begin }) {
       begin = dayjs(begin).diff(dayjs().add(-1, 's'), 'month', true)
@@ -54,9 +54,10 @@ export default {
       quit = quit ? `- ${dayjs(quit).format('MMMM YYYY')}` : !newJob ? '- Present' : ''
 
       const month = worked % 1 * 12
-      const day = parseInt(worked % 1 * dayjs().daysInMonth())
+      const day = month % 1 * dayjs().daysInMonth()
 
-      const timeDiff = (worked > 0 ? `${Math.floor(worked)} year` : '') + (parseInt(month) > 0 ? ` ${parseInt(month)} month` : '')
+      const timeDiff = (parseInt(worked) > 0 ? `${Math.floor(worked)} year` : '') + (parseInt(month) > 0 ? ` ${parseInt(month)} month` : '') +
+        (parseInt(worked) === 0 && parseInt(month) === 0 ? `${Math.floor(day)} days` : '')
       return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
     },
     onSchema () {
