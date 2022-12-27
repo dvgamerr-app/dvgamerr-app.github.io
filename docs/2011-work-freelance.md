@@ -1,4 +1,4 @@
-  - Design software within the enterprise, schools and individuals with wordpress and php framework.
-  - Advisor to complete the project and to complete the projects.
-  - A general web site's web profile.
-  - Design a logo, websites, facebook pages.
+- Designed and developed software solutions for a variety of clients, including enterprises, schools, and individuals, using WordPress and PHP framework.
+- Collaborated with clients to define project requirements and provided ongoing technical support to ensure project success.
+- Utilized a range of technologies, including HTML, CSS, and JavaScript, to create engaging and user-friendly websites.
+- Excellent communication and collaboration skills, with the ability to work effectively in a remote environment.

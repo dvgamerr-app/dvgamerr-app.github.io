@@ -1,25 +1,19 @@
 **Research and Develop**
-  - Research Face Recognition (`Python`, `OpenCV`, `SocketIO`)
-  - Research Robot Project - `Arduino` Robotics Model
+- Collaborated with cross-functional teams to define project requirements and implement solutions
+- Utilized a range of technologies and tools to develop and test prototypes and products
+- Conducted research and development on a variety of projects, including `Face Recognition` using `Python`, `OpenCV`, and `SocketIO`, and a `robotics` model using `Arduino`
 
 **Front-end and Back-end Website**
-  - Develop Clocking System and Clocking Online
-  - Maintenance and Develop Travox `Midback-Office™` and  
-  - Join Stock Team and Develop Stock Web for Siamchai, TCRadio 
-  - Join Clalet Team and Develop Clalet Web for Red Cross
-  - Develop Payment Service (Paysbuy Modules)
+- Developed and maintained a range of web-based applications, including a `midback-office` system for Travox, a `stock web` for Siamchai and TCRadio, and a `payment service` using `Paysbuy` modules
 
 **Server Administrators**
-  - Maintenance IIS Web Server Window Server 2012 R2
-  - Maintenance Database MSSQL Server 2008 
-  - Maintenance Core OS Web Server with Container on Docker
-  - Maintenance Linux Web Server with Container on Docker
-  - Maintenance Database on Linux (mysql, mongodb, redisdb, elasticsearch)
-  - Recommend Git-Source Control Server for Programmer Department (Gitlab)
+- Proficient in a range of web development technologies, including HTML, CSS, JavaScript, and PHP
+- Strong experience in server administration, including maintenance of `IIS` and `MSSQL` servers, and experience with containerization using `Docker`
+- Proficient in database management, including `MySQL`, `MongoDB`, `RedisDB`, and `Elasticsearch`
+- Experience with Git-based source control systems, such as `Gitlab`
 
 **Windows Application**
-  - Analyze, Design System and Develop `Travox Sentinel™ `
+- Analyzed, designed, and developed `Travox Sentinel`, a Windows-based application
 
 **Android Application**
-  - Maintenance and Develop Android App `CheckStock™` Barcode
-
+- Maintained and developed `CheckStock™`, an Android-based barcode application
