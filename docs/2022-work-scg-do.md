@@ -1,2 +1,2 @@
 - Maintenance `mulesoft` API Gateway with `Anypoint Studio`
-- Build CI/CD JAVA with mulesoft Framwork with GoCD platfrom
+- Build CI/CD Java with mulesoft Framwork with GoCD platfrom
