@@ -317,6 +317,9 @@
     }
   },
   "dvgamerr/exam-largest-power": {
+    "commits": 12,
+    "added": 406,
+    "deleted": 43,
     "languages": {
       "Go": 6977
     }
@@ -512,6 +515,9 @@
     }
   },
   "dvgamerr/html2pdf.it": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
     "languages": {
       "JavaScript": 40350,
       "HTML": 15168
@@ -622,6 +628,9 @@
     }
   },
   "dvgamerr/kubeless": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
     "languages": {
       "Go": 444284,
       "Shell": 70606,
@@ -727,6 +736,9 @@
     }
   },
   "dvgamerr/module.core-systems": {
+    "commits": 202,
+    "added": 11528,
+    "deleted": 10165,
     "languages": {
       "JavaScript": 30889
     }
@@ -912,6 +924,9 @@
     }
   },
   "dvgamerr/raannuch.co.uk": {
+    "commits": 10,
+    "added": 15022,
+    "deleted": 20,
     "languages": {
       "HTML": 169468,
       "PHP": 77590,
@@ -956,6 +971,9 @@
     }
   },
   "dvgamerr/ris-survey-ui": {
+    "commits": 61,
+    "added": 17078,
+    "deleted": 14258,
     "languages": {
       "JavaScript": 69987,
       "Vue": 36545,

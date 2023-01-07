@@ -183,7 +183,7 @@ export default {
                 </ul>
               </div>
 
-              <li style="margin-right:1em" content="If want CV." v-tippy="printTippy">
+              <li style="margin-right:1em" content="📄 If you want a CV" v-tippy="printTippy">
                 <a href="#" rel="noopener noreferrer" @click.prevent="onPrint"><font-awesome-icon icon="print" /></a>
               </li>
               <li>

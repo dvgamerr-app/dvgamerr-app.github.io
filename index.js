@@ -19,9 +19,15 @@ const updateJSONfile = async (file, updated) => {
   if (existsSync(join(dirData, file))) {
     const rawData = await readFile(join(dirData, file))
     const data = JSON.parse(rawData.toString())
+
     for (const key in updated) {
-      if (typeof updated[key] != 'object') continue
-      data[key] = Object.assign(data[key] || {}, updated[key])
+      if (updated[key] instanceof Array) {
+        data[key] = updated[key]
+      } else if (updated[key] instanceof Object) {
+        data[key] = Object.assign(data[key] || {}, updated[key])
+      } else {
+        data[key] = updated[key]
+      }
     }
 
     await writeFile(join(dirData, file), JSON.stringify(data, null, 2))
@@ -158,7 +164,8 @@ const getWakaTime = async () => {
 
 
   const coding = {
-    yesterday_seconds: 0,
+    updated: new Date().toISOString(),
+    weekly_seconds: 0,
     average_seconds: 0,
     best_seconds: 0,
     daytime: [],
@@ -176,7 +183,7 @@ const getWakaTime = async () => {
   wakaTask = []
   const totalDay = 365
   let cDate = dayjs().startOf('d')
-  for (let i = totalDay; i > 0; i--) {
+  for (let i = totalDay; i >= 0; i--) {
     cDate = dayjs().startOf('d')
     currDateTime = cDate.add(i * -1, 'd').format('YYYY-MM-DD')
     const currDay = cDate.add(i * -1, 'd').day()
@@ -200,9 +207,8 @@ const getWakaTime = async () => {
         totalDuration += data.duration
       }
       coding.average_seconds += totalDuration
-
       if (totalDuration > coding.best_seconds) coding.best_seconds = totalDuration
-      if (i === 1) coding.yesterday_seconds = totalDuration
+      if (i < 7) coding.weekly_seconds = totalDuration
 
       weekTime[currDay] = (weekTime[currDay] || 0) + totalDuration
     })())
@@ -248,7 +254,7 @@ Promise.all([
   markdownToJson('work.json'),
   getCurrencryUSD(),
   getGithubStats(),
-  getWakaTime()
+  getWakaTime(),
 ]).then(() => {
   logger.log('Complated')
 }).catch(ex => {

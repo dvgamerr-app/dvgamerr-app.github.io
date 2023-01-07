@@ -1,5 +1,5 @@
 <script>
-import { coding } from '~/../docs/data/resume.json'
+import coding from '~/../docs/data/coding.json'
 
 let maxDayTime = 0
 let maxRange = 0

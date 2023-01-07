@@ -39,7 +39,7 @@
 <script>
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { coding } from '~/../docs/data/resume.json'
+import coding from '~/../docs/data/coding.json'
 
 dayjs.extend(relativeTime)
 

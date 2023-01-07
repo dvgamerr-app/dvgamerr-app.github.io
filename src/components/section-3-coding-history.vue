@@ -8,9 +8,9 @@
       </div>
       <div class="col-lg-27 col-md-25 col-sm-36 d-grid stats">
         <div class="stats-item">
-          <div class="value" v-text="parseTime(coding.yesterday_seconds)" />
+          <div class="value" v-text="parseTime(coding.weekly_seconds)" />
           <div class="name">
-            Yesterday Coding
+            Weekly Coding
           </div>
         </div>
         <div class="stats-item">
@@ -36,7 +36,7 @@
   </section>
 </template>
 <script>
-import { coding } from '~/../docs/data/resume.json'
+import coding from '~/../docs/data/coding.json'
 
 export default {
   data: () => ({ coding }),
