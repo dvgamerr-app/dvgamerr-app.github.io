@@ -1,9 +1,12 @@
-## Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)My name is Kananek Thongkam
+![Dashboard](./docs/github-header.png)
+
 ![followers](https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=0891b2&labelColor=1c1917)
 ![counter](https://komarev.com/ghpvc/?username=dvgamerr&color=green&label=VIEWS&style=flat-square)
 [![wakatime](https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square)](https://wakatime.com/@06633b1c-3ba7-44c2-ab5d-08e47ccc87ab)
 
-Full-Stack Engineer & Opensource Developer
+I’m KEM, a senior full-stack engineer. I make it my mission to translate user-focused designs into pixel-perfect websites.
+
+📝 Full-Stack Engineer & Opensource Developer
 -------------------
   * 🌍  I'm based in Bangkok
   * 🖥️  See my portfolio at [My Resume](http://mr.touno.io/)
@@ -15,6 +18,16 @@ This is the place where I opensource stuff and break things :rofl:
   * 🔭 I’m currently working on big something cool :wink:
   * 💬 Ask me about anything related to k8s,docker,nuxtjs,reactjs,deno,nodejs,golang,rustlang
   * 📫 How to reach me: [@dvgamerr](https://touno.io/s/8ae4)
+
+# 📣 [Touno™ Project](https://www.touno.io/s/l7cq)
+โครงการที่เริ่มต้นขีันปี 2016 เพื่อเป็นเว็บและเครื่องมือที่คอยช่วยเหลือ ในทำงานต่างๆ
+- [Discord](https://touno.io/s/ixj7)
+- [GitHub](https://touno.io/s/l7cq)
+
+## Current Project
+- [gokub-bot](https://github.com/touno-io/gokub-bot) Bitkub Trading Bot.
+- [go-bitkub](https://github.com/touno-io/bitkub-go) Bitkub API and WebSocket golang.
+
 
 ### Skills
 
@@ -46,27 +59,19 @@ This is the place where I opensource stuff and break things :rofl:
 <p align="left"> <a href="https://discord.com/users/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" width="32" height="32" /></a> <a href="https://www.facebook.com/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/facebook.svg" width="32" height="32" /></a> <a href="https://www.github.com/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github-dark.svg" width="32" height="32" /></a> <a href="http://www.instagram.com/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/instagram.svg" width="32" height="32" /></a> <a href="https://www.linkedin.com/in/kananek-thongkam" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" width="32" height="32" /></a> <a href="https://www.twitter.com/dvgamerr" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" width="32" height="32" /></a></p>
 
 -------------------------
-#### Wakatime Language (code activity last 7 days)
+[![Ashutosh's github activity graph](https://github-readme-activity-graph.cyclic.app/graph?username=dvgamerr&theme=merko)](https://github.com/ashutosh00710/github-readme-activity-graph)
+-------------------------
+
+#### 📈 Wakatime Language (code activity last 7 days)
 
 [![](https://github-readme-stats.vercel.app/api/wakatime?username=@dvgamerr&bg_color=1c1917&color=ffffff)](https://wakatime.com/@dvgamerr)
 -------------------------
 
-#### My GitHub Stats
+#### 📈 GitHub Stats
 <a href="http://www.github.com/dvgamerr"><img src="https://github-readme-stats.vercel.app/api?username=dvgamerr&show_icons=true&hide=prs,&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&show_icons=true" alt="dvgamerr's GitHub stats" /></a>
-
-<a href="http://www.github.com/dvgamerr"><img src="https://activity-graph.herokuapp.com/graph?username=dvgamerr&bg_color=1c1917&color=ffffff&line=0891b2&point=ffffff&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph" alt="GitHub Commits Graph" /></a>
 
 <a href="https://github.com/dvgamerr" align="left"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dvgamerr&langs_count=10&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&locale=en&custom_title=Top%20%Languages" alt="Top Languages" /></a>
 -------------------------
-
-# Touno™ Project
-โครงการที่เริ่มต้นขีันปี 2016 เพื่อเป็นเว็บและเครื่องมือที่คอยช่วยเหลือ ในทำงานต่างๆ
-- [Discord](https://touno.io/s/ixj7)
-- [GitHub](https://touno.io/s/l7cq)
-
-## Current Project
-- [gokub-bot](https://github.com/touno-io/gokub-bot) Bitkub Trading Bot.
-- [go-bitkub](https://github.com/touno-io/bitkub-go) Bitkub API and WebSocket golang.
 
 ## Web API
 - **mr.touno.io** deploy ไว้ที่ GithubPages ด้วย nuxt
@@ -76,11 +81,11 @@ This is the place where I opensource stuff and break things :rofl:
 ### Task
 - **task-wakatime** ดึงข้อมูลจาก wakatime เข้า mongodb เที่ยงคืนของทุกวัน `(รันไว้ที่ NAS-Synology)`
 
-![Dashboard](./docs/task-wakatime.webp)
+![Dashboard](./docs/task-wakatime.png)
 
 - **task-cinema** ดึงข้อมูล sf และ major เข้า mongodb ทุกๆ เช้า และแจ้งเตือนเข้าไลน์ทุกวันจันทร์ `(รันไว้ที่ NAS-Synology)`
 
-![Dashboard](./docs/task-cinema.webp)
+![Dashboard](./docs/task-cinema.png)
 
 
 ## Tech/Framework used
@@ -102,4 +107,4 @@ This is the place where I opensource stuff and break things :rofl:
 [![](https://img.shields.io/badge/-linkedin-0073B1?style=flat-square)](https://touno.io/s/ig6h)
 
 ### License
-MIT © 2021 Touno™
+MIT © 2023 Touno™
