@@ -1,16 +1,15 @@
-  - Design Database, UserInterface, API for new project `Notice-Subscriber`
-  - Kubernates architecture design with `DAAS Project`.
-  - Develop Golang API Project `DAAS`
-  - Design database on Azure PostgreSQL Databases with Project `DAAS`
-  - `DAAS` redesign new solution ETL Engine Service ensures performance, multiple data 200GB.
-  - `Azure Kubernetes Service` (AKS) setup and configuration with project `DAAS`
-  - Kubernetes Server configuration and setup for Project `PPE-API` and `GWP`
-  - Automate Deploy and setup zero-downtime for `PPE-API`
-  - Initiate use the agile model and use `Gitlab` within the team.
-  - Setup Gitlab Runner on Windows Server, Ubuntu, CentOS, RedHat, CoreOS for CI/CD intergate Gitlab.
-  - Teaching Installation, configuration management and usability Kubernetes, MongoDB, RedisDB to Server Engineer Team.
-  - Develop Automate Health Check Status, Service API, Logging, Schedule Task and report status in `Notice-Manager`.
-  - Developed a new project `PPE-API` or promotion-calculator with the need for high performance api to use or possibly 1,000 req/seconds.
-  - Develop Golang API Project `DAAS`
-  - Migrate ETL `Talend BigData Community Edition` to new engine ETL with golang.
-  - Develop new project `GWP` used setup promotion.
+- Designed and developed the database, user interface, and APIs for the `Notice-Subscriber` project.
+- Implemented a Kubernetes architecture with the `DAAS` project.
+- Developed Golang APIs for the `DAAS` project.
+- Designed and implemented Azure PostgreSQL databases for the `DAAS` project.
+- Redesigned the ETL engine service for the `DAAS` project, ensuring improved performance and handling of multiple data (200GB).
+- Set up and configured `Azure Kubernetes Service` (AKS) for the `DAAS` project.
+- Configured Kubernetes servers for the `PPE-API` and GWP projects.
+- Implemented zero-downtime automation for the `PPE-API` project.
+- Adopted an agile model and introduced `Gitlab` for team collaboration.
+- Set up `Gitlab Runner` on various operating systems (Windows Server, Ubuntu, CentOS, RedHat, CoreOS) for CI/CD integration with `Gitlab`.
+- Trained the Server Engineer team on the installation, configuration, and usage of Kubernetes, MongoDB, and RedisDB.
+- Developed automated health check, API, logging, scheduling, and reporting features for the Notice-Manager project.
+- Developed the `PPE-API` project, a high-performance API capable of handling up to 1,000 req/second.
+- Migrated the `Talend BigData Community Edition` ETL to a new Golang-based ETL engine.
+- Developed the `GWP` project, a `promotion setup` tool
