@@ -1,7 +1,8 @@
-![Dashboard](./docs/github-header.png)
+[![Dashboard](./docs/github-header.png)](https://mr.touno.io/)
 
+[![github-pages](https://github.com/dvgamerr/dvgamerr/actions/workflows/github-pages.yml/badge.svg?branch=main&style=flat-square&labelColor=1c1917)](https://github.com/dvgamerr/dvgamerr/actions/workflows/github-pages.yml)
 ![followers](https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=0891b2&labelColor=1c1917)
-![counter](https://komarev.com/ghpvc/?username=dvgamerr&color=green&label=VIEWS&style=flat-square)
+![counter](https://komarev.com/ghpvc/?username=dvgamerr&color=green&label=VIEWS&style=flat-square&labelColor=1c1917)
 [![wakatime](https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square)](https://wakatime.com/@06633b1c-3ba7-44c2-ab5d-08e47ccc87ab)
 
 I’m KEM, a senior full-stack engineer. I make it my mission to translate user-focused designs into pixel-perfect websites.
