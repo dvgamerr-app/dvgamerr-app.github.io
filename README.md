@@ -25,6 +25,25 @@ This is the place where I opensource stuff and break things :rofl:
 - [Discord](https://touno.io/s/ixj7)
 - [GitHub](https://touno.io/s/l7cq)
 
+```mermaid
+graph TB
+IN[fa:fa-users Internet]
+CF[fa:fa-cloud cloudflare]
+K3S_1{{manage:01\noracle-sydney}}
+K3S_2{{node:01\naws-singapore}}
+K3S_3{{node:02\naide-yoga}}
+DB1[(PostgreSQL)]
+DB2[(Redis)]
+
+IN --> CF
+CF --> |ingress| K3S_2
+subgraph ide1 [k3s cluster]
+K3S_1 --> K3S_2
+K3S_1 --> K3S_3
+end
+```
+
+
 ## Current Project
 - [gokub-bot](https://github.com/touno-io/gokub-bot) Bitkub Trading Bot.
 - [go-bitkub](https://github.com/touno-io/bitkub-go) Bitkub API and WebSocket golang.
