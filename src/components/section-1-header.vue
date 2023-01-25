@@ -100,7 +100,7 @@ export default {
       <div class="row">
         <div class="col-lg-9 col-md-11 d-none d-md-block">
           <div class="profile-img d-flex justify-content-end">
-            <img src="~assets/avatar_20221008.webp" loading="lazy" width="230" height="280" alt="">
+            <img src="~assets/studio-session-755-2.webp" loading="lazy" width="230" height="280" alt="">
           </div>
         </div>
         <div class="col-lg-27 col-md-25 col-sm-36 name-wrapper">
