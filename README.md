@@ -32,14 +32,43 @@ CF[fa:fa-cloud cloudflare]
 K3S_1{{manage:01\noracle-sydney}}
 K3S_2{{node:01\naws-singapore}}
 K3S_3{{node:02\naide-yoga}}
-DB1[(PostgreSQL)]
-DB2[(Redis)]
+RT(fa:fa-user root)
 
 IN --> CF
 CF --> |ingress| K3S_2
+
+subgraph ide2 [tailscale vpn]
+RT --> K3S_1
 subgraph ide1 [k3s cluster]
 K3S_1 --> K3S_2
 K3S_1 --> K3S_3
+end
+end
+```
+
+```mermaid
+graph LR
+DB1[(PostgreSQL)]
+DB2[(Redis)]
+DB3[(Mongo)]
+TK1[task-1]
+TK2[task-1]
+
+
+subgraph region1 [sydney]
+DB1
+DB2
+DB3[(Mongo)]
+
+end
+subgraph region2 [singapore]
+ingress-controller
+sso-team
+touno-app
+end
+subgraph region3 [bangkok]
+TK1
+TK2
 end
 ```
 
