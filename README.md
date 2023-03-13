@@ -31,7 +31,7 @@ IN[fa:fa-users Internet]
 CF[fa:fa-cloud cloudflare]
 K3S_1{{manage:01\noracle-sydney}}
 K3S_2{{node:01\naws-singapore}}
-K3S_3{{node:02\naide-yoga}}
+K3S_3{{node:02\naide-bangkok}}
 RT(fa:fa-user root)
 
 IN --> CF
