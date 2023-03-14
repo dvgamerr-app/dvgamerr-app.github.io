@@ -352,32 +352,32 @@
   "contact": [
     {
       "print": false,
-      "label": "INSTRGRAM",
-      "url": "https://touno.io/s/u01t",
-      "text": "Kananek Thongkam",
+      "label": "Github",
+      "url": "https://touno.io/s/w9z5",
+      "text": "dvgamerr",
       "icon": [
         "fab",
-        "instagram"
-      ]
-    },
-    {
-      "print": false,
-      "label": "FACEBOOK",
-      "url": "https://touno.io/s/zo2h",
-      "text": "Kananek Thongkam",
-      "icon": [
-        "fab",
-        "facebook-f"
+        "github"
       ]
     },
     {
       "print": false,
       "label": "TWITTER",
       "url": "https://touno.io/s/8ae4",
-      "text": "Kananek T.",
+      "text": "dvgamerr",
       "icon": [
         "fab",
         "twitter"
+      ]
+    },
+    {
+      "print": false,
+      "label": "INSTRGRAM",
+      "url": "https://touno.io/s/u01t",
+      "text": "Kananek Thongkam",
+      "icon": [
+        "fab",
+        "instagram"
       ]
     },
     {
