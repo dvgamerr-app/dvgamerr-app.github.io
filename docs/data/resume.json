@@ -4,7 +4,7 @@
   "salary": {
     "base": 75118,
     "expect": 125000,
-    "rate": 33.77,
+    "rate": 34.21,
     "day": 30,
     "hour": 8,
     "currency": "$"

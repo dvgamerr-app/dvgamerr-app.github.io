@@ -1,4 +1,10 @@
 {
+  "dvgamerr/.github": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
+    "languages": {}
+  },
   "dvgamerr/adminMongo-Mini": {
     "commits": 1,
     "added": 1,
@@ -94,9 +100,6 @@
     }
   },
   "dvgamerr/banks-thai-icon": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
     "languages": {}
   },
   "dvgamerr/bitkub-optimize": {
@@ -145,9 +148,6 @@
     }
   },
   "dvgamerr/crypto-metamask": {
-    "commits": 6,
-    "added": 11028,
-    "deleted": 7518,
     "languages": {
       "JavaScript": 4199
     }
@@ -241,6 +241,16 @@
       "Dockerfile": 1649
     }
   },
+  "dvgamerr/docs": {
+    "languages": {
+      "JavaScript": 1223040,
+      "TypeScript": 425309,
+      "SCSS": 21139,
+      "HTML": 13283,
+      "Shell": 7831,
+      "Dockerfile": 4483
+    }
+  },
   "dvgamerr/DvGamer-PC": {
     "commits": 11,
     "added": 7016,
@@ -256,9 +266,6 @@
     }
   },
   "dvgamerr/DvGamer-PC.V2": {
-    "commits": 2,
-    "added": 1915,
-    "deleted": 6,
     "languages": {
       "PHP": 11969,
       "CSS": 3893,
@@ -266,17 +273,17 @@
     }
   },
   "dvgamerr/dvgamerr": {
-    "commits": 288,
-    "added": 116150,
-    "deleted": 95598,
+    "commits": 310,
+    "added": 117341,
+    "deleted": 97504,
     "languages": {
       "HTML": 48366,
-      "Vue": 47296,
+      "Vue": 47267,
       "CSS": 22976,
-      "JavaScript": 21938,
-      "SCSS": 12898,
+      "JavaScript": 22250,
+      "SCSS": 13020,
       "Dockerfile": 162,
-      "Shell": 64
+      "Shell": 152
     }
   },
   "dvgamerr/dvgamerr.github.io": {
@@ -727,6 +734,16 @@
       "CSS": 74
     }
   },
+  "dvgamerr/metrics": {
+    "languages": {
+      "JavaScript": 902152,
+      "TypeScript": 244259,
+      "HTML": 90389,
+      "CSS": 23296,
+      "Shell": 3084,
+      "Dockerfile": 1627
+    }
+  },
   "dvgamerr/module-psnjs": {
     "commits": 0,
     "added": 0,
@@ -752,9 +769,6 @@
     }
   },
   "dvgamerr/monitores": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
     "languages": {
       "C++": 566153,
       "C": 13937,
@@ -881,6 +895,9 @@
       "JavaScript": 22946,
       "Dockerfile": 176
     }
+  },
+  "dvgamerr/paredaitranslate.github.io": {
+    "languages": {}
   },
   "dvgamerr/PHP-Template": {
     "commits": 45,
@@ -1047,6 +1064,18 @@
       "Batchfile": 215
     }
   },
+  "dvgamerr/simscolony.github.io": {
+    "commits": 6,
+    "added": 9399,
+    "deleted": 3033,
+    "languages": {
+      "HTML": 126909,
+      "Astro": 26057,
+      "SCSS": 25367,
+      "TypeScript": 736,
+      "JavaScript": 719
+    }
+  },
   "dvgamerr/Site.Proxy-noip": {
     "commits": 5,
     "added": 7521,
@@ -1086,6 +1115,16 @@
       "JavaScript": 46286,
       "CSS": 8921,
       "HTML": 1430
+    }
+  },
+  "dvgamerr/spending-visualizer": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
+    "languages": {
+      "TypeScript": 29618,
+      "HTML": 848,
+      "JavaScript": 598
     }
   },
   "dvgamerr/ssis-oracle": {
@@ -1301,16 +1340,6 @@
       "SCSS": 10577
     }
   },
-  "dvgamerr/vuepress-theme-dvgamerr": {
-    "commits": 4,
-    "added": 4567,
-    "deleted": 3730,
-    "languages": {
-      "Vue": 27380,
-      "Stylus": 6516,
-      "JavaScript": 5843
-    }
-  },
   "dvgamerr/vuepress-theme-fluid": {
     "commits": 0,
     "added": 0,
@@ -1359,6 +1388,27 @@
       "HTML": 30502,
       "Vue": 4243,
       "Batchfile": 172
+    }
+  },
+  "dvgamerr/wedding-day": {
+    "commits": 35,
+    "added": 26643,
+    "deleted": 20908,
+    "languages": {
+      "CSS": 11774,
+      "Astro": 10350,
+      "JavaScript": 703,
+      "TypeScript": 672
+    }
+  },
+  "dvgamerr/wedding-gallery": {
+    "commits": 1,
+    "added": 4024,
+    "deleted": 8348,
+    "languages": {
+      "Astro": 18221,
+      "CSS": 10987,
+      "JavaScript": 109
     }
   },
   "dvgamerr/win64-console-app": {
