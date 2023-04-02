@@ -100,6 +100,9 @@
     }
   },
   "dvgamerr/banks-thai-icon": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
     "languages": {}
   },
   "dvgamerr/bitkub-optimize": {
@@ -148,6 +151,9 @@
     }
   },
   "dvgamerr/crypto-metamask": {
+    "commits": 6,
+    "added": 11028,
+    "deleted": 7518,
     "languages": {
       "JavaScript": 4199
     }
@@ -242,6 +248,9 @@
     }
   },
   "dvgamerr/docs": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
     "languages": {
       "JavaScript": 1223040,
       "TypeScript": 425309,
@@ -266,6 +275,9 @@
     }
   },
   "dvgamerr/DvGamer-PC.V2": {
+    "commits": 2,
+    "added": 1915,
+    "deleted": 6,
     "languages": {
       "PHP": 11969,
       "CSS": 3893,
@@ -273,17 +285,16 @@
     }
   },
   "dvgamerr/dvgamerr": {
-    "commits": 310,
-    "added": 117341,
-    "deleted": 97504,
+    "commits": 315,
+    "added": 119311,
+    "deleted": 102647,
     "languages": {
-      "HTML": 48366,
-      "Vue": 47267,
-      "CSS": 22976,
-      "JavaScript": 22250,
+      "Vue": 46545,
+      "JavaScript": 21531,
       "SCSS": 13020,
+      "CSS": 7400,
       "Dockerfile": 162,
-      "Shell": 152
+      "Shell": 88
     }
   },
   "dvgamerr/dvgamerr.github.io": {
@@ -332,9 +343,6 @@
     }
   },
   "dvgamerr/exam-makro": {
-    "commits": 2,
-    "added": 215,
-    "deleted": 0,
     "languages": {
       "JavaScript": 1494
     }
@@ -364,9 +372,6 @@
     }
   },
   "dvgamerr/gautamkrishnar": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
     "languages": {}
   },
   "dvgamerr/GhostLegend-Game": {
@@ -614,9 +619,6 @@
     }
   },
   "dvgamerr/Kolin-Finance-Pro": {
-    "commits": 1,
-    "added": 3796,
-    "deleted": 4009,
     "languages": {
       "Kotlin": 131423
     }
@@ -735,6 +737,9 @@
     }
   },
   "dvgamerr/metrics": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
     "languages": {
       "JavaScript": 902152,
       "TypeScript": 244259,
@@ -769,6 +774,9 @@
     }
   },
   "dvgamerr/monitores": {
+    "commits": 0,
+    "added": 0,
+    "deleted": 0,
     "languages": {
       "C++": 566153,
       "C": 13937,
@@ -847,9 +855,6 @@
     }
   },
   "dvgamerr/novel-web": {
-    "commits": 2,
-    "added": 1116,
-    "deleted": 1,
     "languages": {
       "JavaScript": 20607,
       "Vue": 7247,
@@ -952,9 +957,6 @@
     }
   },
   "dvgamerr/redis-gui": {
-    "commits": 0,
-    "added": 0,
-    "deleted": 0,
     "languages": {
       "Vue": 100433,
       "JavaScript": 56200,
@@ -1122,7 +1124,7 @@
     "added": 0,
     "deleted": 0,
     "languages": {
-      "TypeScript": 29618,
+      "TypeScript": 41822,
       "HTML": 848,
       "JavaScript": 598
     }
@@ -1402,9 +1404,6 @@
     }
   },
   "dvgamerr/wedding-gallery": {
-    "commits": 1,
-    "added": 4024,
-    "deleted": 8348,
     "languages": {
       "Astro": 18221,
       "CSS": 10987,
