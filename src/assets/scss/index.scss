@@ -25,14 +25,14 @@ $btn-font-weight: 600;
 // );
 :root {
   --bg-light: #f8f8f8;
-  --bg-dark: #191919;
+  --bg-dark: #10121e;
 }
 
 .light-mode {
   --bg-color: var(--bg-light);
-  --text-color-link: #ff5722;
+  --text-color-link: #3068d8;
   --border-square-rotating: 2px solid #0000000d;
-  --text-primary: #212529;
+  --text-primary: #1f252c;
   --text-secondary: #989898;
   --text-secondary-value: #444444;
   --menu-color: #333333;
@@ -101,6 +101,18 @@ $btn-font-weight: 600;
   .d-print-only {
     display: block !important;
   }
+
+  a {
+    color: var(--text-link-color);
+    text-decoration: none;
+    opacity: .9;
+  }
+  a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+
 
   html,
   body,

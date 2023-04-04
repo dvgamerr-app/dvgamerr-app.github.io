@@ -4,11 +4,11 @@
       <div class="row">
         <div class="col-36">
           <div class="copytext">
-            Copyright <font-awesome-icon :icon="['far', 'copyright']" /> {{ getYear }} {{ orgs }},  <br class="d-block d-sm-none"> v{{ version }} ∙
-            Design By <a :href="url" target="_blank" v-text="myName" /> and
-            <a href="https://webring.wonderful.software#mr.touno.io" title="วงแหวนเว็บ">
+            &copy; {{ getYear }} <b>TOUNO.io</b> design by
+            <a href="https://mr.touno.io/" target="_blank">Kananek T.</a> and
+            <a href="https://webring.wonderful.software#mr.touno.io">
               webring <img alt="webring" src="~assets/webring.svg" width="14" height="14" style="margin-bottom: 3px">
-            </a>
+            </a> v{{ version }}
           </div>
         </div>
       </div>
@@ -21,9 +21,6 @@ const { version } = require('../../package.json')
 export default {
   data: () => ({
     version,
-    orgs: 'Touno™',
-    url: 'https://mr.touno.io',
-    myName: 'Kananek T.',
     getYear: (new Date()).getFullYear()
   })
 }
@@ -31,6 +28,9 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: .8rem;
+
   padding-top: 3em;
   text-align: right;
 
