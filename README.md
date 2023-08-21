@@ -1,8 +1,9 @@
 <a href="https://www.razer.com/cortex/"><img src="https://deals-assets-cdn.razerzone.com/postcard/4a7dcbccb072e550f37a429db2f2e25d.png"/></a>
 
 [![github-pages](https://github.com/dvgamerr/dvgamerr/actions/workflows/github-pages.yml/badge.svg?branch=main&style=flat-square&labelColor=1c1917)](https://github.com/dvgamerr/dvgamerr/actions/workflows/github-pages.yml)
+![counter](https://komarev.com/ghpvc/?username=dvgamerr&color=97ca00&label=views&labelColor=1c1917)
 ![followers](https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=0891b2&labelColor=1c1917)
-[![counter](https://www.touno.io/badges/url/rfd6?color=97ca00&label=views&labelColor=1c1917)](https://www.touno.io/badges/url/rfd6?color=97ca00&label=views&labelColor=1c1917)
+
 [![wakatime](https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square)](https://wakatime.com/@06633b1c-3ba7-44c2-ab5d-08e47ccc87ab)
 
 I’m KEM, a senior full-stack engineer. I make it my mission to translate user-focused designs into pixel-perfect websites.
