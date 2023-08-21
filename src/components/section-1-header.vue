@@ -110,7 +110,7 @@ export default {
           <div class="d-print-none mt-1">
             <img alt="wakatime" height="20" loading="lazy" src="https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square&color=blue" />
             <img alt="follow" width="100" height="20" loading="lazy" src="https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=yellow" />
-            <img alt="counter" height="20" loading="lazy" src="https://www.touno.io/badges/url/rfd6?color=97ca00&label=views&labelColor=555555" />
+            <img alt="counter" height="20" loading="lazy" src="https://komarev.com/ghpvc/?username=dvgamerr&color=97ca00&label=views&labelColor=1c1917" />
           </div>
           <p contenteditable="false" class="mt-3" v-text="detail" />
           <div>
