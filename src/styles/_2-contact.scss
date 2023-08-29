@@ -1,0 +1,17 @@
+#__layout {
+  @include media-breakpoint-up(md) {
+    .section-contact {
+      .contact-item {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .section-contact {
+      .contact-item {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}

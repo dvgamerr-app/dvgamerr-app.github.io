@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ThemeIcon from '../components/ThemeIcon.astro';
+import SectionFooter from '../components/SectionFooter.astro'
+---
+
+<Layout title="Mr. Kananek T." desc="">
+  <ThemeIcon />
+  <div class="resume">
+    <section-1-header />
+    <div class="container">
+      <section-2-contact/>
+      <section-3-coding />
+      <section-3-coding-history />
+      <section-3-coding-daytime />
+      <section-5-skill />
+      <section-6-education class="d-print-only" />
+    </div>
+    <p class="pagebreak" />
+    <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
+      <div v-if="!e.pagebreak" class="container">
+        <div class="row">
+          <div class="col-lg-9 col-md-11">
+            <div class="section-title">
+              <h2>Work Experience</h2>
+              <span class="badge text-bg-success">NEW JOB</span>
+            </div>
+          </div>
+          <div class="col-lg-27 col-md-25 col-sm-36 content-job">
+            <small v-if="isResigning(e.range)" v-text="getWorkPeriod(e.range)" style="margin-top: -2px;display: block;" />
+            <small v-else v-text="getWorkStart(e.range)" style="margin-top: -2px;display: block;" />
+            <h3 v-show="!e.jobs" v-text="e.job" />
+            <h4 v-text="e.work" />
+            <div v-if="!e.jobs" v-show="workfile[e.file]" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
+            <div class="content-subjob" v-else>
+              <div v-for="(j, l) in e.jobs" :key="l">
+                <h3 v-text="j.job" />
+                <small v-text="getWorkPeriod(j.range)" />
+                <div class="markdown pt-1" v-html="$md.render(workfile[j.file])" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <p class="pagebreak" /> -->
+    <!-- <div>
+      <section-education class="d-print-none" />
+      <section-certificate class="d-print-none" />
+    </div> -->
+    <SectionFooter />
+  </div>
+</Layout>
+
+<style>
+@media print {
+  .resume {
+    border-top: none !important;
+  }
+}
+
+.resume {
+  border-top: 5px solid var(--text-color-link);
+  padding: 4em 0;
+}
+
+.content-job {
+  margin-bottom: 20px;
+
+  h3 {
+    margin: 0 0 10px;
+    line-height: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  h4 {
+    margin: 0;
+    line-height: 1;
+  }
+  small {
+    color: var(--text-secondary);
+  }
+  p {
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+
+  ul {
+    margin: 0 0 0 5px;
+    li::before {
+      content: '•';
+      margin-right: 5px;
+    }
+  }
+
+  .badge {
+    padding-top: 5px;
+  }
+
+  .content-subjob {
+    padding: 15px 0px 0px 0px;
+    > div {
+      padding: 10px 0px;
+      h3 {
+        margin: 0px;
+      }
+    }
+  }
+
+}
+</style>
