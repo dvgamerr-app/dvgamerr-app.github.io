@@ -41,8 +41,7 @@ jobs:
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
-          version: 7
-          run_install: false
+          run_install: true
 
       - name: Get pnpm store directory
         shell: bash
@@ -56,9 +55,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm i
 
       - name: Collector Data 🔧
         run: pnpm collector
