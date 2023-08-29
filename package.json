@@ -1,85 +1,27 @@
 {
   "name": "dvgamerr",
-  "version": "3.9.0",
+  "version": "4.0.0",
   "description": "Hey there, My name is Kananek T. and I'm a Full Stack Developer.",
-  "author": "Mr.Kananek T. <info.dvgamer@gmail.com>",
+  "author": "Kananek T. <kananek.dev@touno.io>",
   "private": false,
-  "engines": {
-    "node": "^14 || ^16"
-  },
   "scripts": {
-    "dev": "nuxt",
-    "dev:gen": "env-cmd node .",
-    "collector": "node . --github --wakatime",
-    "wakatime": "node . --wakatime",
-    "build": "nuxt generate",
-    "eslint": "eslint --fix --ext .js,.vue --ignore-path .eslintignore ."
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.3.0",
-    "@fortawesome/free-brands-svg-icons": "^6.2.1",
-    "@fortawesome/free-regular-svg-icons": "^6.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.3.0",
-    "@fortawesome/vue-fontawesome": "^2.0.10",
-    "@nuxtjs/auth-next": "5.0.0-1667386184.dfbbb54 ",
-    "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/i18n": "^7.3.1",
-    "@octokit/core": "^4.2.0",
-    "@popperjs/core": "^2.11.6",
-    "@touno-io/debuger": "^2.4.1",
-    "bootstrap": "^5.2.2",
-    "charts.css": "^0.9.0",
-    "dayjs": "^1.11.6",
-    "env-cmd": "^10.1.0",
-    "md5": "^2.3.0",
-    "numeral": "^2.0.6",
-    "nuxt": "^2.12.2",
-    "nuxt-compress": "^5.0.0",
-    "vue": "2.7.14",
-    "vue-clipboards": "^1.3.0",
-    "vue-notification": "^1.3.20",
-    "vue-server-renderer": "2.7.14",
-    "vue-template-compiler": "2.7.14",
-    "vue-tippy": "^4.10.0",
-    "webpack": "^4.46.0"
+    "@astrojs/image": "^0.17.3",
+    "astro": "^2.10.14",
+    "astro-google-fonts-optimizer": "^0.2.2",
+    "astro-robots-txt": "^0.5.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.3",
-    "@nuxt/types": "^2.16.0",
-    "@nuxt/typescript-build": "^2.1.0",
-    "@nuxtjs/color-mode": "2.1.1",
-    "@nuxtjs/eslint-config-typescript": "^8.0.0",
-    "@nuxtjs/eslint-module": "^4.0.2",
-    "@nuxtjs/fontawesome": "^1.1.2",
-    "@nuxtjs/google-fonts": "^3.0.0",
-    "@nuxtjs/markdownit": "^2.0.0",
-    "@nuxtjs/robots": "^2.4.2",
-    "dotenv": "^16.0.3",
-    "eslint": "^8.39.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-vue": "^9.6.0",
-    "prettier": "^2.8.8",
-    "pug": "^3.0.2",
-    "pug-plain-loader": "^1.1.0",
-    "sass": "1.62.1",
-    "sass-loader": "10.4.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dvgamerr/dvgamerr.git"
-  },
-  "keywords": [
-    "resume",
-    "website",
-    "profile",
-    "cv",
-    "kananek",
-    "thongkam"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dvgamerr/dvgamerr/issues"
-  },
-  "homepage": "https://github.com/dvgamerr/dvgamerr#readme"
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "bootstrap": "^5.3.1",
+    "charts.css": "^0.9.0",
+    "sass": "^1.64.2"
+  }
 }
