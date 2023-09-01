@@ -1,0 +1,195 @@
+{
+  "birthday": "1988-09-30T00:00:00.000+07:00",
+  "interview": false,
+  "salary": {
+    "base": 69340,
+    "expect": 125000,
+    "rate": 34.09,
+    "day": 30,
+    "hour": 8,
+    "currency": "$"
+  },
+  "coding": {
+    "top5": [
+      { "caption": "JavaScript", "commits": 3941, "loc": 782828 },
+      { "caption": "CSS", "commits": 1247, "loc": 751121 },
+      { "caption": "HTML", "commits": 670, "loc": 343673 },
+      { "caption": "C#", "commits": 349, "loc": 1391018 },
+      { "caption": "Shell", "commits": 307, "loc": 390 },
+      { "caption": "SQL", "commits": 156, "loc": 81635 }
+    ],
+    "best_languages": "Vue.js",
+    "day_of_year": 315
+  },
+  "social": [
+    {
+      "name": "github",
+      "icon": [
+        "fab",
+        "github"
+      ],
+      "link": "https://github.com/dvgamerr",
+      "alt": "github.com"
+    },
+    {
+      "name": "linkedin",
+      "icon": [
+        "fab",
+        "linkedin"
+      ],
+      "link": "https://www.linkedin.com/in/kananek-thongkam/",
+      "alt": "linkedin"
+    },
+    {
+      "name": "wakatime",
+      "icon": [
+        "fas",
+        "clock"
+      ],
+      "link": "https://wakatime.com/dvgamerr",
+      "alt": "wakatime.com"
+    },
+    {
+      "name": "community",
+      "icon": [
+        "fab",
+        "codepen"
+      ],
+      "link": "https://discord.gg/QDccF497Mw",
+      "alt": "discord.com"
+    }
+  ],
+  "skill": {
+    "coding": [
+      "Golang",
+      "Nodejs",
+      "Python",
+      "Dart",
+      "React",
+      "Vue.js",
+      "SCSS",
+      "SecureShell",
+      "K8S-YAML",
+      "Dockerfile",
+      "ES2022",
+      "C#",
+      "VB"
+    ],
+    "tools": [
+      "Git",
+      "VSCode",
+      "Visual Studio",
+      "Kubernates",
+      "Putty",
+      "Docker",
+      "Postman",
+      "Nuxtjs",
+      "Nextjs",
+      "Astro",
+      "Bootstrap",
+      "Elctronjs"
+    ],
+    "SQL & NOSQL": [
+      "PostgreSQL",
+      "Redis",
+      "MongoDB",
+      "Influx",
+      "MySQL",
+      "Oracle",
+      "MSSQL",
+      "SQLite"
+    ],
+    "OS & Cloud": [
+      "CentOS",
+      "Debian",
+      "Ubuntu",
+      "AWS",
+      "GCloud",
+      "Azure"
+    ]
+  },
+  "contact": [
+    {
+      "print": false,
+      "label": "Github",
+      "url": "https://touno.io/s/w9z5",
+      "text": "dvgamerr",
+      "icon": [
+        "fab",
+        "github"
+      ]
+    },
+    {
+      "print": false,
+      "label": "TWITTER",
+      "url": "https://touno.io/s/8ae4",
+      "text": "dvgamerr",
+      "icon": [
+        "fab",
+        "twitter"
+      ]
+    },
+    {
+      "print": false,
+      "label": "INSTRGRAM",
+      "url": "https://touno.io/s/u01t",
+      "text": "Kananek Thongkam",
+      "icon": [
+        "fab",
+        "instagram"
+      ]
+    },
+    {
+      "print": false,
+      "label": "EMAIL",
+      "url": "mailto:kananek.dev@touno.io",
+      "text": "kananek.dev@touno.io",
+      "icon": [
+        "fas",
+        "envelope"
+      ]
+    },
+    {
+      "print": true,
+      "label": "LINE ACCOUNT",
+      "qrcode": "/qr_line.webp",
+      "url": "https://touno.io/s/5sri",
+      "text": "dvgamer (KEM)",
+      "icon": [
+        "fab",
+        "line"
+      ]
+    },
+    {
+      "print": true,
+      "label": "Website",
+      "qrcode": "/qr_website.webp",
+      "url": "https://touno.io/s/rfd6",
+      "text": "dvgamer (KEM)",
+      "icon": [
+        "fab",
+        "chrome"
+      ]
+    },
+    {
+      "print": true,
+      "label": "MOBILE",
+      "url": "tel:0970347607",
+      "text": "+66-970-3476-07",
+      "icon": [
+        "fas",
+        "mobile"
+      ]
+    },
+    {
+      "print": true,
+      "label": "EMAIL",
+      "url": "mailto:kananek.dev@touno.io",
+      "text": "kananek.dev@touno.io",
+      "icon": [
+        "fas",
+        "envelope"
+      ]
+    }
+  ]
+}

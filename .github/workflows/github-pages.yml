@@ -57,8 +57,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Collector Data 🔧
-        run: pnpm collector
+      # - name: Collector Data 🔧
+      #   run: pnpm collector
 
       - name: Build 🔧
         run: pnpm build

@@ -1,0 +1,117 @@
+{
+  "fullname": "Kananek Thongkam",
+  "national": "Thai",
+  "religion": "Buddhist",
+  "national_id": "1860800038291",
+  "location": "Bangkok, Sathorn",
+  "language": {
+    "thai": "Native",
+    "english": "Basic"
+  },
+  "job": "Technology Developer",
+  "detail": "Hi, I'm KEM. I live in Bangkok Thailand, I graduated with a bachelor of science in Information Technology from Phetchaburi Rajabhat University, and I would like a job that allows for personal and professional growth.",
+  "expertise": [
+    {
+      "subject": "Frontend developer",
+      "detail": "Specializing in using Frameworks like `Nuxt.js`, `Next.js` and `Astro` to create Web applications."
+    },
+    {
+      "subject": "Backend developer",
+      "detail": "Programming on `Golang`, `Nodejs`, `Python` and security is extremely important."
+    },
+    {
+      "subject": "DevOps",
+      "detail": "I can manage both `Windows` and `Linux` Server and ability to use `docker`, `k8s`, or cloud platform `aws`, `gcloud`, `azure`,`digital ocean`"
+    },
+    {
+      "subject": "Solution architecture",
+      "detail": "Expertise in infrastructure design with `container` and `microservice`."
+    }
+  ],
+  "work": [
+    {
+      "range": {
+        "begin": "2022-11-01T00:00:00.000+07:00",
+        "quit": null
+      },
+      "job": "Technology Developer",
+      "work": "SCG Digital Office, Bang Sue.",
+      "file": "2022-work-scg-do.md"
+    },
+    {
+      "pagebreak": true
+    },
+    {
+      "range": {
+        "begin": "2018-02-01T00:00:00.000+07:00",
+        "quit": "2022-10-31T23:59:59.999+07:00"
+      },
+      "work": "CENTRALGROUP, RIS Company Limited, Bang Rak",
+      "jobs": [
+        {
+          "range": {
+            "begin": "2019-02-01T00:00:00.000+07:00",
+            "quit": "2022-10-31T23:59:59.999+07:00"
+          },
+          "job": "Senior Full Stack Engineer",
+          "file": "2018-work-central-group-2.md"
+        },
+        {
+          "range": {
+            "begin": "2018-02-01T00:00:00.000+07:00",
+            "quit": "2019-02-01T23:59:59.999+07:00"
+          },
+          "job": "Senior Development asst. Division Manager",
+          "file": "2018-work-central-group-1.md"
+        }
+      ]
+    },
+    {
+      "pagebreak": true
+    },
+    {
+      "range": {
+        "begin": "2013-04-29T00:00:00.000+07:00",
+        "quit": "2018-12-31T23:59:59.999+07:00"
+      },
+      "job": "Full Stack Developer",
+      "work": "Nippon SySits Co.,Ltd, Sathorn.",
+      "file": "2013-work-nippon-sysits.md"
+    },
+    {
+      "range": {
+        "begin": "2011-04-28T00:00:00.000+07:00",
+        "quit": "2013-04-28T23:59:59.999+07:00"
+      },
+      "job": "Freelance — Programmer",
+      "work": "Phetchaburi",
+      "file": "2011-work-freelance.md"
+    }
+  ],
+  "education": [
+    {
+      "range": "2007 - 2011",
+      "major": "Bachelor of Science (B.S.)",
+      "location": "Phetchaburi Rajabhat University, Phetchaburi.",
+      "branch": "Information Technology."
+    },
+    {
+      "range": "2005 - 2007",
+      "major": "Vocational Certificate",
+      "location": "Chumphon Polytechnic College, Chumphon.",
+      "branch": "Business Computer"
+    },
+    {
+      "range": "2003 - 2005",
+      "major": "Grade 7-9",
+      "location": "Sawi Witthaya School, Sawi, Chumphon.",
+      "branch": "High school"
+    },
+    {
+      "range": "1998 - 2003",
+      "major": "Grade 1-6",
+      "location": "Barnnapoo school, Sawi, Chumphon.",
+      "branch": "Elementary school"
+    }
+  ]
+}

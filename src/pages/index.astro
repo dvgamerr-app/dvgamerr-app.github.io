@@ -5,20 +5,20 @@ import SectionHeader from '../components/Section1Header.astro'
 import SectionFooter from '../components/SectionFooter.astro'
 ---
 
-<Layout title="Mr. Kananek T." desc="">
-  <ThemeIcon />
+<Layout title="Mr. Kananek T." desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer specialist.">
+  <!-- <ThemeIcon /> -->
   <div class="resume">
     <SectionHeader />
-    <div class="container">
+    <!-- <div class="container">
       <section-2-contact/>
       <section-3-coding />
       <section-3-coding-history />
       <section-3-coding-daytime />
       <section-5-skill />
       <section-6-education class="d-print-only" />
-    </div>
+    </div> -->
     <p class="pagebreak" />
-    <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
+    <!-- <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
       <div v-if="!e.pagebreak" class="container">
         <div class="row">
           <div class="col-lg-9 col-md-11">
@@ -43,7 +43,7 @@ import SectionFooter from '../components/SectionFooter.astro'
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- <p class="pagebreak" /> -->
     <!-- <div>
       <section-education class="d-print-none" />

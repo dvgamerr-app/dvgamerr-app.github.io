@@ -22,7 +22,7 @@ $btn-font-weight: 600;
   --bg-dark: #10121e;
 }
 
-.light-mode {
+html {
   --bg-color: var(--bg-light);
   --text-color-link: #3068d8;
   --border-square-rotating: 2px solid #0000000d;
@@ -42,7 +42,7 @@ $btn-font-weight: 600;
   --border-navbar: transparent;
 }
 
-.dark-mode {
+html.dark-mode {
   --bg-color: var(--bg-dark);
   --text-color-link: #C84B31;
   --border-square-rotating: 2px solid #ffffff0d;
@@ -71,7 +71,7 @@ $btn-font-weight: 600;
 // Layout & components
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
-// @import "bootstrap/scss/type";
+@import "bootstrap/scss/type";
 // @import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
@@ -100,7 +100,7 @@ $btn-font-weight: 600;
 @import "bootstrap/scss/helpers";
 
 // Utilities
-// @import "utilities/api";
+@import "bootstrap/scss/utilities/api";
 // scss-docs-end import-stack
 
 
@@ -114,8 +114,9 @@ $btn-font-weight: 600;
   display: none !important;
 }
 
+
 @media print {
-  .dark-mode {
+  html.dark-mode {
     --border-square-rotating: 2px solid #0000000d;
     --text-color-link: #ff5722;
     --text-secondary: #444444;
@@ -130,12 +131,12 @@ $btn-font-weight: 600;
     max-width: 1000px;
   }
 
-  .no-print {
-    display: none !important;
-  }
-
   .d-print-only {
     display: block !important;
+  }
+
+  .d-print-none {
+    display: none !important;
   }
 
   a {
@@ -147,139 +148,6 @@ $btn-font-weight: 600;
     opacity: 1;
     text-decoration: underline;
   }
-}
-
-html.dark {
-  background-color: #0d0950;
-  color: #fff;
-}
-
-.dark .nav-links a {
-  color: #fff;
-}
-
-
-
-:root {
-  --bg-light: #f8f8f8;
-  --bg-dark: #10121e;
-}
-
-.light-mode {
-  --bg-color: var(--bg-light);
-  --text-color-link: #3068d8;
-  --border-square-rotating: 2px solid #0000000d;
-  --text-primary: #1f252c;
-  --text-secondary: #989898;
-  --text-secondary-value: #444444;
-  --menu-color: #333333;
-  --menu-border-color: #eeeeee;
-  --menu-border-color-hover: #cccccc;
-  --code-label-color: #f2f2f2;
-
-  --logo-color: #ee5151;
-  --menu-active-color: #1f2937;
-  --background-color: #111827;
-  --navbar-height: 3.25em;
-  --bg-navbar: #f7f7f7;
-  --border-navbar: transparent;
-}
-
-.dark-mode {
-  --bg-color: var(--bg-dark);
-  --text-color-link: #C84B31;
-  --border-square-rotating: 2px solid #ffffff0d;
-  --text-primary: #f7f7f7;
-  --text-secondary: #989898;
-  --text-secondary-value: #e7e7e7;
-  --menu-color: #f9f9f9;
-  --menu-border-color: #383838;
-  --menu-border-color-hover: #424242;
-  --code-label-color: #101010;
-
-  --bg-navbar: #0f121f;
-  --border-navbar: #212436;
-  --link-color: #a2a2b3;
-}
-
-
-/* @import 'bootstrap/scss/bootstrap.scss';
-@import 'charts.css/dist/charts.css';
-
-@import './1-header';
-@import './2-contact';
-@import './3-coding'; */
-
-.d-print-only {
-  display: none !important;
-}
-
-@media print {
-  .dark-mode {
-    --border-square-rotating: 2px solid #0000000d;
-    --text-color-link: #ff5722;
-    --text-secondary: #444444;
-    --text-secondary-value: #444444;
-  }
-
-  @page {
-    size: A3;
-  }
-
-  .container {
-    max-width: 1000px;
-  }
-
-  .no-print {
-    display: none !important;
-  }
-
-  .d-print-only {
-    display: block !important;
-  }
-
-  a {
-    color: var(--text-link-color);
-    text-decoration: none;
-    opacity: .9;
-  }
-  a:hover {
-    opacity: 1;
-    text-decoration: underline;
-  }
-
-
-
-  html,
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--text-secondary);
-  }
-
-  body:before,
-  body:after {
-    display: none !important;
-  }
-
-  code {
-    color: #444;
-    font-weight: bold;
-    padding: 2px 2px 0 !important;
-  }
-
-  .tippy-popper {
-    display: none !important;
-  }
-
-  .th-label {
-    opacity: 1 !important;
-  }
-
 }
 
 @include media-breakpoint-down(md) {
@@ -307,11 +175,11 @@ html.dark {
   }
 }
 
-html.light-mode #__layout {
+html > #__layout {
   animation: fadeLight .3s ease-in-out;
 }
 
-html.dark-mode #__layout {
+html.dark-mode > #__layout {
   animation: fadeDark .3s ease-in-out;
 }
 
@@ -319,7 +187,7 @@ html.dark-mode #__layout {
   font-family: 'Bai Jamjuree', 'Segoe UI';
 }
 
-body {
+#__layout {
   font-family: "Hind", sans-serif;
   font-size: 1rem;
   margin: 0px;
@@ -402,7 +270,6 @@ body {
 }
 
 #__layout {
-  background: transparent;
   position: relative;
   z-index: 1;
 }
@@ -416,9 +283,6 @@ code {
   border-radius: 5px;
   line-height: .9rem;
 }
-
-
-
 
 h1,
 h2,
