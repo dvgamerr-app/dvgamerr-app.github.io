@@ -1,6 +1,9 @@
 ---
-import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url"
+// import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url"
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer"
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+dayjs.extend(relativeTime)
 
 interface Props {
 	title: string;

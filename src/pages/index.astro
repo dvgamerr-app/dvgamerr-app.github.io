@@ -3,9 +3,32 @@ import Layout from '../layouts/Layout.astro'
 import ThemeIcon from '../components/ThemeIcon.astro';
 import SectionHeader from '../components/Section1Header.astro'
 import SectionFooter from '../components/SectionFooter.astro'
+
+import dayjs from 'dayjs'
+import lang from '../lang.en.json'
+
+
+const isResigning = ({ begin, quit }) => {
+  return !!quit || dayjs(begin).diff(dayjs().add(-1, 's'), 'day', true) <= 0
+}
+
+const getWorkPeriod = ({ worked, begin, quit } ) => {
+  const newJob = dayjs(begin).diff(dayjs(), 'second') > 0
+
+  begin = dayjs(begin).format('MMMM YYYY')
+  quit = quit ? `- ${dayjs(quit).format('MMMM YYYY')}` : !newJob ? '- Present' : ''
+
+  const month = (worked % 1 * 12)
+  const day = month % 1 * dayjs().daysInMonth()
+
+  const monthInt = parseInt(month.toString())
+  const timeDiff = (monthInt > 0 ? `${Math.floor(worked)} year` : '') + (monthInt > 0 ? ` ${monthInt} month` : '') +
+    (monthInt === 0 && monthInt === 0 ? `${Math.floor(day)} days` : '')
+  return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
+}
 ---
 
-<Layout title="Mr. Kananek T." desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer specialist.">
+<Layout title={`${lang.fullname} | ${lang.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer specialist.">
   <!-- <ThemeIcon /> -->
   <div class="resume">
     <SectionHeader />
@@ -18,6 +41,37 @@ import SectionFooter from '../components/SectionFooter.astro'
       <section-6-education class="d-print-only" />
     </div> -->
     <p class="pagebreak" />
+    {lang.work.map(e => !e.pagebreak ? (
+      <section class="section-wrpper section-work pt-3 pb-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 col-md-11">
+              <div class="section-title">
+                <h2>Work Experience</h2>
+                <span class="badge text-bg-success">NEW JOB</span>
+              </div>
+            </div>
+            <div class="col-lg-27 col-md-25 col-sm-36 content-job">
+              {isResigning(e.range) ?
+                (<small v-text="" style="margin-top: -2px;display: block;">{getWorkPeriod(e.range)}</small>)
+              :
+                (<small style="margin-top: -2px;display: block;" />)}
+              <h3 v-show="!e.jobs" v-text="e.job" />
+              <h4>{e.work}</h4>
+              <div class="content-subjob">
+                {e.jobs && e.jobs.map(j => (
+                <div>
+                  <h3>{j.job}</h3>
+                  <small>{getWorkPeriod(j.range)}</small>
+                  <div class="markdown pt-1"/>
+                </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ) : (<p class="pagebreak" />))}
     <!-- <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
       <div v-if="!e.pagebreak" class="container">
         <div class="row">
@@ -63,6 +117,12 @@ import SectionFooter from '../components/SectionFooter.astro'
 .resume {
   border-top: 5px solid var(--text-color-link);
   padding: 4em 0;
+}
+
+@media (max-width: 768px) {
+  .resume {
+    padding: 0 !important;
+  }
 }
 
 .content-job {
