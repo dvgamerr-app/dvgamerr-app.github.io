@@ -1,8 +1,8 @@
-- Clear and keep communicate to internal and external parties
-- Collaborate closely with business, discovery, delivery and IT team or related teams across
-- Provide preventive actions and long-term solutions to solve problems
-- Analyze problem and find resolution to solve problem during code deployment or production incident
-- Agile environments and practices, such as Test Driven Development, Pair Programming and Continuous Integration and Delivery is plus
-- Build CI/CD Java with mulesoft Framwork with GoCD platfrom
-- Maintenance `MuleSoft` API Gateway
-- Develop internal system `Do Utilization` with team.
+- Clearly and effectively communicate with internal and external parties.
+- Collaborate closely with business, discovery, delivery, and IT teams or related teams across the organization.
+- Provide preventive actions and long-term solutions to resolve problems.
+- Analyze problems and find resolutions during code deployment or production incidents.
+- Experience in Agile environments and practices, such as Test-Driven Development, Pair Programming, and Continuous Integration and Delivery, is a plus.
+- Build CI/CD for Java with the MuleSoft Framework on the GoCD platform.
+- Maintain the MuleSoft API Gateway.
+- Develop the internal system 'Do Utilization' with the team.
