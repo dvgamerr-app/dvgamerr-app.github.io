@@ -5,5 +5,4 @@ import robotsTxt from 'astro-robots-txt';
 export default defineConfig({
   site: 'https://mr.touno.io',
   integrations: [ robotsTxt() ],
-  experimental: { assets: true },
 });
