@@ -21,26 +21,26 @@
 <script is:inline>
   const theme = (() => {
     if (localStorage?.getItem('theme')) {
-      return localStorage.getItem('theme');
+      return localStorage.getItem('theme')
     }
     return window.matchMedia('(prefers-color-scheme: dark-mode)').matches ? 'dark-mode' : 'light-mode'
-  })();
+  })()
 
   if (theme === 'light-mode') {
-    document.documentElement.classList.remove('dark-mode');
+    document.documentElement.classList.remove('dark-mode')
   } else {
-    document.documentElement.classList.add('dark-mode');
+    document.documentElement.classList.add('dark-mode')
   }
 
-  window.localStorage.setItem('theme', theme);
+  window.localStorage.setItem('theme', theme)
 
-  const handleToggleClick = () => {
-    const element = document.documentElement;
-    element.classList.toggle("dark-mode");
+  document.getElementById('themeToggle').addEventListener('click', e => {
+    const element = document.documentElement
+    element.classList.toggle('dark-mode')
 
-    const isDark = element.classList.contains("dark-mode");
-    localStorage.setItem("theme", isDark ? "dark-mode" : "light-mode");
-  }
-
-  document.getElementById("themeToggle").addEventListener("click", handleToggleClick);
+    const isDark = element.classList.contains('dark-mode')
+    localStorage.setItem('theme', isDark ? 'dark-mode' : 'light-mode')
+    e.preventDefault()
+    return
+  })
 </script>

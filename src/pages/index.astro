@@ -1,11 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import ThemeIcon from '../components/ThemeIcon.astro';
 import SectionHeader from '../components/Section1Header.astro'
 import SectionFooter from '../components/SectionFooter.astro'
 
 import dayjs from 'dayjs'
-import lang from '../lang.en.json'
 
 
 const isResigning = ({ begin, quit }) => {
@@ -26,12 +24,39 @@ const getWorkPeriod = ({ worked, begin, quit } ) => {
     (monthInt === 0 && monthInt === 0 ? `${Math.floor(day)} days` : '')
   return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
 }
+
+interface Props {
+  resume: any;
+  experience?: any;
+}
+
+import expData from  '../i18n/experience.json'
+import resumeData from  '../i18n/resume.en.json'
+const { experience = expData, resume = resumeData } = Astro.props;
+
+
+const getWorkedYear = range => {
+  const begin = dayjs(range.begin)
+  const quit = dayjs(range.quit || undefined)
+  range.worked = quit.diff(begin.add(-1, 's'), 'year', true)
+  return range
+}
+
+for (const item of resume.work) {
+  if (item.jobs && item.jobs.length > 0) {
+    for (const subItem of item.jobs) {
+      getWorkedYear(subItem.range)
+    }
+  }
+
+  if (!item.range) continue
+  getWorkedYear(item.range)
+}
 ---
 
-<Layout title={`${lang.fullname} | ${lang.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer specialist.">
-  <!-- <ThemeIcon /> -->
+<Layout title={`${resume.fullname} | ${resume.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer specialist.">
   <div class="resume">
-    <SectionHeader />
+    <SectionHeader resume={resume} experience={experience} />
     <!-- <div class="container">
       <section-2-contact/>
       <section-3-coding />
@@ -41,14 +66,14 @@ const getWorkPeriod = ({ worked, begin, quit } ) => {
       <section-6-education class="d-print-only" />
     </div> -->
     <p class="pagebreak" />
-    {lang.work.map(e => !e.pagebreak ? (
+    {resume.work.map(e => !e.pagebreak ? (
       <section class="section-wrpper section-work pt-3 pb-3">
         <div class="container">
           <div class="row">
             <div class="col-lg-9 col-md-11">
               <div class="section-title">
                 <h2>Work Experience</h2>
-                <span class="badge text-bg-success">NEW JOB</span>
+                {e.range.worked <= 0 ? (<span class="badge text-bg-success">NEW JOB</span>):(<span />)}
               </div>
             </div>
             <div class="col-lg-27 col-md-25 col-sm-36 content-job">
@@ -63,7 +88,7 @@ const getWorkPeriod = ({ worked, begin, quit } ) => {
                 <div>
                   <h3>{j.job}</h3>
                   <small>{getWorkPeriod(j.range)}</small>
-                  <div class="markdown pt-1"/>
+                  <div class="markdown pt-1">{j.file}</div>
                 </div>
                 ))}
               </div>
@@ -108,23 +133,6 @@ const getWorkPeriod = ({ worked, begin, quit } ) => {
 </Layout>
 
 <style>
-@media print {
-  .resume {
-    border-top: none !important;
-  }
-}
-
-.resume {
-  border-top: 5px solid var(--text-color-link);
-  padding: 4em 0;
-}
-
-@media (max-width: 768px) {
-  .resume {
-    padding: 0 !important;
-  }
-}
-
 .content-job {
   margin-bottom: 20px;
 
