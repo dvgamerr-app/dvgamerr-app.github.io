@@ -561,17 +561,17 @@ ul {
   margin-bottom: 20px;
 }
 
-.content-item h3 {
+.content-item:is(h3) {
   margin: 0 0 10px;
   line-height: 1;
   font-weight: bold;
   text-transform: uppercase;
 }
-.content-item h4 {
+.content-item:is(h4) {
   margin: 0;
   line-height: 1;
 }
-.content-item small {
+.content-item:is(small) {
   color: #888888;
 }
 
