@@ -1,16 +1,20 @@
 ---
 import dayjs from 'dayjs'
 import numeral from 'numeral'
-import ThemeIcon from './ThemeIcon.astro';
-import { languages } from '../i18n/ui';
-import { getLangFromUrl } from '../i18n/utils';
+import ThemeIcon from './ThemeIcon.astro'
+import { languages } from '../i18n/ui'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+const langName = getLangFromUrl(Astro.url)
+const t = useTranslations(langName)
 
-import { Image } from 'astro:assets';
+import 'dayjs/locale/th'
+
+import { Image } from 'astro:assets'
 import photo from '../assets/kk_00248.webp'
 
 
 const showAge = () => birthday.fromNow(true)
-const showBirthday = () => birthday.format('MMMM DD, YYYY')
+const showBirthday = () => langName === 'en' ? birthday.locale('en').format('MMMM DD, YYYY') : birthday.add(543, 'y').locale('th').format('DD MMMM YYYY')
 
 // const availableLocales = () => {
 //   return this.$i18n.locales.filter(i => i.code === this.$i18n.locale)
@@ -21,10 +25,14 @@ const showNationalD = () => {
   return id.join(' ')
 }
 const showSalary = () => {
-  const { base, rate, day, hour, currency } = experience.salary
-
-  const perHour = Math.round(base / day / hour / rate * 100) / 100
-  return `${currency}${perHour} per hour`
+  const { base, rate, day, hour } = experience.salary
+  if (langName == 'en') {
+    const perHour = Math.round(base / day / hour / rate * 100) / 100
+    return `${t('head.salary.currency')}${perHour} ${t('head.salary.hour')}`
+  } else {
+    const perHour = Math.round(base / day / hour * 100) / 100
+    return `${perHour} ${t('head.salary.currency')}${t('head.salary.hour')}`
+  }
 }
 const showSalaryFull = () => {
   return `${numeral(experience.salary.base).format('0,0')} THB`
@@ -34,12 +42,12 @@ const showExpect = () => {
 }
 
 interface Props {
-  resume: any;
-  experience: any;
+  resume: any
+  experience: any
 }
 
 
-const { experience, resume } = Astro.props;
+const { experience, resume } = Astro.props
 const birthday = dayjs(experience.birthday)
 ---
 <section class="header">
@@ -53,28 +61,29 @@ const birthday = dayjs(experience.birthday)
       <div class="col-lg-27 col-md-25 col-sm-36 name-wrapper">
         <div class="name">
           <ul class="d-print-none">
-            <li><a href={getLangFromUrl(Astro.url)==='en'?'/th':'/'}>{languages[getLangFromUrl(Astro.url)]}</a></li>
+            <li><a href={langName==='en'?'/th':'/'}>{languages[langName]}</a></li>
           </ul>
-          <h1 class=" th-label">{resume.fullname}</div>
+          <h1 class=" ">{resume.fullname}</div>
         </div>
         <span class="d-print-none th-label">{resume.job}</span>
-        <span class="d-print-only th-label th-name">{resume.subname}</span>
+        <span class="d-print-only th-label th-name">{resume.fullname_th}</span>
         <div class="d-print-none mt-1" style="gap:0.25em;display:flex;">
           <img alt="wakatime" loading="lazy" height={20} src="https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square&color=blue" />
           <img alt="follow" loading="lazy" height={20} width={100} src="https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=yellow" />
-          <img alt="counter" loading="lazy" height={20} src={`https://api.visitorbadge.io/api/visitors?path=${Astro.site.origin}&label=Visitors&countColor=%2337d67a&style=flat-square`} />
+          <!-- <img alt="counter" loading="lazy" height={20} src={`https://api.visitorbadge.io/api/visitors?path=${Astro.site.origin}&label=Visitors&countColor=%2337d67a&style=flat-square`} /> -->
+          <img alt="counter" loading="lazy" height={20} src={`https://api.visitorbadge.io/api/visitors?path=https://mr.touno.io/&label=Visitors&countColor=%2337d67a&style=flat-square`} />
         </div>
         <p contenteditable="false" class="mt-3">{resume.detail}</p>
         <div>
           <div class="grid-personal">
             <div class="personal nickname">
-              <strong class="d-print-none">KEM</strong>
-              <strong class="d-print-only">KEM <span class="th-label">(เขม)</span></strong>
-              <small>Nick Name</small>
+              <strong class="d-print-none">{resume.nickname}</strong>
+              <strong class="d-print-only">{resume.nickname}&nbsp;{langName === 'en' ? (<span class="th-label">({resume.nickname_th})</span>) : (<span />)}</strong>
+              <small>{t('head.nickname')}</small>
             </div>
             <div class="personal birthday">
               <strong>{showBirthday}</strong>
-              <small>birth ({showAge} old)</small>
+              <small>{t('head.age')}&nbsp;{showAge().replace('years', t('head.age.old'))}</small>
             </div>
             <div class="personal language">
               <strong>
@@ -82,37 +91,38 @@ const birthday = dayjs(experience.birthday)
                 <div class="lang"> {e} <small class="level">({resume.language[e]})</small> </div>
                 ))}
               </strong>
-              <small>language</small>
+              <small>{t('head.language')}</small>
             </div>
             <div class="personal religion d-print-only">
               <strong>{resume.religion}</strong>
-              <small>religion</small>
+              <small>{t('head.religion')}</small>
             </div>
 
             <div class="personal nationality d-print-only">
               <strong>{resume.national}</strong>
-              <small>nationality</small>
+              <small>{t('head.nationality')}</small>
             </div>
             <div class="personal national-id d-print-only">
               <strong>{showNationalD}</strong>
-              <small>National ID</small>
+              <small>{t('head.national_id')}</small>
             </div>
             <div class="personal location">
               <strong>{resume.location}</strong>
-              <small>current location</small>
+              <small>{t('head.location')}</small>
             </div>
             <div class="personal current-salary">
               <strong class="d-print-none">{showSalary}</strong>
+              <small class="d-print-none">{t('head.income')}</small>
               <strong class="d-print-only">{showSalaryFull}</strong>
-              <small>current salary</small>
+              <small class="d-print-only">{t('head.salary')}</small>
             </div>
             <div class="personal expect-salary d-print-only">
               <strong>{showExpect}</strong>
-              <small>Expect salary</small>
+              <small>{t('head.salary.expect')}</small>
             </div>
             <div class="personal interview d-print-none">
-              {experience.interview ? (<span class="badge bg-success">YES</span>) : (<span class="badge bg-danger">NO</span>)}
-              <small>interview availability</small>
+              {experience.interview ? (<span class="badge bg-success">{t('head.availability.yes')}</span>) : (<span class="badge bg-danger">{t('head.availability.no')}</span>)}
+              <small>{t('head.availability')}</small>
             </div>
           </div>
 

@@ -2,12 +2,11 @@
   "birthday": "1988-09-30T00:00:00.000+07:00",
   "interview": false,
   "salary": {
-    "base": 69340,
+    "base": 75118.3333,
     "expect": 125000,
-    "rate": 32.1,
+    "rate": 35.68,
     "day": 30,
-    "hour": 8,
-    "currency": "$"
+    "hour": 8
   },
   "coding": {
     "top5": [
