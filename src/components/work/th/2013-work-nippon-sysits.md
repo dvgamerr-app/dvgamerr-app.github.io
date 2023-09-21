@@ -1,24 +1,28 @@
 **Research and Development**
 
-- Collaborated with cross-functional teams to define project requirements and implement solutions.
-- Utilized a range of technologies and tools to develop and test prototypes and products.
-- Conducted research and development on various projects, including `Face Recognition` using `Python`, `OpenCV`, and `SocketIO`, as well as a `robotics` model using `Arduino`.
+- ร่วมมือกับทีมที่มีความหลากหลายในการกำหนดความต้องการของโครงการและการปรับใช้โซลูชัน
+- ใช้เทคโนโลยีและเครื่องมือหลายราย เพื่อพัฒนาและทดสอบโปรโตไทป์และผลิตภัณฑ์
+- ทำงานวิจัยและพัฒนาในโครงการต่าง ๆ รวมถึง `Face Recognition` โดยใช้ `Python`, `OpenCV`, และ `SocketIO`, และโมเดล `robotics` โดยใช้ `Arduino`.
 
 **Front-end and Back-end Website**
 
-- Developed and maintained a variety of web-based applications, including a `midback-office` system for Travox, a `stock web` for Siamchai and TCRadio, and a `payment service` using `Paysbuy` modules.
+- พัฒนาและบำรุงรักษาแอปพลิเคชันเว็บหลายราย เช่น ระบบ `midback-office` สำหรับ Travox, เว็บ `stock` สำหรับ Siamchai และ TCRadio, และบริการชำระเงินโดยใช้โมดูล `Paysbuy`.
 
 **Server Administration**
 
-- Proficient in a range of web development technologies, including HTML, CSS, JavaScript, and PHP.
-- Strong experience in server administration, including maintenance of `IIS` and `MSSQL` servers, and expertise in containerization using `Docker`.
-- Proficient in database management, covering `MySQL`, `MongoDB`, `RedisDB`, and `Elasticsearch`.
-- Skilled in using Git-based source control systems, such as `Gitlab`.
+- เชี่ยวชาญในการบริหารจัดการเซิร์ฟเวอร์ รวมถึงการบำรุงรักษาเซิร์ฟเวอร์ `IIS` และ `MSSQL` และความเชี่ยวชาญในการใช้เทคโนโลยี containerization ด้วย `Docker`.
+- มีความชำนาญในการจัดการฐานข้อมูล รวมถึง `MySQL`, `MongoDB`, `RedisDB`, และ `Elasticsearch`.
+- ความชำนาญในการใช้ระบบควบคุมแหล่งข้อมูลบน Git เช่น `Gitlab`.
 
 **Windows Application**
 
-- Analyzed, designed, and developed `Travox Sentinel`, a Windows-based application.
+- วิเคราะห์ ออกแบบ และพัฒนาแอปพลิเคชัน Windows ชื่อ `Travox Sentinel`.
 
 **Android Application**
 
-- Maintained and developed `CheckStock™`, an Android-based barcode application.
+- บำรุงรักษาและพัฒนาแอปพลิเคชัน Android ชื่อ `CheckStock™` ซึ่งเป็นแอปพลิเคชันการสแกนบาร์โค้ดแบบ Android ครับ
+
+
+
+
+

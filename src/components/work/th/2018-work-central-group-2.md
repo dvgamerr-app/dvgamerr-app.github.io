@@ -1,15 +1,15 @@
-- Designed and developed the database, user interface, and APIs for the `Notice-Subscriber` project.
-- Implemented a Kubernetes architecture for the `DAAS` project.
-- Developed Golang APIs for the `DAAS` project.
-- Designed and implemented Azure PostgreSQL databases for the `DAAS` project.
-- Redesigned the ETL engine service for the `DAAS` project, ensuring improved performance and handling of large amounts of data (200GB).
-- Set up and configured `Azure Kubernetes Service` (AKS) for the `DAAS` project.
-- Configured Kubernetes servers for the `PPE-API` and GWP projects.
-- Implemented zero-downtime automation for the `PPE-API` project.
-- Adopted an agile model and introduced `Gitlab` for team collaboration.
-- Set up `Gitlab Runner` on various operating systems (Windows Server, Ubuntu, CentOS, RedHat, CoreOS) for CI/CD integration with `Gitlab`.
-- Trained the Server Engineer team on the installation, configuration, and usage of Kubernetes, MongoDB, and RedisDB.
-- Developed automated health check, API, logging, scheduling, and reporting features for the Notice-Manager project.
-- Developed the `PPE-API` project, a high-performance API capable of handling up to 1,000 requests per second.
-- Migrated the `Talend BigData Community Edition` ETL to a new Golang-based ETL engine.
-- Developed the `GWP` project, a `promotion setup` tool.
+- ออกแบบและพัฒนาฐานข้อมูล, อินเตอร์เฟซผู้ใช้, และ API สำหรับโครงการ `Notice-Subscriber`
+- นำเข้าสถาปัตยกรรม Kubernetes สำหรับโครงการ `DAAS`
+- พัฒนา Golang APIs สำหรับโครงการ `DAAS`
+- ออกแบบและนำระบบฐานข้อมูล Azure PostgreSQL สำหรับโครงการ `DAAS`
+- ออกแบบและปรับปรุงเครื่องมือ ETL สำหรับโครงการ `DAAS` เพื่อประสิทธิภาพที่ดีขึ้นและการจัดการข้อมูลปริมาณมาก (200GB)
+- ติดตั้งและกำหนดค่า `Azure Kubernetes Service` (AKS) สำหรับโครงการ `DAAS`
+- กำหนดค่าเซิร์ฟเวอร์ Kubernetes สำหรับโครงการ `PPE-API` และ GWP
+- นำระบบอัตโนมัติที่ไม่มีการขาดการให้บริการสำหรับโครงการ `PPE-API`
+- นำเข้าโมเดล Agile และนำเข้า `Gitlab` สำหรับการร่วมงานทีม
+- ติดตั้ง `Gitlab Runner` บนระบบปฏิบัติการต่าง ๆ (Windows Server, Ubuntu, CentOS, RedHat, CoreOS) สำหรับการรวมการสร้างและการส่ง CD/CI กับ `Gitlab`
+- ฝึกอบรมทีมวิศวกรเซิร์ฟเวอร์ในการติดตั้ง, กำหนดค่า, และการใช้งาน Kubernetes, MongoDB, และ RedisDB
+- พัฒนาคุณลักษณะต่าง ๆ เช่น การตรวจสุขภาพอัตโนมัติ, API, การบันทึกข้อมูล, การตั้งเวลา, และรายงานสำหรับโครงการ `Notice-Manager`
+- พัฒนาโครงการ `PPE-API`, ที่เป็น API ที่มีประสิทธิภาพสูงและสามารถรับผิดชอบการร้องขอสูงสุดได้สูงถึง 1,000 ร้องขอต่อวินาที
+- ย้าย ETL ของ `Talend BigData Community Edition` ไปยังเครื่องมือ ETL ใหม่ที่ใช้ Golang เป็นพื้นฐาน
+- พัฒนาโครงการ `GWP`, เครื่องมือสำหรับการตั้งค่าโปรโมชั่น

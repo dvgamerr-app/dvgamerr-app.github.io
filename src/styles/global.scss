@@ -27,7 +27,7 @@ html {
   --text-color-link: #3068d8;
   --border-square-rotating: 2px solid #0000000d;
   --text-primary: #1f252c;
-  --text-secondary: #989898;
+  --text-secondary: #495057;
   --text-secondary-value: #444444;
   --menu-color: #333333;
   --menu-border-color: #eeeeee;
@@ -192,7 +192,7 @@ html.dark-mode > #__layout {
   font-size: 1rem;
   margin: 0px;
   line-height: 1.8em;
-  color: #989898;
+  color: var(--text-secondary);
   font-weight: 300;
   background: var(--bg-color);
   min-height: 100vh;
@@ -561,17 +561,17 @@ ul {
   margin-bottom: 20px;
 }
 
-.content-item:is(h3) {
+.content-item >h3 {
   margin: 0 0 10px;
   line-height: 1;
   font-weight: bold;
   text-transform: uppercase;
 }
-.content-item:is(h4) {
+.content-item >h4 {
   margin: 0;
   line-height: 1;
 }
-.content-item:is(small) {
+.content-item >small {
   color: #888888;
 }
 

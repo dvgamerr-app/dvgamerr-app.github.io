@@ -1,16 +1,21 @@
 ---
+import dayjs from 'dayjs'
 import Layout from '../layouts/Layout.astro'
 import SectionHeader from '../components/Section1Header.astro'
 import SectionFooter from '../components/SectionFooter.astro'
+import SectionWork from '../components/SectionWork.astro'
 
-import dayjs from 'dayjs'
-
+interface Frontmatter {
+  title: string;
+  author?: string;
+  description?: string;
+}
 
 const isResigning = ({ begin, quit }) => {
   return !!quit || dayjs(begin).diff(dayjs().add(-1, 's'), 'day', true) <= 0
 }
 
-const getWorkPeriod = ({ worked, begin, quit } ) => {
+const getWorkPeriod = ({ worked, begin, quit }) => {
   const newJob = dayjs(begin).diff(dayjs(), 'second') > 0
 
   begin = dayjs(begin).format('MMMM YYYY')
@@ -23,6 +28,12 @@ const getWorkPeriod = ({ worked, begin, quit } ) => {
   const timeDiff = (monthInt > 0 ? `${Math.floor(worked)} year` : '') + (monthInt > 0 ? ` ${monthInt} month` : '') +
     (monthInt === 0 && monthInt === 0 ? `${Math.floor(day)} days` : '')
   return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
+}
+
+const getWorkStart = ({ begin }) => {
+  let monthBegin = dayjs(begin).diff(dayjs().add(-1, 's'), 'month', true)
+  const day = parseInt(((monthBegin % 1) * dayjs().daysInMonth()).toString())
+  return `Start in ${Math.floor(monthBegin) > 0 ? `${Math.floor(monthBegin)} month` : ''} ${day} day${day > 1 ? 's' : ''}`
 }
 
 interface Props {
@@ -78,17 +89,18 @@ for (const item of resume.work) {
             </div>
             <div class="col-lg-27 col-md-25 col-sm-36 content-job">
               {isResigning(e.range) ?
-                (<small v-text="" style="margin-top: -2px;display: block;">{getWorkPeriod(e.range)}</small>)
+                (<small style="margin-top: -2px;display: block;">{getWorkPeriod(e.range)}</small>)
               :
-                (<small style="margin-top: -2px;display: block;" />)}
-              <h3 v-show="!e.jobs" v-text="e.job" />
+                (<small style="margin-top: -2px;display: block;">{getWorkStart(e.range)}</small>)}
+              {!e.jobs && (<h3>{e.job}</h3>)}
               <h4>{e.work}</h4>
+              {!e.jobs && (<SectionWork filename={e.file} />)}
               <div class="content-subjob">
                 {e.jobs && e.jobs.map(j => (
                 <div>
                   <h3>{j.job}</h3>
                   <small>{getWorkPeriod(j.range)}</small>
-                  <div class="markdown pt-1">{j.file}</div>
+                  <SectionWork filename={j.file} />
                 </div>
                 ))}
               </div>
@@ -132,7 +144,7 @@ for (const item of resume.work) {
   </div>
 </Layout>
 
-<style>
+<style lang="scss">
 .content-job {
   margin-bottom: 20px;
 
@@ -142,6 +154,7 @@ for (const item of resume.work) {
     font-weight: bold;
     text-transform: uppercase;
   }
+
   h4 {
     margin: 0;
     line-height: 1;

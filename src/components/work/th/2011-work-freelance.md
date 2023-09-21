@@ -1,4 +1,4 @@
-- Designed and developed software solutions for diverse clients, including enterprises, schools, and individuals, utilizing WordPress and PHP frameworks.
-- Collaborated closely with clients to define project requirements and delivered continuous technical support to ensure project success.
-- Employed various technologies, including HTML, CSS, and JavaScript, to craft engaging and user-friendly websites.
-- Possesses excellent communication and collaboration skills, with the ability to work effectively in remote environments.
+- ผมออกแบบและพัฒนาโซลูชันซอฟต์แวร์สำหรับลูกค้าหลากหลายรูปแบบ เช่น องค์กร โรงเรียน และบุคคล โดยใช้ WordPress และกรอบ PHP
+- ร่วมมือกับลูกค้าใกล้ชิดเพื่อกำหนดความต้องการของโครงการและให้บริการสนับสนุนทางเทคนิคตลอดเวลาเพื่อให้โครงการประสบความสำเร็จ
+- ใช้เทคโนโลยีต่าง ๆ เช่น HTML, CSS, และ JavaScript เพื่อสร้างเว็บไซต์ที่น่าสนใจและใช้งานง่าย
+- มีทักษะการสื่อสารและการร่วมงานดีเยี่ยม และสามารถทำงานอย่างมีประสิทธิภาพในสภาพแวดล้อมระยะไกลได้

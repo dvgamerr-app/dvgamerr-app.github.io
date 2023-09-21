@@ -1,0 +1,31 @@
+---
+
+import { getLangFromUrl } from '../i18n/utils'
+const langName = getLangFromUrl(Astro.url)
+
+interface Frontmatter {
+  title: string;
+  author?: string;
+  description?: string;
+}
+
+interface Props {
+  filename: string
+}
+
+const { filename } = Astro.props
+
+const posts =
+  langName === 'en' ? await Astro.glob<Frontmatter>('../components/work/en/*.md') :
+  langName === 'th' ?  await Astro.glob<Frontmatter>('../components/work/th/*.md') : []
+
+let htmlMarkdown = ''
+const fileRegx = RegExp(filename, 'ig')
+for (const post of posts) {
+  if (fileRegx.test(post.file)) {
+    htmlMarkdown = post.compiledContent()
+    break
+  }
+}
+---
+<div class="markdown pt-1" set:html={htmlMarkdown} />
