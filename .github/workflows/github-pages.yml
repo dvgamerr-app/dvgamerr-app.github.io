@@ -28,7 +28,7 @@ jobs:
       SSO_BASE_URL: ${{ secrets.SSO_BASE_URL }}
     steps:
       - name: Checkout SourceCode
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
