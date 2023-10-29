@@ -1,4 +1,0 @@
-- Designed and developed software solutions for a variety of clients, including enterprises, schools, and individuals, using WordPress and PHP framework.
-- Collaborated with clients to define project requirements and provided ongoing technical support to ensure project success.
-- Utilized a range of technologies, including HTML, CSS, and JavaScript, to create engaging and user-friendly websites.
-- Excellent communication and collaboration skills, with the ability to work effectively in a remote environment.

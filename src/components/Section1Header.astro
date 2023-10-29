@@ -1,0 +1,286 @@
+---
+import dayjs from 'dayjs'
+import numeral from 'numeral'
+import ThemeIcon from './ThemeIcon.astro'
+import { languages } from '../i18n/ui'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+const langName = getLangFromUrl(Astro.url)
+const t = useTranslations(langName)
+
+import 'dayjs/locale/th'
+
+import { Image } from 'astro:assets'
+import photo from '../assets/kk_00248.webp'
+
+
+const showAge = () => birthday.fromNow(true)
+const showBirthday = () => langName === 'en' ? birthday.locale('en').format('MMMM DD, YYYY') : birthday.add(543, 'y').locale('th').format('DD MMMM YYYY')
+
+// const availableLocales = () => {
+//   return this.$i18n.locales.filter(i => i.code === this.$i18n.locale)
+// }
+const showNationalD = () => {
+  let regex: RegExp = /(\d)(\d{4})(\d{5})(\d{2})(\d{1}).*/ig
+  const [ , ...id ]: any = regex.exec(resume.national_id)
+  return id.join(' ')
+}
+const showSalary = () => {
+  const { base, rate, day, hour } = experience.salary
+  if (langName == 'en') {
+    const perHour = Math.round(base / day / hour / rate * 100) / 100
+    return `${t('head.salary.currency')}${perHour} ${t('head.salary.hour')}`
+  } else {
+    const perHour = Math.round(base / day / hour * 100) / 100
+    return `${perHour} ${t('head.salary.currency')}${t('head.salary.hour')}`
+  }
+}
+const showSalaryFull = () => {
+  return `${numeral(experience.salary.base).format('0,0')} THB`
+}
+const showExpect = () => {
+  return `${numeral(experience.salary.expect).format('0,0')} THB`
+}
+
+interface Props {
+  resume: any
+  experience: any
+}
+
+
+const { experience, resume } = Astro.props
+const birthday = dayjs(experience.birthday)
+---
+<section class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-md-11 col-sm-36 d-none-md">
+        <div class="profile-img d-flex justify-content-end">
+          <Image src={photo} width={255} height={310} loading="lazy" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-27 col-md-25 col-sm-36 name-wrapper">
+        <div class="name">
+          <ul class="d-print-none">
+            <li><a href={langName==='en'?'/th':'/'}>{languages[langName]}</a></li>
+          </ul>
+          <h1 class=" ">{resume.fullname}</div>
+        </div>
+        <span class="d-print-none th-label">{resume.job}</span>
+        <span class="d-print-only th-label th-name">{resume.fullname_th}</span>
+        <div class="d-print-none mt-1" style="gap:0.25em;display:flex;">
+          <img alt="wakatime" loading="lazy" height={20} src="https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square&color=blue" />
+          <img alt="follow" loading="lazy" height={20} width={100} src="https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=yellow" />
+          <!-- <img alt="counter" loading="lazy" height={20} src={`https://api.visitorbadge.io/api/visitors?path=${Astro.site.origin}&label=Visitors&countColor=%2337d67a&style=flat-square`} /> -->
+          <img alt="counter" loading="lazy" height={20} src={`https://api.visitorbadge.io/api/visitors?path=https://mr.touno.io/&label=Visitors&countColor=%2337d67a&style=flat-square`} />
+        </div>
+        <p contenteditable="false" class="mt-3">{resume.detail}</p>
+        <div>
+          <div class="grid-personal">
+            <div class="personal nickname">
+              <strong class="d-print-none">{resume.nickname}</strong>
+              <strong class="d-print-only">{resume.nickname}&nbsp;{langName === 'en' ? (<span class="th-label">({resume.nickname_th})</span>) : (<span />)}</strong>
+              <small>{t('head.nickname')}</small>
+            </div>
+            <div class="personal birthday">
+              <strong>{showBirthday}</strong>
+              <small>{t('head.age')}&nbsp;{showAge().replace('years', t('head.age.old'))}</small>
+            </div>
+            <div class="personal language">
+              <strong>
+                {Object.keys(resume.language).map(e => (
+                <div class="lang"> {e} <small class="level">({resume.language[e]})</small> </div>
+                ))}
+              </strong>
+              <small>{t('head.language')}</small>
+            </div>
+            <div class="personal religion d-print-only">
+              <strong>{resume.religion}</strong>
+              <small>{t('head.religion')}</small>
+            </div>
+
+            <div class="personal nationality d-print-only">
+              <strong>{resume.national}</strong>
+              <small>{t('head.nationality')}</small>
+            </div>
+            <div class="personal national-id d-print-only">
+              <strong>{showNationalD}</strong>
+              <small>{t('head.national_id')}</small>
+            </div>
+            <div class="personal location">
+              <strong>{resume.location}</strong>
+              <small>{t('head.location')}</small>
+            </div>
+            <div class="personal current-salary">
+              <strong class="d-print-none">{showSalary}</strong>
+              <small class="d-print-none">{t('head.income')}</small>
+              <strong class="d-print-only">{showSalaryFull}</strong>
+              <small class="d-print-only">{t('head.salary')}</small>
+            </div>
+            <div class="personal expect-salary d-print-only">
+              <strong>{showExpect}</strong>
+              <small>{t('head.salary.expect')}</small>
+            </div>
+            <div class="personal interview d-print-none">
+              {experience.interview ? (<span class="badge bg-success">{t('head.availability.yes')}</span>) : (<span class="badge bg-danger">{t('head.availability.no')}</span>)}
+              <small>{t('head.availability')}</small>
+            </div>
+          </div>
+
+
+          <ul class="social-icon my-3 d-print-none">
+            <li d-asd={"📄 If you want a CV"}>
+              <a href="#" rel="noopener noreferrer" id="on-printer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.5 -0.5 14 14" height="14" width="14"><g id="printer"><path class="Vector139" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" d="M2.761571428571429 4.570428571428572c-0.21542857142857144 -1.1375000000000002 -0.23214285714285715 -1.8877857142857142 -0.08635714285714285 -2.9120000000000004a0.8914285714285715 0.8914285714285715 0 0 1 0.7911428571428571 -0.7540000000000001C5.731142857142857 0.6574285714285714 7.254928571428572 0.65 9.511357142857143 0.8997857142857143c0.4150714285714286 0.04642857142857143 0.7484285714285716 0.3695714285714286 0.7948571428571428 0.7855714285714286 0.117 1.030714285714286 0.10214285714285715 1.776357142857143 -0.07150000000000001 2.885071428571429" stroke-width="1"></path><path class="Vector138" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" d="M2.4430714285714283 10.474285714285713A1.8571428571428572 1.8571428571428572 0 0 1 0.6964285714285714 8.619V7.3125c0 -1.3928571428571428 0.4615 -2.572142857142857 2.3214285714285716 -2.7857142857142856 2.7225714285714284 -0.31200000000000006 4.243571428571429 -0.30828571428571433 6.964285714285714 0 1.8450714285714287 0.20892857142857144 2.3214285714285716 1.3928571428571428 2.3214285714285716 2.7857142857142856v1.3074285714285714a1.8571428571428572 1.8571428571428572 0 0 1 -1.7466428571428572 1.8534285714285714" stroke-width="1"></path><path class="Vector140" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" d="M10.254214285714285 9.278285714285715c0.22378571428571428 0.5385714285714286 0.34264285714285714 1.262857142857143 0.3927857142857143 1.9565000000000003 0.03621428571428571 0.48471428571428576 -0.3435714285714286 0.8895714285714286 -0.8264285714285715 0.9220714285714285 -2.4746428571428574 0.16528571428571429 -4.1665 0.1662142857142857 -6.640214285714285 0 -0.48471428571428576 -0.0325 -0.8635714285714287 -0.43735714285714283 -0.8273571428571429 -0.9211428571428572 0.05014285714285714 -0.6927142857142857 0.16807142857142857 -1.417 0.39185714285714285 -1.9546428571428571 0.22285714285714286 -0.5348571428571428 0.8032142857142858 -0.7521428571428572 1.3789285714285715 -0.8190000000000001 1.7262142857142857 -0.20057142857142857 2.99 -0.20614285714285716 4.756142857142857 0 0.5729285714285715 0.06685714285714285 1.1514285714285715 0.28414285714285714 1.3742857142857143 0.8162142857142858Z" stroke-width="1"></path></g></svg>
+              </a>
+            </li>
+            <ThemeIcon />
+            <!-- <li v-for="e in social" :id="`img-${e.name}`" :key="e.name">
+              <a :href="e.link" target="_blank" rel="noopener noreferrer"><font-awesome-icon :icon="e.icon" /></a>
+            </li> -->
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+    <notifications position="bottom right"/>
+  </div>
+</section>
+
+<script>
+  document.getElementById('on-printer').addEventListener('click', e => {
+    e.preventDefault()
+    print()
+  })
+</script>
+<style lang="scss" is:global>
+
+#printer {
+  .Vector139 { stroke: black; }
+  .Vector138 { stroke: black; }
+  .Vector140 { stroke: black; }
+}
+.dark-mode #printer {
+  .Vector139 { stroke: white !important; }
+  .Vector138 { stroke: white !important; }
+  .Vector140 { stroke: white !important; }
+}
+
+.header {
+  .profile-img img {
+    object-fit: cover;
+    max-width: 230px;
+    width: 100%;
+  }
+
+  .name-wrapper {
+    margin-bottom: 2em;
+
+    > .name {
+      display: flex;
+      align-items: center;
+      gap: .5em;
+
+      > h1 {
+        text-transform: uppercase;
+        color: var(--text-primary);
+        line-height: 2rem;
+        margin: -.12em 0 .2em;
+      }
+
+      ul {
+        margin-top: -.6em;
+      }
+      a {
+        width: 36px;
+        height: 36px;
+        line-height: 2.2rem;
+        display: block;
+        font-size: .85rem;
+        color: var(--menu-color);
+        text-align: center;
+        border-radius: 2px;
+        border: 2px solid var(--menu-border-color);
+        font-weight: bold;
+
+        &:hover {
+          border-color: var(--menu-border-color-hover);
+        }
+      }
+    }
+
+    > span {
+      font-size: 1.5rem;
+      color: var(--text-color-link);
+
+      &.th-name {
+        font-size: 2rem;
+      }
+    }
+  }
+  .grid-personal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: .2em;
+    grid-row-gap: .2em;
+    .personal {
+      margin: 10px 0;
+
+      strong {
+        text-transform: uppercase;
+        font-size: .9rem;
+        font-weight: bold;
+        color: var(--text-secondary-value);
+        display: block;
+        line-height: 1;
+      }
+
+      small {
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: .75rem;
+      }
+
+      span {
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      span.badge {
+        color: #FFF;
+        display: table;
+        padding: 4px 5px 2px;
+        margin: -4px 0 1px 0;
+      }
+
+      .lang {
+        display: inline-block;
+        margin-right: 0.4em;
+      }
+
+    }
+  }
+
+  .social-icon {
+    display: flex;
+    flex-direction: row;
+    gap: .3em;
+
+    > li > a {
+      display: block;
+      font-size: .85rem;
+      color: var(--menu-color);
+      line-height: 2.1rem;
+      padding: 0 .75em;
+      text-align: center;
+      border-radius: 2px;
+      border: 2px solid var(--menu-border-color);
+      font-weight: bold;
+
+      &:hover {
+        border-color: var(--menu-border-color-hover);
+      }
+    }
+  }
+}
+</style>

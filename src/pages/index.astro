@@ -1,0 +1,193 @@
+---
+import dayjs from 'dayjs'
+import Layout from '../layouts/Layout.astro'
+import SectionHeader from '../components/Section1Header.astro'
+import SectionFooter from '../components/SectionFooter.astro'
+import SectionWork from '../components/SectionWork.astro'
+
+interface Frontmatter {
+  title: string;
+  author?: string;
+  description?: string;
+}
+
+const isResigning = ({ begin, quit }) => {
+  return !!quit || dayjs(begin).diff(dayjs().add(-1, 's'), 'day', true) <= 0
+}
+
+const getWorkPeriod = ({ worked, begin, quit }) => {
+  const newJob = dayjs(begin).diff(dayjs(), 'second') > 0
+
+  begin = dayjs(begin).format('MMMM YYYY')
+  quit = quit ? `- ${dayjs(quit).format('MMMM YYYY')}` : !newJob ? '- Present' : ''
+
+  const month = (worked % 1 * 12)
+  const day = month % 1 * dayjs().daysInMonth()
+
+  const monthInt = parseInt(month.toString())
+  const timeDiff = (monthInt > 0 ? `${Math.floor(worked)} year` : '') + (monthInt > 0 ? ` ${monthInt} month` : '') +
+    (monthInt === 0 && monthInt === 0 ? `${Math.floor(day)} days` : '')
+  return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
+}
+
+const getWorkStart = ({ begin }) => {
+  let monthBegin = dayjs(begin).diff(dayjs().add(-1, 's'), 'month', true)
+  const day = parseInt(((monthBegin % 1) * dayjs().daysInMonth()).toString())
+  return `Start in ${Math.floor(monthBegin) > 0 ? `${Math.floor(monthBegin)} month` : ''} ${day} day${day > 1 ? 's' : ''}`
+}
+
+interface Props {
+  resume: any;
+  experience?: any;
+}
+
+import expData from  '../i18n/experience.json'
+import resumeData from  '../i18n/resume.en.json'
+const { experience = expData, resume = resumeData } = Astro.props;
+
+
+const getWorkedYear = range => {
+  const begin = dayjs(range.begin)
+  const quit = dayjs(range.quit || undefined)
+  range.worked = quit.diff(begin.add(-1, 's'), 'year', true)
+  return range
+}
+
+for (const item of resume.work) {
+  if (item.jobs && item.jobs.length > 0) {
+    for (const subItem of item.jobs) {
+      getWorkedYear(subItem.range)
+    }
+  }
+
+  if (!item.range) continue
+  getWorkedYear(item.range)
+}
+---
+
+<Layout title={`${resume.fullname} | ${resume.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer specialist.">
+  <div class="resume">
+    <SectionHeader resume={resume} experience={experience} />
+    <!-- <div class="container">
+      <section-2-contact/>
+      <section-3-coding />
+      <section-3-coding-history />
+      <section-3-coding-daytime />
+      <section-5-skill />
+      <section-6-education class="d-print-only" />
+    </div> -->
+    <p class="pagebreak" />
+    {resume.work.map(e => !e.pagebreak ? (
+      <section class="section-wrpper section-work pt-3 pb-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 col-md-11">
+              <div class="section-title">
+                <h2>Work Experience</h2>
+                {e.range.worked <= 0 ? (<span class="badge text-bg-success">NEW JOB</span>):(<span />)}
+              </div>
+            </div>
+            <div class="col-lg-27 col-md-25 col-sm-36 content-job">
+              {isResigning(e.range) ?
+                (<small style="margin-top: -2px;display: block;">{getWorkPeriod(e.range)}</small>)
+              :
+                (<small style="margin-top: -2px;display: block;">{getWorkStart(e.range)}</small>)}
+              {!e.jobs && (<h3>{e.job}</h3>)}
+              <h4>{e.work}</h4>
+              {!e.jobs && (<SectionWork filename={e.file} />)}
+              <div class="content-subjob">
+                {e.jobs && e.jobs.map(j => (
+                <div>
+                  <h3>{j.job}</h3>
+                  <small>{getWorkPeriod(j.range)}</small>
+                  <SectionWork filename={j.file} />
+                </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ) : (<p class="pagebreak" />))}
+    <!-- <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
+      <div v-if="!e.pagebreak" class="container">
+        <div class="row">
+          <div class="col-lg-9 col-md-11">
+            <div class="section-title">
+              <h2>Work Experience</h2>
+              <span class="badge text-bg-success">NEW JOB</span>
+            </div>
+          </div>
+          <div class="col-lg-27 col-md-25 col-sm-36 content-job">
+            <small v-if="isResigning(e.range)" v-text="getWorkPeriod(e.range)" style="margin-top: -2px;display: block;" />
+            <small v-else v-text="getWorkStart(e.range)" style="margin-top: -2px;display: block;" />
+            <h3 v-show="!e.jobs" v-text="e.job" />
+            <h4 v-text="e.work" />
+            <div v-if="!e.jobs" v-show="workfile[e.file]" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
+            <div class="content-subjob" v-else>
+              <div v-for="(j, l) in e.jobs" :key="l">
+                <h3 v-text="j.job" />
+                <small v-text="getWorkPeriod(j.range)" />
+                <div class="markdown pt-1" v-html="$md.render(workfile[j.file])" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- <p class="pagebreak" /> -->
+    <!-- <div>
+      <section-education class="d-print-none" />
+      <section-certificate class="d-print-none" />
+    </div> -->
+    <SectionFooter />
+  </div>
+</Layout>
+
+<style lang="scss">
+.content-job {
+  margin-bottom: 20px;
+
+  h3 {
+    margin: 0 0 10px;
+    line-height: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    margin: 0;
+    line-height: 1;
+  }
+  small {
+    color: var(--text-secondary);
+  }
+  p {
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+
+  ul {
+    margin: 0 0 0 5px;
+    li::before {
+      content: '•';
+      margin-right: 5px;
+    }
+  }
+
+  .badge {
+    padding-top: 5px;
+  }
+
+  .content-subjob {
+    padding: 15px 0px 0px 0px;
+    > div {
+      padding: 10px 0px;
+      h3 {
+        margin: 0px;
+      }
+    }
+  }
+
+}
+</style>
