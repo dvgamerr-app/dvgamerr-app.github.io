@@ -25,53 +25,12 @@ This is the place where I opensource stuff and break things :rofl:
 - [Discord](https://touno.io/s/ixj7)
 - [GitHub](https://touno.io/s/l7cq)
 
-```mermaid
-graph TB
-IN[fa:fa-users Internet]
-CF[fa:fa-cloud cloudflare]
-K3S_1{{manage:01\noracle-sydney}}
-K3S_2{{node:01\naws-singapore}}
-K3S_3{{node:02\naide-bangkok}}
-RT(fa:fa-user root)
+### Status Server & Service
+![Kubernetes](https://cronitor.io/badges/M07Cgw/production/HygbdKB5x51NSXxZxkCVyT_nzzw.svg)
 
-IN --> CF
-CF --> |ingress| K3S_2
-
-subgraph ide2 [tailscale vpn]
-RT --> K3S_1
-subgraph ide1 [k3s cluster]
-K3S_1 --> K3S_2
-K3S_1 --> K3S_3
-end
-end
-```
-<!--
-```
-graph LR
-DB1[(PostgreSQL)]
-DB2[(Redis)]
-DB3[(Mongo)]
-TK1[task-1]
-TK2[task-1]
-
-
-subgraph region1 [sydney]
-DB1
-DB2
-DB3[(Mongo)]
-
-end
-subgraph region2 [singapore]
-ingress-controller
-sso-team
-touno-app
-end
-subgraph region3 [bangkok]
-TK1
-TK2
-end
-```
--->
+#### Cluster
+![aidepi200](https://cronitor.io/badges/qe60Vn/production/xxwLbfDrA5Bj5RbNv7zrAqe6lsA.svg)
+![aidepi201](https://cronitor.io/badges/CGbCzY/production/ts_yRzTGEtZpOMCbHdE5fKO21IY.svg)
 
 ## Current Project
 - [gokub-bot](https://github.com/touno-io/gokub-bot) Bitkub Trading Bot.
