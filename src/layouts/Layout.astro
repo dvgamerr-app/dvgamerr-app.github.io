@@ -5,10 +5,10 @@ import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
 
-import { getLangFromUrl } from '../i18n/utils';
+import { getLangFromUrl } from '../i18n/utils'
 
 interface Props {
-	title: string;
+	title: string
   desc: string
 }
 
@@ -16,7 +16,7 @@ const { title, desc } = Astro.props
 const website = 'https://mr.touno.io'
 const date = new Date().toISOString()
 
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url)
 ---
 
 <!DOCTYPE html>
@@ -54,12 +54,18 @@ const lang = getLangFromUrl(Astro.url);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;700&family=Hind:wght@400;700&display=swap" />
 		<title>{title}</title>
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "fb5b3ae4504f483f8a77f9d83d215c9c"}'></script>
+    <script async src="https://rum.cronitor.io/script.js"></script>
 	</head>
 	<body>
     <div id="__layout">
       <slot />
     </div>
+    <script>
+      // @ts-ignore: any
+      window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+      // @ts-ignore: any
+      cronitor('config', { clientKey: '31d8b65029197d55153e397052a03c30' });
+    </script>
 	</body>
 </html>
 <style lang="scss" is:global>

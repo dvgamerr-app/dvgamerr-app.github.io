@@ -12,7 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.4.0",
+    "@cronitorio/cronitor-rum": "^0.4.1",
+    "astro": "^3.4.3",
     "astro-google-fonts-optimizer": "^0.2.2",
     "astro-robots-txt": "^1.0.0",
     "numeral": "^2.0.6",
