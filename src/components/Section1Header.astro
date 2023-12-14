@@ -24,10 +24,14 @@ const showNationalD = () => {
   const [ , ...id ]: any = regex.exec(resume.national_id)
   return id.join(' ')
 }
-const showSalary = () => {
-  const { base, rate, day, hour } = experience.salary
+
+
+const showSalary = async () => {
+  const usdt = await fetch('https://api.bitkub.com/api/market/ticker?sym=THB_USDT')
+  const res = await usdt.json()
+  const { base, day, hour } = experience.salary
   if (langName == 'en') {
-    const perHour = Math.round(base / day / hour / rate * 100) / 100
+    const perHour = Math.round(base / day / hour / res['THB_USDT'].last * 100) / 100
     return `${t('head.salary.currency')}${perHour} ${t('head.salary.hour')}`
   } else {
     const perHour = Math.round(base / day / hour * 100) / 100
