@@ -27,10 +27,11 @@ const showNationalD = () => {
 
 
 const showSalary = async () => {
-  const usdt = await fetch('https://api.bitkub.com/api/market/ticker?sym=THB_USDT')
-  const res = await usdt.json()
   const { base, day, hour } = experience.salary
   if (langName == 'en') {
+    const usdt = await fetch('https://api.bitkub.com/api/market/ticker?sym=THB_USDT')
+    const res = await usdt.json()
+
     const perHour = Math.round(base / day / hour / res['THB_USDT'].last * 100) / 100
     return `${t('head.salary.currency')}${perHour} ${t('head.salary.hour')}`
   } else {
@@ -67,7 +68,7 @@ const birthday = dayjs(experience.birthday)
           <ul class="d-print-none">
             <li><a href={langName==='en'?'/th':'/'}>{languages[langName]}</a></li>
           </ul>
-          <h1 class=" ">{resume.fullname}</div>
+          <h1 class=" ">{resume.fullname}</h1>
         </div>
         <span class="d-print-none th-label">{resume.job}</span>
         <span class="d-print-only th-label th-name">{resume.fullname_th}</span>
@@ -156,6 +157,11 @@ const birthday = dayjs(experience.birthday)
     e.preventDefault()
     print()
   })
+  setTimeout(async () => {
+    const usdt = await fetch('https://api.bitkub.com/api/market/ticker?sym=THB_USDT')
+    const res = await usdt.json()
+    console.log(res['THB_USDT'].last)
+  }, 1);
 </script>
 <style lang="scss" is:global>
 

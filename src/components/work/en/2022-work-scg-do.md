@@ -5,4 +5,5 @@
   - Experience in Agile environments and practices, such as Test-Driven Development, Pair Programming, and Continuous Integration and Delivery.
   - Build CI/CD for Java with the `MuleSoft` Framework on the GoCD platform.
   - Maintain the `MuleSoft` API Gateway.
-  - Develop the internal system `Do Utilization` with the team.
+  - Solution design the `Gateway API` Server and build a team.
+  - Imprement API Layer with `Tuya Transfrom` Service.
