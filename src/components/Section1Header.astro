@@ -59,8 +59,8 @@ const birthday = dayjs(experience.birthday)
   <div class="container">
     <div class="row">
       <div class="col-lg-9 col-md-11 col-sm-36">
-        <div class="profile-img d-flex justify-content-end d-md-block d-sm-none">
-          <Image src={photo} width={255} height={310} loading="lazy" alt="" />
+        <div class="profile-img justify-content-end d-md-flex">
+          <Image src={photo} width={510} height={620} loading="lazy" alt="" />
         </div>
       </div>
       <div class="col-lg-27 col-md-25 col-sm-36 name-wrapper">
@@ -68,7 +68,7 @@ const birthday = dayjs(experience.birthday)
           <ul class="d-print-none">
             <li><a href={langName==='en'?'/th':'/'}>{languages[langName]}</a></li>
           </ul>
-          <h1 class=" ">{resume.fullname}</h1>
+          <h1>{resume.fullname}</h1>
         </div>
         <span class="d-print-none th-label">{resume.job}</span>
         <span class="d-print-only th-label th-name">{resume.fullname_th}</span>
@@ -93,7 +93,7 @@ const birthday = dayjs(experience.birthday)
             <div class="personal language">
               <strong>
                 {Object.keys(resume.language).map(e => (
-                <div class="lang"> {e} <small class="level">({resume.language[e]})</small> </div>
+                <div class="lang"> {e} <small class="level d-md-block d-none">({resume.language[e]})</small> </div>
                 ))}
               </strong>
               <small>{t('head.language')}</small>
@@ -178,17 +178,17 @@ const birthday = dayjs(experience.birthday)
 
 .header {
   .profile-img img {
-    object-fit: cover;
-    max-width: 230px;
+    object-fit: contain;
+    max-height: 380px;
     width: 100%;
   }
 
   .name-wrapper {
-    margin-bottom: 2em;
+    margin: 1em 0 2em 0;
 
     > .name {
       display: flex;
-      align-items: center;
+      justify-items: flex-start;
       gap: .5em;
 
       > h1 {
