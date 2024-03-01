@@ -1,5 +1,3 @@
-<p align="center"><img src="./docs/d79b9c6d-6b4f-4606-9149-835db1f63b89.png"/></p>
-
 [![github-pages](https://github.com/dvgamerr/dvgamerr/actions/workflows/github-pages.yml/badge.svg?branch=main&style=flat-square&labelColor=1c1917)](https://github.com/dvgamerr/dvgamerr/actions/workflows/github-pages.yml)
 ![counter](https://komarev.com/ghpvc/?username=dvgamerr&color=97ca00&label=views&labelColor=1c1917&style=flat-square)
 ![followers](https://img.shields.io/github/followers/dvgamerr?logo=github&style=flat-square&color=0891b2&labelColor=1c1917)
