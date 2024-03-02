@@ -109,85 +109,61 @@
   "contact": [
     {
       "print": false,
-      "label": "Github",
-      "url": "https://touno.io/s/w9z5",
+      "label": "github",
+      "url": "https://github.com/dvgamerr",
       "text": "dvgamerr",
-      "icon": [
-        "fab",
-        "github"
-      ]
+      "icon": "github"
     },
     {
       "print": false,
-      "label": "TWITTER",
-      "url": "https://touno.io/s/8ae4",
+      "label": "twitter",
+      "url": "https://twitter.com/dvgamerr",
       "text": "dvgamerr",
-      "icon": [
-        "fab",
-        "twitter"
-      ]
+      "icon":  "twitter"
     },
     {
       "print": false,
-      "label": "INSTRGRAM",
-      "url": "https://touno.io/s/u01t",
-      "text": "Kananek Thongkam",
-      "icon": [
-        "fab",
-        "instagram"
-      ]
+      "label": "instrgram",
+      "url": "https://www.instagram.com/dvgamerr/",
+      "text": "Kananek T.",
+      "icon": "instagram"
     },
     {
       "print": false,
-      "label": "EMAIL",
-      "url": "mailto:kananek.dev@touno.io",
-      "text": "kananek.dev@touno.io",
-      "icon": [
-        "fas",
-        "envelope"
-      ]
+      "label": "email",
+      "url": "mailto:kananek@dvgamerr.app",
+      "text": "kananek@dvgamerr.app",
+      "icon": "email"
     },
     {
       "print": true,
-      "label": "LINE ACCOUNT",
-      "qrcode": "/qr_line.webp",
-      "url": "https://touno.io/s/5sri",
+      "label": "line account",
+      "qrcode": "qr-line.svg",
+      "url": "https://line.me/ti/p/DUTyCUPNh9",
       "text": "dvgamer (KEM)",
-      "icon": [
-        "fab",
-        "line"
-      ]
+      "icon": "line"
     },
     {
       "print": true,
-      "label": "Website",
-      "qrcode": "/qr_website.webp",
-      "url": "https://touno.io/s/rfd6",
+      "label": "website",
+      "qrcode": "qr-chrome.svg",
+      "url": "https://dvgamerr.app",
       "text": "dvgamer (KEM)",
-      "icon": [
-        "fab",
-        "chrome"
-      ]
+      "icon": "chrome"
     },
     {
       "print": true,
-      "label": "MOBILE",
+      "label": "mobile",
       "url": "tel:0970347607",
       "text": "+66-970-3476-07",
-      "icon": [
-        "fas",
-        "mobile"
-      ]
+      "icon": "mobile"
     },
     {
       "print": true,
-      "label": "EMAIL",
-      "url": "mailto:kananek.dev@touno.io",
-      "text": "kananek.dev@touno.io",
-      "icon": [
-        "fas",
-        "envelope"
-      ]
+      "label": "email",
+      "url": "mailto:kananek@dvgamerr.app",
+      "text": "kananek@dvgamerr.app",
+      "icon": "email"
     }
   ]
 }

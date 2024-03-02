@@ -2,6 +2,7 @@
 import dayjs from 'dayjs'
 import Layout from '../layouts/Layout.astro'
 import SectionHeader from '../components/Section1Header.astro'
+import SectionContact from '../components/Section2Contact.astro'
 import SectionFooter from '../components/SectionFooter.astro'
 import SectionWork from '../components/SectionWork.astro'
 
@@ -68,14 +69,14 @@ for (const item of resume.work) {
 <Layout title={`${resume.fullname} | ${resume.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer specialist.">
   <div class="resume">
     <SectionHeader resume={resume} experience={experience} />
-    <!-- <div class="container">
-      <section-2-contact/>
+    <div class="container">
+      <SectionContact experience={experience} />
       <section-3-coding />
       <section-3-coding-history />
       <section-3-coding-daytime />
       <section-5-skill />
       <section-6-education class="d-print-only" />
-    </div> -->
+    </div>
     <p class="pagebreak" />
     {resume.work.map(e => !e.pagebreak ? (
       <section class="section-wrpper section-work pt-3 pb-3">

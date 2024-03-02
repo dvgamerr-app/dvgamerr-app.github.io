@@ -117,6 +117,10 @@ html.dark-mode {
   display: none !important;
 }
 
+@page {
+  size: A3;
+  margin: 0mm;
+}
 
 @media print {
   html.dark-mode {
@@ -124,10 +128,6 @@ html.dark-mode {
     --text-color-link: #ff5722;
     --text-secondary: #444444;
     --text-secondary-value: #444444;
-  }
-
-  @page {
-    size: A3;
   }
 
   .container {

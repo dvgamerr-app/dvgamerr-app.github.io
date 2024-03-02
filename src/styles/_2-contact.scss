@@ -1,11 +1,50 @@
 #__layout {
+
+  // #printer {
+  //   .Vector139 { stroke: black; }
+  //   .Vector138 { stroke: black; }
+  //   .Vector140 { stroke: black; }
+  // }
+  // .dark-mode #printer {
+  //   .Vector139 { stroke: white !important; }
+  //   .Vector138 { stroke: white !important; }
+  //   .Vector140 { stroke: white !important; }
+  // }
+
+  address a {
+    fill: var(--text-secondary);
+  }
+  @media print {
+    address a {
+      fill: var(--text-secondary);
+      font-weight: bold;
+      text-decoration: none !important;
+    }
+  }
+
   @include media-breakpoint-up(md) {
     .section-contact {
       .contact-item {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      @media print {
+        .contact-item {
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 1em;
+        }
+      }
+
     }
   }
+
+  // @include media-breakpoint-up(xs) {
+  //   .section-contact {
+  //     .contact-item {
+  //       grid-template-columns: repeat(2, 1fr);
+  //     }
+  //   }
+  // }
 
   @include media-breakpoint-up(lg) {
     .section-contact {
