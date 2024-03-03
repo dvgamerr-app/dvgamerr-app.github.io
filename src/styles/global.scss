@@ -31,6 +31,7 @@ html {
   --text-primary: #1f252c;
   --text-secondary: #495057;
   --text-secondary-value: #444444;
+  --text-muted: var(--bs-gray-400);
   --menu-color: #333333;
   --menu-border-color: #eeeeee;
   --menu-border-color-hover: #cccccc;
@@ -52,6 +53,7 @@ html.dark-mode {
   --text-primary: #f7f7f7;
   --text-secondary: #989898;
   --text-secondary-value: #e7e7e7;
+  --text-muted: var(--bs-gray-800);
   --menu-color: #f9f9f9;
   --menu-border-color: #383838;
   --menu-border-color-hover: #424242;
@@ -419,13 +421,20 @@ ul {
 .section-title {
   margin-right: 30px;
   text-align: right;
-}
 
-.section-title h2 {
-  font-size: 14px;
-  margin-bottom: 5px;
-  color: #bbbbbb;
-  text-transform: uppercase;
+  h2 {
+    font-size: 14px;
+    line-height: 0;
+    margin-bottom: 0;
+    margin-top: .9em;
+    color: #bbbbbb;
+    text-transform: uppercase;
+  }
+
+  small {
+    color: var(--text-muted);
+    font-size: .65rem;
+  }
 }
 
 @media (max-width: 768px) {

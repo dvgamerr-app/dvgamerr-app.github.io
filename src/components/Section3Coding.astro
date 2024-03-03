@@ -1,0 +1,63 @@
+---
+import dayjs from 'dayjs'
+import coding from '../i18n/coding.json'
+
+const getUpdated = () => {
+  return dayjs(coding.updated).format('DD-MM-YYYY')
+}
+
+const getExperience = () => {
+  const worked = dayjs().diff(coding.experience, 'month') / 12
+  const month = worked % 1 * 12
+  return `${Math.floor(worked)} years ${Math.floor(month)} month${month > 1 ? 's' : ''}`
+}
+
+const toNumber = (n: number = 0) => {
+  const loc = n / 1000000
+  const low = (loc >= 1 ? `${Math.round(loc * 100) / 100} M` : n)
+  return (loc < 1 && n / 1000 >= 1) ? `${Math.round(n / 1000 * 100) / 100} K` : low
+}
+
+interface Props {
+  experience: any
+}
+
+const { experience } = Astro.props
+---
+<section class="section-wrapper section-coding d-print-none">
+  <div class="row">
+    <div class="col-lg-9 col-md-11">
+      <div class="section-title">
+        <h2>My Coding</h2>
+        <small>updated {getUpdated()}</small>
+      </div>
+    </div>
+    <div class="col-lg-27 col-md-25 col-sm-36 d-grid stats">
+      <div class="stats-item">
+        <div class="value">{getExperience()}</div>
+        <div class="name">
+          Work Experience
+        </div>
+      </div>
+      <div class="stats-item">
+        <div class="value">{toNumber(coding.loc)}</div>
+        <div class="name">
+          Lines of Code
+        </div>
+      </div>
+      <div class="stats-item">
+        <div class="value">{`${toNumber(coding.project)} (${toNumber(coding.opensource)})`}</div>
+        <div class="name">
+          Projects (opensource)
+        </div>
+      </div>
+      <div class="stats-item">
+        <div class="value">{toNumber(coding.commits)}</div>
+        <div class="name">
+          Commits
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
