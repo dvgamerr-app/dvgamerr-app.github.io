@@ -1,0 +1,43 @@
+---
+import coding from '../i18n/coding.json'
+
+const parseTime = (seconds:number = 0) => {
+  return `${seconds > 60 * 60 ? `${Math.round(seconds / 60 / 60)}h ` : ''}${Math.round(seconds / 60 % 60)}m`
+}
+---
+<section class="section-wrapper section-coding d-print-none">
+  <div class="row">
+    <div class="col-lg-9 col-md-11">
+      <div class="section-title">
+        <h2>Code History</h2>
+        <small>wakatime.com</small>
+      </div>
+    </div>
+    <div class="col-lg-27 col-md-25 col-sm-36 d-grid stats">
+      <div class="stats-item">
+        <div class="value">{parseTime(coding.weekly_seconds)}</div>
+        <div class="name">
+          Weekly Coding
+        </div>
+      </div>
+      <div class="stats-item">
+        <div class="value">{parseTime(coding.average_seconds)}</div>
+        <div class="name">
+          Daily Average
+        </div>
+      </div>
+      <div class="stats-item">
+        <div class="value">{parseTime(coding.best_seconds)}</div>
+        <div class="name">
+          Best Coding
+        </div>
+      </div>
+      <div class="stats-item">
+        <div class="value">{coding.languages}</div>
+        <div class="name">
+          languages
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

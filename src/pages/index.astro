@@ -4,7 +4,10 @@ import Layout from '../layouts/Layout.astro'
 import SectionHeader from '../components/Section1Header.astro'
 import SectionContact from '../components/Section2Contact.astro'
 import SectionCoding from '../components/Section3Coding.astro'
-import SectionDaytime from '../components/Section4Daytime.astro'
+import SectionDaytime from '../components/Section4CodingDaytime.astro'
+import SectionHistory from '../components/Section5CodingHistory.astro'
+import SectionSkill from '../components/Section6Skill.astro'
+import SectionEducation from '../components/Section7Education.astro'
 import SectionFooter from '../components/SectionFooter.astro'
 import SectionWork from '../components/SectionWork.astro'
 
@@ -75,10 +78,9 @@ for (const item of resume.work) {
       <SectionContact experience={experience} />
       <SectionCoding />
       <SectionDaytime />
-      <section-3-coding-history />
-      <section-3-coding-daytime />
-      <section-5-skill />
-      <section-6-education class="d-print-only" />
+      <SectionHistory />
+      <SectionSkill experience={experience} />
+      <SectionEducation resume={resume} />
     </div>
     <p class="pagebreak" />
     {resume.work.map(e => !e.pagebreak ? (

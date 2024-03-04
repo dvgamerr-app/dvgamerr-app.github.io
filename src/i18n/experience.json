@@ -61,31 +61,24 @@
     "coding": [
       "Golang",
       "Nodejs",
-      "Python",
-      "Dart",
-      "React",
-      "Vue.js",
+      "Vue",
       "SCSS",
       "SecureShell",
-      "K8S-YAML",
+      "YAML",
       "Dockerfile",
-      "ES2022",
       "C#",
       "VB"
     ],
     "tools": [
+      "Astro",
+      "Svelte",
       "Git",
       "VSCode",
-      "Visual Studio",
       "Kubernates",
-      "Putty",
       "Docker",
       "Postman",
-      "Nuxtjs",
-      "Nextjs",
-      "Astro",
-      "Bootstrap",
-      "Elctronjs"
+      "Vite",
+      "Nextjs"
     ],
     "SQL & NOSQL": [
       "PostgreSQL",
@@ -98,12 +91,13 @@
       "SQLite"
     ],
     "OS & Cloud": [
+      "Chat GPT",
+      "AWS",
+      "Azure",
+      "GCloud",
       "CentOS",
       "Debian",
-      "Ubuntu",
-      "AWS",
-      "GCloud",
-      "Azure"
+      "Fedora"
     ]
   },
   "contact": [
