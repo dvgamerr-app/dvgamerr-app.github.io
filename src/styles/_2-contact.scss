@@ -38,13 +38,13 @@
     }
   }
 
-  // @include media-breakpoint-up(xs) {
-  //   .section-contact {
-  //     .contact-item {
-  //       grid-template-columns: repeat(2, 1fr);
-  //     }
-  //   }
-  // }
+  @include media-breakpoint-up(xs) {
+    .section-contact {
+      .contact-item {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
 
   @include media-breakpoint-up(lg) {
     .section-contact {

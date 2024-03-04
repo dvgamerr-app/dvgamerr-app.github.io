@@ -109,7 +109,7 @@ html.dark-mode {
 // scss-docs-end import-stack
 
 
-// @import 'charts.css/dist/charts.css';
+@import 'charts.css/dist/charts.css';
 
 @import './1-header';
 @import './2-contact';
@@ -161,6 +161,11 @@ html.dark-mode {
   }
 }
 
+@include media-breakpoint-up(xs) {
+  .section-wrapper {
+    padding: .5em 0;
+  }
+}
 
 @include media-breakpoint-up(sm) {
   .section-wrapper {
@@ -419,13 +424,14 @@ ul {
 * Section Title
 *---------------------------*/
 .section-title {
+  min-height: 65px;
   margin-right: 30px;
   text-align: right;
 
   h2 {
     font-size: 14px;
     line-height: 0;
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
     margin-top: .9em;
     color: #bbbbbb;
     text-transform: uppercase;
@@ -437,15 +443,9 @@ ul {
   }
 }
 
-@media (max-width: 768px) {
-  .section-title {
-    padding-top: 1em;
-    text-align: left;
-  }
-  .section-title h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
+
+.section-title h2 {
+  font-size: 18px;
 }
 
 /*-----------------

@@ -9,6 +9,18 @@
 
       .profile-img {
         margin-bottom: 5em;
+        height: 420px;
+
+        img {
+          position: absolute;
+          object-position: top;
+          object-fit: cover;
+          max-height: 460px;
+          width: 100%;
+          top: 5px;
+          left: 0;
+        }
+
       }
 
       .section-wrapper.grid-personal {

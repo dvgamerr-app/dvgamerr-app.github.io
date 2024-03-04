@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro'
 import SectionHeader from '../components/Section1Header.astro'
 import SectionContact from '../components/Section2Contact.astro'
 import SectionCoding from '../components/Section3Coding.astro'
+import SectionDaytime from '../components/Section4Daytime.astro'
 import SectionFooter from '../components/SectionFooter.astro'
 import SectionWork from '../components/SectionWork.astro'
 
@@ -72,7 +73,8 @@ for (const item of resume.work) {
     <SectionHeader resume={resume} experience={experience} />
     <div class="container">
       <SectionContact experience={experience} />
-      <SectionCoding experience={experience} />
+      <SectionCoding />
+      <SectionDaytime />
       <section-3-coding-history />
       <section-3-coding-daytime />
       <section-5-skill />

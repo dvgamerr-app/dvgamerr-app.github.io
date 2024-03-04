@@ -17,12 +17,6 @@ const toNumber = (n: number = 0) => {
   const low = (loc >= 1 ? `${Math.round(loc * 100) / 100} M` : n)
   return (loc < 1 && n / 1000 >= 1) ? `${Math.round(n / 1000 * 100) / 100} K` : low
 }
-
-interface Props {
-  experience: any
-}
-
-const { experience } = Astro.props
 ---
 <section class="section-wrapper section-coding d-print-none">
   <div class="row">
