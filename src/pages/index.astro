@@ -71,7 +71,7 @@ for (const item of resume.work) {
 }
 ---
 
-<Layout title={`${resume.fullname} | ${resume.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer specialist.">
+<Layout title={`${resume.fullname} | ${resume.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer.">
   <div class="resume">
     <SectionHeader resume={resume} experience={experience} />
     <div class="container">
@@ -115,37 +115,6 @@ for (const item of resume.work) {
         </div>
       </section>
     ) : (<p class="pagebreak" />))}
-    <!-- <section v-for="(e, i) in work" :key="i" :class="e.pagebreak ? 'pagebreak' : 'section-wrapper section-work pt-3 pb-3'">
-      <div v-if="!e.pagebreak" class="container">
-        <div class="row">
-          <div class="col-lg-9 col-md-11">
-            <div class="section-title">
-              <h2>Work Experience</h2>
-              <span class="badge text-bg-success">NEW JOB</span>
-            </div>
-          </div>
-          <div class="col-lg-27 col-md-25 col-sm-36 content-job">
-            <small v-if="isResigning(e.range)" v-text="getWorkPeriod(e.range)" style="margin-top: -2px;display: block;" />
-            <small v-else v-text="getWorkStart(e.range)" style="margin-top: -2px;display: block;" />
-            <h3 v-show="!e.jobs" v-text="e.job" />
-            <h4 v-text="e.work" />
-            <div v-if="!e.jobs" v-show="workfile[e.file]" class="markdown pt-1" v-html="$md.render(workfile[e.file])" />
-            <div class="content-subjob" v-else>
-              <div v-for="(j, l) in e.jobs" :key="l">
-                <h3 v-text="j.job" />
-                <small v-text="getWorkPeriod(j.range)" />
-                <div class="markdown pt-1" v-html="$md.render(workfile[j.file])" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!-- <p class="pagebreak" /> -->
-    <!-- <div>
-      <section-education class="d-print-none" />
-      <section-certificate class="d-print-none" />
-    </div> -->
     <SectionFooter />
   </div>
 </Layout>
