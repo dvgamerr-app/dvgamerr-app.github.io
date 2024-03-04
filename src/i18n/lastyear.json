@@ -1,0 +1,5124 @@
+{
+  "data": {
+    "days": [
+      {
+        "date": "2023-03-05",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-06",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-07",
+        "total": 3728.318371,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3728.318371
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-08",
+        "total": 521.075104,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 521.075104
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-09",
+        "total": 5845.748157,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5845.748157
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-10",
+        "total": 2643.759296,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2643.759296
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-11",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-12",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-13",
+        "total": 22684.219033,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 22684.219033
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-14",
+        "total": 4949.428687,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4949.428687
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-15",
+        "total": 8121.451002,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8121.451002
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-16",
+        "total": 21605.068143,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 21605.068143
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-17",
+        "total": 363.880297,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 363.880297
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-18",
+        "total": 4.183098,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4.183098
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-19",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-20",
+        "total": 6005.295471,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6005.295471
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-21",
+        "total": 4361.192324,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4361.192324
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-22",
+        "total": 6902.053006,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6902.053006
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-23",
+        "total": 5813.772065,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5813.772065
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-24",
+        "total": 1635.462611,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1635.462611
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-25",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-26",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-27",
+        "total": 4202.697403,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4202.697403
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-28",
+        "total": 1734.788214,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1734.788214
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-29",
+        "total": 5886.035678,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5886.035678
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-30",
+        "total": 7317.49946,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7317.49946
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-03-31",
+        "total": 16000.317148,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 15997.243276
+          },
+          {
+            "name": "Debugging",
+            "total": 3.073872
+          }
+        ]
+      },
+      {
+        "date": "2023-04-01",
+        "total": 2211.100489,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2211.100489
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-02",
+        "total": 6446.409196,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6446.409196
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-03",
+        "total": 11713.715274,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 11713.715274
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-04",
+        "total": 11537.390403,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 11537.390403
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-05",
+        "total": 81.076563,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 81.076563
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-06",
+        "total": 663.777361,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 663.777361
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-07",
+        "total": 3425.023911,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3425.023911
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-08",
+        "total": 9333.063987,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9333.063987
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-09",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-10",
+        "total": 2970.745421,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2970.745421
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-11",
+        "total": 3.660144,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3.660144
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-12",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-13",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-14",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-15",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-16",
+        "total": 895.723846,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 895.723846
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-17",
+        "total": 2815.511233,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2815.511233
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-18",
+        "total": 5762.701653,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5762.701653
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-19",
+        "total": 6842.743128,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6842.743128
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-20",
+        "total": 13702.442811,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13702.442811
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-21",
+        "total": 28872.957028,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 28872.957028
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-22",
+        "total": 14996.583902,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 14996.583902
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-23",
+        "total": 18821.975256,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 18821.975256
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-24",
+        "total": 9980.659928,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9980.659928
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-25",
+        "total": 8550.264621,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8550.264621
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-26",
+        "total": 4536.884394,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4536.884394
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-27",
+        "total": 444.456948,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 444.456948
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-28",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-29",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-04-30",
+        "total": 981.033742,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 981.033742
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-01",
+        "total": 220.353988,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 220.353988
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-02",
+        "total": 9598.584014,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9598.584014
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-03",
+        "total": 7526.177785,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7526.177785
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-04",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-05",
+        "total": 5901.526257,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5901.526257
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-06",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-07",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-08",
+        "total": 3326.806617,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3326.806617
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-09",
+        "total": 21942.510221,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 21942.510221
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-10",
+        "total": 32778.549173,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 32778.549173
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-11",
+        "total": 10545.872376,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10545.872376
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-12",
+        "total": 20613.328644,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 20613.328644
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-13",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-14",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-15",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-16",
+        "total": 10391.199309,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10391.199309
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-17",
+        "total": 10072.160788,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10072.160788
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-18",
+        "total": 13397.656681,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13397.656681
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-19",
+        "total": 4078.062871,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4078.062871
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-20",
+        "total": 36.953481,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 36.953481
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-21",
+        "total": 1316.771362,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1316.771362
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-22",
+        "total": 7825.188367,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7825.188367
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-23",
+        "total": 7906.173262,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7906.173262
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-24",
+        "total": 6832.187149,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6832.187149
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-25",
+        "total": 6979.123482,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6979.123482
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-26",
+        "total": 8884.429335,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8884.429335
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-27",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-28",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-29",
+        "total": 10215.56234,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10215.56234
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-30",
+        "total": 1547.05143,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1547.05143
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-05-31",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-01",
+        "total": 7591.830729,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7591.830729
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-02",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-03",
+        "total": 126.8166,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 126.8166
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-04",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-05",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-06",
+        "total": 3490.722129,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3490.722129
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-07",
+        "total": 1775.205204,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1775.205204
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-08",
+        "total": 717.417993,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 717.417993
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-09",
+        "total": 11782.173871,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 11782.173871
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-10",
+        "total": 619.85448,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 619.85448
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-11",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-12",
+        "total": 3143.603827,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3143.603827
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-13",
+        "total": 20018.108935,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 20018.108935
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-14",
+        "total": 15559.867209,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 15559.867209
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-15",
+        "total": 7358.452226,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7358.452226
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-16",
+        "total": 8854.576798,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8854.576798
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-17",
+        "total": 8765.567194,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8765.567194
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-18",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-19",
+        "total": 4874.71996,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4874.71996
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-20",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-21",
+        "total": 507.397084,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 507.397084
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-22",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-23",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-24",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-25",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-26",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-27",
+        "total": 26793.990819,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 26793.990819
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-28",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-29",
+        "total": 7393.423206,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7393.423206
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-06-30",
+        "total": 12791.698727,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 12791.698727
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-01",
+        "total": 21493.991878,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 21493.991878
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-02",
+        "total": 8368.735708,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8368.735708
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-03",
+        "total": 6400.65603,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6400.65603
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-04",
+        "total": 8599.476129,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8599.476129
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-05",
+        "total": 391.091276,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 391.091276
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-06",
+        "total": 3951.338963,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3951.338963
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-07",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-08",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-09",
+        "total": 1459.96906,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1459.96906
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-10",
+        "total": 3725.069501,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3725.069501
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-11",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-12",
+        "total": 16934.363678,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 16934.363678
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-13",
+        "total": 19046.284151,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 19046.284151
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-14",
+        "total": 6336.690985,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6336.690985
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-15",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-16",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-17",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-18",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-19",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-20",
+        "total": 1261.531766,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1261.531766
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-21",
+        "total": 1493.102342,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1493.102342
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-22",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-23",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-24",
+        "total": 18680.49534,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 18680.49534
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-25",
+        "total": 6480.659734,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6480.659734
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-26",
+        "total": 4174.825442,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4174.825442
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-27",
+        "total": 909.779131,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 909.779131
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-28",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-29",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-30",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-07-31",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-01",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-02",
+        "total": 3154.137581,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3154.137581
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-03",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-04",
+        "total": 407.103422,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 407.103422
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-05",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-06",
+        "total": 6832.837768,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6832.837768
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-07",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-08",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-09",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-10",
+        "total": 864.509572,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 864.509572
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-11",
+        "total": 3597.799707,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3597.799707
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-12",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-13",
+        "total": 7104.676453,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7104.676453
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-14",
+        "total": 471.908198,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 471.908198
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-15",
+        "total": 6313.515762,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6313.515762
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-16",
+        "total": 3762.94727,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3762.94727
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-17",
+        "total": 5643.504875,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5643.504875
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-18",
+        "total": 0.849007,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0.849007
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-19",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-20",
+        "total": 2086.889941,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2086.889941
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-21",
+        "total": 14973.966895,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 14973.966895
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-22",
+        "total": 5051.327929,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5051.327929
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-23",
+        "total": 1937.677125,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1937.677125
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-24",
+        "total": 2283.760889,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2283.760889
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-25",
+        "total": 101.702825,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 101.702825
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-26",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-27",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-28",
+        "total": 2617.963628,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2617.963628
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-29",
+        "total": 17256.633964,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 17256.633964
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-30",
+        "total": 11354.529362,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 11354.529362
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-08-31",
+        "total": 7416.448749,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7416.448749
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-01",
+        "total": 7996.322199,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7996.322199
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-02",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-03",
+        "total": 338.705184,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 338.705184
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-04",
+        "total": 193.60566,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 193.60566
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-05",
+        "total": 1976.592052,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1976.592052
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-06",
+        "total": 7077.523235,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7077.523235
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-07",
+        "total": 3161.074195,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3161.074195
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-08",
+        "total": 13352.039114,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13352.039114
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-09",
+        "total": 13950.391772,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13950.391772
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-10",
+        "total": 519.213315,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 519.213315
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-11",
+        "total": 2093.541676,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2093.541676
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-12",
+        "total": 1507.679172,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1507.679172
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-13",
+        "total": 12074.070971,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 12074.070971
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-14",
+        "total": 11908.400377,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 11908.400377
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-15",
+        "total": 4842.974327,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4842.974327
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-16",
+        "total": 20850.856895,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 20850.856895
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-17",
+        "total": 3678.968904,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3678.968904
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-18",
+        "total": 3284.882073,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3284.882073
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-19",
+        "total": 10112.343188,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10112.343188
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-20",
+        "total": 5335.467479,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5335.467479
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-21",
+        "total": 18119.672357,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 18119.672357
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-22",
+        "total": 13136.57769,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13136.57769
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-23",
+        "total": 14775.496377,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 14775.496377
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-24",
+        "total": 17881.447351,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 17881.126871
+          },
+          {
+            "name": "Debugging",
+            "total": 0.32048
+          }
+        ]
+      },
+      {
+        "date": "2023-09-25",
+        "total": 6537.942282,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6537.942282
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-26",
+        "total": 15935.763832,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 15935.763832
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-27",
+        "total": 30117.823876,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 30117.823876
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-28",
+        "total": 32314.888554,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 32314.888554
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-29",
+        "total": 26824.360839,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 26824.360839
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-09-30",
+        "total": 12177.87679,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 12177.87679
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-01",
+        "total": 2587.68538,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2587.68538
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-02",
+        "total": 13751.949256,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13751.949256
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-03",
+        "total": 8121.182973,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8121.182973
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-04",
+        "total": 7259.131013,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7259.131013
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-05",
+        "total": 17439.867786,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 17439.867786
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-06",
+        "total": 15923.896537,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 15923.896537
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-07",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-08",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-09",
+        "total": 227.613476,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 227.613476
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-10",
+        "total": 271.018994,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 271.018994
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-11",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-12",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-13",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-14",
+        "total": 3292.527467,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3292.527467
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-15",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-16",
+        "total": 10377.374979,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10377.374979
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-17",
+        "total": 10955.800944,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10955.800944
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-18",
+        "total": 3931.243649,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3931.243649
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-19",
+        "total": 17108.431808,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 17108.431808
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-20",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-21",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-22",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-23",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-24",
+        "total": 1959.025323,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1959.025323
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-25",
+        "total": 10255.286141,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10255.286141
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-26",
+        "total": 4956.240824,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4956.240824
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-27",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-28",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-29",
+        "total": 12.153294,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 12.153294
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-30",
+        "total": 12420.752464,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 12420.752464
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-10-31",
+        "total": 21167.778832,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 21167.778832
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-01",
+        "total": 20369.108029,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 20369.108029
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-02",
+        "total": 2806.682805,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2806.682805
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-03",
+        "total": 13527.355145,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13527.355145
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-04",
+        "total": 652.759717,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 652.759717
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-05",
+        "total": 1919.702559,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1919.702559
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-06",
+        "total": 13054.208109,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13054.208109
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-07",
+        "total": 46975.804539,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 46975.804539
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-08",
+        "total": 1979.959763,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1979.959763
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-09",
+        "total": 19883.271321,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 19883.271321
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-10",
+        "total": 9037.484053,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9037.484053
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-11",
+        "total": 24759.571417,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 24759.571417
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-12",
+        "total": 16843.977281,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 16843.977281
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-13",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-14",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-15",
+        "total": 2620.422274,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2620.422274
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-16",
+        "total": 280.003425,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 280.003425
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-17",
+        "total": 5421.659004,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5421.659004
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-18",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-19",
+        "total": 2536.492832,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2536.492832
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-20",
+        "total": 28415.405557,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 28415.405557
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-21",
+        "total": 19530.883089,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 19530.883089
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-22",
+        "total": 4995.750588,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4995.750588
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-23",
+        "total": 19222.882635,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 19222.882635
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-24",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-25",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-26",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-27",
+        "total": 26527.873373,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 26522.990827
+          },
+          {
+            "name": "Debugging",
+            "total": 4.882546
+          }
+        ]
+      },
+      {
+        "date": "2023-11-28",
+        "total": 12993.063669,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 12993.063669
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-29",
+        "total": 9187.914954,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9187.914954
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-11-30",
+        "total": 22304.775448,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 22304.775448
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-01",
+        "total": 5095.413248,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5095.413248
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-02",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-03",
+        "total": 483.479637,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 483.479637
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-04",
+        "total": 9173.646048,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9173.646048
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-05",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-06",
+        "total": 61.712539,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 61.712539
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-07",
+        "total": 282.763246,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 282.763246
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-08",
+        "total": 20966.338617,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 20966.338617
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-09",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-10",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-11",
+        "total": 1243.726708,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1243.726708
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-12",
+        "total": 6342.430506,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6342.430506
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-13",
+        "total": 10655.777277,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10655.777277
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-14",
+        "total": 13835.612059,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13835.612059
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-15",
+        "total": 3814.983287,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3814.983287
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-16",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-17",
+        "total": 1249.28095,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1249.28095
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-18",
+        "total": 8924.620203,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8924.620203
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-19",
+        "total": 11480.162786,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 11480.162786
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-20",
+        "total": 3348.453754,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3348.453754
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-21",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-22",
+        "total": 29015.611128,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 29015.611128
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-23",
+        "total": 9002.687297,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9002.687297
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-24",
+        "total": 7815.627653,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7815.627653
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-25",
+        "total": 16758.76844,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 16758.76844
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-26",
+        "total": 23878.374123,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 23878.374123
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-27",
+        "total": 419.731083,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 419.731083
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-28",
+        "total": 22836.819143,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 22836.819143
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-29",
+        "total": 2602.963677,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2602.963677
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-30",
+        "total": 4953.325529,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4953.325529
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2023-12-31",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-01",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-02",
+        "total": 5175.533024,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5175.533024
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-03",
+        "total": 13381.145367,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13381.145367
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-04",
+        "total": 3398.153606,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3398.153606
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-05",
+        "total": 295.662257,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 295.662257
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-06",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-07",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-08",
+        "total": 4215.592471,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4215.592471
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-09",
+        "total": 9890.66047,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9890.66047
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-10",
+        "total": 19046.973831,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 19046.973831
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-11",
+        "total": 28347.139589,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 28347.139589
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-12",
+        "total": 12204.684019,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 12204.684019
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-13",
+        "total": 614.476572,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 614.476572
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-14",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-15",
+        "total": 1818.027139,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1818.027139
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-16",
+        "total": 27787.342695,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 27787.342695
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-17",
+        "total": 20133.655166,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 20133.655166
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-18",
+        "total": 22471.390707,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 22471.390707
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-19",
+        "total": 5926.819823,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5926.819823
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-20",
+        "total": 10956.998964,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10956.998964
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-21",
+        "total": 24700.410167,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 24700.410167
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-22",
+        "total": 15936.0423,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 15936.0423
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-23",
+        "total": 14607.62098,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 14607.62098
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-24",
+        "total": 20839.942037,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 20839.942037
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-25",
+        "total": 870.89096,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 870.89096
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-26",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-27",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-28",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-29",
+        "total": 13372.58042,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13372.58042
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-30",
+        "total": 3298.343125,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3298.343125
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-01-31",
+        "total": 1369.43162,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1369.43162
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-01",
+        "total": 237.070134,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 237.070134
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-02",
+        "total": 1398.968383,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1398.968383
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-03",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-04",
+        "total": 256.384787,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 256.384787
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-05",
+        "total": 18247.480174,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 18247.480174
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-06",
+        "total": 29118.550526,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 29118.550526
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-07",
+        "total": 41426.017768,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 41426.017768
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-08",
+        "total": 32900.996258,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 32900.996258
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-09",
+        "total": 15107.548748,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 15107.548748
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-10",
+        "total": 2150.764727,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2150.764727
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-11",
+        "total": 1346.453049,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1346.453049
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-12",
+        "total": 4666.011352,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4666.011352
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-13",
+        "total": 18311.644132,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 18311.644132
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-14",
+        "total": 27248.343664,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 27248.343664
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-15",
+        "total": 14047.18112,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 14047.18112
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-16",
+        "total": 6507.068153,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6507.068153
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-17",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-18",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-19",
+        "total": 12299.847326,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 12299.847326
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-20",
+        "total": 26997.372927,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 26997.372927
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-21",
+        "total": 8177.991705,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8177.991705
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-22",
+        "total": 8216.524407,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8216.524407
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-23",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-24",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-25",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-26",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-27",
+        "total": 5289.843843,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5289.843843
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-28",
+        "total": 15569.266173,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 15569.266173
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-02-29",
+        "total": 16085.468258,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 16085.468258
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-03-01",
+        "total": 7800.90904,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7800.90904
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-03-02",
+        "total": 18043.476137,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 18043.476137
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-03-03",
+        "total": 5539.249607,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5539.249607
+          }
+        ]
+      }
+    ],
+    "status": "ok",
+    "is_up_to_date": true,
+    "is_up_to_date_pending_future": false,
+    "is_stuck": false,
+    "is_already_updating": false,
+    "range": "last_year",
+    "percent_calculated": 100,
+    "timeout": 15,
+    "writes_only": false,
+    "user_id": "06633b1c-3ba7-44c2-ab5d-08e47ccc87ab",
+    "is_including_today": true,
+    "human_readable_range": "last year"
+  }
+}
