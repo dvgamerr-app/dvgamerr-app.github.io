@@ -19,30 +19,47 @@ const fetchGithub = async (method, url, body) => {
     })
     status = res.status
 
-    retry = !res.ok && tries > 0
+    retry = status > 202 && tries > 0
     if (retry) {
       tries--
-      await sleep(500)
+      await sleep(5000)
     } else {
-      data = await res.json()
+      try {
+        data = await res.json()
+      } catch (ex) {
+        data = { payload: await res.text() }
+        logger.debug({ data, tries, status })
+      }
     }
   } while (retry)
   return { data, status }
 }
 
-const ghlocFetch = async (owner, name) => {
-//
-  const res = await fetch(`https://ghloc.vercel.app/api/${owner}/${name}/badge`)
-  const data = await res.json()
-  return { data,  status: res.status }
-}
+// const ghlocFetch = async (owner, name) => {
+// //
+//   const res = await fetch(`https://ghloc.vercel.app/api/${owner}/${name}/badge`)
+//   const data = await res.json()
+//   return { data,  status: res.status }
+// }
 
 module.exports = {
-  ghlocFetch,
   getContributors: async (owner, name) => fetchGithub('GET',`/repos/${owner}/${name}/stats/contributors`),
   getCommitActivity: async (owner, name) => fetchGithub('GET',`/repos/${owner}/${name}/stats/commit_activity`),
   getLanguages: async (owner, name) => fetchGithub('GET',`/repos/${owner}/${name}/languages`),
-  getRepos: async (owner, page) => fetchGithub('GET',`/orgs/${owner}/repos?page=${page}&per_page=100`),
+  getOrgsRepos: async (owner, page) => fetchGithub('GET',`/orgs/${owner}/repos?page=${page}&per_page=100`),
+  getUserRepos: async (page) => fetchGithub('GET',`/user/repos?type=owner&page=${page}&per_page=100`),
 }
 
 // GET /orgs/{org}/repos
+
+
+
+// let page = 0
+// do {
+//   page++
+//   const { data: repos } = await apiGitHub.request('GET /user/repos', { type: 'owner', per_page: 100, page })
+//   orgRepos = orgRepos.concat(repos)
+//   nextPage = repos.length > 0
+// } while(nextPage)
+
+// coding.project = orgRepos.length

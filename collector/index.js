@@ -6,19 +6,12 @@ const logger = require('pino')({ level: 'trace' })
 
 const { mergeJsonResponse } = require('./json-merge')
 const {
-  getRepos,
+  getOrgsRepos,
+  getUserRepos,
   getContributors,
   getLanguages,
   getCommitActivity,
 } = require('./github')
-
-
-
-
-// const { existsSync, unlinkSync } = require('fs')
-// const { extname, join } = require('path')
-
-// // const logger = debuger('GEN')
 
 const args = arg({
 	'--github': Boolean,
@@ -57,13 +50,13 @@ const collectReposOrgs = async (orgsRepo = ['dvgamerr-app']) => {
   let repos = []
   let nextPage = false
 
-  const orgsRepoTask = []
+  const repoTask = []
   for (const org of orgsRepo) {
-    orgsRepoTask.push((async () => {
+    repoTask.push((async () => {
       let page = 0
       do {
         page++
-        const { data } = await getRepos(org, page)
+        const { data } = await getOrgsRepos(org, page)
         repos = repos.concat(data)
         nextPage = data.length > 0
         if (nextPage) {
@@ -72,7 +65,23 @@ const collectReposOrgs = async (orgsRepo = ['dvgamerr-app']) => {
       } while(nextPage)
     })())
   }
-  await Promise.all(orgsRepoTask)
+  await Promise.all(repoTask)
+  return repos
+}
+
+const collectRepoOwner = async () => {
+  let repos = []
+  let nextPage = false
+
+  const repoTask = []
+  let page = 0
+  do {
+    page++
+    const { data } = await getUserRepos(page)
+    repos = repos.concat(data)
+    nextPage = data.length > 0
+  } while(nextPage)
+  logger.debug(` - 'owner' repos: ${repos.length}`)
   return repos
 }
 
@@ -85,23 +94,25 @@ const collectGithubProjectStats = async () => {
     private: 3,
     public: 0, // Public Repos
     languages: [],
-    commits: 0
+    commits: 0,
+    loc: 0
   }
 
   // const contribRepos = {}
   const orgRepos = await collectReposOrgs([ 'dvgamerr-app','central-group','nippon-sysits' ])
+  const usrRepos = await collectRepoOwner()
 
-  coding.total = orgRepos.length + coding.private
-  coding.public = orgRepos.filter(e => !e.private).length
+  const repos = orgRepos.concat(usrRepos)
+  coding.total = repos.length + coding.private
+  coding.public = repos.filter(e => !e.private).length
   logger.info('Contributors Task...')
 
-  const orgReposTask = []
-  const displayData = {}
-  for await (const e of orgRepos) {
-    orgReposTask.push((async () => {
+  const repoTask = []
+  for await (const e of repos) {
+    repoTask.push((async () => {
+      logger.trace(` - repos '${e.owner.login}/${e.name}'`)
       const { data: contrib, status: statusContrib } = await getContributors(e.owner.login, e.name)
       if (statusContrib === 200) {
-        if (!displayData['contrib']) displayData['contrib'] = contrib
         for (const con of contrib) {
           if (con.author.login !== 'dvgamerr') continue
           coding.commits += con.total
@@ -110,15 +121,18 @@ const collectGithubProjectStats = async () => {
 
       const { data: langs, status: statusLangs }  = await getLanguages(e.owner.login, e.name)
       if (statusLangs === 200) {
-        if (!displayData['langs']) displayData['langs'] = langs
         coding.languages = [...new Set(coding.languages.concat(Object.keys(langs)))]
       }
+
+      // const { data: loc, status: statusLoc }  = await ghlocFetch(e.owner.login, e.name)
+      // if (statusLoc === 200) {
+      //   coding.loc += parseInt(loc.message)
+      // }
     })())
   }
 
-  logger.info(`Task Github API (${orgReposTask.length}) ...`)
-  console.log(displayData)
-  await Promise.all(orgReposTask)
+  logger.info(`Task Github API (${repoTask.length}) ...`)
+  await Promise.all(repoTask)
 
   // https://ghloc.vercel.app/api/dvgamerr-app/go-hoyolab/badge
 
