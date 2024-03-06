@@ -137,6 +137,9 @@ const collectGithubProjectStats = async () => {
   // https://ghloc.vercel.app/api/dvgamerr-app/go-hoyolab/badge
 
   await mergeJsonResponse(coding, './src/i18n/coding.json')
+  await mergeJsonResponse({
+    skill: { coding: coding.languages }
+  }, './src/i18n/experience.json')
 
   // coding.languages = Object.keys(coding.languages).length
   // // savedRepos

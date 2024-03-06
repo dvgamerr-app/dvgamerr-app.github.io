@@ -1,5 +1,6 @@
 ---
 import dayjs from 'dayjs'
+import "dayjs/locale/th";
 import Layout from '../layouts/Layout.astro'
 import SectionHeader from '../components/Section1Header.astro'
 import SectionContact from '../components/Section2Contact.astro'
@@ -11,35 +12,42 @@ import SectionEducation from '../components/Section7Education.astro'
 import SectionFooter from '../components/SectionFooter.astro'
 import SectionWork from '../components/SectionWork.astro'
 
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+const langName = getLangFromUrl(Astro.url)
+const t = useTranslations(langName)
+
+dayjs.locale(langName)
+
 interface Frontmatter {
   title: string;
   author?: string;
   description?: string;
 }
+const isNewJob = (begin:string) => dayjs(begin).diff(dayjs(), 'second') > 0
 
-const isResigning = ({ begin, quit }) => {
-  return !!quit || dayjs(begin).diff(dayjs().add(-1, 's'), 'day', true) <= 0
-}
+const getWorkPeriod = ({ begin, quit }) => {
+  if (isNewJob(begin)) {
+    return `Start in ${dayjs(begin).fromNow(true)}`
+  }
 
-const getWorkPeriod = ({ worked, begin, quit }) => {
-  const newJob = dayjs(begin).diff(dayjs(), 'second') > 0
+  const dateBegin = dayjs(begin).add(langName == 'th' ? 543 : 0, 'year')
+  const dateQuit = dayjs(quit).add(langName == 'th' ? 543 : 0, 'year')
 
-  begin = dayjs(begin).format('MMMM YYYY')
-  quit = quit ? `- ${dayjs(quit).format('MMMM YYYY')}` : !newJob ? '- Present' : ''
+  let day = dateQuit.diff(dateBegin, 'day')
+  let month = dateQuit.diff(dateBegin, 'month')
+  const year = dateQuit.diff(dateBegin, 'year')
+  const dayOnly = !month && !year
 
-  const month = (worked % 1 * 12)
-  const day = month % 1 * dayjs().daysInMonth()
+  if (!dayOnly) day = Math.round(day % 30.4377104) // (74year*365day + 25year*366day) / 99year / 12month
+  if (year > 0) month %=  12
 
-  const monthInt = parseInt(month.toString())
-  const timeDiff = (monthInt > 0 ? `${Math.floor(worked)} year` : '') + (monthInt > 0 ? ` ${monthInt} month` : '') +
-    (monthInt === 0 && monthInt === 0 ? `${Math.floor(day)} days` : '')
-  return `${newJob ? 'Start in ' : ''}${begin} ${quit}${timeDiff === '' ? '' : ` (${timeDiff})` }`
-}
+  const yearText = year ? ` ${year} ${t('date.year')}` : ''
+  const monthText = month ? ` ${month} ${t('date.month')}` : ''
+  const dayText = day && !year ? ` ${day} ${t('date.day')}` : ''
 
-const getWorkStart = ({ begin }) => {
-  let monthBegin = dayjs(begin).diff(dayjs().add(-1, 's'), 'month', true)
-  const day = parseInt(((monthBegin % 1) * dayjs().daysInMonth()).toString())
-  return `Start in ${Math.floor(monthBegin) > 0 ? `${Math.floor(monthBegin)} month` : ''} ${day} day${day > 1 ? 's' : ''}`
+  begin = dateBegin.format(`${dayOnly?'D ':''}MMMM YYYY`)
+  quit = quit ? `${dateQuit.format(`${dayOnly?'D ':''}MMMM YYYY`)} ( ${(yearText+monthText+dayText).trim()} )` : t('date.present')
+  return `${begin} — ${quit}`
 }
 
 interface Props {
@@ -52,23 +60,23 @@ import resumeData from  '../i18n/resume.en.json'
 const { experience = expData, resume = resumeData } = Astro.props;
 
 
-const getWorkedYear = range => {
-  const begin = dayjs(range.begin)
-  const quit = dayjs(range.quit || undefined)
-  range.worked = quit.diff(begin.add(-1, 's'), 'year', true)
-  return range
-}
+// const getWorkedYear = range => {
+//   const begin = dayjs(range.begin)
+//   const quit = dayjs(range.quit || undefined)
+//   range.worked = quit.diff(begin.add(-1, 's'), 'year', true)
+//   return range
+// }
 
-for (const item of resume.work) {
-  if (item.jobs && item.jobs.length > 0) {
-    for (const subItem of item.jobs) {
-      getWorkedYear(subItem.range)
-    }
-  }
+// for (const item of resume.work) {
+//   if (item.jobs && item.jobs.length > 0) {
+//     for (const subItem of item.jobs) {
+//       getWorkedYear(subItem.range)
+//     }
+//   }
 
-  if (!item.range) continue
-  getWorkedYear(item.range)
-}
+//   if (!item.range) continue
+//   getWorkedYear(item.range)
+// }
 ---
 
 <Layout title={`${resume.fullname} | ${resume.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer.">
@@ -90,14 +98,13 @@ for (const item of resume.work) {
             <div class="col-lg-9 col-md-11">
               <div class="section-title">
                 <h2>Work Experience</h2>
-                {e.range.worked <= 0 ? (<span class="badge text-bg-success">NEW JOB</span>):(<span />)}
+                {isNewJob(e.range.begin) ? (<span class="badge text-bg-success" style="margin-top: 1em;">NEW JOB</span>):(<span />)}
               </div>
             </div>
             <div class="col-lg-27 col-md-25 col-sm-36 content-job">
-              {isResigning(e.range) ?
-                (<small style="margin-top: -2px;display: block;">{getWorkPeriod(e.range)}</small>)
-              :
-                (<small style="margin-top: -2px;display: block;">{getWorkStart(e.range)}</small>)}
+              <small style="margin-top: -2px;display: block;">
+                {getWorkPeriod(e.range)}
+              </small>
               {!e.jobs && (<h3>{e.job}</h3>)}
               <h4>{e.work}</h4>
               {!e.jobs && (<SectionWork filename={e.file} />)}
@@ -148,10 +155,6 @@ for (const item of resume.work) {
       content: '•';
       margin-right: 5px;
     }
-  }
-
-  .badge {
-    padding-top: 5px;
   }
 
   .content-subjob {

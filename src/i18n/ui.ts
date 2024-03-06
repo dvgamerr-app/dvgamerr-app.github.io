@@ -7,6 +7,10 @@ export const defaultLang = 'en'
 
 export const ui = {
   en: {
+    'date.present': 'Present',
+    'date.year': 'year',
+    'date.month': 'month',
+    'date.day': 'day',
     'button.light': 'Light',
     'button.dark': 'Dark',
     'head.nickname': 'Nickname',
@@ -27,6 +31,10 @@ export const ui = {
     'head.availability.no': 'Not yet',
   },
   th: {
+    'date.present': 'ปัจจุบัน',
+    'date.year': 'ปี',
+    'date.month': 'เดือน',
+    'date.day': 'วัน',
     'button.light': 'สว่าง',
     'button.dark': 'มืด',
     'head.nickname': 'ชื่อเล่น',
