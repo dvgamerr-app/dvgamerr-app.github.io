@@ -2,48 +2,6 @@
   "data": {
     "days": [
       {
-        "date": "2023-03-05",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-03-06",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-03-07",
-        "total": 3728.318371,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 3728.318371
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
         "date": "2023-03-08",
         "total": 521.075104,
         "categories": [
@@ -5099,11 +5057,53 @@
       },
       {
         "date": "2024-03-03",
-        "total": 5539.249607,
+        "total": 8549.870472,
         "categories": [
           {
             "name": "Coding",
-            "total": 5539.249607
+            "total": 8549.870472
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-03-04",
+        "total": 23777.276609,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 23777.276609
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-03-05",
+        "total": 29607.35638,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 29607.35638
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-03-06",
+        "total": 28070.39642,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 28070.39642
           }
         ]
       }

@@ -19,16 +19,17 @@ const fetchGithub = async (method, url, body) => {
     })
     status = res.status
 
-    retry = status > 202 && tries > 0
+    retry = status > 204 && tries > 0
     if (retry) {
       tries--
-      await sleep(5000)
+      await sleep(1000)
     } else {
       try {
         data = await res.json()
       } catch (ex) {
-        data = { payload: await res.text() }
-        logger.debug({ data, tries, status })
+        const payload = await res.text()
+        if (payload) data = { payload }
+        logger.warn({ url, ...data, tries, status })
       }
     }
   } while (retry)

@@ -31,20 +31,6 @@ const Initializes = async () => {
   if (enableWakatime) logger.info(`API Wakatime.com collector starting...`)
 }
 
-Initializes().then(() => Promise.all([
-  collectGithubProjectStats(),
-])).then((res) => {
-  logger.debug(res)
-  logger.info('Complated')
-}).catch(ex => {
-  logger.error(ex)
-}).finally(() => {
-  logger.info('Finish')
-})
-
-// const apiWaka = new Octokit({
-//   baseUrl: 'https://wakatime.com/api/v1'
-// })
 
 const collectReposOrgs = async (orgsRepo = ['dvgamerr-app']) => {
   let repos = []
@@ -90,6 +76,7 @@ const collectGithubProjectStats = async () => {
 
   logger.info('Query Repositories')
   const coding = {
+    updated: dayjs().toISOString(),
     total: 0, // Total Repos
     private: 3,
     public: 0, // Public Repos
@@ -108,6 +95,7 @@ const collectGithubProjectStats = async () => {
   logger.info('Contributors Task...')
 
   const repoTask = []
+  const repoLangs = {}
   for await (const e of repos) {
     repoTask.push((async () => {
       logger.trace(` - repos '${e.owner.login}/${e.name}'`)
@@ -121,6 +109,9 @@ const collectGithubProjectStats = async () => {
 
       const { data: langs, status: statusLangs }  = await getLanguages(e.owner.login, e.name)
       if (statusLangs === 200) {
+        for (const key in langs) {
+          repoLangs[key] = (repoLangs[key] || 0) + langs[key]
+        }
         coding.languages = [...new Set(coding.languages.concat(Object.keys(langs)))]
       }
 
@@ -134,84 +125,94 @@ const collectGithubProjectStats = async () => {
   logger.info(`Task Github API (${repoTask.length}) ...`)
   await Promise.all(repoTask)
 
-  // https://ghloc.vercel.app/api/dvgamerr-app/go-hoyolab/badge
-
+  const bytes = Object.fromEntries(Object.entries(repoLangs).sort(([,a],[,b]) => b-a))
   await mergeJsonResponse(coding, './src/i18n/coding.json')
   await mergeJsonResponse({
-    skill: { coding: coding.languages }
+    coding: { bytes },
+    skill: { coding: coding.languages.sort() }
   }, './src/i18n/experience.json')
 
-  // coding.languages = Object.keys(coding.languages).length
-  // // savedRepos
-  // logger.info('Saving...')
-
-  // unlinkSync('./docs/data/repos.json')
-  // await mergeJSON('repos.json', savedRepos)
-  // await mergeJSON('coding.json', coding)
   return coding
 }
 
-// const getWakaTime = async () => {
-//   if (!process.env.WK_TOKEN || !enableWakatime) return
-//   // https://wakatime.com/api/v1/users/current/durations?api_key=f389e6d1-207e-4c49-9526-d2623ce7b6d1&date=2022-03-26
+const fetchUserAgent = async (n = 0) => {
+  const res = await fetch(`https://jnrbsn.github.io/user-agents/user-agents.json`)
+  if (res.status != 200) {
+    logger.warn(`get user-agents.json error: ${res.status}`)
+    return ''
+  }
+  const body = await res.json()
+  return body[n]
+}
 
 
-//   const coding = {
-//     updated: new Date().toISOString(),
-//     weekly_seconds: 0,
-//     average_seconds: 0,
-//     best_seconds: 0,
-//     daytime: [],
-//     weektime: []
-//   }
+const collectWakaTime = async () => {
+  if (!enableWakatime) return
+  // https://wakatime.com/api/v1/users/current/durations?api_key=f389e6d1-207e-4c49-9526-d2623ce7b6d1&date=2022-03-26
 
-//   let beginDateTime = ''
-//   let currDateTime = ''
-//   let dayTime = {}
-//   let weekTime = {}
+  const coding = {
+    weekly_seconds: 0,
+    average_seconds: 0,
+    best_seconds: 0,
+    daytime: [],
+    weektime: []
+  }
 
-//   for (let i = 0; i <= 23; i++) dayTime[i] = 0
-//   for (let i = 0; i <= 6; i++) weekTime[i] = 0
+  const uid = '06633b1c-3ba7-44c2-ab5d-08e47ccc87ab'
+  const res = await fetch(`https://wakatime.com/api/v1/users/${uid}/insights/days`, {
+    headers: {
+      'authority': 'wakatime.com',
+      'accept': 'application/json, text/javascript, */*; q=0.01',
+      'referer': 'https://wakatime.com/@dvgamerr',
+      'user-agent': fetchUserAgent(0),
+      'cookie': process.env.WK_TOKEN,
+      'authority': 'wakatime.com'
+    }
+  })
+  if (res.status !== 200) {
+    logger.warn(`wakatime.com insights error: ${res.status}`)
+    return
+  }
 
-//   wakaTask = []
-//   const totalDay = 365
-//   let cDate = dayjs().startOf('d')
-//   for (let i = totalDay; i >= 0; i--) {
-//     cDate = dayjs().startOf('d')
-//     currDateTime = cDate.add(i * -1, 'd').format('YYYY-MM-DD')
-//     const currDay = cDate.add(i * -1, 'd').day()
-//     if (!beginDateTime) beginDateTime = currDateTime
-//     wakaTask.push((async () => {
-//       const { status, data: { data: durations } } = await apiWaka.request('GET /users/current/durations', {
-//         api_key: process.env.WK_TOKEN,
-//         date: currDateTime
-//       })
-      // if (status !== 200) return logger.error(status)
+  const body = await res.json()
+  await mergeJsonResponse(body, './src/i18n/insights.json')
 
-//       let totalDuration = 0
-//       for (const data of durations) {
-//         if (data.duration == 0) continue
-//         const beginTime = dayjs(data.time * 1000).hour()
-//         const endTime = dayjs((data.time + data.duration) * 1000).hour()
+  // for (let i = totalDay; i >= 0; i--) {
+  //   const currentDate = dayjs().startOf('d')
+  //   dateFormat = currentDate.add(i * -1, 'd').format('YYYY-MM-DD')
+  //   if (!beginDateTime) beginDateTime = dateFormat
 
-//         for (let i = beginTime; i <= endTime; i++) {
-//           dayTime[i] = (dayTime[i] || 0) + 1
-//         }
-//         totalDuration += data.duration
-//       }
-//       coding.average_seconds += totalDuration
-//       if (totalDuration > coding.best_seconds) coding.best_seconds = totalDuration
-//       if (i < 7) coding.weekly_seconds = totalDuration
+  //   const day = currentDate.add(i * -1, 'd').day()
+  //   wakaTask.push((async () => {
+  //     const { status, data: { data: durations } } = await apiWaka.request('GET /users/current/durations', {
+  //       api_key: process.env.WK_TOKEN,
+  //       date: dateFormat
+  //     })
+  //     if (status !== 200) return logger.error(status)
 
-//       weekTime[currDay] = (weekTime[currDay] || 0) + totalDuration
-//     })())
-//     if (wakaTask.length == 10) {
-      // logger.log(`- fetch: ${beginDateTime} to ${currDateTime}`)
-//       await Promise.all(wakaTask)
-//       wakaTask = []
-//       beginDateTime = ''
-//     }
-//   }
+  //     let totalDuration = 0
+  //     for (const data of durations) {
+  //       if (data.duration == 0) continue
+  //       const beginTime = dayjs(data.time * 1000).hour()
+  //       const endTime = dayjs((data.time + data.duration) * 1000).hour()
+
+  //       for (let i = beginTime; i <= endTime; i++) {
+  //         dayTime[i] = (dayTime[i] || 0) + 1
+  //       }
+  //       totalDuration += data.duration
+  //     }
+  //     coding.average_seconds += totalDuration
+  //     if (totalDuration > coding.best_seconds) coding.best_seconds = totalDuration
+  //     if (i < 7) coding.weekly_seconds = totalDuration
+
+  //     weekTime[day] = (weekTime[day] || 0) + totalDuration
+  //   })())
+  //   if (wakaTask.length == 10) {
+  //     await Promise.all(wakaTask)
+  //     wakaTask = []
+  //     beginDateTime = ''
+  //   }
+  // }
 
 //   if (wakaTask.length > 0) {
     // logger.log(`- fetch: ${beginDateTime} to ${currDateTime}`)
@@ -230,26 +231,33 @@ const collectGithubProjectStats = async () => {
 // const apiLayer = new Octokit({
 //   baseUrl: 'https://api.bitkub.com/api'
 // })
+}
+const getCitibankUSD = async () => {
+  logger.info(`Foreign 'citibank.co.th' exchange rate...`)
+  const res = await fetch('https://www.citibank.co.th/THGCB/COA/frx/prefxratinq/flow.action')
 
-// const getCurrencryUSD = async () => {
+  if (res.status != 200) {
+    logger.error(new Error('https://www.citibank.co.th/ is down.'))
+  }
+  const body = await res.text()
+  const { groups: citibank } = /<label>(?<ccy>USD)[\W\w]+?<label>(?<buy>[\d.]+)[\W\w]+?<label>(?<sell>[\d.]+)/ig.exec(body)
+  if (!citibank) {
+    logger.warn(`Exchange rate is empty`)
+    return
+  }
+  citibank.sell = parseFloat(citibank.sell)
+  citibank.buy = parseFloat(citibank.buy)
+  await mergeJsonResponse({ currencry: citibank }, './src/i18n/experience.json')
+}
 
-  // logger.info('Query bitkub.com THB-USDT')
-//   const symbols = 'THB_USDT'
-//   const { data, status } = await apiLayer.request('GET /market/ticker?sym={?symbols}', {
-//     symbols
-//   })
-
-//   const salary = { rate: data[symbols].highestBid }
-//   await mergeJSON('resume.json', { salary })
-// }
-
-// Promise.all([
-//   markdownToJson('work.json'),
-//   getCurrencryUSD(),
-//   getGithubStats(),
-//   getWakaTime(),
-// ]).then(() => {
-  // logger.log('Complated')
-// }).catch(ex => {
-//   console.error(ex)
-// })
+Initializes().then(() => Promise.all([
+  // collectGithubProjectStats(),
+  getCitibankUSD(),
+  collectWakaTime(),
+])).then((res) => {
+  logger.info('Complated')
+}).catch(ex => {
+  logger.error(ex)
+}).finally(() => {
+  logger.info('Finish')
+})
