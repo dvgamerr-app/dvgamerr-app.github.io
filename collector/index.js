@@ -19,7 +19,7 @@ const args = arg({
 });
 
 const enableGithub = args['--github'] && process.env.GH_TOKEN
-const enableWakatime =args['--wakatime'] && process.env.WK_TOKEN
+const enableWakatime =args['--wakatime'] && process.env.WK_COOKIE
 
 // Initializes the application based on provided arguments and environment variables.
 const Initializes = async () => {
@@ -27,7 +27,7 @@ const Initializes = async () => {
   if (process.env.GH_TOKEN) logger.info(`'GH_TOKEN' is available`)
   if (enableGithub) logger.info(`API Github.com collector starting...`)
 
-  if (process.env.WK_TOKEN) logger.info(`'WK_TOKEN' is available`)
+  if (process.env.WK_COOKIE) logger.info(`'WK_COOKIE' is available`)
   if (enableWakatime) logger.info(`API Wakatime.com collector starting...`)
 }
 
@@ -151,8 +151,8 @@ const collectWakaTime = async () => {
   // https://wakatime.com/api/v1/users/current/durations?api_key=f389e6d1-207e-4c49-9526-d2623ce7b6d1&date=2022-03-26
 
   const coding = {
-    weekly_seconds: 0,
     average_seconds: 0,
+    weekly_seconds: 0,
     best_seconds: 0,
     daytime: [],
     weektime: []
@@ -165,7 +165,7 @@ const collectWakaTime = async () => {
       'accept': 'application/json, text/javascript, */*; q=0.01',
       'referer': 'https://wakatime.com/@dvgamerr',
       'user-agent': fetchUserAgent(0),
-      'cookie': process.env.WK_TOKEN,
+      'cookie': process.env.WK_COOKIE,
       'authority': 'wakatime.com'
     }
   })
@@ -175,6 +175,36 @@ const collectWakaTime = async () => {
   }
 
   const body = await res.json()
+
+  const { days: dayOfYear } = body.data
+
+  const idx = dayOfYear.length - 1
+  for (let i = idx; i >= 0; i--) {
+    const totalDuration = dayOfYear[i].total
+    const dateDuration = dayjs(dayOfYear[i].date, 'YYYY-MM-DD')
+    coding.average_seconds += totalDuration
+    if (i > idx - 7) {
+      coding.weekly_seconds += totalDuration
+
+      dateDuration
+    }
+    if (coding.best_seconds < totalDuration) coding.best_seconds = totalDuration
+
+    // weekday
+    const dayInWeek = dateDuration.day()
+    const shiftWeek = dayInWeek - 1 < 0 ? 6 : dayInWeek - 1
+    if (!coding.weektime[shiftWeek]) coding.weektime[shiftWeek] = { count: 0, duration: 0 }
+    coding.weektime[shiftWeek] = {
+      count: coding.weektime[shiftWeek].count + 1,
+      duration: coding.weektime[shiftWeek].duration + totalDuration,
+    }
+  }
+  coding.average_seconds = coding.average_seconds / dayOfYear.length
+  coding.weekly_seconds = coding.weekly_seconds / 7
+  coding.weektime = coding.weektime.map(e => e.duration / e.count)
+
+  logger.debug(coding)
+
   await mergeJsonResponse(body, './src/i18n/insights.json')
 
   // for (let i = totalDay; i >= 0; i--) {
@@ -185,7 +215,7 @@ const collectWakaTime = async () => {
   //   const day = currentDate.add(i * -1, 'd').day()
   //   wakaTask.push((async () => {
   //     const { status, data: { data: durations } } = await apiWaka.request('GET /users/current/durations', {
-  //       api_key: process.env.WK_TOKEN,
+  //       api_key: process.env.WK_COOKIE,
   //       date: dateFormat
   //     })
   //     if (status !== 200) return logger.error(status)
