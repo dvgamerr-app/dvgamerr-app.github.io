@@ -18,10 +18,10 @@ const skillList = Object.keys(experience.skill)
     <div class="col-lg-27 col-md-25 col-sm-36">
       <div class="row">
         {skillList.map((e:string) => (
-        <div class="col-md-18 skill-list">
+        <div class="col-md-36 skill-list">
           <h3 class="mb-1">{e}</h3>
           <ul class="pb-3">
-            {experience.skill[e].map((l:any) => (<li>{l}</li>))}
+            {experience.skill[e].filter((e:string) => !['hack'].includes(e.toLowerCase())).sort().map((l:any) => (<li>{l}</li>))}
           </ul>
         </div>
         ))}
