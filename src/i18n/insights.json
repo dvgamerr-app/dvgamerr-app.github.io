@@ -2,20 +2,6 @@
   "data": {
     "days": [
       {
-        "date": "2023-03-08",
-        "total": 521.075104,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 521.075104
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
         "date": "2023-03-09",
         "total": 5845.748157,
         "categories": [
@@ -5099,11 +5085,25 @@
       },
       {
         "date": "2024-03-06",
-        "total": 30262.969648,
+        "total": 31777.745604,
         "categories": [
           {
             "name": "Coding",
-            "total": 30262.969648
+            "total": 31777.745604
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-03-07",
+        "total": 2395.643854,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2395.643854
           }
         ]
       }

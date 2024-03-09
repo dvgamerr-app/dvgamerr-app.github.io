@@ -16,6 +16,7 @@ const {
 const args = arg({
 	'--github': Boolean,
 	'--wakatime': Boolean,
+	'--file': String,
 });
 
 const enableGithub = args['--github'] && process.env.GH_TOKEN
@@ -185,8 +186,6 @@ const collectWakaTime = async () => {
     coding.average_seconds += totalDuration
     if (i > idx - 7) {
       coding.weekly_seconds += totalDuration
-
-      dateDuration
     }
     if (coding.best_seconds < totalDuration) coding.best_seconds = totalDuration
 
@@ -203,8 +202,12 @@ const collectWakaTime = async () => {
   coding.weekly_seconds = coding.weekly_seconds / 7
   coding.weektime = coding.weektime.map(e => e.duration / e.count)
 
+  if (!args['--file']) {
+    delete coding.daytime
+  }
   logger.debug(coding)
 
+  await mergeJsonResponse(coding, './src/i18n/coding.json')
   await mergeJsonResponse(body, './src/i18n/insights.json')
 
   // for (let i = totalDay; i >= 0; i--) {
@@ -281,7 +284,7 @@ const getCitibankUSD = async () => {
 }
 
 Initializes().then(() => Promise.all([
-  // collectGithubProjectStats(),
+  collectGithubProjectStats(),
   getCitibankUSD(),
   collectWakaTime(),
 ])).then((res) => {
