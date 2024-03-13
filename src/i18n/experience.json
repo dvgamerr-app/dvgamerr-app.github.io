@@ -3,8 +3,8 @@
   "interview": false,
   "currencry": {
     "ccy": "USD",
-    "sell": 35.92,
-    "buy": 35.3
+    "sell": 36.08,
+    "buy": 35.47
   },
   "salary": {
     "base": 71950,
@@ -14,13 +14,13 @@
   },
   "coding": {
     "bytes": {
-      "JavaScript": 13857111,
+      "JavaScript": 13858815,
       "Vue": 1535069,
       "HTML": 10687799,
       "Swift": 18084,
       "Ruby": 132026,
       "Objective-C": 2024,
-      "Go": 3729051,
+      "Go": 3730252,
       "Dockerfile": 99123,
       "CSS": 2331048,
       "Svelte": 12484,
@@ -30,7 +30,7 @@
       "Procfile": 27,
       "SCSS": 206246,
       "C#": 2595093,
-      "Astro": 95835,
+      "Astro": 95900,
       "Rust": 44924,
       "PHP": 1489136,
       "Hack": 5160,
