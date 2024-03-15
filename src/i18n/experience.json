@@ -3,8 +3,8 @@
   "interview": false,
   "currencry": {
     "ccy": "USD",
-    "sell": 36.08,
-    "buy": 35.47
+    "sell": 36.18,
+    "buy": 35.67
   },
   "salary": {
     "base": 71950,
@@ -20,7 +20,7 @@
       "Swift": 18084,
       "Ruby": 132026,
       "Objective-C": 2024,
-      "Go": 3730252,
+      "Go": 3731010,
       "Dockerfile": 99123,
       "CSS": 2331048,
       "Svelte": 12484,
@@ -42,7 +42,7 @@
       "Python": 570796,
       "Stylus": 41761,
       "TSQL": 31522,
-      "Batchfile": 13892,
+      "Batchfile": 13888,
       "Smarty": 20650,
       "DataWeave": 1965,
       "AutoHotkey": 9809376,

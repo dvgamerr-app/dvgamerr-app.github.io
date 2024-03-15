@@ -79,7 +79,7 @@ const collectGithubProjectStats = async () => {
   const coding = {
     updated: dayjs().toISOString(),
     total: 0, // Total Repos
-    private: 3,
+    private: 53,
     public: 0, // Public Repos
     languages: [],
     commits: 0,
@@ -113,13 +113,8 @@ const collectGithubProjectStats = async () => {
         for (const key in langs) {
           repoLangs[key] = (repoLangs[key] || 0) + langs[key]
         }
-        coding.languages = [...new Set(coding.languages.concat(Object.keys(langs)))]
+        coding.languages = [...new Set(coding.languages.concat(Object.keys(langs)))].sort()
       }
-
-      // const { data: loc, status: statusLoc }  = await ghlocFetch(e.owner.login, e.name)
-      // if (statusLoc === 200) {
-      //   coding.loc += parseInt(loc.message)
-      // }
     })())
   }
 
@@ -130,7 +125,7 @@ const collectGithubProjectStats = async () => {
   await mergeJsonResponse(coding, './src/i18n/coding.json')
   await mergeJsonResponse({
     coding: { bytes },
-    skill: { coding: coding.languages.sort() }
+    skill: { coding: coding.languages }
   }, './src/i18n/experience.json')
 
   return coding
@@ -149,14 +144,13 @@ const fetchUserAgent = async (n = 0) => {
 
 const collectWakaTime = async () => {
   if (!enableWakatime) return
-  // https://wakatime.com/api/v1/users/current/durations?api_key=f389e6d1-207e-4c49-9526-d2623ce7b6d1&date=2022-03-26
 
   const coding = {
     average_seconds: 0,
     weekly_seconds: 0,
     best_seconds: 0,
     daytime: [],
-    weektime: []
+    // weektime: []
   }
 
   const uid = '06633b1c-3ba7-44c2-ab5d-08e47ccc87ab'
@@ -190,81 +184,28 @@ const collectWakaTime = async () => {
     if (coding.best_seconds < totalDuration) coding.best_seconds = totalDuration
 
     // weekday
-    const dayInWeek = dateDuration.day()
-    const shiftWeek = dayInWeek - 1 < 0 ? 6 : dayInWeek - 1
-    if (!coding.weektime[shiftWeek]) coding.weektime[shiftWeek] = { count: 0, duration: 0 }
-    coding.weektime[shiftWeek] = {
-      count: coding.weektime[shiftWeek].count + 1,
-      duration: coding.weektime[shiftWeek].duration + totalDuration,
-    }
+    // const dayInWeek = dateDuration.day()
+    // const shiftWeek = dayInWeek - 1 < 0 ? 6 : dayInWeek - 1
+    // if (!coding.weektime[shiftWeek]) coding.weektime[shiftWeek] = { count: 0, duration: 0 }
+    // coding.weektime[shiftWeek] = {
+    //   count: coding.weektime[shiftWeek].count + 1,
+    //   duration: coding.weektime[shiftWeek].duration + totalDuration,
+    // }
   }
   coding.average_seconds = coding.average_seconds / dayOfYear.length
   coding.weekly_seconds = coding.weekly_seconds / 7
-  coding.weektime = coding.weektime.map(e => e.duration / e.count)
+  // coding.weektime = coding.weektime.map(e => e.duration / e.count)
 
   if (!args['--file']) {
     delete coding.daytime
   }
-  logger.debug(coding)
 
   await mergeJsonResponse(coding, './src/i18n/coding.json')
   await mergeJsonResponse(body, './src/i18n/insights.json')
 
-  // for (let i = totalDay; i >= 0; i--) {
-  //   const currentDate = dayjs().startOf('d')
-  //   dateFormat = currentDate.add(i * -1, 'd').format('YYYY-MM-DD')
-  //   if (!beginDateTime) beginDateTime = dateFormat
-
-  //   const day = currentDate.add(i * -1, 'd').day()
-  //   wakaTask.push((async () => {
-  //     const { status, data: { data: durations } } = await apiWaka.request('GET /users/current/durations', {
-  //       api_key: process.env.WK_COOKIE,
-  //       date: dateFormat
-  //     })
-  //     if (status !== 200) return logger.error(status)
-
-  //     let totalDuration = 0
-  //     for (const data of durations) {
-  //       if (data.duration == 0) continue
-  //       const beginTime = dayjs(data.time * 1000).hour()
-  //       const endTime = dayjs((data.time + data.duration) * 1000).hour()
-
-  //       for (let i = beginTime; i <= endTime; i++) {
-  //         dayTime[i] = (dayTime[i] || 0) + 1
-  //       }
-  //       totalDuration += data.duration
-  //     }
-  //     coding.average_seconds += totalDuration
-  //     if (totalDuration > coding.best_seconds) coding.best_seconds = totalDuration
-  //     if (i < 7) coding.weekly_seconds = totalDuration
-
-  //     weekTime[day] = (weekTime[day] || 0) + totalDuration
-  //   })())
-  //   if (wakaTask.length == 10) {
-  //     await Promise.all(wakaTask)
-  //     wakaTask = []
-  //     beginDateTime = ''
-  //   }
-  // }
-
-//   if (wakaTask.length > 0) {
-    // logger.log(`- fetch: ${beginDateTime} to ${currDateTime}`)
-//     await Promise.all(wakaTask)
-//   }
-
-//   coding.average_seconds /= totalDay
-//   coding.daytime = Object.values(dayTime)
-//   weekTime = Object.values(weekTime).map(e => parseInt(e / 60 / 60 * 100) / 100)
-//   weekTime.push(weekTime.shift())
-
-//   coding.weektime = weekTime
-//   await mergeJSON('coding.json', coding)
-// }
-
-// const apiLayer = new Octokit({
-//   baseUrl: 'https://api.bitkub.com/api'
-// })
+  return coding
 }
+
 const getCitibankUSD = async () => {
   logger.info(`Foreign 'citibank.co.th' exchange rate...`)
   const res = await fetch('https://www.citibank.co.th/THGCB/COA/frx/prefxratinq/flow.action')
@@ -288,6 +229,7 @@ Initializes().then(() => Promise.all([
   getCitibankUSD(),
   collectWakaTime(),
 ])).then((res) => {
+  logger.debug(res)
   logger.info('Complated')
 }).catch(ex => {
   logger.error(ex)
