@@ -59,24 +59,6 @@ import expData from  '../i18n/experience.json'
 import resumeData from  '../i18n/resume.en.json'
 const { experience = expData, resume = resumeData } = Astro.props;
 
-
-// const getWorkedYear = range => {
-//   const begin = dayjs(range.begin)
-//   const quit = dayjs(range.quit || undefined)
-//   range.worked = quit.diff(begin.add(-1, 's'), 'year', true)
-//   return range
-// }
-
-// for (const item of resume.work) {
-//   if (item.jobs && item.jobs.length > 0) {
-//     for (const subItem of item.jobs) {
-//       getWorkedYear(subItem.range)
-//     }
-//   }
-
-//   if (!item.range) continue
-//   getWorkedYear(item.range)
-// }
 ---
 
 <Layout title={`${resume.fullname} | ${resume.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Full Stack Engineer.">
