@@ -3,9 +3,9 @@ import dayjs from 'dayjs'
 import numeral from 'numeral'
 import ThemeIcon from './ThemeIcon.astro'
 import { languages } from '../i18n/ui'
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { getLangFromUrl, getTranslate } from '../i18n/utils'
 const langName = getLangFromUrl(Astro.url)
-const t = useTranslations(langName)
+const t = getTranslate(Astro.url)
 
 import 'dayjs/locale/th'
 
@@ -66,7 +66,7 @@ const birthday = dayjs(experience.birthday)
           <ul class="d-print-none">
             <li><a href={langName==='en'?'/th':'/'}>{languages[langName]}</a></li>
           </ul>
-          <h1>{resume.fullname}</h1>
+          <h1 class="th-label">{resume.fullname}</h1>
         </div>
         <span class="d-print-none th-label">{resume.job}</span>
         <span class="d-print-only th-label th-name">{resume.fullname_th}</span>
@@ -181,6 +181,7 @@ const birthday = dayjs(experience.birthday)
     > .name {
       display: flex;
       justify-items: flex-start;
+      align-items: center;
       gap: .5em;
 
       > h1 {

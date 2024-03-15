@@ -2,6 +2,9 @@
 import dayjs from 'dayjs'
 import coding from '../i18n/coding.json'
 
+import { getTranslate } from '../i18n/utils'
+const t = getTranslate(Astro.url)
+
 const getUpdated = () => {
   return dayjs(coding.updated).format('DD-MM-YYYY')
 }
@@ -9,7 +12,7 @@ const getUpdated = () => {
 const getExperience = () => {
   const worked = dayjs().diff(coding.experience, 'month') / 12
   const month = worked % 1 * 12
-  return `${Math.floor(worked)} years ${Math.floor(month)} month${month > 1 ? 's' : ''}`
+  return `${Math.floor(worked)} ${t('date.year')} ${Math.floor(month)} ${t('date.month')}${month > 1 ? t('date.s') : ''}`
 }
 
 const toNumber = (n: number = 0) => {
@@ -22,34 +25,26 @@ const toNumber = (n: number = 0) => {
   <div class="row">
     <div class="col-lg-9 col-md-11">
       <div class="section-title">
-        <h2>My Coding</h2>
+        <h2>{t('my-coding')}</h2>
         <small>updated {getUpdated()}</small>
       </div>
     </div>
     <div class="col-lg-27 col-md-25 col-sm-36 d-grid stats">
       <div class="stats-item">
         <div class="value">{getExperience()}</div>
-        <div class="name">
-          Work Experience
-        </div>
+        <div class="name">{t('my-coding.experience')}</div>
       </div>
       <div class="stats-item">
         <div class="value">{toNumber(coding.loc)}</div>
-        <div class="name">
-          Lines of Code
-        </div>
+        <div class="name">{t('my-coding.loc')}</div>
       </div>
       <div class="stats-item">
         <div class="value">{`${toNumber(coding.total)} (${toNumber(coding.public)})`}</div>
-        <div class="name">
-          Projects (opensource)
-        </div>
+        <div class="name">{t('my-coding.projects')} ({t('my-coding.opensource')})</div>
       </div>
       <div class="stats-item">
         <div class="value">{toNumber(coding.commits)}</div>
-        <div class="name">
-          Commits
-        </div>
+        <div class="name">{t('my-coding.commits')}</div>
       </div>
     </div>
   </div>

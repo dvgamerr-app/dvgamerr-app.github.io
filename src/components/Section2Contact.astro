@@ -6,6 +6,9 @@ import instagramIco from '../assets/icon/instagram.svg?raw';
 import emailIco from '../assets/icon/email.svg?raw';
 import mobileIco from '../assets/icon/mobile.svg?raw';
 
+import { getTranslate } from '../i18n/utils'
+const t = getTranslate(Astro.url)
+
 const iconAssets = {
   'github': githubIco,
   'twitter': twitterIco,
@@ -36,7 +39,7 @@ const { experience } = Astro.props
   <div class="row">
     <div class="col-lg-9 col-md-11">
       <div class="section-title">
-        <h2>Contact</h2>
+        <h2>{t('contact')}</h2>
       </div>
     </div>
     <div class="col-lg-27 col-md-25 col-sm-36">
