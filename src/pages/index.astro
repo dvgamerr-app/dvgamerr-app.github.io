@@ -79,8 +79,8 @@ const { experience = expData, resume = resumeData } = Astro.props;
           <div class="row">
             <div class="col-lg-9 col-md-11">
               <div class="section-title">
-                <h2>Work Experience</h2>
-                {isNewJob(e.range.begin) ? (<span class="badge text-bg-success" style="margin-top: 1em;">NEW JOB</span>):(<span />)}
+                <h2>{t('experience')}</h2>
+                {isNewJob(e.range.begin) ? (<span class="badge text-bg-success" style="margin-top: 1em;">{t('experience.newjob')}</span>):(<span />)}
               </div>
             </div>
             <div class="col-lg-27 col-md-25 col-sm-36 content-job">

@@ -1,4 +1,7 @@
 ---
+import { getTranslate } from '../i18n/utils'
+const t = getTranslate(Astro.url)
+
 import { Image } from 'astro:assets';
 import { version } from '../../package.json';
 import webring from '../assets/webring.svg'
@@ -10,8 +13,8 @@ const getYear = (new Date()).getFullYear()
     <div class="row">
       <div class="col-36">
         <div class="copytext">
-          &copy; {getYear} <b>dvgamerr</b> sponsor by
-          <a href="https://sponsor.dvgamerr.app/" target="_blank">Kananek T.</a> and
+          &copy; {getYear} <b>dvgamerr</b> {t('footer.sponser')}
+          <a href="https://sponsor.dvgamerr.app/" target="_blank">Kananek T.</a> {t('footer.and')}
           <a href="https://webring.wonderful.software#dvgamerr.app">
             webring <Image alt="webring" src={webring} width={14} height={14} style="margin-top: -.2em">
           </a> v{version}
