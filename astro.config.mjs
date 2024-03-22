@@ -1,13 +1,15 @@
-import { defineConfig } from 'astro/config';
-import robotsTxt from 'astro-robots-txt';
-import sitemap from "@astrojs/sitemap";
+import { defineConfig } from 'astro/config'
+import AstroPWA from '@vite-pwa/astro'
+import robotsTxt from 'astro-robots-txt'
+import sitemap from "@astrojs/sitemap"
 
-import webmanifest from "astro-webmanifest";
+import webmanifest from "astro-webmanifest"
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://dvgamerr.app',
   integrations: [
+    AstroPWA(),
     robotsTxt(),
     sitemap({
       i18n: {
@@ -29,4 +31,4 @@ export default defineConfig({
       display: 'standalone',
     })
   ]
-});
+})
