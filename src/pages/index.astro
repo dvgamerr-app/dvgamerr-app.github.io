@@ -2,13 +2,14 @@
 import dayjs from 'dayjs'
 import "dayjs/locale/th";
 import Layout from '../layouts/Layout.astro'
-import SectionHeader from '../components/Section1Header.astro'
-import SectionContact from '../components/Section2Contact.astro'
-import SectionCoding from '../components/Section3Coding.astro'
-import SectionDaytime from '../components/Section4CodingDaytime.astro'
-import SectionHistory from '../components/Section5CodingHistory.astro'
-import SectionSkill from '../components/Section6Skill.astro'
-import SectionEducation from '../components/Section7Education.astro'
+import SectionHeader from '../components/SectionHeader.astro'
+import SectionProject from '../components/SectionProject.astro'
+import SectionContact from '../components/SectionContact.astro'
+import SectionCoding from '../components/SectionCoding.astro'
+import SectionDaytime from '../components/SectionCodingDaytime.astro'
+import SectionHistory from '../components/SectionCodingHistory.astro'
+import SectionSkill from '../components/SectionSkill.astro'
+import SectionEducation from '../components/SectionEducation.astro'
 import SectionFooter from '../components/SectionFooter.astro'
 import SectionWork from '../components/SectionWork.astro'
 
@@ -65,6 +66,7 @@ const { experience = expData, resume = resumeData } = Astro.props;
   <div class="resume">
     <SectionHeader resume={resume} experience={experience} />
     <div class="container">
+      <SectionProject experience={experience} />
       <SectionContact experience={experience} />
       <SectionCoding />
       <SectionDaytime />

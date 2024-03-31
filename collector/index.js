@@ -93,6 +93,31 @@ const collectGithubProjectStats = async () => {
   const repos = orgRepos.concat(usrRepos)
   coding.total = repos.length + coding.private
   coding.public = repos.filter(e => !e.private).length
+
+  let projectRepos = []
+  for (const e of orgRepos) {
+    if (e.owner.login !== 'dvgamerr-app' || !e.description || !e.topics.includes('open-source')) continue
+    projectRepos.push({
+      name: e.name,
+      svn_url: e.svn_url,
+      homepage: e.homepage,
+      description: e.description,
+      license: e.license,
+      stargazers_count: e.stargazers_count,
+      forks: e.forks,
+      watchers: e.watchers,
+      topics: e.topics,
+      pushed_at: e.pushed_at,
+      created_at: e.created_at
+    })
+  }
+
+  projectRepos = projectRepos.sort((a, b) => {
+    const ay = dayjs(a.created_at).year()
+    const by = dayjs(b.created_at).year()
+    return a.stargazers_count > b.stargazers_count ? -1 : a.stargazers_count < b.stargazers_count ? 1 : ay > by ? -1 : 1
+  })
+
   logger.info('Contributors Task...')
 
   const repoTask = []
@@ -124,6 +149,7 @@ const collectGithubProjectStats = async () => {
   const bytes = Object.fromEntries(Object.entries(repoLangs).sort(([,a],[,b]) => b-a))
   await mergeJsonResponse(coding, './src/i18n/coding.json')
   await mergeJsonResponse({
+    repos: projectRepos,
     coding: { bytes },
     skill: { coding: coding.languages }
   }, './src/i18n/experience.json')
