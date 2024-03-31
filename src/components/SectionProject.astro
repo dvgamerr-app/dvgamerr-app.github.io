@@ -1,0 +1,56 @@
+---
+import dayjs from 'dayjs'
+import { getTranslate } from '../i18n/utils'
+const t = getTranslate(Astro.url)
+
+interface Props {
+  experience: any
+}
+
+const { experience } = Astro.props
+
+---
+<section class="section-wrapper section-repos">
+  <div class="row">
+    <div class="col-lg-9 col-md-11">
+      <div class="section-title">
+        <h2>{t('project')}</h2>
+      </div>
+    </div>
+    <div class="col-lg-27 col-md-25 col-sm-36 d-flex flex-wrap">
+      {experience.repos.map((e:any) => (
+      <div class="repos">
+        <h3 class="m-0">
+          <span class="badge">{dayjs(e.created_at).year()}</span>
+          <a href={e.svn_url} target="_blank"><span class="name">{e.name}</span></a>
+          <span class="badge rounded-pill bg-dark text-light">Stared {e.stargazers_count}</span>
+        </h3>
+        <span>{e.description}</span>
+      </div>
+      ))}
+    </div>
+  </div>
+</section>
+<style lang="scss" scoped>
+  .repos {
+    flex: 50%;
+
+    h3 {
+      span.name {
+        text-transform: uppercase;
+      }
+      span.badge {
+        font-size: .65rem;
+        padding: .2em .5em 0 .5em;
+        border-radius: .25em !important;
+      }
+    }
+    span {
+      display: inline-block;
+      line-height: .95rem;
+      padding-right: 4px;
+      font-size: .8rem;
+    }
+  }
+
+</style>
