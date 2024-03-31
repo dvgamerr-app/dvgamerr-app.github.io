@@ -14,16 +14,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/sitemap": "^3.1.2",
     "@cronitorio/cronitor-rum": "^0.4.1",
     "arg": "^5.0.2",
-    "astro": "^4.5.8",
+    "astro": "^4.5.12",
     "astro-google-fonts-optimizer": "^0.2.2",
     "astro-robots-txt": "^1.0.0",
     "astro-webmanifest": "^1.0.0",
     "numeral": "^2.0.6",
     "pino": "^8.19.0",
-    "sharp": "^0.33.2"
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
