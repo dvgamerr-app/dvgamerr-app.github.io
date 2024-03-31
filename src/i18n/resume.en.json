@@ -13,24 +13,6 @@
   },
   "job": "Full Stack Engineer",
   "detail": "KEM, a Bangkok resident with a Bachelor's in Information Technology from Phetchaburi Rajabhat University, currently working at SCG Group Companies in the Digital Technology Team as a Technology Developer. ",
-  "expertise": [
-    {
-      "subject": "Frontend developer",
-      "detail": "Specializing in using Frameworks like `Nuxt.js`, `Next.js` and `Astro` to create Web applications."
-    },
-    {
-      "subject": "Backend developer",
-      "detail": "Programming on `Golang`, `Nodejs`, `Python` and security is extremely important."
-    },
-    {
-      "subject": "DevOps",
-      "detail": "I can manage both `Windows` and `Linux` Server and ability to use `docker`, `k8s`, or cloud platform `aws`, `gcloud`, `azure`,`digital ocean`"
-    },
-    {
-      "subject": "Solution architecture",
-      "detail": "Expertise in infrastructure design with `container` and `microservice`."
-    }
-  ],
   "work_dummy": [
     {
       "range": { "begin": "2099-03-07T09:00:00.000+07:00", "quit": null },
