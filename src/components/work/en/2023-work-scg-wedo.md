@@ -1,0 +1,2 @@
+- Solution design the `Gateway API` Server and build a team.
+- Imprement API Layer with `Tuya Transfrom` Service.

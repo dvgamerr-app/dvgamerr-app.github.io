@@ -1,0 +1,2 @@
+- ออกแบบระบบที่ทำงานร่วมกับ `Gateway API`
+- พัฒนา API สำหรับ `Tuya Transfrom`

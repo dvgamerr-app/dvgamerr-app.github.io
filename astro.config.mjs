@@ -21,10 +21,10 @@ export default defineConfig({
       },
     }),
     webmanifest({
-      name: 'Kananek Thongkam | Full Stack Engineer',
+      name: 'Kananek Thongkam | Software Engineer',
       icon: 'public/icon.webp', // source for favicon & icons
       short_name: 'dvgamerr',
-      description: 'Hey there, My name is Kananek T. and I\'m a Full Stack Engineer.',
+      description: 'Hey there, My name is Kananek T. and I\'m a Software Engineer.',
       start_url: '/',
       theme_color: '#3068d9',
       background_color: '#f8f8f8',

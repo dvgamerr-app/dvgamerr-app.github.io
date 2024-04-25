@@ -1,9 +1,0 @@
-  - Clearly and effectively communicate with internal and external parties.
-  - Collaborate closely with business, discovery, delivery, and IT teams or related teams across the organization.
-  - Provide preventive actions and long-term solutions to resolve problems.
-  - Analyze problems and find resolutions during code deployment or production incidents.
-  - Experience in Agile environments and practices, such as Test-Driven Development, Pair Programming, and Continuous Integration and Delivery.
-  - Build CI/CD for Java with the `MuleSoft` Framework on the GoCD platform.
-  - Maintain the `MuleSoft` API Gateway.
-  - Solution design the `Gateway API` Server and build a team.
-  - Imprement API Layer with `Tuya Transfrom` Service.
