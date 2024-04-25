@@ -87,7 +87,7 @@ const collectGithubProjectStats = async () => {
   }
 
   // const contribRepos = {}
-  const orgRepos = await collectReposOrgs([ 'dvgamerr-app','central-group','nippon-sysits' ])
+  const orgRepos = await collectReposOrgs([ 'dvgamerr-app','dl-fansub','un-centralgroup','un-nipponsysits','un-wedo','untirkx' ])
   const usrRepos = await collectRepoOwner()
 
   const repos = orgRepos.concat(usrRepos)
@@ -252,7 +252,7 @@ const getCitibankUSD = async () => {
 
 Initializes().then(() => Promise.all([
   collectGithubProjectStats(),
-  getCitibankUSD(),
+  // getCitibankUSD(),
   collectWakaTime(),
 ])).then((res) => {
   logger.debug(res)
