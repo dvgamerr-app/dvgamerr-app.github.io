@@ -23,7 +23,7 @@ const { experience } = Astro.props
         <h3 class="m-0">
           <span class="badge">{dayjs(e.created_at).year()}</span>
           <a href={e.svn_url} target="_blank"><span class="name">{e.name}</span></a>
-          <span class="badge rounded-pill bg-dark text-light">Stared {e.stargazers_count}</span>
+          {e.stargazers_count ? (<span class="badge rounded-pill">Stared {e.stargazers_count}</span>) : (<span />) }
         </h3>
         <span>{e.description}</span>
       </div>
@@ -40,9 +40,15 @@ const { experience } = Astro.props
         text-transform: uppercase;
       }
       span.badge {
+        color: var(--text-primary);
         font-size: .65rem;
         padding: .2em .5em 0 .5em;
         border-radius: .25em !important;
+
+        &.rounded-pill {
+          color: var(--text-badge);
+          background-color: var(--bg-badge);
+        }
       }
     }
     span {
