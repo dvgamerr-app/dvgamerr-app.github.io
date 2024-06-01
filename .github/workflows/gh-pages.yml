@@ -37,7 +37,7 @@ jobs:
           node-version: "21"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: 8
