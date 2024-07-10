@@ -2,1374 +2,6 @@
   "data": {
     "days": [
       {
-        "date": "2023-04-27",
-        "total": 444.456948,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 444.456948
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-04-28",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-04-29",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-04-30",
-        "total": 981.033742,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 981.033742
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-01",
-        "total": 220.353988,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 220.353988
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-02",
-        "total": 9598.584014,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 9598.584014
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-03",
-        "total": 7526.177785,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 7526.177785
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-04",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-05",
-        "total": 5901.526257,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 5901.526257
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-06",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-07",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-08",
-        "total": 3326.806617,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 3326.806617
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-09",
-        "total": 21942.510221,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 21942.510221
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-10",
-        "total": 32778.549173,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 32778.549173
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-11",
-        "total": 10545.872376,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 10545.872376
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-12",
-        "total": 20613.328644,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 20613.328644
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-13",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-14",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-15",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-16",
-        "total": 10391.199309,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 10391.199309
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-17",
-        "total": 10072.160788,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 10072.160788
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-18",
-        "total": 13397.656681,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 13397.656681
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-19",
-        "total": 4078.062871,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 4078.062871
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-20",
-        "total": 36.953481,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 36.953481
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-21",
-        "total": 1316.771362,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 1316.771362
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-22",
-        "total": 7825.188367,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 7825.188367
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-23",
-        "total": 7906.173262,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 7906.173262
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-24",
-        "total": 6832.187149,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 6832.187149
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-25",
-        "total": 6979.123482,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 6979.123482
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-26",
-        "total": 8884.429335,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 8884.429335
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-27",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-28",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-29",
-        "total": 10215.56234,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 10215.56234
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-30",
-        "total": 1547.05143,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 1547.05143
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-05-31",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-01",
-        "total": 7591.830729,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 7591.830729
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-02",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-03",
-        "total": 126.8166,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 126.8166
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-04",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-05",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-06",
-        "total": 3490.722129,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 3490.722129
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-07",
-        "total": 1775.205204,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 1775.205204
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-08",
-        "total": 717.417993,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 717.417993
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-09",
-        "total": 11782.173871,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 11782.173871
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-10",
-        "total": 619.85448,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 619.85448
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-11",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-12",
-        "total": 3143.603827,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 3143.603827
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-13",
-        "total": 20018.108935,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 20018.108935
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-14",
-        "total": 15559.867209,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 15559.867209
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-15",
-        "total": 7358.452226,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 7358.452226
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-16",
-        "total": 8854.576798,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 8854.576798
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-17",
-        "total": 8765.567194,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 8765.567194
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-18",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-19",
-        "total": 4874.71996,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 4874.71996
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-20",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-21",
-        "total": 507.397084,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 507.397084
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-22",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-23",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-24",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-25",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-26",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-27",
-        "total": 26793.990819,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 26793.990819
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-28",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-29",
-        "total": 7393.423206,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 7393.423206
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-06-30",
-        "total": 12791.698727,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 12791.698727
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-01",
-        "total": 21493.991878,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 21493.991878
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-02",
-        "total": 8368.735708,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 8368.735708
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-03",
-        "total": 6400.65603,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 6400.65603
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-04",
-        "total": 8599.476129,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 8599.476129
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-05",
-        "total": 391.091276,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 391.091276
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-06",
-        "total": 3951.338963,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 3951.338963
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-07",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-08",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-09",
-        "total": 1459.96906,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 1459.96906
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-10",
-        "total": 3725.069501,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 3725.069501
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
-        "date": "2023-07-11",
-        "total": 0,
-        "categories": [
-          {
-            "name": "Coding",
-            "total": 0
-          },
-          {
-            "name": "Building",
-            "total": 0
-          },
-          {
-            "name": "Debugging",
-            "total": 0
-          }
-        ]
-      },
-      {
         "date": "2023-07-12",
         "total": 16934.363678,
         "categories": [
@@ -6555,11 +5187,1379 @@
       },
       {
         "date": "2024-04-25",
-        "total": 6526.162455,
+        "total": 23129.150976,
         "categories": [
           {
             "name": "Coding",
-            "total": 6526.162455
+            "total": 23129.150976
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-04-26",
+        "total": 60.627536,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 60.627536
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-04-27",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-04-28",
+        "total": 455.026844,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 455.026844
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-04-29",
+        "total": 6575.92189,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6575.92189
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-04-30",
+        "total": 16932.004618,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 16932.004618
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-01",
+        "total": 485.960643,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 485.960643
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-02",
+        "total": 3954.384631,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3954.384631
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-03",
+        "total": 16218.637158,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 16218.637158
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-04",
+        "total": 2571.673201,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2571.673201
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-05",
+        "total": 13169.484834,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13169.484834
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-06",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-07",
+        "total": 7736.696688,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7736.696688
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-08",
+        "total": 1121.925932,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1121.925932
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-09",
+        "total": 10433.335339,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10433.335339
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-10",
+        "total": 6593.914789,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6593.914789
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-11",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-12",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-13",
+        "total": 3282.094634,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3282.094634
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-14",
+        "total": 6574.191481,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6574.191481
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-15",
+        "total": 5563.680498,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5563.680498
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-16",
+        "total": 3297.391579,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3297.391579
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-17",
+        "total": 4553.694914,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4553.694914
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-18",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-19",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-20",
+        "total": 7504.323682,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7504.323682
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-21",
+        "total": 8907.980286,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 8907.980286
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-22",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-23",
+        "total": 5630.898296,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5630.898296
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-24",
+        "total": 3190.239287,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3190.239287
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-25",
+        "total": 233.972397,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 233.972397
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-26",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-27",
+        "total": 3675.646153,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3675.646153
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-28",
+        "total": 2893.957659,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 2893.957659
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-29",
+        "total": 9868.453611,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9868.453611
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-30",
+        "total": 7805.99509,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7805.99509
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-05-31",
+        "total": 5387.532861,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5387.532861
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-01",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-02",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-03",
+        "total": 350.681365,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 350.681365
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-04",
+        "total": 1587.434986,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1587.434986
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-05",
+        "total": 5129.003704,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5129.003704
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-06",
+        "total": 602.808989,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 602.808989
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-07",
+        "total": 3385.863387,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3385.863387
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-08",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-09",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-10",
+        "total": 1821.643208,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1821.643208
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-11",
+        "total": 12.658718,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 12.658718
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-12",
+        "total": 27.380903,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 27.380903
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-13",
+        "total": 14.3617,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 14.3617
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-14",
+        "total": 7295.430895,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7295.430895
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-15",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-16",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-17",
+        "total": 3732.461829,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 3732.461829
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-18",
+        "total": 6286.279519,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6286.279519
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-19",
+        "total": 10367.895633,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10367.895633
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-20",
+        "total": 9173.81134,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9173.81134
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-21",
+        "total": 4752.119918,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4752.119918
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-22",
+        "total": 7210.172111,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 7210.172111
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-23",
+        "total": 5034.612859,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 5034.612859
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-24",
+        "total": 14763.85053,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 14763.85053
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-25",
+        "total": 10248.181982,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10248.181982
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-26",
+        "total": 13957.813596,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 13957.813596
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-27",
+        "total": 16275.59267,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 16275.59267
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-28",
+        "total": 1207.696679,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 1207.696679
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-29",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-06-30",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-01",
+        "total": 6674.138652,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 6674.138652
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-02",
+        "total": 9846.171849,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9846.171849
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-03",
+        "total": 4662.105061,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 4662.105061
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-04",
+        "total": 0,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 0
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-05",
+        "total": 396.045412,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 396.045412
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-06",
+        "total": 14.446519,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 14.446519
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-07",
+        "total": 39.856548,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 39.856548
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-08",
+        "total": 9185.822938,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 9185.822938
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-09",
+        "total": 10982.652795,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 10982.652795
+          },
+          {
+            "name": "Building",
+            "total": 0
+          },
+          {
+            "name": "Debugging",
+            "total": 0
+          }
+        ]
+      },
+      {
+        "date": "2024-07-10",
+        "total": 11071.221217,
+        "categories": [
+          {
+            "name": "Coding",
+            "total": 11071.221217
           }
         ]
       }
