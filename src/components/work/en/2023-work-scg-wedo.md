@@ -1,2 +1,6 @@
-- Solution design the `Gateway API` Server and build a team.
-- Imprement API Layer with `Tuya Transfrom` Service.
+- Implement an API layer with `Krakend Enterprise` and Krakend plugins services.
+- Implement a microservice using `Bun.js`.
+- Configure logging for `Snaplogic` with `Fluentbit` to `Clickhouse`.
+- Implement the `Snaplogic` platfrom.
+- Design a solution for the Gateway API using the `Krakend Enterprise` server and build a team.
+- Configure logging for `Mulesoft` with `Promtail` to `Loki`
