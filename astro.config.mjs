@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, passthroughImageService } from 'astro/config'
 import AstroPWA from '@vite-pwa/astro'
 import robotsTxt from 'astro-robots-txt'
 import sitemap from "@astrojs/sitemap"
@@ -8,6 +8,9 @@ import webmanifest from "astro-webmanifest"
 // https://astro.build/config
 export default defineConfig({
   site: 'https://dvgamerr.app',
+  image: {
+    service: passthroughImageService(),
+  },
   integrations: [
     AstroPWA(),
     robotsTxt(),

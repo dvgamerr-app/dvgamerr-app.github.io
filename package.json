@@ -14,26 +14,27 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.1.4",
+    "@astrojs/sitemap": "^3.1.6",
     "@cronitorio/cronitor-rum": "^0.4.1",
     "arg": "^5.0.2",
-    "astro": "^4.6.4",
+    "astro": "^4.14.5",
     "astro-google-fonts-optimizer": "^0.2.2",
     "astro-robots-txt": "^1.0.0",
     "astro-webmanifest": "^1.0.0",
     "numeral": "^2.0.6",
-    "pino": "^9.0.0",
-    "sharp": "^0.33.3"
+    "pino": "^9.3.2",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
+    "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@vite-pwa/astro": "^0.3.1",
     "bootstrap": "^5.3.3",
     "charts.css": "^1.1.0",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.5",
-    "pino-pretty": "^11.0.0",
-    "sass": "^1.75.0"
-  }
+    "pino-pretty": "^11.2.2",
+    "sass": "^1.77.8"
+  },
+  "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276"
 }
