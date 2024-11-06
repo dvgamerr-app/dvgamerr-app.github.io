@@ -6,7 +6,6 @@ on:
   push:
     branches: ['main']
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -15,8 +14,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: 'pages'
   cancel-in-progress: false
@@ -37,27 +34,21 @@ jobs:
           node-version: '20'
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-        with:
-          version: 9
-          run_install: true
-
-      - name: Get pnpm store directory
+      - name: Get npm store directory
         shell: bash
         run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          echo "STORE_PATH=$(npm store path --silent)" >> $GITHUB_ENV
 
       - uses: actions/cache@v4
-        name: Setup pnpm cache
+        name: Setup npm cache
         with:
           path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-npm-store-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-npm-store-
 
       - name: Build 🔧
-        run: pnpm build
+        run: npm build
 
       - name: Upload artifact 🚀
         uses: actions/upload-pages-artifact@v3
