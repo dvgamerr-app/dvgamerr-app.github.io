@@ -11,14 +11,14 @@
 .section-coding {
   .stats {
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: .2em;
+    grid-column-gap: 0.2em;
     grid-row-gap: 1em;
   }
 }
 .stats-item {
   .name {
     color: var(--text-secondary);
-    font-size: .75rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     line-height: 1;
   }

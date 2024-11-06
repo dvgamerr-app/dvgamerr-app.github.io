@@ -24,7 +24,7 @@ $btn-font-weight: 600;
 
 html {
   --bg-color: var(--bg-light);
-  --bg-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9Ijk3LjExOSUiIGlkPSJhIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI2YzZjNmMyIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjZWVlZWVlIiBvZmZzZXQ9IjEwMCUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01NTAgLTEyMTIpIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGNpcmNsZSBmaWxsPSJ1cmwoI2EpIiBjeD0iNTgxIiBjeT0iMTcxMiIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIGZpbGw9InVybCgjYSkiIGN4PSIyMDQ1IiBjeT0iMTQ4OCIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIHN0cm9rZT0idXJsKCNhKSIgc3Ryb2tlLXdpZHRoPSIyIiB0cmFuc2Zvcm09InJvdGF0ZSgxODAgMTcyNCAyMDg2KSIgY3g9IjE3MjQiIGN5PSIyMDg2IiByPSIzMDYiLz4KICA8L2c+Cjwvc3ZnPgo=");
+  --bg-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9Ijk3LjExOSUiIGlkPSJhIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI2YzZjNmMyIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjZWVlZWVlIiBvZmZzZXQ9IjEwMCUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01NTAgLTEyMTIpIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGNpcmNsZSBmaWxsPSJ1cmwoI2EpIiBjeD0iNTgxIiBjeT0iMTcxMiIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIGZpbGw9InVybCgjYSkiIGN4PSIyMDQ1IiBjeT0iMTQ4OCIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIHN0cm9rZT0idXJsKCNhKSIgc3Ryb2tlLXdpZHRoPSIyIiB0cmFuc2Zvcm09InJvdGF0ZSgxODAgMTcyNCAyMDg2KSIgY3g9IjE3MjQiIGN5PSIyMDg2IiByPSIzMDYiLz4KICA8L2c+Cjwvc3ZnPgo=');
 
   --bg-badge: var(--bg-dark);
   --text-badge: var(--bg-light);
@@ -49,11 +49,11 @@ html {
 
 html.dark-mode {
   --bg-color: var(--bg-dark);
-  --bg-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9Ijk3LjExOSUiIGlkPSJhIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzBGMTIxRiIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMTMxNzI0IiBvZmZzZXQ9IjEwMCUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01NTAgLTEyMTIpIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGNpcmNsZSBmaWxsPSJ1cmwoI2EpIiBjeD0iNTgxIiBjeT0iMTcxMiIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIGZpbGw9InVybCgjYSkiIGN4PSIyMDQ1IiBjeT0iMTQ4OCIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIHN0cm9rZT0idXJsKCNhKSIgc3Ryb2tlLXdpZHRoPSIyIiB0cmFuc2Zvcm09InJvdGF0ZSgxODAgMTcyNCAyMDg2KSIgY3g9IjE3MjQiIGN5PSIyMDg2IiByPSIzMDYiLz4KICA8L2c+Cjwvc3ZnPgo=");
+  --bg-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9Ijk3LjExOSUiIGlkPSJhIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzBGMTIxRiIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMTMxNzI0IiBvZmZzZXQ9IjEwMCUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01NTAgLTEyMTIpIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGNpcmNsZSBmaWxsPSJ1cmwoI2EpIiBjeD0iNTgxIiBjeT0iMTcxMiIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIGZpbGw9InVybCgjYSkiIGN4PSIyMDQ1IiBjeT0iMTQ4OCIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIHN0cm9rZT0idXJsKCNhKSIgc3Ryb2tlLXdpZHRoPSIyIiB0cmFuc2Zvcm09InJvdGF0ZSgxODAgMTcyNCAyMDg2KSIgY3g9IjE3MjQiIGN5PSIyMDg2IiByPSIzMDYiLz4KICA8L2c+Cjwvc3ZnPgo=');
 
   --bg-badge: var(--bg-light);
   --text-badge: var(--bg-dark);
-  --text-color-link: #C84B31;
+  --text-color-link: #c84b31;
   --border-square-rotating: 2px solid #ffffff0d;
   --text-primary: #f7f7f7;
   --text-secondary: #989898;
@@ -69,22 +69,38 @@ html.dark-mode {
   --link-color: #a2a2b3;
 }
 
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+//   xxl: 1400px
+// );
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1140px,
+//   xxl: 1320px
+// );
+
 // Finally load bootstrap
 // Configuration
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
 
 // Layout & components
-@import "bootstrap/scss/root";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/type";
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
 // @import "bootstrap/scss/images";
-@import "bootstrap/scss/containers";
-@import "bootstrap/scss/grid";
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
 // @import "bootstrap/scss/tables";
 // @import "bootstrap/scss/forms";
 // @import "bootstrap/scss/buttons";
@@ -97,7 +113,7 @@ html.dark-mode {
 // @import "bootstrap/scss/accordion";
 // @import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/pagination";
-@import "bootstrap/scss/badge";
+@import 'bootstrap/scss/badge';
 // @import "bootstrap/scss/alert";
 // @import "bootstrap/scss/progress";
 // @import "bootstrap/scss/list-group";
@@ -107,12 +123,11 @@ html.dark-mode {
 // @import "bootstrap/scss/placeholders";
 
 // Helpers
-@import "bootstrap/scss/helpers";
+@import 'bootstrap/scss/helpers';
 
 // Utilities
-@import "bootstrap/scss/utilities/api";
+@import 'bootstrap/scss/utilities/api';
 // scss-docs-end import-stack
-
 
 @import 'charts.css/dist/charts.css';
 
@@ -152,7 +167,7 @@ html.dark-mode {
   a {
     color: var(--text-link-color);
     text-decoration: none;
-    opacity: .9;
+    opacity: 0.9;
   }
   a:hover {
     opacity: 1;
@@ -168,13 +183,13 @@ html.dark-mode {
 
 @include media-breakpoint-up(xs) {
   .section-wrapper {
-    padding: .5em 0;
+    padding: 0.5em 0;
   }
 }
 
 @include media-breakpoint-up(sm) {
   .section-wrapper {
-    padding: .5em 0;
+    padding: 0.5em 0;
   }
 }
 
@@ -191,19 +206,19 @@ html.dark-mode {
 }
 
 html > #__layout {
-  animation: fadeLight .3s ease-in-out;
+  animation: fadeLight 0.3s ease-in-out;
 }
 
 html.dark-mode > #__layout {
-  animation: fadeDark .3s ease-in-out;
+  animation: fadeDark 0.3s ease-in-out;
 }
 
 .th-label {
-  font-family: "Bai Jamjuree", 'Segoe UI' !important;
+  font-family: 'Bai Jamjuree', 'Segoe UI' !important;
 }
 
 #__layout {
-  font-family: "Hind", sans-serif;
+  font-family: 'Hind', sans-serif;
   font-size: 1rem;
   margin: 0px;
   line-height: 1.8em;
@@ -214,13 +229,21 @@ html.dark-mode > #__layout {
   min-height: 100vh;
 
   @keyframes fadeDark {
-    0%   { background-color: var(--bg-light); }
-    100% { background-color: var(--bg-dark); }
+    0% {
+      background-color: var(--bg-light);
+    }
+    100% {
+      background-color: var(--bg-dark);
+    }
   }
 
   @keyframes fadeLight {
-    0%   { background-color: var(--bg-dark); }
-    100% { background-color: var(--bg-light); }
+    0% {
+      background-color: var(--bg-dark);
+    }
+    100% {
+      background-color: var(--bg-light);
+    }
   }
 
   // @keyframes rotating {
@@ -289,14 +312,13 @@ html.dark-mode > #__layout {
 //   z-index: 1;
 // }
 
-
 code {
   font-size: 90%;
   font-family: var(--font-family-sans-serif);
   background-color: var(--code-label-color);
   padding: 2px 5px 0;
   border-radius: 5px;
-  line-height: .9rem;
+  line-height: 0.9rem;
 }
 
 h1,
@@ -390,7 +412,6 @@ ul {
   padding: 0;
   list-style: none;
 }
-
 
 /*btn-primary*/
 .btn-primary {
@@ -510,7 +531,7 @@ ul {
   left: 0;
   background-size: 80px 16px;
   background-repeat: no-repeat;
-  content: "";
+  content: '';
 }
 
 /* // #review .rating-progress::before{
@@ -551,20 +572,19 @@ ul {
   margin-bottom: 20px;
 }
 
-.content-item >h3 {
+.content-item > h3 {
   margin: 0 0 10px;
   line-height: 1;
   font-weight: bold;
   text-transform: uppercase;
 }
-.content-item >h4 {
+.content-item > h4 {
   margin: 0;
   line-height: 1;
 }
-.content-item >small {
+.content-item > small {
   color: #888888;
 }
-
 
 /* Pagination */
 
@@ -657,7 +677,6 @@ ul {
 
 /* Copyright */
 
-
 /* // @media (max-width: 768px) {
 //   .footer {
 //     text-align: left;
@@ -688,12 +707,12 @@ ul {
 
 .markdown {
   ul > li {
-    padding-left  : 14px;
+    padding-left: 14px;
   }
   li:before {
-    content       : '∙';
-    margin-left   : -7px;
-    padding-right : 3px;
+    content: '∙';
+    margin-left: -7px;
+    padding-right: 3px;
   }
   p {
     margin: 0px !important;

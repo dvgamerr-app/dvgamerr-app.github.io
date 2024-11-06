@@ -183,9 +183,7 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
+      "topics": ["open-source"],
       "pushed_at": "2024-03-01T17:03:01Z",
       "created_at": "2024-03-01T05:17:52Z"
     },
@@ -204,9 +202,7 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
+      "topics": ["open-source"],
       "pushed_at": "2024-03-28T01:44:36Z",
       "created_at": "2024-03-27T10:33:47Z"
     },
@@ -225,13 +221,7 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": [
-        "app",
-        "bitkub",
-        "crypto",
-        "open-source",
-        "trading"
-      ],
+      "topics": ["app", "bitkub", "crypto", "open-source", "trading"],
       "pushed_at": "2024-04-17T11:03:03Z",
       "created_at": "2023-04-21T03:27:40Z"
     },
@@ -250,12 +240,7 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": [
-        "cli",
-        "datatsunami",
-        "dataweave",
-        "open-source"
-      ],
+      "topics": ["cli", "datatsunami", "dataweave", "open-source"],
       "pushed_at": "2023-09-25T12:50:09Z",
       "created_at": "2023-09-23T03:33:53Z"
     },
@@ -274,9 +259,7 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
+      "topics": ["open-source"],
       "pushed_at": "2023-10-16T13:31:54Z",
       "created_at": "2023-10-14T09:04:46Z"
     },
@@ -289,11 +272,7 @@
       "stargazers_count": 0,
       "forks": 1,
       "watchers": 0,
-      "topics": [
-        "nuxt3",
-        "open-source",
-        "sso-login"
-      ],
+      "topics": ["nuxt3", "open-source", "sso-login"],
       "pushed_at": "2023-10-01T00:42:48Z",
       "created_at": "2022-07-20T07:01:48Z"
     },
@@ -312,9 +291,7 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
+      "topics": ["open-source"],
       "pushed_at": "2022-10-12T09:53:21Z",
       "created_at": "2022-08-08T02:06:41Z"
     },
@@ -353,9 +330,7 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
+      "topics": ["open-source"],
       "pushed_at": "2024-04-01T03:42:32Z",
       "created_at": "2020-01-09T08:57:11Z"
     },
@@ -477,37 +452,25 @@
   "social": [
     {
       "name": "github",
-      "icon": [
-        "fab",
-        "github"
-      ],
+      "icon": ["fab", "github"],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": [
-        "fab",
-        "linkedin"
-      ],
+      "icon": ["fab", "linkedin"],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": [
-        "fas",
-        "clock"
-      ],
+      "icon": ["fas", "clock"],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": [
-        "fab",
-        "codepen"
-      ],
+      "icon": ["fab", "codepen"],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -596,15 +559,7 @@
       "MSSQL",
       "SQLite"
     ],
-    "os": [
-      "Chat GPT",
-      "AWS",
-      "Azure",
-      "GCloud",
-      "CentOS",
-      "Debian",
-      "Fedora"
-    ]
+    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
   },
   "contact": [
     {

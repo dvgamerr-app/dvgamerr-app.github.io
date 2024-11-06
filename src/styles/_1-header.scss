@@ -1,5 +1,4 @@
 #__layout {
-
   .section-title {
     min-height: 65px;
     margin-right: 30px;
@@ -10,14 +9,14 @@
       font-size: 1.2rem;
       line-height: 0;
       margin-bottom: 0 !important;
-      margin-top: .9em;
+      margin-top: 0.9em;
       color: #bbbbbb;
       text-transform: uppercase;
     }
 
     small {
       color: var(--text-muted);
-      font-size: .65rem;
+      font-size: 0.65rem;
     }
   }
 
@@ -28,7 +27,6 @@
       max-height: 380px;
       width: 100%;
     }
-
   }
 
   @include media-breakpoint-down(md) {
@@ -52,7 +50,6 @@
           top: 5px;
           left: 0;
         }
-
       }
 
       .section-wrapper.grid-personal {
