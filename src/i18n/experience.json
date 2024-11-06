@@ -25,9 +25,9 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
-      "stargazers_count": 62,
+      "stargazers_count": 64,
       "forks": 13,
-      "watchers": 62,
+      "watchers": 64,
       "topics": [
         "application",
         "dougin-api",
@@ -44,7 +44,7 @@
         "open-source",
         "windows"
       ],
-      "pushed_at": "2024-04-17T11:01:43Z",
+      "pushed_at": "2024-05-01T11:37:57Z",
       "created_at": "2017-08-01T09:18:50Z"
     },
     {
@@ -59,9 +59,9 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
-      "stargazers_count": 35,
+      "stargazers_count": 47,
       "forks": 3,
-      "watchers": 35,
+      "watchers": 47,
       "topics": [
         "awards",
         "bot",
@@ -94,9 +94,9 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
-      "stargazers_count": 4,
+      "stargazers_count": 5,
       "forks": 0,
-      "watchers": 4,
+      "watchers": 5,
       "topics": [
         "cv",
         "developer-resume",
@@ -108,7 +108,7 @@
         "showcase",
         "thongkam"
       ],
-      "pushed_at": "2024-04-25T07:56:56Z",
+      "pushed_at": "2024-11-06T06:05:14Z",
       "created_at": "2021-04-04T12:57:01Z"
     },
     {
@@ -165,7 +165,7 @@
         "web",
         "web-gui"
       ],
-      "pushed_at": "2024-04-08T16:19:33Z",
+      "pushed_at": "2024-10-08T03:14:17Z",
       "created_at": "2019-03-06T10:32:58Z"
     },
     {
@@ -203,7 +203,7 @@
       "forks": 0,
       "watchers": 0,
       "topics": ["open-source"],
-      "pushed_at": "2024-03-28T01:44:36Z",
+      "pushed_at": "2024-08-30T17:34:09Z",
       "created_at": "2024-03-27T10:33:47Z"
     },
     {
@@ -367,35 +367,35 @@
   ],
   "coding": {
     "bytes": {
-      "JavaScript": 13865042,
+      "JavaScript": 17750400,
       "Vue": 1489652,
-      "HTML": 10714316,
+      "HTML": 10803541,
       "Swift": 18084,
-      "Ruby": 199849,
+      "Ruby": 515339,
       "Objective-C": 2024,
-      "Go": 3731010,
-      "Dockerfile": 99232,
-      "CSS": 2399264,
+      "Go": 3934380,
+      "Dockerfile": 99182,
+      "CSS": 2459625,
       "Svelte": 21274,
-      "Shell": 667345,
-      "TypeScript": 4882194,
+      "Shell": 688652,
+      "TypeScript": 8301947,
       "Makefile": 39512,
       "Procfile": 27,
-      "SCSS": 221548,
+      "SCSS": 221958,
       "C#": 2595093,
-      "Astro": 111606,
-      "Rust": 45620,
+      "Astro": 111633,
+      "Rust": 116727,
       "PHP": 1643527,
       "Hack": 7144,
       "Dart": 102591,
       "C++": 5751568,
       "CMake": 188104,
-      "C": 123826,
+      "C": 124069,
       "Kotlin": 1566977,
-      "Python": 570796,
+      "Python": 586360,
       "Stylus": 41761,
       "TSQL": 31522,
-      "Batchfile": 13888,
+      "Batchfile": 14191,
       "Smarty": 20650,
       "DataWeave": 1965,
       "AutoHotkey": 9809376,
@@ -411,7 +411,7 @@
       "M4": 19093,
       "EJS": 64715,
       "Jsonnet": 7419,
-      "Nix": 243,
+      "Nix": 486,
       "Liquid": 686
     },
     "top5": [

@@ -103,6 +103,10 @@ const collectGithubProjectStats = async () => {
 
   let projectRepos = [];
   for (const e of orgRepos) {
+    if (!e.owner) {
+      logger.debug('skip:', e);
+      continue;
+    }
     if (
       e.owner.login !== 'dvgamerr-app' ||
       !e.description ||
@@ -141,34 +145,33 @@ const collectGithubProjectStats = async () => {
   const repoTask = [];
   const repoLangs = {};
   for await (const e of repos) {
-    repoTask.push(
-      (async () => {
-        logger.trace(` - repos '${e.owner.login}/${e.name}'`);
-        const { data: contrib, status: statusContrib } = await getContributors(
-          e.owner.login,
-          e.name,
-        );
-        if (statusContrib === 200) {
-          for (const con of contrib) {
-            if (con.author.login !== 'dvgamerr') continue;
-            coding.commits += con.total;
+    if (e.owner)
+      repoTask.push(
+        (async () => {
+          logger.trace(` - repos '${e.owner.login}/${e.name}'`);
+          const { data: contrib, status: statusContrib } =
+            await getContributors(e.owner.login, e.name);
+          if (statusContrib === 200) {
+            for (const con of contrib) {
+              if (con.author.login !== 'dvgamerr') continue;
+              coding.commits += con.total;
+            }
           }
-        }
 
-        const { data: langs, status: statusLangs } = await getLanguages(
-          e.owner.login,
-          e.name,
-        );
-        if (statusLangs === 200) {
-          for (const key in langs) {
-            repoLangs[key] = (repoLangs[key] || 0) + langs[key];
+          const { data: langs, status: statusLangs } = await getLanguages(
+            e.owner.login,
+            e.name,
+          );
+          if (statusLangs === 200) {
+            for (const key in langs) {
+              repoLangs[key] = (repoLangs[key] || 0) + langs[key];
+            }
+            coding.languages = [
+              ...new Set(coding.languages.concat(Object.keys(langs))),
+            ].sort();
           }
-          coding.languages = [
-            ...new Set(coding.languages.concat(Object.keys(langs))),
-          ].sort();
-        }
-      })(),
-    );
+        })(),
+      );
   }
 
   logger.info(`Task Github API (${repoTask.length}) ...`);

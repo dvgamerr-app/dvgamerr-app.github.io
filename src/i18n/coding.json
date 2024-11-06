@@ -1,7 +1,7 @@
 {
-  "total": 279,
+  "total": 289,
   "private": 53,
-  "public": 226,
+  "public": 236,
   "languages": [
     "ApacheConf",
     "Astro",
@@ -50,12 +50,12 @@
     "Visual Basic",
     "Vue"
   ],
-  "commits": 12764,
+  "commits": 2809,
   "experience": "2013-04-29T00:00:00.000+07:00",
-  "updated": "2024-04-25T08:16:34.960Z",
-  "weekly_seconds": 878.4600382857143,
-  "average_seconds": 7093.90430141918,
-  "best_seconds": 46975.804539,
+  "updated": "2024-11-06T07:03:08.643Z",
+  "weekly_seconds": 15263.174888714286,
+  "average_seconds": 6876.822008975338,
+  "best_seconds": 41426.017768,
   "loc": 0,
   "daytime": [
     714, 354, 97, 28, 10, 12, 10, 32, 140, 571, 998, 1110, 1132, 1230, 1393,
