@@ -1,6 +1,6 @@
-- Designed and implemented API solutions using `KrakenD Enterprise` and custom plugins.  
-- Developed microservices utilizing `Bun.js`.  
-- Configured logging pipelines for `SnapLogic` (`Fluent Bit` to `ClickHouse`) and `MuleSoft` (`Promtail` to `Loki`).  
-- Deployed and implemented the `SnapLogic` platform.  
-- Led the design and development of `KrakenD Gateway API` solutions while building and managing a dedicated team.  
-- Created AI solutions with `LangChain` to enhance user and customer interactions.  
+- Designed and implemented API solutions using `KrakenD Enterprise` and custom plugins.
+- Developed microservices utilizing `Bun.js`.
+- Configured logging pipelines for `SnapLogic` (`Fluent Bit` to `ClickHouse`) and `MuleSoft` (`Promtail` to `Loki`).
+- Deployed and implemented the `SnapLogic` platform.
+- Led the design and development of `KrakenD Gateway API` solutions while building and managing a dedicated team.
+- Created AI solutions with `LangChain` to enhance user and customer interactions.
