@@ -23,7 +23,7 @@ let htmlMarkdown = ''
 const fileRegx = RegExp(filename, 'ig')
 for (const post of posts) {
   if (fileRegx.test(post.file)) {
-    htmlMarkdown = post.compiledContent()
+    htmlMarkdown = await post.compiledContent()
     break
   }
 }
