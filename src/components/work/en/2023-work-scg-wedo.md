@@ -3,5 +3,5 @@
 - Configured logging pipelines for `SnapLogic` (`Fluent Bit` to `ClickHouse`) and `MuleSoft` (`Promtail` to `Loki`).
 - Deployed and implemented the `SnapLogic` platform.
 - Led the design and development of `KrakenD Gateway API` solutions while building and managing a dedicated team.
-- Designed and implemented `AI` chatbots with `LangChain` for seamless conversational experiences.
+- `LangChain` for a seamless conversational experience with agents with `AI` chatbots.
 - Developed AI-driven solutions using `LangChain` to improve user and customer engagement.
