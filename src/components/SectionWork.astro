@@ -16,14 +16,15 @@ interface Props {
 const { filename } = Astro.props
 
 const posts =
-  langName === 'en' ? await Astro.glob<Frontmatter>('../components/work/en/*.md') :
-  langName === 'th' ?  await Astro.glob<Frontmatter>('../components/work/th/*.md') : []
+  langName === 'en' ? import.meta.glob<Frontmatter>('../components/work/en/*.md') :
+  langName === 'th' ? import.meta.glob<Frontmatter>('../components/work/th/*.md') : []
 
 let htmlMarkdown = ''
 const fileRegx = RegExp(filename, 'ig')
-for (const post of posts) {
-  if (fileRegx.test(post.file)) {
-    htmlMarkdown = await post.compiledContent()
+for (const post of Object.values(posts)) {
+  const postContent = await post()
+  if (fileRegx.test(postContent.file)) {
+    htmlMarkdown = await postContent.compiledContent()
     break
   }
 }

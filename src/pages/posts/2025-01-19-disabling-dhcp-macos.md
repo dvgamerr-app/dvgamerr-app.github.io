@@ -5,7 +5,7 @@ pubDate: 2025-01-19
 description: 'Learn how to disable the built-in DHCP service on macOS to avoid port conflicts.'
 author: 'Kananek T.'
 image:
-  url: 'https://docs.astro.build/assets/rose.webp'
+  url: /cover/disabling-dhcp.webp
 tags: ["macOS", "DHCP", "networking"]
 ---
 # Disabling DHCP on macOS: A Step-by-Step Guide
