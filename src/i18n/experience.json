@@ -3,13 +3,13 @@
   "interview": true,
   "currencry": {
     "ccy": "USD",
-    "sell": 36.63,
-    "buy": 36.11
+    "sell": 33.76,
+    "buy": 33.77
   },
   "salary": {
     "base": 74360,
     "extra": 18487.5,
-    "expect": 120000,
+    "expect": 126000,
     "day": 20,
     "hour": 8
   },
@@ -27,7 +27,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "stargazers_count": 64,
-      "forks": 13,
+      "forks": 14,
       "watchers": 64,
       "topics": [
         "application",
@@ -60,9 +60,9 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
-      "stargazers_count": 47,
+      "stargazers_count": 46,
       "forks": 3,
-      "watchers": 47,
+      "watchers": 46,
       "topics": [
         "awards",
         "bot",
@@ -80,7 +80,7 @@
         "open-source",
         "zenless-zone-zero"
       ],
-      "pushed_at": "2024-03-02T03:01:34Z",
+      "pushed_at": "2024-12-12T03:46:30Z",
       "created_at": "2022-10-29T06:19:33Z"
     },
     {
@@ -109,12 +109,12 @@
         "showcase",
         "thongkam"
       ],
-      "pushed_at": "2024-11-06T06:05:14Z",
+      "pushed_at": "2025-01-28T08:17:11Z",
       "created_at": "2021-04-04T12:57:01Z"
     },
     {
-      "name": "team-tasklist",
-      "svn_url": "https://github.com/dvgamerr-app/team-tasklist",
+      "name": "team-rework",
+      "svn_url": "https://github.com/dvgamerr-app/team-rework",
       "homepage": "https://team.touno.io",
       "description": "TEAM TaskList Project with waterfall.",
       "license": null,
@@ -184,7 +184,9 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "pushed_at": "2024-03-01T17:03:01Z",
       "created_at": "2024-03-01T05:17:52Z"
     },
@@ -203,7 +205,9 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "pushed_at": "2024-08-30T17:34:09Z",
       "created_at": "2024-03-27T10:33:47Z"
     },
@@ -222,7 +226,13 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": ["app", "bitkub", "crypto", "open-source", "trading"],
+      "topics": [
+        "app",
+        "bitkub",
+        "crypto",
+        "open-source",
+        "trading"
+      ],
       "pushed_at": "2024-04-17T11:03:03Z",
       "created_at": "2023-04-21T03:27:40Z"
     },
@@ -241,7 +251,12 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": ["cli", "datatsunami", "dataweave", "open-source"],
+      "topics": [
+        "cli",
+        "datatsunami",
+        "dataweave",
+        "open-source"
+      ],
       "pushed_at": "2023-09-25T12:50:09Z",
       "created_at": "2023-09-23T03:33:53Z"
     },
@@ -260,7 +275,9 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "pushed_at": "2023-10-16T13:31:54Z",
       "created_at": "2023-10-14T09:04:46Z"
     },
@@ -273,7 +290,11 @@
       "stargazers_count": 0,
       "forks": 1,
       "watchers": 0,
-      "topics": ["nuxt3", "open-source", "sso-login"],
+      "topics": [
+        "nuxt3",
+        "open-source",
+        "sso-login"
+      ],
       "pushed_at": "2023-10-01T00:42:48Z",
       "created_at": "2022-07-20T07:01:48Z"
     },
@@ -292,7 +313,9 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "pushed_at": "2022-10-12T09:53:21Z",
       "created_at": "2022-08-08T02:06:41Z"
     },
@@ -331,7 +354,9 @@
       "stargazers_count": 0,
       "forks": 0,
       "watchers": 0,
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "pushed_at": "2024-04-01T03:42:32Z",
       "created_at": "2020-01-09T08:57:11Z"
     },
@@ -368,23 +393,23 @@
   ],
   "coding": {
     "bytes": {
-      "JavaScript": 17750400,
+      "JavaScript": 19464208,
       "Vue": 1489652,
-      "HTML": 10803541,
+      "HTML": 10865420,
       "Swift": 18084,
-      "Ruby": 515339,
+      "Ruby": 594658,
       "Objective-C": 2024,
       "Go": 3934380,
-      "Dockerfile": 99182,
-      "CSS": 2459625,
+      "Dockerfile": 101338,
+      "CSS": 2472276,
       "Svelte": 21274,
-      "Shell": 688652,
-      "TypeScript": 8301947,
+      "Shell": 688849,
+      "TypeScript": 11021663,
       "Makefile": 39512,
       "Procfile": 27,
-      "SCSS": 221958,
+      "SCSS": 228198,
       "C#": 2595093,
-      "Astro": 111633,
+      "Astro": 116380,
       "Rust": 116727,
       "PHP": 1643527,
       "Hack": 7144,
@@ -396,7 +421,7 @@
       "Python": 586360,
       "Stylus": 41761,
       "TSQL": 31522,
-      "Batchfile": 14191,
+      "Batchfile": 14251,
       "Smarty": 20650,
       "DataWeave": 1965,
       "AutoHotkey": 9809376,
@@ -453,25 +478,37 @@
   "social": [
     {
       "name": "github",
-      "icon": ["fab", "github"],
+      "icon": [
+        "fab",
+        "github"
+      ],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": ["fab", "linkedin"],
+      "icon": [
+        "fab",
+        "linkedin"
+      ],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": ["fas", "clock"],
+      "icon": [
+        "fas",
+        "clock"
+      ],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": ["fab", "codepen"],
+      "icon": [
+        "fab",
+        "codepen"
+      ],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -560,7 +597,15 @@
       "MSSQL",
       "SQLite"
     ],
-    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
+    "os": [
+      "Chat GPT",
+      "AWS",
+      "Azure",
+      "GCloud",
+      "CentOS",
+      "Debian",
+      "Fedora"
+    ]
   },
   "contact": [
     {

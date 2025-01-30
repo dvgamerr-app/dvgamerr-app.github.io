@@ -8,9 +8,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "collector:gh": "node ./collector/index.js --github | pino-pretty",
-    "collector:wk": "node ./collector/index.js --wakatime --file D:/home/Downloads/wakatime-info.dvgamergmail.com-06633b1c3ba744c2ab5d08e47ccc87ab.json | pino-pretty",
-    "collector": "node ./collector/index.js --wakatime --github | pino-pretty",
+    "collector:gh": "bun ./collector/index.js --github | pino-pretty",
+    "collector:wk": "bun ./collector/index.js --wakatime --file D:/home/Downloads/wakatime-info.dvgamergmail.com-06633b1c3ba744c2ab5d08e47ccc87ab.json | pino-pretty",
+    "collector": "bun ./collector/index.js --wakatime --github | pino-pretty",
     "astro": "astro"
   },
   "dependencies": {
