@@ -1,9 +1,25 @@
-import { defineConfig, passthroughImageService } from 'astro/config';
-import AstroPWA from '@vite-pwa/astro';
-import robotsTxt from 'astro-robots-txt';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig, passthroughImageService } from 'astro/config'
+import { remarkReadingTime } from './src/utils/readingTime'
+import AstroPWA from '@vite-pwa/astro'
+import robotsTxt from 'astro-robots-txt'
+import sitemap from '@astrojs/sitemap'
+import rehypePrettyCode from 'rehype-pretty-code'
 
-import webmanifest from 'astro-webmanifest';
+import webmanifest from 'astro-webmanifest'
+
+const options = {
+	//theme: json,
+	onVisitLine(node) {
+		if (node.children.length === 0) {
+			node.children = [			{	type: 'text',	value: ' '}	]
+		}
+	},
+	onVisitHighlightedLine(node) {
+		// Adding a class to the highlighted line
+		node.properties.className = ['highlighted']
+	}
+}
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +27,14 @@ export default defineConfig({
   image: {
     service: passthroughImageService(),
   },
+
+	markdown: {
+		syntaxHighlight: false,
+		// Disable syntax built-in syntax hightlighting from astro
+		rehypePlugins: [[rehypePrettyCode, options]],
+		remarkPlugins: [remarkReadingTime]
+	},
+
   integrations: [
     AstroPWA(),
     robotsTxt(),
@@ -35,4 +59,4 @@ export default defineConfig({
       display: 'standalone',
     }),
   ],
-});
+})
