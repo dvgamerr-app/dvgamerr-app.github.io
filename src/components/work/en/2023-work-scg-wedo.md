@@ -1,7 +1,9 @@
-- Designed and implemented API solutions using `KrakenD Enterprise` and custom plugins.
-- Developed microservices utilizing `Bun.js`.
-- Configured logging pipelines for `SnapLogic` (`Fluent Bit` to `ClickHouse`) and `MuleSoft` (`Promtail` to `Loki`).
-- Deployed and implemented the `SnapLogic` platform.
-- Led the design and development of `KrakenD Gateway API` solutions while building and managing a dedicated team.
-- `LangChain` for a seamless conversational experience with agents with `AI` chatbots.
-- Developed AI-driven solutions using `LangChain` to improve user and customer engagement.
+- Developed AI-powered chatbot solutions to enhance customer engagement, using LangChain agents for contextual, multi-turn conversations.
+- Designed and integrated intelligent dialogue flows aligned with business intents (e.g., SCG Home), incorporating structured prompt engineering for accurate response generation.
+- Implemented scalable API integrations between AI models and business systems, enabling real-time automation and intelligent customer interactions.
+- Built microservices and data pipelines to support AI applications, leveraging Bun.js, KrakenD Enterprise, and custom plugin development.
+- Developed and deployed logging and observability systems for AI platforms using Fluent Bit, ClickHouse, Promtail, and Loki.
+- Automated API schema generation with OpenAPI 3 to standardize communication between AI agents and backend systems.
+- Designed advanced PostgreSQL queries using SQLAlchemy, including CTEs, window functions, and lateral joins to support AI-driven data analytics.
+- Deployed AI workflows and integrated telemetry with OpenTelemetry for performance monitoring and traceability across distributed systems.
+- Led cross-functional collaboration between AI, platform, and product teams to deliver scalable, real-time AI solutions.
