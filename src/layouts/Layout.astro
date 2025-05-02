@@ -1,20 +1,32 @@
 ---
-// import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url"
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer"
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
 
 import { getLangFromUrl } from '../i18n/utils'
 
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer"
+import Meta from "../components/Meta.astro"
+
 interface Props {
 	title: string
   desc: string
+  image?: string
+  website?: string
+  twitterUsername?: string
+  themeColor?: string
+  keywords?: string[]
 }
 
-const { title, desc } = Astro.props
-const website = 'https://dvgamerr.app'
-const date = new Date().toISOString()
+const { 
+  title, 
+  desc,
+  image,
+  website,
+  twitterUsername,
+  themeColor,
+  keywords
+} = Astro.props
 
 const lang = getLangFromUrl(Astro.url)
 ---
@@ -22,40 +34,18 @@ const lang = getLangFromUrl(Astro.url)
 <!DOCTYPE html>
 <html lang={lang}>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={desc}>
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-		<link rel="icon" type="image/svg+xml" href="/icon-64.webp" />
-		<meta name="generator" content={Astro.generator} />
-    <meta name="application-name" content={title} />
-    <meta name="keywords" content="kananek,t.,kananek-thongkam,thongkam,tk,resume,kem,kanane,kt" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="theme-color" content="#C84B31" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={desc} />
-    <meta property="og:url" content={website} />
-    <meta property="og:site_name" content={title} />
-    <meta property="og:updated_time" content={date} />
-    <meta property="og:image" content="/fb-social.jpg" />
-    <meta property="article:publisher" content="https://twitter.com/dvgamerr" />
-    <meta property="article:author" content="https://twitter.com/dvgamerr" />
-    <meta property="article:section" content="RESUME" />
-    <meta property="article:published_time" content={date} />
-    <meta property="article:modified_time" content={date} />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:description" content={desc} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:site" content="@dvgamerr" />
-    <meta property="twitter:image" content="/fb-social.jpg" />
-    <meta property="twitter:creator" content="@dvgamerr" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<Meta 
+      title={title} 
+      desc={desc}
+      image={image}
+      website={website}
+      twitterUsername={twitterUsername}
+      themeColor={themeColor}
+      keywords={keywords}
+    />
     <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap" />
 		<title>{title}</title>
-    <script async src="https://rum.cronitor.io/script.js"></script>
+    <script is:inline src="https://rum.cronitor.io/script.js" async></script>
 	</head>
 	<body>
     <div id="__layout">
@@ -71,6 +61,7 @@ const lang = getLangFromUrl(Astro.url)
 </html>
 <style lang="scss" is:global>
 @import "../styles/global.scss";
+
 #__layout {
   border-top: 5px solid var(--text-color-link);
   padding: 4em 0;
