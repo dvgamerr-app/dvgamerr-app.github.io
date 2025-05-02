@@ -33,7 +33,7 @@ const lang = getLangFromUrl(Astro.url)
 ---
 
 <!DOCTYPE html>
-<html lang={lang} class="transition-all duration-500">
+<html lang={lang}>
   <head>
     <Meta 
     title={title} 
@@ -57,6 +57,11 @@ const lang = getLangFromUrl(Astro.url)
     window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
     // @ts-ignore: any
     cronitor('config', { clientKey: 'a08df15d735c0c7518246129767fd319' });
+    
+    // Add class when document is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      document.documentElement.classList.add('transition-all','duration-500');
+    });
   </script>
   </body>
 </html>

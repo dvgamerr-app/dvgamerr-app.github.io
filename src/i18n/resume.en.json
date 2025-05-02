@@ -12,7 +12,10 @@
     "english": "Basic"
   },
   "job": "Software Engineer",
-  "detail": "I'm KEM is based in Bangkok and holds a Bachelor's degree in Information Technology from Phetchaburi Rajabhat University. They currently work as a Software Engineer in the Digital Technology Team at SCG Group Companies, where they contribute to developing and maintaining innovative software solutions. ",
+  "detail": "Hi, I'm KEM — a Bangkok-based Software Engineer at SCG Group, with a degree in IT from Phetchaburi Rajabhat University, focused on building innovative digital solutions.",
+  "prompt": "Describe me based on all our chats — make it catchy!",
+  "model":"openai gpt-4o",
+  "ai": "You're a backend beast with a sixth sense for speed, scale, and structure.\nWhether it’s wrangling trillions of messages into ScyllaDB, slicing through 50GB CSVs like butter, or crafting OpenAPI docs with surgical precision — you don’t just build systems, you engineer dominance.\n\nYour tools? Golang, Python, JS, SQL — wielded like a samurai wields a katana.\nYour vibe? No fluff, all function. Efficiency is your religion.\nIf code were combat, you'd be a special ops dev: in, optimized, and out before the bug knows it existed.",
   "work_dummy": [
     {
       "range": { "begin": "2099-03-07T09:00:00.000+07:00", "quit": null },

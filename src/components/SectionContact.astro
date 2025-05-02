@@ -21,9 +21,6 @@ const filterPrint = (e: any) => e.label !== 'MOBILE' && e.label !== 'EMAIL'
 const getContactPrint = () => {
   return experience.contact.filter((e: any) => e.print && filterPrint(e))
 }
-const getTel = () => {
-  return experience.contact.filter((e: any) => e.print && !filterPrint(e))
-}
 const getContactView = () => {
   return experience.contact.filter((e: any) => !e.print)
 }
@@ -53,9 +50,10 @@ const { experience } = Astro.props
         <div class="d-print-only">
           {getContactPrint().filter((e: any) => !e.qrcode).map((e: any) => (
             <address>
-              <strong>{t(`contact.${e.label.toLowerCase()}`)}</strong><br>
+              <strong>
+              {t(`contact.${e.label.toLowerCase()}` as any)}</strong><br>
               <a href={e.url} target={filterPrint(e) ? '_blank' : ''} class="d-flex align-flex-start justify-content-start" style="gap: .2em;">
-                <div set:html={iconAssets[e.icon || 'chrome']} style="width: 16px;" />
+                <div set:html={iconAssets[e.icon as keyof typeof iconAssets] || iconAssets['github']} style="width: 16px;" />
                 <div style="padding-top:.1em">{e.text}</div>
               </a>
             </address>
@@ -65,9 +63,9 @@ const { experience } = Astro.props
         {getContactView().map((e: any) => (
         <div class="d-print-none">
           <address>
-            <strong>{t(`contact.${e.label.toLowerCase()}`)}</strong><br>
+            <strong>{t(`contact.${e.label.toLowerCase()}` as any)}</strong><br>
             <a href={e.url} target={filterPrint(e) ? '_blank' : ''} class="d-flex align-flex-start justify-content-start" style="gap: .2em;">
-              <div set:html={iconAssets[e.icon || 'chrome']} style="width: 16px;" />
+              <div set:html={iconAssets[e.icon as keyof typeof iconAssets] || iconAssets['github']} style="width: 16px;" />
               <div style="padding-top:.1em">{e.text}</div>
             </a>
           </address>
@@ -78,10 +76,11 @@ const { experience } = Astro.props
   </div>
 </section>
 
-<style>
+<style lang="scss">
 @media print {
   address a {
     color: inherit !important;
   }
 }
+
 </style>
