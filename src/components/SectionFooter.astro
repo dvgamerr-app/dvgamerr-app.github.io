@@ -8,40 +8,18 @@ import webring from '../assets/webring.svg'
 const getYear = (new Date()).getFullYear()
 ---
 
-<footer class="container d-print-none">
-  <div class="footer copyright-section">
-    <div class="row">
-      <div class="col-36">
-        <div class="copytext">
+<footer class="w-full max-w-screen-xl mx-auto px-4 print:hidden">
+  <div class="pt-12 font-['Segoe_UI',_Tahoma,_Geneva,_Verdana,_sans-serif] text-sm">
+    <div class="w-full">
+      <div class="w-full">
+        <div class="flex flex-row flex-nowrap items-end justify-end font-normal gap-[0.3em]">
           &copy; {getYear} <b>dvgamerr</b> {t('footer.sponser')}
           <a href="https://sponsor.dvgamerr.app/" target="_blank">Kananek T.</a> {t('footer.and')}
-          <a href="https://webring.wonderful.software#dvgamerr.app">
-            webring <Image alt="webring" src={webring} width={14} height={14} style="margin-top: -.2em">
+          <a href="https://webring.wonderful.software#dvgamerr.app" class="flex items-center">
+            webring <Image alt="webring" src={webring} width={14} height={14} class="inline-block ml-1">
           </a> v{version}
         </div>
       </div>
     </div>
   </div>
 </footer>
-
-<style lang="scss">
-.footer {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding-top: 3em;
-
-  &.copyright-section {
-    font-size: .8rem;
-
-    .copytext {
-      font-weight: 400;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-content: center;
-      justify-content: flex-end;
-      align-items: flex-end;
-      column-gap: 0.3em;
-    }
-  }
-}
-</style>

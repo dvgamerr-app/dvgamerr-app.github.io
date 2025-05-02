@@ -7,6 +7,7 @@ import { getLangFromUrl } from '../i18n/utils'
 
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer"
 import Meta from "../components/utils/Meta.astro"
+import '../styles/global.css'
 
 interface Props {
 	title: string
@@ -32,52 +33,30 @@ const lang = getLangFromUrl(Astro.url)
 ---
 
 <!DOCTYPE html>
-<html lang={lang}>
-	<head>
-		<Meta 
-      title={title} 
-      desc={desc}
-      image={image}
-      website={website}
-      twitterUsername={twitterUsername}
-      themeColor={themeColor}
-      keywords={keywords}
-    />
-    <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap" />
-		<title>{title}</title>
-    <script is:inline src="https://rum.cronitor.io/script.js" async></script>
-	</head>
-	<body>
-    <div id="__layout">
-      <slot />
-    </div>
-    <script>
-      // @ts-ignore: any
-      window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
-      // @ts-ignore: any
-      cronitor('config', { clientKey: 'a08df15d735c0c7518246129767fd319' });
-    </script>
-	</body>
+<html lang={lang} class="transition-all duration-500">
+  <head>
+    <Meta 
+    title={title} 
+    desc={desc}
+    image={image}
+    website={website}
+    twitterUsername={twitterUsername}
+    themeColor={themeColor}
+    keywords={keywords}
+  />
+  <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap" />
+    <title>{title}</title>
+  <script is:inline src="https://rum.cronitor.io/script.js" async></script>
+  </head>
+  <body>
+  <div id="__layout" class="border-t-[5px] border-t-[var(--text-color-link)] py-16 md:py-0 print:border-t-0">
+    <slot />
+  </div>
+  <script>
+    // @ts-ignore: any
+    window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+    // @ts-ignore: any
+    cronitor('config', { clientKey: 'a08df15d735c0c7518246129767fd319' });
+  </script>
+  </body>
 </html>
-<style lang="scss" is:global>
-@import "../styles/global.scss";
-
-#__layout {
-  border-top: 5px solid var(--text-color-link);
-  padding: 4em 0;
-}
-
-@media print {
-  #__layout {
-    border-top: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  #__layout {
-    padding: 0 !important;
-  }
-}
-
-
-</style>

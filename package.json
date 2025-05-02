@@ -5,41 +5,39 @@
   "author": "Kananek T. <kananek.dev@touno.io>",
   "private": false,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "astro": "astro",
     "build": "astro build",
+    "collector": "bun ./collector/index.js --wakatime --github | pino-pretty",
     "collector:gh": "bun ./collector/index.js --github | pino-pretty",
     "collector:wk": "bun ./collector/index.js --wakatime --file D:/home/Downloads/wakatime-info.dvgamergmail.com-06633b1c3ba744c2ab5d08e47ccc87ab.json | pino-pretty",
-    "collector": "bun ./collector/index.js --wakatime --github | pino-pretty",
-    "astro": "astro"
+    "dev": "astro dev",
+    "start": "astro dev"
   },
   "dependencies": {
-    "@astrojs/sitemap": "3.3.1",
-    "@cronitorio/cronitor-rum": "^0.4.1",
-    "@tailwindcss/vite": "^4.1.5",
     "arg": "^5.0.2",
     "astro": "5.7.10",
+    "mdast-util-to-string": "^4.0.0",
+    "numeral": "^2.0.6",
+    "reading-time": "^1.5.0",
+    "rehype-pretty-code": "^0.14.1",
+    "sharp": "0.34.1"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "3.3.1",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@cronitorio/cronitor-rum": "^0.4.1",
+    "@tailwindcss/vite": "^4.1.5",
+    "@vite-pwa/astro": "1.0.1",
     "astro-google-fonts-optimizer": "^0.2.2",
     "astro-robots-txt": "^1.0.0",
     "astro-webmanifest": "^1.0.0",
-    "mdast-util-to-string": "^4.0.0",
-    "numeral": "^2.0.6",
-    "pino": "^9.6.0",
-    "reading-time": "^1.5.0",
-    "rehype-pretty-code": "^0.14.1",
-    "sharp": "0.34.1",
-    "tailwindcss": "^4.1.5"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@vite-pwa/astro": "1.0.1",
-    "bootstrap": "^5.3.5",
     "charts.css": "^1.1.0",
     "dayjs": "^1.11.13",
     "dotenv": "^16.5.0",
+    "pino": "^9.6.0",
     "pino-pretty": "^13.0.0",
-    "sass": "^1.87.0"
+    "tailwindcss": "^4.1.5"
   },
   "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276"
 }
