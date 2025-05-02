@@ -1,9 +1,9 @@
-- Developed AI-powered chatbot solutions to enhance customer engagement, using LangChain agents for contextual, multi-turn conversations.
-- Designed and integrated intelligent dialogue flows aligned with business intents (e.g., SCG Home), incorporating structured prompt engineering for accurate response generation.
-- Implemented scalable API integrations between AI models and business systems, enabling real-time automation and intelligent customer interactions.
-- Built microservices and data pipelines to support AI applications, leveraging Bun.js, KrakenD Enterprise, and custom plugin development.
-- Developed and deployed logging and observability systems for AI platforms using Fluent Bit, ClickHouse, Promtail, and Loki.
-- Automated API schema generation with OpenAPI 3 to standardize communication between AI agents and backend systems.
-- Designed advanced PostgreSQL queries using SQLAlchemy, including CTEs, window functions, and lateral joins to support AI-driven data analytics.
+- Developed AI-powered chatbot solutions to enhance customer engagement, using `LangChain` agents for contextual, multi-turn conversations.
+- Designed and delivered AI-powered chatbot solutions using `LangChain` agents to support contextual, multi-turn conversations aligned with business intents (e.g., `SCG Home` LINE Bot).
+- Implemented scalable API integrations between `AI models` and business systems, enabling real-time automation and intelligent customer interactions.
+- Built microservices and data pipelines to support AI applications, leveraging `Bun.js`, `KrakenD` Enterprise, and custom plugin development.
+- Developed and deployed logging and observability systems for AI platforms using `Fluent Bit`, `ClickHouse`, `Promtail`, and `Loki`.
+- Automated API schema generation with `OpenAPI 3` to standardize communication between `AI agents` and backend systems.
+- Designed advanced `PostgreSQL` queries using SQLAlchemy, including CTEs, window functions, and lateral joins to support `AI-driven` data analytics.
 - Deployed AI workflows and integrated telemetry with OpenTelemetry for performance monitoring and traceability across distributed systems.
 - Led cross-functional collaboration between AI, platform, and product teams to deliver scalable, real-time AI solutions.
