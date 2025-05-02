@@ -7,32 +7,35 @@ import rehypePrettyCode from 'rehype-pretty-code'
 
 import webmanifest from 'astro-webmanifest'
 
+import tailwindcss from '@tailwindcss/vite';
+
 const options = {
-	//theme: json,
-	onVisitLine(node) {
-		if (node.children.length === 0) {
-			node.children = [			{	type: 'text',	value: ' '}	]
-		}
-	},
-	onVisitHighlightedLine(node) {
-		// Adding a class to the highlighted line
-		node.properties.className = ['highlighted']
-	}
+    //theme: json,
+    onVisitLine(node) {
+        if (node.children.length === 0) {
+            node.children = [			{	type: 'text',	value: ' '}	]
+        }
+    },
+    onVisitHighlightedLine(node) {
+        // Adding a class to the highlighted line
+        node.properties.className = ['highlighted']
+    }
 }
 
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://dvgamerr.app',
+
   image: {
     service: passthroughImageService(),
   },
 
-	markdown: {
-		syntaxHighlight: false,
-		// Disable syntax built-in syntax hightlighting from astro
-		rehypePlugins: [[rehypePrettyCode, options]],
-		remarkPlugins: [remarkReadingTime]
+  markdown: {
+      syntaxHighlight: false,
+      // Disable syntax built-in syntax hightlighting from astro
+      rehypePlugins: [[rehypePrettyCode, options]],
+      remarkPlugins: [remarkReadingTime]
 	},
 
   integrations: [
@@ -59,4 +62,8 @@ export default defineConfig({
       display: 'standalone',
     }),
   ],
+
+  vite: {
+    plugins: [tailwindcss()]
+  }
 })
