@@ -5,3 +5,4 @@
 - Led the design and development of `KrakenD Gateway API` solutions while building and managing a dedicated team.
 - `LangChain` for a seamless conversational experience with agents with `AI` chatbots.
 - Developed AI-driven solutions using `LangChain` to improve user and customer engagement.
+- Built and deployed `AI Agentic Chat` for `SCG Home` on the `LINE` platform, enabling intelligent customer service automation and personalized home improvement recommendations.
