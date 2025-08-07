@@ -23,7 +23,7 @@ const skillList = Object.keys(experience.skill)
         {
           skillList.map((e: string) => (
             <div class="col-md-36 skill-list">
-              <h3 class="mb-1">{t(`skills.${e}`)}</h3>
+              <h3 class="mb-1">{t(`skills.${e}` as any)}</h3>
               <ul class="pb-3">
                 {experience.skill[e]
                   .filter((e: string) => !['hack'].includes(e.toLowerCase()))

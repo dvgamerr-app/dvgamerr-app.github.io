@@ -62,7 +62,7 @@ const { experience } = Astro.props
               .map((e: any) => (
                 <address>
                   <>
-                    <strong>{t(`contact.${e.label.toLowerCase()}`)}</strong>
+                    <strong>{t(`contact.${(e.label as string).toLowerCase()}` as any)}</strong>
                     <br />
                   </>
                   <a
@@ -84,7 +84,7 @@ const { experience } = Astro.props
             <div class="d-print-none">
               <address>
                 <>
-                  <strong>{t(`contact.${e.label.toLowerCase()}`)}</strong>
+                  <strong>{t(`contact.${e.label.toLowerCase()}` as any)}</strong>
                   <br />
                 </>
                 <a
