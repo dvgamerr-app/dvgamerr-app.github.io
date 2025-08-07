@@ -89,7 +89,7 @@ const colWeekSize = (n: number = 0) => ({ '--size': `calc( ${(n * 100) / maxWeek
   </div>
 </section>
 
-<style lang="scss">
+<style>
   html {
     --charts-color: #cbcbcb;
     --charts-highlight: #37d67a;
@@ -105,57 +105,48 @@ const colWeekSize = (n: number = 0) => ({ '--size': `calc( ${(n * 100) / maxWeek
     max-width: 95%;
     margin: 0 auto;
   }
+
   #charts-daytime {
     margin-top: 1.5em;
     height: 165px;
   }
+
   #charts-weektime {
     margin-top: 1.5em;
     height: 165px;
   }
 
-  table.charts-css {
-    > caption {
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      position: absolute;
-      margin-top: -1.9em;
-    }
-    > tbody {
-      th {
-        text-transform: capitalize;
-        font-size: 0.75rem;
-        &.highlight {
-          color: var(--charts-highlight);
-        }
-      }
-      td.highlight {
-        background-color: var(--charts-highlight);
-      }
-      td.day {
-        --color: var(--charts-color);
-      }
-      td {
-        --color: var(--charts-color);
-      }
-      tr {
-        > th[scope='row'] {
-          margin-bottom: -2.3em;
-          line-height: 2.2em;
-          border-top: 0.15em solid var(--text-muted);
+  table.charts-css > caption {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    position: absolute;
+    margin-top: -1.9em;
+  }
 
-          //     &.highlight {
-          //       border-top: 2px solid var(--charts-highlight);
-          //       color: var(--charts-highlight);
-          //     }
-          //   }
-          //   > td {
-          //     &.highlight {
-          //       --color: #767676;
-          //       color: var(--charts-highlight);
-          //     }
-        }
-      }
-    }
+  table.charts-css > tbody th {
+    text-transform: capitalize;
+    font-size: 0.75rem;
+  }
+
+  table.charts-css > tbody th.highlight {
+    color: var(--charts-highlight);
+  }
+
+  table.charts-css > tbody td.highlight {
+    background-color: var(--charts-highlight);
+  }
+
+  table.charts-css > tbody td.day {
+    --color: var(--charts-color);
+  }
+
+  table.charts-css > tbody td {
+    --color: var(--charts-color);
+  }
+
+  table.charts-css > tbody tr > th[scope='row'] {
+    margin-bottom: -2.3em;
+    line-height: 2.2em;
+    border-top: 0.15em solid var(--text-muted);
   }
 </style>

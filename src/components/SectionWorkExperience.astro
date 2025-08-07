@@ -55,47 +55,50 @@ const t = useTranslations(langName)
   )
 }
 
-<style lang="scss">
+<style>
   .content-job {
     margin-bottom: 20px;
+  }
 
-    h3 {
-      margin: 0 0 10px;
-      line-height: 1;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+  .content-job h3 {
+    margin: 0 0 10px;
+    line-height: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 
-    h4 {
-      margin: 0;
-      line-height: 1;
-    }
+  .content-job h4 {
+    margin: 0;
+    line-height: 1;
+  }
 
-    small {
-      color: var(--text-secondary);
-    }
+  .content-job small {
+    color: var(--text-secondary);
+  }
 
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
+  .content-job p {
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
 
-    ul {
-      margin: 0 0 0 5px;
-      li::before {
-        content: '•';
-        margin-right: 5px;
-      }
-    }
+  .content-job ul {
+    margin: 0 0 0 5px;
+  }
 
-    .content-subjob {
-      padding: 15px 0px 0px 0px;
-      > div {
-        padding: 10px 0px;
-        h3 {
-          margin: 0px;
-        }
-      }
-    }
+  .content-job ul li::before {
+    content: '•';
+    margin-right: 5px;
+  }
+
+  .content-job .content-subjob {
+    padding: 15px 0px 0px 0px;
+  }
+
+  .content-job .content-subjob > div {
+    padding: 10px 0px;
+  }
+
+  .content-job .content-subjob > div h3 {
+    margin: 0px;
   }
 </style>

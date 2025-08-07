@@ -210,141 +210,143 @@ const birthday = dayjs(experience.birthday)
     console.log({ THB_USDT: res['THB_USDT'].last })
   }, 1)
 </script>
-<style lang="scss" is:global>
-  #printer {
-    .Vector139 {
-      stroke: black;
-    }
-    .Vector138 {
-      stroke: black;
-    }
-    .Vector140 {
-      stroke: black;
-    }
-  }
-  .dark-mode #printer {
-    .Vector139 {
-      stroke: white !important;
-    }
-    .Vector138 {
-      stroke: white !important;
-    }
-    .Vector140 {
-      stroke: white !important;
-    }
+<style is:global>
+  #printer .Vector139 {
+    stroke: black;
   }
 
-  .header {
-    .name-wrapper {
-      margin: 1em 0 2em 0;
+  #printer .Vector138 {
+    stroke: black;
+  }
 
-      > .name {
-        display: flex;
-        justify-items: flex-start;
-        align-items: center;
-        gap: 0.5em;
+  #printer .Vector140 {
+    stroke: black;
+  }
 
-        > h1 {
-          text-transform: uppercase;
-          color: var(--text-primary);
-          line-height: 2rem;
-          margin: -0.12em 0 0.2em;
-        }
+  .dark-mode #printer .Vector139 {
+    stroke: white !important;
+  }
 
-        ul {
-          margin-top: -0.6em;
-        }
-        a {
-          width: 36px;
-          height: 36px;
-          line-height: 2.2rem;
-          display: block;
-          font-size: 0.85rem;
-          color: var(--menu-color);
-          text-align: center;
-          border-radius: 2px;
-          border: 2px solid var(--menu-border-color);
-          font-weight: bold;
+  .dark-mode #printer .Vector138 {
+    stroke: white !important;
+  }
 
-          &:hover {
-            border-color: var(--menu-border-color-hover);
-          }
-        }
-      }
+  .dark-mode #printer .Vector140 {
+    stroke: white !important;
+  }
 
-      > span {
-        font-size: 1.5rem;
-        color: var(--text-color-link);
+  .header .name-wrapper {
+    margin: 1em 0 2em 0;
+  }
 
-        &.th-name {
-          font-size: 2rem;
-        }
-      }
-    }
-    .grid-personal {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 0.2em;
-      grid-row-gap: 0.2em;
-      .personal {
-        margin: 10px 0;
+  .header .name-wrapper > .name {
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+    gap: 0.5em;
+  }
 
-        strong {
-          text-transform: uppercase;
-          font-size: 0.9rem;
-          font-weight: bold;
-          color: var(--text-secondary-value);
-          display: block;
-          line-height: 1;
-        }
+  .header .name-wrapper > .name > h1 {
+    text-transform: uppercase;
+    color: var(--text-primary);
+    line-height: 2rem;
+    margin: -0.12em 0 0.2em;
+  }
 
-        small {
-          text-transform: uppercase;
-          font-weight: normal;
-          font-size: 0.75rem;
-        }
+  .header .name-wrapper > .name ul {
+    margin-top: -0.6em;
+  }
 
-        span {
-          text-transform: uppercase;
-          color: var(--text-secondary);
-        }
+  .header .name-wrapper > .name a {
+    width: 36px;
+    height: 36px;
+    line-height: 2.2rem;
+    display: block;
+    font-size: 0.85rem;
+    color: var(--menu-color);
+    text-align: center;
+    border-radius: 2px;
+    border: 2px solid var(--menu-border-color);
+    font-weight: bold;
+  }
 
-        span.badge {
-          color: #fff;
-          display: table;
-          padding: 4px 5px 2px;
-          margin: -4px 0 1px 0;
-        }
+  .header .name-wrapper > .name a:hover {
+    border-color: var(--menu-border-color-hover);
+  }
 
-        .lang {
-          display: inline-flex;
-          margin-right: 0.4em;
-          column-gap: 0.2em;
-          align-items: center;
-        }
-      }
-    }
+  .header .name-wrapper > span {
+    font-size: 1.5rem;
+    color: var(--text-color-link);
+  }
 
-    .social-icon {
-      display: flex;
-      flex-direction: row;
-      gap: 0.3em;
+  .header .name-wrapper > span.th-name {
+    font-size: 2rem;
+  }
 
-      > li > a {
-        display: block;
-        font-size: 0.85rem;
-        color: var(--menu-color);
-        line-height: 2.1rem;
-        padding: 0 0.75em;
-        text-align: center;
-        border-radius: 2px;
-        border: 2px solid var(--menu-border-color);
-        font-weight: bold;
+  .header .grid-personal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0.2em;
+    grid-row-gap: 0.2em;
+  }
 
-        &:hover {
-          border-color: var(--menu-border-color-hover);
-        }
-      }
-    }
+  .header .grid-personal .personal {
+    margin: 10px 0;
+  }
+
+  .header .grid-personal .personal strong {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--text-secondary-value);
+    display: block;
+    line-height: 1;
+  }
+
+  .header .grid-personal .personal small {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 0.75rem;
+  }
+
+  .header .grid-personal .personal span {
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .header .grid-personal .personal span.badge {
+    color: #fff;
+    display: table;
+    padding: 4px 5px 2px;
+    margin: -4px 0 1px 0;
+  }
+
+  .header .grid-personal .personal .lang {
+    display: inline-flex;
+    margin-right: 0.4em;
+    column-gap: 0.2em;
+    align-items: center;
+  }
+
+  .header .social-icon {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3em;
+  }
+
+  .header .social-icon > li > a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--menu-color);
+    line-height: 2.1rem;
+    padding: 0 0.75em;
+    text-align: center;
+    border-radius: 2px;
+    border: 2px solid var(--menu-border-color);
+    font-weight: bold;
+  }
+
+  .header .social-icon > li > a:hover {
+    border-color: var(--menu-border-color-hover);
   }
 </style>

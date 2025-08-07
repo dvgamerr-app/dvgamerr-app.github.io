@@ -1,6 +1,6 @@
 ---
 // import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url"
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer"
+import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
@@ -8,7 +8,7 @@ dayjs.extend(relativeTime)
 import { getLangFromUrl } from '../i18n/utils'
 
 interface Props {
-	title: string
+  title: string
   desc: string
 }
 
@@ -19,17 +19,17 @@ const date = new Date().toISOString()
 const lang = getLangFromUrl(Astro.url)
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={desc}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={desc} />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-		<link rel="icon" type="image/svg+xml" href="/icon-64.webp" />
-		<meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/icon-64.webp" />
+    <meta name="generator" content={Astro.generator} />
     <meta name="application-name" content={title} />
     <meta name="keywords" content="kananek,t.,kananek-thongkam,thongkam,tk,resume,kem,kanane,kt" />
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#C84B31" />
     <meta property="og:locale" content="en_US" />
@@ -56,42 +56,46 @@ const lang = getLangFromUrl(Astro.url)
     <meta name="twitter:image" content={`${website}/fb-social.jpg`} />
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="630" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap" />
-		<title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <GoogleFontsOptimizer
+      url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap"
+    />
+    <title>{title}</title>
     <script async src="https://rum.cronitor.io/script.js"></script>
-	</head>
-	<body>
+  </head>
+  <body>
     <div id="__layout">
       <slot />
     </div>
     <script>
       // @ts-ignore: any
-      window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+      window.cronitor =
+        window.cronitor ||
+        function () {
+          ;(window.cronitor.q = window.cronitor.q || []).push(arguments)
+        }
       // @ts-ignore: any
-      cronitor('config', { clientKey: 'a08df15d735c0c7518246129767fd319' });
+      cronitor('config', { clientKey: 'a08df15d735c0c7518246129767fd319' })
     </script>
-	</body>
+  </body>
 </html>
-<style lang="scss" is:global>
-@import "../styles/global.scss";
-#__layout {
-  border-top: 5px solid var(--text-color-link);
-  padding: 4em 0;
-}
-
-@media print {
+<style is:global>
+  @import '../styles/global.scss';
   #__layout {
-    border-top: none !important;
+    border-top: 5px solid var(--text-color-link);
+    padding: 4em 0;
   }
-}
 
-@media (max-width: 768px) {
-  #__layout {
-    padding: 0 !important;
+  @media print {
+    #__layout {
+      border-top: none !important;
+    }
   }
-}
 
-
+  @media (max-width: 768px) {
+    #__layout {
+      padding: 0 !important;
+    }
+  }
 </style>

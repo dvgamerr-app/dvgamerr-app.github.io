@@ -35,31 +35,31 @@ const { experience } = Astro.props
     </div>
   </div>
 </section>
-<style lang="scss" scoped>
+<style scoped>
   .repos {
     flex: 50%;
+  }
 
-    h3 {
-      span.name {
-        text-transform: uppercase;
-      }
-      span.badge {
-        color: var(--text-primary);
-        font-size: 0.65rem;
-        padding: 0.2em 0.5em 0 0.5em;
-        border-radius: 0.25em !important;
+  .repos h3 span.name {
+    text-transform: uppercase;
+  }
 
-        &.rounded-pill {
-          color: var(--text-badge);
-          background-color: var(--bg-badge);
-        }
-      }
-    }
-    span {
-      display: inline-block;
-      line-height: 0.95rem;
-      padding-right: 4px;
-      font-size: 0.8rem;
-    }
+  .repos h3 span.badge {
+    color: var(--text-primary);
+    font-size: 0.65rem;
+    padding: 0.2em 0.5em 0 0.5em;
+    border-radius: 0.25em !important;
+  }
+
+  .repos h3 span.badge.rounded-pill {
+    color: var(--text-badge);
+    background-color: var(--bg-badge);
+  }
+
+  .repos span {
+    display: inline-block;
+    line-height: 0.95rem;
+    padding-right: 4px;
+    font-size: 0.8rem;
   }
 </style>
