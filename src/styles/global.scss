@@ -69,22 +69,6 @@ html.dark-mode {
   --link-color: #a2a2b3;
 }
 
-// $grid-breakpoints: (
-//   xs: 0,
-//   sm: 576px,
-//   md: 768px,
-//   lg: 992px,
-//   xl: 1200px,
-//   xxl: 1400px
-// );
-// $container-max-widths: (
-//   sm: 540px,
-//   md: 720px,
-//   lg: 960px,
-//   xl: 1140px,
-//   xxl: 1320px
-// );
-
 // Finally load bootstrap
 // Configuration
 @import 'bootstrap/scss/functions';
@@ -247,11 +231,6 @@ html.dark-mode > #__layout {
   }
 }
 
-// #__layout {
-//   position: relative;
-//   z-index: 1;
-// }
-
 code {
   font-size: 90%;
   font-family: var(--font-family-sans-serif);
@@ -364,150 +343,6 @@ ul {
   background: #de4718;
 }
 
-/*btn-default*/
-.btn-default {
-  color: #2a54f5;
-  background-color: transparent;
-  border: 2px solid #2a54f5;
-}
-
-.btn-default:hover,
-.btn-default:focus,
-.btn-default:active:focus {
-  background: #2a54f5;
-  color: #ffffff;
-  border-color: #2a54f5;
-}
-
-/* --------------------
-*  main Wrapper
-* -------------------*/
-#main-wrapper {
-  overflow: hidden;
-}
-
-/*-----------------
-* Review
-*-----------------*/
-
-#review .owl-wrapper .owl-item {
-  padding-right: 20px;
-}
-#review .media-left {
-  padding-right: 15px;
-}
-#review .media-left img {
-  width: 50px;
-  border-radius: 3px;
-}
-
-#review .user-name {
-  color: #444;
-  font-weight: 500;
-}
-
-#review .review-text {
-  margin: 10px 0;
-}
-
-/* rating */
-
-#review .rating {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#review .rating::after {
-  content: attr(data-star_rating);
-  padding: 3px 5px 0;
-  color: #444;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 21px;
-  border-radius: 2px;
-  margin-left: 5px;
-}
-
-#review .rating-total {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  position: relative;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 80px;
-  height: 16px;
-  margin-top: -2px;
-}
-
-#review .rating-progress {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-#review .rating-progress::after,
-#review .rating-progress::before {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-size: 80px 16px;
-  background-repeat: no-repeat;
-  content: '';
-}
-
-/* // #review .rating-progress::before{
-//   background-image: url('~/assets/rating-background.svg');
-// }
-
-// #review .rating-progress::after{
-//   background-image: url('~/assets/rating-foreground.svg');
-// } */
-
-#review .rating-progress.rate-0::after {
-  width: 0;
-}
-
-/* Rating Percent */
-
-#review .rating-progress.rate-1::after {
-  width: 20%;
-}
-
-#review .rating-progress.rate-2::after {
-  width: 40%;
-}
-
-#review .rating-progress.rate-3::after {
-  width: 60%;
-}
-
-#review .rating-progress.rate-4::after {
-  width: 80%;
-}
-
-#review .rating-progress.rate-5::after {
-  width: 100%;
-}
-
 .content-item {
   margin-bottom: 20px;
 }
@@ -526,46 +361,6 @@ ul {
   color: #888888;
 }
 
-/* Pagination */
-
-.owl-controls .owl-page {
-  display: inline-block;
-}
-
-.owl-controls .owl-page span {
-  width: 4px;
-  height: 4px;
-  background: #000;
-  margin-right: 10px;
-  display: block;
-  border-radius: 100%;
-  opacity: 0.3;
-}
-
-.owl-controls .owl-page.active span {
-  opacity: 1;
-  box-shadow: 0 0 0 1px #000;
-}
-
-/*-------------------
-* Market Place Profile
-*-------------------*/
-.profile-item {
-  margin-bottom: 10px;
-}
-
-.profile-item .media-object {
-  width: 30px;
-}
-
-.profile-item a {
-  color: #444;
-}
-
-.profile-item a:hover {
-  color: var(--text-color-link);
-}
-
 /*-------------------
 * Contact
 *-------------------*/
@@ -574,59 +369,6 @@ ul {
   font-size: 13px;
   text-transform: uppercase;
 }
-
-.feedback-form {
-  margin-top: 50px;
-}
-
-/*-------------------
-* Form Style
-*-------------------*/
-.section-contact .form-group label {
-  font-weight: normal;
-  font-size: 13px;
-}
-
-.section-contact input.form-control {
-  height: 46px;
-}
-
-.section-contact textarea.form-control,
-.section-contact input.form-control {
-  line-height: 46px;
-  padding: 0 15px;
-  color: #969595;
-  border-color: #f8f8f8;
-  border-radius: 0;
-  box-shadow: none;
-  box-sizing: border-box;
-  background: #ffffff;
-}
-
-.section-contact .form-control:focus,
-.section-contact .form-control:active {
-  box-shadow: none;
-  background: #ffffff;
-  border-color: #999999;
-}
-/* --------------------------------------------
-*   Footer
-*---------------------------------------------- */
-
-/* Copyright */
-
-/* // @media (max-width: 768px) {
-//   .footer {
-//     text-align: left;
-//   }
-// }
-
-// @media (max-width: 600px) {
-//   .footer {
-//     padding-left: 20px;
-//     padding-right: 20px;
-//   }
-// } */
 
 .pagebreak {
   margin: 0px;
