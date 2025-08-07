@@ -1,12 +1,11 @@
 ---
-
 import { getLangFromUrl } from '../i18n/utils'
 const langName = getLangFromUrl(Astro.url)
 
 interface Frontmatter {
-  title: string;
-  author?: string;
-  description?: string;
+  title: string
+  author?: string
+  description?: string
 }
 
 interface Props {
@@ -16,8 +15,11 @@ interface Props {
 const { filename } = Astro.props
 
 const posts =
-  langName === 'en' ? import.meta.glob<Frontmatter>('../components/work/en/*.md') :
-  langName === 'th' ? import.meta.glob<Frontmatter>('../components/work/th/*.md') : []
+  langName === 'en'
+    ? import.meta.glob<Frontmatter>('../components/work/en/*.md')
+    : langName === 'th'
+      ? import.meta.glob<Frontmatter>('../components/work/th/*.md')
+      : []
 
 let htmlMarkdown = ''
 const fileRegx = RegExp(filename, 'ig')
@@ -29,4 +31,5 @@ for (const post of Object.values(posts)) {
   }
 }
 ---
+
 <div class="markdown pt-1" set:html={htmlMarkdown} />

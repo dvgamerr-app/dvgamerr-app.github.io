@@ -8,8 +8,8 @@ interface Props {
 }
 
 const { experience } = Astro.props
-
 ---
+
 <section class="section-wrapper section-repos d-print-none">
   <div class="row">
     <div class="col-lg-9 col-md-11">
@@ -18,16 +18,20 @@ const { experience } = Astro.props
       </div>
     </div>
     <div class="col-lg-27 col-md-25 col-sm-36 d-flex flex-wrap">
-      {experience.repos.map((e:any) => (
-      <div class="repos">
-        <h3 class="m-0">
-          <span class="badge">{dayjs(e.created_at).year()}</span>
-          <a href={e.svn_url} target="_blank"><span class="name">{e.name}</span></a>
-          {e.stargazers_count ? (<span class="badge rounded-pill">Stared {e.stargazers_count}</span>) : (<span />) }
-        </h3>
-        <span>{e.description}</span>
-      </div>
-      ))}
+      {
+        experience.repos.map((e: any) => (
+          <div class="repos">
+            <h3 class="m-0">
+              <span class="badge">{dayjs(e.created_at).year()}</span>
+              <a href={e.svn_url} target="_blank">
+                <span class="name">{e.name}</span>
+              </a>
+              {e.stargazers_count ? <span class="badge rounded-pill">Stared {e.stargazers_count}</span> : <span />}
+            </h3>
+            <span>{e.description}</span>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -41,9 +45,9 @@ const { experience } = Astro.props
       }
       span.badge {
         color: var(--text-primary);
-        font-size: .65rem;
-        padding: .2em .5em 0 .5em;
-        border-radius: .25em !important;
+        font-size: 0.65rem;
+        padding: 0.2em 0.5em 0 0.5em;
+        border-radius: 0.25em !important;
 
         &.rounded-pill {
           color: var(--text-badge);
@@ -53,10 +57,9 @@ const { experience } = Astro.props
     }
     span {
       display: inline-block;
-      line-height: .95rem;
+      line-height: 0.95rem;
       padding-right: 4px;
-      font-size: .8rem;
+      font-size: 0.8rem;
     }
   }
-
 </style>

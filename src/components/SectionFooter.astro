@@ -2,10 +2,10 @@
 import { getTranslate } from '../i18n/utils'
 const t = getTranslate(Astro.url)
 
-import { Image } from 'astro:assets';
-import { version } from '../../package.json';
+import { Image } from 'astro:assets'
+import { version } from '../../package.json'
 import webring from '../assets/webring.svg'
-const getYear = (new Date()).getFullYear()
+const getYear = new Date().getFullYear()
 ---
 
 <footer class="container d-print-none">
@@ -13,35 +13,38 @@ const getYear = (new Date()).getFullYear()
     <div class="row">
       <div class="col-36">
         <div class="copytext">
-          &copy; {getYear} <b>dvgamerr</b> {t('footer.sponser')}
-          <a href="https://sponsor.dvgamerr.app/" target="_blank">Kananek T.</a> {t('footer.and')}
+          &copy; {getYear}
+          <b>dvgamerr</b>
+          {t('footer.sponser')}
+          <a href="https://sponsor.dvgamerr.app/" target="_blank">Kananek T.</a>
+          {t('footer.and')}
           <a href="https://webring.wonderful.software#dvgamerr.app">
-            webring <Image alt="webring" src={webring} width={14} height={14} style="margin-top: -.2em">
-          </a> v{version}
+            webring <Image alt="webring" src={webring} width={14} height={14} style="margin-top: -.2em" /> v{version}
+          </a>
         </div>
       </div>
     </div>
   </div>
-</footer>
 
-<style lang="scss">
-.footer {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding-top: 3em;
+  <style lang="scss">
+    .footer {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 3em;
 
-  &.copyright-section {
-    font-size: .8rem;
+      &.copyright-section {
+        font-size: 0.8rem;
 
-    .copytext {
-      font-weight: 400;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-content: center;
-      justify-content: flex-end;
-      align-items: flex-end;
-      column-gap: 0.3em;
+        .copytext {
+          font-weight: 400;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-content: center;
+          justify-content: flex-end;
+          align-items: flex-end;
+          column-gap: 0.3em;
+        }
+      }
     }
-  }
-}
-</style>
+  </style>
+</footer>

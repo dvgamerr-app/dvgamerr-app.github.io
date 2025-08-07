@@ -40,7 +40,7 @@
 ## Styling Guidelines
 
 - **Primary Styling**: Use Bootstrap 5 classes for layout, components, and utilities
-- **Custom Styles**: Add custom SCSS in src/styles/ following the existing pattern (_1-header.scss, _2-contact.scss, etc.)
+- **Custom Styles**: Add custom SCSS in src/styles/ following the existing pattern (\_1-header.scss, \_2-contact.scss, etc.)
 - **Global Styles**: Use global.scss for site-wide styles
 - **Responsive Design**: Utilize Bootstrap's responsive grid system and utilities
 

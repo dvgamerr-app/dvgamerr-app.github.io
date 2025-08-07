@@ -3,12 +3,19 @@ import coding from '../i18n/coding.json'
 import { getTranslate } from '../i18n/utils'
 const t = getTranslate(Astro.url)
 
-
 const maxDayTime = Math.max(...coding.daytime)
 const maxWeekTime = Math.max(...coding.weektime)
 
-const weekDay = [ t('daytime.mon'), t('daytime.tue'), t('daytime.wed'), t('daytime.thu'), t('daytime.fri'), t('daytime.sat'), t('daytime.sun') ]
-const weekSize = [ 0, 1, 2, 3, 4, 5 ]
+const weekDay = [
+  t('daytime.mon'),
+  t('daytime.tue'),
+  t('daytime.wed'),
+  t('daytime.thu'),
+  t('daytime.fri'),
+  t('daytime.sat'),
+  t('daytime.sun'),
+]
+const weekSize = [0, 1, 2, 3, 4, 5]
 
 const chartDay = [
   { name: t('daytime.morning'), startOfIndex: 6 },
@@ -17,15 +24,15 @@ const chartDay = [
   { name: t('daytime.night'), startOfIndex: 0 },
 ]
 
-const maxGroupDay = chartDay.find(e => maxDayTime === Math.max(...weekSize.map(i => coding.daytime[i+e.startOfIndex]))).name
+const maxGroupDay = chartDay.find((e) => maxDayTime === Math.max(...weekSize.map((i) => coding.daytime[i + e.startOfIndex]))).name
 
-const getDayHightlight = (e:any) => maxGroupDay === e.name ? 'highlight' : ''
-const dayOfWeek = (v:any) => weekDay[coding.weektime.findIndex(e => e === v)]
-const getWeekHightlight = (v:number) => maxWeekTime === v ? 'highlight' : ''
-const colDaySize = (n:number = 0) => ({ '--size': `calc( ${coding.daytime[n] * 100 / maxDayTime} / 100 )`})
-const colWeekSize = (n:number = 0) => ({ '--size': `calc( ${n * 100 / maxWeekTime} / 100 )`})
-
+const getDayHightlight = (e: any) => (maxGroupDay === e.name ? 'highlight' : '')
+const dayOfWeek = (v: any) => weekDay[coding.weektime.findIndex((e) => e === v)]
+const getWeekHightlight = (v: number) => (maxWeekTime === v ? 'highlight' : '')
+const colDaySize = (n: number = 0) => ({ '--size': `calc( ${(coding.daytime[n] * 100) / maxDayTime} / 100 )` })
+const colWeekSize = (n: number = 0) => ({ '--size': `calc( ${(n * 100) / maxWeekTime} / 100 )` })
 ---
+
 <section class="section-wrapper section-coding-daytime d-print-none">
   <div class="row">
     <div class="col-lg-9 col-md-11">
@@ -41,16 +48,22 @@ const colWeekSize = (n:number = 0) => ({ '--size': `calc( ${n * 100 / maxWeekTim
             <caption>{t('daytime.caption')}</caption>
             <thead>
               <tr>
-                {chartDay.map((e:any) => (<th>{e.name}</th>))}
+                {chartDay.map((e: any) => <th>{e.name}</th>)}
               </tr>
             </thead>
             <tbody>
-              {chartDay.map((e:any) => (
-                <tr>
-                  <th scope="row" class={getDayHightlight(e)}>{e.name}</th>
-                  {weekSize.map(i => (<td class={getDayHightlight(e)} style={colDaySize(i+e.startOfIndex)} />))}
-                </tr>
-              ))}
+              {
+                chartDay.map((e: any) => (
+                  <tr>
+                    <th scope="row" class={getDayHightlight(e)}>
+                      {e.name}
+                    </th>
+                    {weekSize.map((i) => (
+                      <td class={getDayHightlight(e)} style={colDaySize(i + e.startOfIndex)} />
+                    ))}
+                  </tr>
+                ))
+              }
             </tbody>
           </table>
         </div>
@@ -58,12 +71,16 @@ const colWeekSize = (n:number = 0) => ({ '--size': `calc( ${n * 100 / maxWeekTim
         <div class="col-sm-36 col-lg-18">
           <table id="charts-weektime" class="charts-css column data-spacing-5 datasets-spacing-3 hide-data show-labels">
             <tbody>
-              {coding.weektime.map(e => (
-              <tr>
-                <th scope="row" class={getWeekHightlight(e)}>{dayOfWeek(e)}</th>
-                <td style={colWeekSize(e)} class={getWeekHightlight(e)} />
-              </tr>
-              ))}
+              {
+                coding.weektime.map((e) => (
+                  <tr>
+                    <th scope="row" class={getWeekHightlight(e)}>
+                      {dayOfWeek(e)}
+                    </th>
+                    <td style={colWeekSize(e)} class={getWeekHightlight(e)} />
+                  </tr>
+                ))
+              }
             </tbody>
           </table>
         </div>
@@ -73,17 +90,18 @@ const colWeekSize = (n:number = 0) => ({ '--size': `calc( ${n * 100 / maxWeekTim
 </section>
 
 <style lang="scss">
-html {
-  --charts-color: #cbcbcb;
-  --charts-highlight: #37d67a;
-}
+  html {
+    --charts-color: #cbcbcb;
+    --charts-highlight: #37d67a;
+  }
 
-html.dark-mode {
-  --charts-color: #444758;
-  --charts-highlight: #ffdc5a;
-}
+  html.dark-mode {
+    --charts-color: #444758;
+    --charts-highlight: #ffdc5a;
+  }
 
-  #charts-daytime, #charts-weektime {
+  #charts-daytime,
+  #charts-weektime {
     max-width: 95%;
     margin: 0 auto;
   }
@@ -99,14 +117,14 @@ html.dark-mode {
   table.charts-css {
     > caption {
       color: var(--text-muted);
-      font-size: .75rem;
+      font-size: 0.75rem;
       position: absolute;
       margin-top: -1.9em;
     }
     > tbody {
       th {
         text-transform: capitalize;
-        font-size: .75rem;
+        font-size: 0.75rem;
         &.highlight {
           color: var(--charts-highlight);
         }
@@ -121,23 +139,23 @@ html.dark-mode {
         --color: var(--charts-color);
       }
       tr {
-         > th[scope="row"] {
+        > th[scope='row'] {
           margin-bottom: -2.3em;
           line-height: 2.2em;
-          border-top: .15em solid var(--text-muted);
+          border-top: 0.15em solid var(--text-muted);
 
-      //     &.highlight {
-      //       border-top: 2px solid var(--charts-highlight);
-      //       color: var(--charts-highlight);
-      //     }
-      //   }
-      //   > td {
-      //     &.highlight {
-      //       --color: #767676;
-      //       color: var(--charts-highlight);
-      //     }
+          //     &.highlight {
+          //       border-top: 2px solid var(--charts-highlight);
+          //       color: var(--charts-highlight);
+          //     }
+          //   }
+          //   > td {
+          //     &.highlight {
+          //       --color: #767676;
+          //       color: var(--charts-highlight);
+          //     }
         }
       }
     }
   }
-  </style>
+</style>

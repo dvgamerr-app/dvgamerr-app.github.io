@@ -3,10 +3,11 @@ import coding from '../i18n/coding.json'
 import { getTranslate } from '../i18n/utils'
 const t = getTranslate(Astro.url)
 
-const parseTime = (seconds:number = 0) => {
-  return `${seconds > 60 * 60 ? `${Math.round(seconds / 60 / 60)}${t('code-history.hour')} ` : ''}${Math.round(seconds / 60 % 60)}${t('code-history.minute')}`
+const parseTime = (seconds: number = 0) => {
+  return `${seconds > 60 * 60 ? `${Math.round(seconds / 60 / 60)}${t('code-history.hour')} ` : ''}${Math.round((seconds / 60) % 60)}${t('code-history.minute')}`
 }
 ---
+
 <section class="section-wrapper section-coding d-print-none">
   <div class="row">
     <div class="col-lg-9 col-md-11">

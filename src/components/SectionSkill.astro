@@ -10,6 +10,7 @@ const { experience } = Astro.props
 
 const skillList = Object.keys(experience.skill)
 ---
+
 <section class="section-wrapper section-skills">
   <div class="row">
     <div class="col-lg-9 col-md-11">
@@ -19,14 +20,21 @@ const skillList = Object.keys(experience.skill)
     </div>
     <div class="col-lg-27 col-md-25 col-sm-36">
       <div class="row">
-        {skillList.map((e:string) => (
-        <div class="col-md-36 skill-list">
-          <h3 class="mb-1">{t(`skills.${e}`)}</h3>
-          <ul class="pb-3">
-            {experience.skill[e].filter((e:string) => !['hack'].includes(e.toLowerCase())).sort().map((l:any) => (<li>{l}</li>))}
-          </ul>
-        </div>
-        ))}
+        {
+          skillList.map((e: string) => (
+            <div class="col-md-36 skill-list">
+              <h3 class="mb-1">{t(`skills.${e}`)}</h3>
+              <ul class="pb-3">
+                {experience.skill[e]
+                  .filter((e: string) => !['hack'].includes(e.toLowerCase()))
+                  .sort()
+                  .map((l: any) => (
+                    <li>{l}</li>
+                  ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
@@ -38,7 +46,7 @@ const skillList = Object.keys(experience.skill)
   .skill-list li {
     display: inline-block;
     padding-right: 4px;
-    font-size: .85rem;
+    font-size: 0.85rem;
   }
   .skill-list li:after {
     content: ',';

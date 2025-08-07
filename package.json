@@ -13,8 +13,13 @@
     "collector": "bun ./collector/index.js --wakatime --github | pino-pretty",
     "astro": "astro"
   },
+  "lint-staged": {
+    "*": "prettier --check . --write",
+    "*.js": "eslint --fix"
+  },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.2",
+    "@astrojs/tailwind": "^6.0.2",
     "@cronitorio/cronitor-rum": "^0.4.1",
     "arg": "^5.0.2",
     "astro": "5.1.7",
@@ -23,18 +28,25 @@
     "astro-webmanifest": "^1.0.0",
     "numeral": "^2.0.6",
     "pino": "^9.7.0",
-    "sharp": "^0.33.5"
+    "sharp": "0.34.3",
+    "tailwindcss": "4.1.11"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@vite-pwa/astro": "^0.5.1",
+    "@eslint/js": "^9.32.0",
+    "@vite-pwa/astro": "1.1.0",
     "bootstrap": "^5.3.7",
     "charts.css": "^1.2.0",
     "dayjs": "^1.11.13",
-    "dotenv": "^16.6.1",
+    "dotenv": "17.2.1",
+    "eslint": "^9.32.0",
+    "eslint-plugin-perfectionist": "^4.15.0",
+    "globals": "^16.3.0",
+    "lint-staged": "^16.1.4",
     "pino-pretty": "^13.1.1",
-    "sass": "^1.89.2"
+    "prettier": "^3.6.2",
+    "sass": "^1.90.0"
   },
   "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276"
 }

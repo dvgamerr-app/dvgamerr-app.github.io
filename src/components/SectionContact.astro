@@ -1,19 +1,19 @@
 ---
-import githubIco from '../assets/icon/github.svg?raw';
-import twitterIco from '../assets/icon/twitter.svg?raw';
-import instagramIco from '../assets/icon/instagram.svg?raw';
-import emailIco from '../assets/icon/email.svg?raw';
-import mobileIco from '../assets/icon/mobile.svg?raw';
+import githubIco from '../assets/icon/github.svg?raw'
+import twitterIco from '../assets/icon/twitter.svg?raw'
+import instagramIco from '../assets/icon/instagram.svg?raw'
+import emailIco from '../assets/icon/email.svg?raw'
+import mobileIco from '../assets/icon/mobile.svg?raw'
 
 import { getTranslate } from '../i18n/utils'
 const t = getTranslate(Astro.url)
 
 const iconAssets = {
-  'github': githubIco,
-  'twitter': twitterIco,
-  'instagram': instagramIco,
-  'email': emailIco,
-  'mobile': mobileIco
+  github: githubIco,
+  twitter: twitterIco,
+  instagram: instagramIco,
+  email: emailIco,
+  mobile: mobileIco,
 }
 
 const filterPrint = (e: any) => e.label !== 'MOBILE' && e.label !== 'EMAIL'
@@ -34,6 +34,7 @@ interface Props {
 
 const { experience } = Astro.props
 ---
+
 <section class="section-wrapper section-contact">
   <div class="row">
     <div class="col-lg-9 col-md-11">
@@ -43,45 +44,71 @@ const { experience } = Astro.props
     </div>
     <div class="col-lg-27 col-md-25 col-sm-36">
       <div class="d-grid contact-item">
-        {getContactPrint().filter((e: any) => e.qrcode).map((e: any) => (
+        {
+          getContactPrint()
+            .filter((e: any) => e.qrcode)
+            .map((e: any) => (
+              <div class="d-print-only">
+                <address>
+                  <img src={e.qrcode} height="160" alt={`QR ${e.label}`} data-not-lazy />
+                </address>
+              </div>
+            ))
+        }
         <div class="d-print-only">
-          <address>
-            <img src={e.qrcode} height="160" alt={`QR ${e.label}`} data-not-lazy>
-          </address>
-        </div>
-        ))}
-        <div class="d-print-only">
-          {getContactPrint().filter((e: any) => !e.qrcode).map((e: any) => (
-            <address>
-              <strong>{t(`contact.${e.label.toLowerCase()}`)}</strong><br>
-              <a href={e.url} target={filterPrint(e) ? '_blank' : ''} class="d-flex align-flex-start justify-content-start" style="gap: .2em;">
-                <div set:html={iconAssets[e.icon || 'chrome']} style="width: 16px;" />
-                <div style="padding-top:.1em">{e.text}</div>
-              </a>
-            </address>
-          ))}
+          {
+            getContactPrint()
+              .filter((e: any) => !e.qrcode)
+              .map((e: any) => (
+                <address>
+                  <>
+                    <strong>{t(`contact.${e.label.toLowerCase()}`)}</strong>
+                    <br />
+                  </>
+                  <a
+                    href={e.url}
+                    target={filterPrint(e) ? '_blank' : ''}
+                    class="d-flex align-flex-start justify-content-start"
+                    style="gap: .2em;"
+                  >
+                    <div set:html={iconAssets[e.icon || 'chrome']} style="width: 16px;" />
+                    <div style="padding-top:.1em">{e.text}</div>
+                  </a>
+                </address>
+              ))
+          }
         </div>
 
-        {getContactView().map((e: any) => (
-        <div class="d-print-none">
-          <address>
-            <strong>{t(`contact.${e.label.toLowerCase()}`)}</strong><br>
-            <a href={e.url} target={filterPrint(e) ? '_blank' : ''} class="d-flex align-flex-start justify-content-start" style="gap: .2em;">
-              <div set:html={iconAssets[e.icon || 'chrome']} style="width: 16px;" />
-              <div style="padding-top:.1em">{e.text}</div>
-            </a>
-          </address>
-        </div>
-        ))}
+        {
+          getContactView().map((e: any) => (
+            <div class="d-print-none">
+              <address>
+                <>
+                  <strong>{t(`contact.${e.label.toLowerCase()}`)}</strong>
+                  <br />
+                </>
+                <a
+                  href={e.url}
+                  target={filterPrint(e) ? '_blank' : ''}
+                  class="d-flex align-flex-start justify-content-start"
+                  style="gap: .2em;"
+                >
+                  <div set:html={iconAssets[e.icon || 'chrome']} style="width: 16px;" />
+                  <div style="padding-top:.1em">{e.text}</div>
+                </a>
+              </address>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
 </section>
 
 <style>
-@media print {
-  address a {
-    color: inherit !important;
+  @media print {
+    address a {
+      color: inherit !important;
+    }
   }
-}
 </style>

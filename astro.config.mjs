@@ -1,13 +1,12 @@
-import { defineConfig, passthroughImageService } from 'astro/config';
-import AstroPWA from '@vite-pwa/astro';
-import robotsTxt from 'astro-robots-txt';
-import sitemap from '@astrojs/sitemap';
-
-import webmanifest from 'astro-webmanifest';
+import sitemap from '@astrojs/sitemap'
+import tailwind from '@astrojs/tailwind'
+import AstroPWA from '@vite-pwa/astro'
+import robotsTxt from 'astro-robots-txt'
+import webmanifest from 'astro-webmanifest'
+import { defineConfig, passthroughImageService } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://dvgamerr.app',
   image: {
     service: passthroughImageService(),
   },
@@ -24,15 +23,16 @@ export default defineConfig({
       },
     }),
     webmanifest({
-      name: 'Kananek Thongkam | Software Engineer',
+      background_color: '#f8f8f8',
+      description: "Hey there, My name is Kananek T. and I'm a Software Engineer.",
+      display: 'standalone',
       icon: 'public/icon.webp', // source for favicon & icons
+      name: 'Kananek Thongkam | Software Engineer',
       short_name: 'dvgamerr',
-      description:
-        "Hey there, My name is Kananek T. and I'm a Software Engineer.",
       start_url: '/',
       theme_color: '#3068d9',
-      background_color: '#f8f8f8',
-      display: 'standalone',
     }),
+    tailwind(),
   ],
-});
+  site: 'https://dvgamerr.app',
+})

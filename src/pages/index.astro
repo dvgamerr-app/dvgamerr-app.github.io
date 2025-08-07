@@ -1,155 +1,36 @@
 ---
 import dayjs from 'dayjs'
-import "dayjs/locale/th";
+import 'dayjs/locale/th'
 import Layout from '../layouts/Layout.astro'
 import SectionHeader from '../components/SectionHeader.astro'
-import SectionProject from '../components/SectionProject.astro'
-import SectionContact from '../components/SectionContact.astro'
-import SectionCoding from '../components/SectionCoding.astro'
-import SectionDaytime from '../components/SectionCodingDaytime.astro'
-import SectionHistory from '../components/SectionCodingHistory.astro'
-import SectionSkill from '../components/SectionSkill.astro'
-import SectionEducation from '../components/SectionEducation.astro'
+import SectionMainContent from '../components/SectionMainContent.astro'
+import SectionWorkExperience from '../components/SectionWorkExperience.astro'
 import SectionFooter from '../components/SectionFooter.astro'
-import SectionWork from '../components/SectionWork.astro'
 
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
-const langName = getLangFromUrl(Astro.url)
-const t = useTranslations(langName)
-
-dayjs.locale(langName)
-
-interface Frontmatter {
-  title: string;
-  author?: string;
-  description?: string;
-}
-const isNewJob = (begin:string) => dayjs(begin).diff(dayjs(), 'second') > 0
-
-const getWorkPeriod = ({ begin, quit }) => {
-  if (isNewJob(begin)) {
-    return `Start in ${dayjs(begin).fromNow(true)}`
-  }
-
-  const dateBegin = dayjs(begin).add(langName == 'th' ? 543 : 0, 'year')
-  const dateQuit = dayjs(quit).add(langName == 'th' ? 543 : 0, 'year')
-
-  let day = dateQuit.diff(dateBegin, 'day')
-  let month = dateQuit.diff(dateBegin, 'month')
-  const year = dateQuit.diff(dateBegin, 'year')
-  const dayOnly = !month && !year
-
-  if (!dayOnly) day = Math.round(day % 30.4377104) // (74year*365day + 25year*366day) / 99year / 12month
-  if (year > 0) month %=  12
-
-  const yearText = year ? ` ${year} ${t('date.year')}` : ''
-  const monthText = month ? ` ${month} ${t('date.month')}` : ''
-  const dayText = day && !year ? ` ${day} ${t('date.day')}` : ''
-
-  begin = dateBegin.format(`${dayOnly?'D ':''}MMMM YYYY`)
-  quit = quit ? `${dateQuit.format(`${dayOnly?'D ':''}MMMM YYYY`)} ( ${(yearText+monthText+dayText).trim()} )` : t('date.present')
-  return `${begin} — ${quit}`
-}
+import { getLangFromUrl } from '../i18n/utils'
 
 interface Props {
-  resume: any;
-  experience?: any;
+  resume: any
+  experience?: any
 }
 
-import expData from  '../i18n/experience.json'
-import resumeData from  '../i18n/resume.en.json'
-const { experience = expData, resume = resumeData } = Astro.props;
+// Import data
+import expData from '../i18n/experience.json'
+import resumeData from '../i18n/resume.en.json'
 
+// Setup locale and data
+const langName = getLangFromUrl(Astro.url)
+const { experience = expData, resume = resumeData } = Astro.props
+
+dayjs.locale(langName)
 ---
 
 <Layout title={`${resume.fullname} | ${resume.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Software Engineer.">
   <div class="resume">
     <SectionHeader resume={resume} experience={experience} />
-    <div class="container">
-      <SectionProject experience={experience} />
-      <SectionContact experience={experience} />
-      <SectionCoding />
-      <SectionDaytime />
-      <SectionHistory />
-      <SectionSkill experience={experience} />
-      <SectionEducation resume={resume} />
-    </div>
-    <p class="pagebreak" />
-    {resume.work.map(e => !e.pagebreak ? (
-      <section class="section-wrpper section-work pt-3 pb-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-9 col-md-11">
-              <div class="section-title">
-                <h2>{t('experience')}</h2>
-                {isNewJob(e.range.begin) ? (<span class="badge text-bg-success" style="margin-top: 1em;">{t('experience.newjob')}</span>):(<span />)}
-              </div>
-            </div>
-            <div class="col-lg-27 col-md-25 col-sm-36 content-job">
-              <small style="margin-top: -2px;display: block;">
-                {getWorkPeriod(e.range)}
-              </small>
-              {!e.jobs && (<h3>{e.job}</h3>)}
-              <h4>{e.work}</h4>
-              {!e.jobs && (<SectionWork filename={e.file} />)}
-              <div class="content-subjob">
-                {e.jobs && e.jobs.map(j => (
-                <div>
-                  <h3>{j.job}</h3>
-                  <small>{getWorkPeriod(j.range)}</small>
-                  <SectionWork filename={j.file} />
-                </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    ) : (<p class="pagebreak" />))}
+    <SectionMainContent resume={resume} experience={experience} />
+    <p class="pagebreak"></p>
+    <SectionWorkExperience workExperience={resume.work} />
     <SectionFooter />
   </div>
 </Layout>
-
-<style lang="scss">
-.content-job {
-  margin-bottom: 20px;
-
-  h3 {
-    margin: 0 0 10px;
-    line-height: 1;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  h4 {
-    margin: 0;
-    line-height: 1;
-  }
-  small {
-    color: var(--text-secondary);
-  }
-  p {
-    margin-top: 15px;
-    margin-bottom: 0px;
-  }
-
-  ul {
-    margin: 0 0 0 5px;
-    li::before {
-      content: '•';
-      margin-right: 5px;
-    }
-  }
-
-  .content-subjob {
-    padding: 15px 0px 0px 0px;
-    > div {
-      padding: 10px 0px;
-      h3 {
-        margin: 0px;
-      }
-    }
-  }
-
-}
-</style>

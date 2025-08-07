@@ -8,6 +8,7 @@ interface Props {
 
 const { resume } = Astro.props
 ---
+
 <section class="section-wrapper section-education">
   <div class="row">
     <div class="col-lg-9 col-md-11">
@@ -17,16 +18,18 @@ const { resume } = Astro.props
     </div>
     <div class="col-lg-27 col-md-25 col-sm-36">
       <div class="row">
-        {resume.education.map(e => (
-        <div class="col-md-18 col-sm-18">
-          <div class="content-item">
-            <small>{e.range}</small>
-            <h3>{e.major}</h3>
-            <h4>{e.location}</h3>
-            <p>{e.branch}</h3>
-          </div>
-        </div>
-        ))}
+        {
+          resume.education.map((e) => (
+            <div class="col-md-18 col-sm-18">
+              <div class="content-item">
+                <small>{e.range}</small>
+                <h3>{e.major}</h3>
+                <h4>{e.location}</h4>
+                <p>{e.branch}</p>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
