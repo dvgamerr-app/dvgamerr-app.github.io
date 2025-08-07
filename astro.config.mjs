@@ -1,5 +1,4 @@
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
 import AstroPWA from '@vite-pwa/astro'
 import robotsTxt from 'astro-robots-txt'
 import webmanifest from 'astro-webmanifest'
@@ -32,7 +31,6 @@ export default defineConfig({
       start_url: '/',
       theme_color: '#3068d9',
     }),
-    tailwind(),
   ],
   site: 'https://dvgamerr.app',
 })

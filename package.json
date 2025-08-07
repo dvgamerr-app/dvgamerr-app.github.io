@@ -35,6 +35,7 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.32.0",
+    "@tailwindcss/postcss": "^4.1.11",
     "@vite-pwa/astro": "1.1.0",
     "bootstrap": "^5.3.7",
     "charts.css": "^1.2.0",
