@@ -29,6 +29,7 @@ dayjs.locale(langName)
 <Layout
   title={`${resume.fullname} - ${resume.job} | Portfolio & Resume`}
   description={resume.detail.substring(0, 180) + (resume.detail.length > 180 ? '...' : '')}
+  image=""
 >
   <div class="pt-5">
     <SectionHeader resume={resume} experience={experience} />
@@ -45,3 +46,142 @@ dayjs.locale(langName)
     <SectionFooter />
   </div>
 </Layout>
+<style is:global>
+  :root {
+    --tooltip-color: #dc3545;
+  }
+
+  #__layout .section-title {
+    min-height: 65px;
+    margin-right: 30px;
+    text-align: right;
+  }
+
+  #__layout .section-title h2 {
+    min-width: 175px;
+    font-size: 1.2rem;
+    line-height: 0;
+    margin-bottom: 0 !important;
+    margin-top: 0.9em;
+    color: #bbbbbb;
+    text-transform: uppercase;
+  }
+
+  #__layout .section-title small {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+  }
+
+  #__layout .profile-img img {
+    object-position: top;
+    object-fit: contain;
+    max-height: 380px;
+    width: 100%;
+  }
+
+  /* Contact grid layout - Default and responsive */
+  #__layout .section-contact .contact-item {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Tooltip styles */
+  .tippy-tooltip.dark-theme {
+    background-color: var(--tooltip-color) !important;
+  }
+
+  .tippy-roundarrow {
+    fill: var(--tooltip-color) !important;
+  }
+
+  /* Address link styles */
+  #__layout address a {
+    fill: var(--text-secondary);
+  }
+
+  /* Coding stats grid */
+  .section-coding .stats {
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0.2em;
+    grid-row-gap: 1em;
+  }
+
+  .stats-item .name {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .stats-item .value {
+    color: var(--text-secondary-value);
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+
+  /* Mobile responsive styles */
+  @media (max-width: 36rem) {
+    #__layout .header {
+      padding: 2em 0 0 0;
+    }
+
+    #__layout .header .name-wrapper {
+      margin-bottom: 0em;
+    }
+
+    #__layout .header .profile-img {
+      margin-bottom: 5em;
+      height: 420px;
+    }
+
+    #__layout .header .profile-img img {
+      position: absolute;
+      object-position: top;
+      object-fit: cover;
+      max-height: 460px;
+      width: 100%;
+      top: 5px;
+      left: 0;
+    }
+
+    #__layout .header .section-wrapper.grid-personal {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+
+    #__layout .section-title {
+      padding-top: 1em;
+      text-align: left;
+    }
+
+    #__layout .section-title h2 {
+      font-size: 1.4rem;
+    }
+  }
+
+  /* Tablet and larger screens */
+  @media (min-width: 896px) {
+    #__layout .section-contact .contact-item {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Coding stats mobile layout */
+  @media (max-width: 896px) {
+    #__layout .section-coding .stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    #__layout address a {
+      fill: var(--text-secondary);
+      font-weight: bold;
+      text-decoration: none !important;
+    }
+
+    #__layout .section-contact .contact-item {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 1em;
+    }
+  }
+</style>
