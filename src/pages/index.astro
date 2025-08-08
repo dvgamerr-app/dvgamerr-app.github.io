@@ -26,8 +26,11 @@ const { experience = expData, resume = resumeData } = Astro.props
 dayjs.locale(langName)
 ---
 
-<Layout title={`${resume.fullname} | ${resume.job}`} desc="Hey there, I\'m Kananek Thongkam and work as Software Engineer.">
-  <div class="resume">
+<Layout
+  title={`${resume.fullname} - ${resume.job} | Portfolio & Resume`}
+  description={resume.detail.substring(0, 180) + (resume.detail.length > 180 ? '...' : '')}
+>
+  <div class="pt-5">
     <SectionHeader resume={resume} experience={experience} />
     <SectionMainContent resume={resume} experience={experience} />
     {

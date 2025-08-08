@@ -1,18 +1,11 @@
 ---
-layout: ../../layouts/PostLayout.astro
+date: 2025-01-19
 title: 'Disabling DHCP on macOS: A Step-by-Step Guide'
-pubDate: 2025-01-19
-description: 'Learn how to disable the built-in DHCP service on macOS to avoid port conflicts.'
+description: 'If you encounter issues such as port conflicts when running a DHCP server on macOS, you might need to disable the built-in DHCP service. This guide walks you through the process of disabling DHCP using the `bootpd.plist` configuration file.'
 author: 'Kananek T.'
 image:
-  url: /cover/disabling-dhcp.webp
+  src: '../../assets/cover/disabling-dhcp.webp'
 tags: ['macOS', 'DHCP', 'networking']
----
-
-# Disabling DHCP on macOS: A Step-by-Step Guide
-
-If you encounter issues such as port conflicts when running a DHCP server on macOS, you might need to disable the built-in DHCP service. This guide walks you through the process of disabling DHCP using the `bootpd.plist` configuration file.
-
 ---
 
 ## Symptoms of DHCP Conflicts

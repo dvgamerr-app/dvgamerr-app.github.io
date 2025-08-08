@@ -1,27 +1,30 @@
 ---
+import type { CollectionEntry } from 'astro:content'
 import Layout from './Layout.astro'
 import GoogleAd from '../components/GoogleAd.astro'
 
-interface Props {
-  title: string
-  description?: string
-  desc?: string
+type Props = {
+  blog: CollectionEntry<'blogs'>
 }
 
-const { title } = Astro.props as Props
-const desc = (Astro.props as Props).desc ?? (Astro.props as Props).description ?? ''
+const { blog = { data: { title: '', description: '' } } } = Astro.props
+
+const pageTitle = blog.data.title.substring(0, 60)
+const pageDescription = blog.data.description.substring(0, 180) + (blog.data.description.length > 180 ? '...' : '')
 ---
 
-<Layout title={title} desc={desc}>
+<Layout title={pageTitle} description={pageDescription}>
   <div class="container py-4">
-    {
-      import.meta.env.PUBLIC_ADSENSE_POST_TOP_SLOT && (
-        <div class="my-3 d-print-none">
-          <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_POST_TOP_SLOT} />
-        </div>
-      )
-    }
     <article class="markdown">
+      <h1>{blog.data.title}</h1>
+      <p>{blog.data.description}</p>
+      {
+        import.meta.env.PUBLIC_ADSENSE_POST_TOP_SLOT && (
+          <div class="my-3 d-print-none">
+            <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_POST_TOP_SLOT} />
+          </div>
+        )
+      }
       <slot />
     </article>
     {

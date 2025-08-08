@@ -9,10 +9,10 @@ import { getLangFromUrl } from '../i18n/utils'
 
 interface Props {
   title: string
-  desc: string
+  description: string
 }
 
-const { title, desc } = Astro.props
+const { title: pageTitle, description: pageDescription } = Astro.props
 const website = 'https://dvgamerr.app'
 const date = new Date().toISOString()
 
@@ -23,21 +23,21 @@ const lang = getLangFromUrl(Astro.url)
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={desc} />
+    <meta name="description" content={pageDescription} />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="icon" type="image/svg+xml" href="/icon-64.webp" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="application-name" content={title} />
+    <meta name="application-name" content={pageTitle} />
     <meta name="keywords" content="kananek,t.,kananek-thongkam,thongkam,tk,resume,kem,kanane,kt" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#C84B31" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={desc} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={website} />
-    <meta property="og:site_name" content={title} />
+    <meta property="og:site_name" content={pageTitle} />
     <meta property="og:updated_time" content={date} />
     <meta property="og:image" content={`${website}/fb-social.jpg`} />
     <meta property="og:image:width" content="1200" />
@@ -49,8 +49,8 @@ const lang = getLangFromUrl(Astro.url)
     <meta property="article:published_time" content={date} />
     <meta property="article:modified_time" content={date} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:site" content="@dvgamerr" />
     <meta name="twitter:creator" content="@dvgamerr" />
     <meta name="twitter:image" content={`${website}/fb-social.jpg`} />
@@ -62,10 +62,10 @@ const lang = getLangFromUrl(Astro.url)
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap"
     />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <script async src="https://rum.cronitor.io/script.js"></script>
     {
-      import.meta.env.PUBLIC_ADSENSE_CLIENT && (
+      import.meta.env.PROD && import.meta.env.PUBLIC_ADSENSE_CLIENT && (
         <script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
@@ -96,7 +96,6 @@ const lang = getLangFromUrl(Astro.url)
   @import '../styles/global.scss';
   #__layout {
     border-top: 5px solid var(--text-color-link);
-    padding: 4em 0;
   }
 
   @media print {

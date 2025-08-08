@@ -1,4 +1,5 @@
 ---
+// @ts-nocheck
 // Reusable Google AdSense unit. Only renders in production with a configured client and optional slot
 // Usage: <GoogleAd slot="1234567890" format="auto" />
 // Props
@@ -13,7 +14,7 @@ const client = import.meta.env.PUBLIC_ADSENSE_CLIENT
 const canRender = import.meta.env.PROD && !!client && !!slot
 ---
 
-<!-- @ts-ignore -->{
+{
   canRender && (
     <>
       <ins
