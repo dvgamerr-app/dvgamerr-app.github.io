@@ -12,6 +12,7 @@ const blogs = defineCollection({
       author: z.string().optional(),
       tags: z.array(z.string()).optional(),
       image: z.object({
+        url: z.string(),
         src: image(),
       }).optional(),
       // Transform string to Date object

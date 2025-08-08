@@ -7,13 +7,16 @@ type Props = {
   blog: CollectionEntry<'blogs'>
 }
 
-const { blog = { data: { title: '', description: '' } } } = Astro.props
+const { blog = { data: { title: '', description: '', image: undefined } } } = Astro.props
 
 const pageTitle = blog.data.title.substring(0, 60)
+const pageImage = blog.data.image?.url || ''
 const pageDescription = blog.data.description.substring(0, 180) + (blog.data.description.length > 180 ? '...' : '')
+
+console.log(pageImage)
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} image={pageImage}>
   <div class="container py-4">
     <article class="markdown">
       <h1>{blog.data.title}</h1>

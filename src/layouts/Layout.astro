@@ -10,10 +10,11 @@ import { getLangFromUrl } from '../i18n/utils'
 interface Props {
   title: string
   description: string
+  image: string
 }
 
-const { title: pageTitle, description: pageDescription } = Astro.props
 const website = 'https://dvgamerr.app'
+const { title: pageTitle, description: pageDescription, image: pageImage = '/fb-social.jpg' } = Astro.props
 const date = new Date().toISOString()
 
 const lang = getLangFromUrl(Astro.url)
@@ -39,7 +40,7 @@ const lang = getLangFromUrl(Astro.url)
     <meta property="og:url" content={website} />
     <meta property="og:site_name" content={pageTitle} />
     <meta property="og:updated_time" content={date} />
-    <meta property="og:image" content={`${website}/fb-social.jpg`} />
+    <meta property="og:image" content={website + pageImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/jpeg" />
@@ -53,7 +54,7 @@ const lang = getLangFromUrl(Astro.url)
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:site" content="@dvgamerr" />
     <meta name="twitter:creator" content="@dvgamerr" />
-    <meta name="twitter:image" content={`${website}/fb-social.jpg`} />
+    <meta name="twitter:image" content={website + pageImage} />
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="630" />
     {import.meta.env.PUBLIC_ADSENSE_CLIENT && <meta name="google-adsense-account" content={import.meta.env.PUBLIC_ADSENSE_CLIENT} />}
@@ -104,7 +105,7 @@ const lang = getLangFromUrl(Astro.url)
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
     #__layout {
       padding: 0 !important;
     }
