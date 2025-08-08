@@ -69,3 +69,4 @@
 - Keep components modular and reusable
 - Use semantic HTML elements
 - Maintain accessibility standards
+- No explain
