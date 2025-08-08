@@ -6,6 +6,7 @@ import SectionHeader from '../components/SectionHeader.astro'
 import SectionMainContent from '../components/SectionMainContent.astro'
 import SectionWorkExperience from '../components/SectionWorkExperience.astro'
 import SectionFooter from '../components/SectionFooter.astro'
+import GoogleAd from '../components/GoogleAd.astro'
 
 import { getLangFromUrl } from '../i18n/utils'
 
@@ -29,6 +30,13 @@ dayjs.locale(langName)
   <div class="resume">
     <SectionHeader resume={resume} experience={experience} />
     <SectionMainContent resume={resume} experience={experience} />
+    {
+      import.meta.env.PUBLIC_ADSENSE_HOME_SLOT && (
+        <div class="container my-4 d-print-none">
+          <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_HOME_SLOT} />
+        </div>
+      )
+    }
     <p class="pagebreak"></p>
     <SectionWorkExperience workExperience={resume.work} />
     <SectionFooter />

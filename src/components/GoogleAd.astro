@@ -1,0 +1,37 @@
+---
+// Reusable Google AdSense unit. Only renders in production with a configured client and optional slot
+// Usage: <GoogleAd slot="1234567890" format="auto" />
+// Props
+export interface Props {
+  slot?: string
+  format?: string
+  style?: string
+  responsive?: boolean
+}
+const { slot, format = 'auto', style = 'display:block', responsive = true } = Astro.props
+const client = import.meta.env.PUBLIC_ADSENSE_CLIENT
+const canRender = !!client && !!slot
+---
+
+{
+  canRender && (
+    <ins
+      class="adsbygoogle"
+      style={style}
+      data-ad-client={client}
+      data-ad-slot={slot}
+      data-ad-format={format}
+      data-full-width-responsive={responsive ? 'true' : 'false'}
+    />
+  )
+}
+<script>
+  if (
+    import.meta.env.PUBLIC_ADSENSE_CLIENT &&
+    // Only initialize when slot is present to avoid console errors
+    /** @type {any} */ (Astro.props).slot
+  ) {
+    // @ts-ignore
+    ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+  }
+</script>

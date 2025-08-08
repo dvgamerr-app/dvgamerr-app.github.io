@@ -56,6 +56,7 @@ const lang = getLangFromUrl(Astro.url)
     <meta name="twitter:image" content={`${website}/fb-social.jpg`} />
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="630" />
+    {import.meta.env.PUBLIC_ADSENSE_CLIENT && <meta name="google-adsense-account" content={import.meta.env.PUBLIC_ADSENSE_CLIENT} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <GoogleFontsOptimizer
@@ -63,6 +64,15 @@ const lang = getLangFromUrl(Astro.url)
     />
     <title>{title}</title>
     <script async src="https://rum.cronitor.io/script.js"></script>
+    {
+      import.meta.env.PUBLIC_ADSENSE_CLIENT && (
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
+          crossorigin="anonymous"
+        />
+      )
+    }
   </head>
   <body>
     <div id="__layout">

@@ -1,0 +1,35 @@
+---
+import Layout from './Layout.astro'
+import GoogleAd from '../components/GoogleAd.astro'
+
+interface Props {
+  title: string
+  description?: string
+  desc?: string
+}
+
+const { title } = Astro.props as Props
+const desc = (Astro.props as Props).desc ?? (Astro.props as Props).description ?? ''
+---
+
+<Layout title={title} desc={desc}>
+  <div class="container py-4">
+    {
+      import.meta.env.PUBLIC_ADSENSE_POST_TOP_SLOT && (
+        <div class="my-3 d-print-none">
+          <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_POST_TOP_SLOT} />
+        </div>
+      )
+    }
+    <article class="markdown">
+      <slot />
+    </article>
+    {
+      import.meta.env.PUBLIC_ADSENSE_POST_BOTTOM_SLOT && (
+        <div class="my-4 d-print-none">
+          <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_POST_BOTTOM_SLOT} />
+        </div>
+      )
+    }
+  </div>
+</Layout>

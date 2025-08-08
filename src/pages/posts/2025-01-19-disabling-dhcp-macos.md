@@ -1,13 +1,14 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/PostLayout.astro
 title: 'Disabling DHCP on macOS: A Step-by-Step Guide'
 pubDate: 2025-01-19
 description: 'Learn how to disable the built-in DHCP service on macOS to avoid port conflicts.'
 author: 'Kananek T.'
 image:
   url: /cover/disabling-dhcp.webp
-tags: ["macOS", "DHCP", "networking"]
+tags: ['macOS', 'DHCP', 'networking']
 ---
+
 # Disabling DHCP on macOS: A Step-by-Step Guide
 
 If you encounter issues such as port conflicts when running a DHCP server on macOS, you might need to disable the built-in DHCP service. This guide walks you through the process of disabling DHCP using the `bootpd.plist` configuration file.
@@ -19,7 +20,7 @@ If you encounter issues such as port conflicts when running a DHCP server on mac
 An example error message might look like this:
 
 ```
-Error: control/dhcp/set_config 
+Error: control/dhcp/set_config
 enabling dhcp: starting dhcp server: dhcpv4:
 creating ipv4 udp connection: cannot bind to port 67: address already in use
 ```
@@ -42,6 +43,7 @@ sudo nano /etc/bootpd.plist
 
 - **Disable DHCP**:
   Locate the `<key>dhcp_enabled</key>` section and set its value to an empty `<array>`:
+
   ```xml
   <key>dhcp_enabled</key>
   <array/>
@@ -89,6 +91,7 @@ If no output appears, the DHCP service has been successfully disabled.
 ## Troubleshooting
 
 ### Port Still in Use?
+
 - Use the following command to identify processes using port 67:
   ```bash
   sudo lsof -i :67
@@ -99,6 +102,7 @@ If no output appears, the DHCP service has been successfully disabled.
   ```
 
 ### Restore Defaults
+
 If needed, restore the original configuration:
 
 ```bash
@@ -109,4 +113,3 @@ sudo defaults write /etc/bootpd.plist ""
 ---
 
 By following this guide, you can successfully disable DHCP on macOS, resolve port conflicts, and ensure your network services run smoothly.
-

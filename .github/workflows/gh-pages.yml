@@ -4,7 +4,7 @@ name: dvgamerr.app
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
+    branches: ["main"]
 
   workflow_dispatch:
 
@@ -15,13 +15,19 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      # AdSense envs (prefer Secrets, fallback to Repository/Org Variables)
+      PUBLIC_ADSENSE_CLIENT: ${{ vars.PUBLIC_ADSENSE_CLIENT }}
+      PUBLIC_ADSENSE_HOME_SLOT: ${{ vars.PUBLIC_ADSENSE_HOME_SLOT }}
+      PUBLIC_ADSENSE_POST_TOP_SLOT: ${{ vars.PUBLIC_ADSENSE_POST_TOP_SLOT }}
+      PUBLIC_ADSENSE_POST_BOTTOM_SLOT: ${{ vars.PUBLIC_ADSENSE_POST_BOTTOM_SLOT }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
