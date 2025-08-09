@@ -6,6 +6,10 @@ on:
   push:
     branches: ["main"]
 
+  # Scheduled build every Monday at 06:00 UTC
+  schedule:
+    - cron: '0 6 * * 1'
+
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
