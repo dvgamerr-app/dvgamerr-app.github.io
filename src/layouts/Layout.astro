@@ -18,6 +18,8 @@ const { title: pageTitle, description: pageDescription, image: pageImage = '/fb-
 const date = new Date().toISOString()
 
 const lang = getLangFromUrl(Astro.url)
+
+import '../styles/global.scss'
 ---
 
 <!doctype html>
@@ -94,7 +96,6 @@ const lang = getLangFromUrl(Astro.url)
   </body>
 </html>
 <style is:global>
-  @import '../styles/global.scss';
   #__layout {
     border-top: 5px solid var(--text-color-link);
   }
