@@ -301,6 +301,228 @@ ul {
   margin-left: -7px;
   padding-right: 3px;
 }
+/* Markdown readability improvements */
+.markdown {
+  max-width: 70ch;
+  margin-inline: auto;
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.05rem);
+  line-height: 1.7;
+  word-wrap: break-word;
+}
+
+/* Vertical rhythm: every element after another gets top margin */
+.markdown > * + * {
+  margin-top: 1.15em;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  scroll-margin-top: 5rem;
+}
+.markdown h1 {
+  font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.4rem);
+  margin-top: 0.5em;
+}
+.markdown h2 {
+  font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 0.3em;
+}
+.markdown h3 {
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
+}
+.markdown h4 {
+  font-size: 1.05rem;
+}
+.markdown h5 {
+  font-size: 0.95rem;
+}
+.markdown h6 {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* Paragraphs */
 .markdown p {
-  margin: 0px !important;
+  margin: 0;
+  line-height: 1.7;
+}
+.markdown p code {
+  font-size: 0.9em;
+}
+
+/* Lists */
+.markdown ul,
+.markdown ol {
+  list-style: disc outside;
+  padding-left: 1.3em;
+  margin: 0;
+}
+.markdown ol {
+  list-style: decimal outside;
+}
+.markdown li {
+  margin-top: 0.4em;
+}
+.markdown li > ul,
+.markdown li > ol {
+  margin-top: 0.4em;
+}
+
+/* Blockquote */
+.markdown blockquote {
+  margin: 1.2em 0;
+  padding: 0.8em 1em 0.8em 1.1em;
+  border-left: 4px solid var(--text-color-link);
+  background: linear-gradient(90deg, var(--text-color-link) 1%, transparent 1%) rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+  font-style: italic;
+}
+.dark .markdown blockquote {
+  background: linear-gradient(90deg, var(--text-color-link) 1%, transparent 1%) rgba(255, 255, 255, 0.05);
+}
+.markdown blockquote > :first-child {
+  margin-top: 0;
+}
+.markdown blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* Code */
+.markdown pre {
+  position: relative;
+  background: #1f2430;
+  color: #f8f8f2;
+  padding: 1em 1.1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85em;
+  line-height: 1.5;
+  -webkit-overflow-scrolling: touch;
+}
+.dark .markdown pre {
+  background: #0f121a;
+}
+.markdown pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+.markdown code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.85em;
+  white-space: break-spaces;
+}
+.dark .markdown code {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Tables */
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  overflow: hidden;
+}
+.markdown thead {
+  background: rgba(0, 0, 0, 0.04);
+}
+.dark .markdown thead {
+  background: rgba(255, 255, 255, 0.08);
+}
+.markdown th,
+.markdown td {
+  padding: 0.6em 0.75em;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+.dark .markdown th,
+.dark .markdown td {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.markdown tbody tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.02);
+}
+.dark .markdown tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Responsive table wrapper */
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Images */
+.markdown img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.2em auto;
+  border-radius: 6px;
+}
+
+/* Horizontal rule */
+.markdown hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent);
+  margin: 2.5em 0;
+}
+.dark .markdown hr {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+}
+
+/* Links inside markdown */
+.markdown a {
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.25);
+  text-underline-offset: 3px;
+}
+.markdown a:hover {
+  text-decoration-color: var(--text-color-link);
+}
+
+/* Inline note/admonition (using blockquote variant via custom syntax if needed) */
+.markdown .note {
+  border-left: 4px solid #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+  padding: 0.75em 1em;
+  border-radius: 6px;
+}
+.dark .markdown .note {
+  background: rgba(59, 130, 246, 0.15);
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .markdown {
+    font-size: clamp(0.95rem, 0.9rem + 0.6vw, 1.02rem);
+    padding-inline: 0.5rem;
+  }
+  .markdown h1 {
+    font-size: clamp(1.7rem, 1.4rem + 3vw, 2.1rem);
+  }
+  .markdown h2 {
+    font-size: clamp(1.3rem, 1.15rem + 2vw, 1.6rem);
+  }
+  .markdown pre {
+    font-size: 0.8em;
+  }
+}
+
+/* Improve focus for keyboard navigation */
+.markdown a:focus-visible {
+  outline: 2px dashed var(--text-color-link);
+  outline-offset: 2px;
 }
