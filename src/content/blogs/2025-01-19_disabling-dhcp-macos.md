@@ -35,23 +35,20 @@ sudo nano /etc/bootpd.plist
 
 ### 2. **Modify DHCP Settings**
 
-- **Disable DHCP**:
-  Locate the `<key>dhcp_enabled</key>` section and set its value to an empty `<array>`:
+- **Disable DHCP**: Locate the `<key>dhcp_enabled</key>` section and set its value to an empty `<array>`:
 
-  ```xml
-  <key>dhcp_enabled</key>
-  <array/>
-  ```
+```xml
+<key>dhcp_enabled</key>
+<array/>
+```
 
-- **Remove or Disable Subnets**:
-  If there is a `<key>Subnets</key>` section, comment it out or remove the `<dict>` entirely.
+- **Remove or Disable Subnets**: If there is a `<key>Subnets</key>` section, comment it out or remove the `<dict>` entirely.
+- **Disable BOOTP**: Ensure the following key is set to `false`:
 
-- **Disable BOOTP**:
-  Ensure the following key is set to `false`:
-  ```xml
-  <key>bootp_enabled</key>
-  <false/>
-  ```
+```xml
+<key>bootp_enabled</key>
+<false/>
+```
 
 ### 3. **Save and Exit**
 

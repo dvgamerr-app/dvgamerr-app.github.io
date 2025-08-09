@@ -132,7 +132,7 @@ const { langName } = Astro.props as Props
       }
       localStorage.setItem('theme', t)
     }
-    apply(theme)
+
     btn.addEventListener('click', (e) => {
       e.preventDefault()
       theme = theme === 'dark' ? 'light' : 'dark'

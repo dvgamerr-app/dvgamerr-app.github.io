@@ -62,6 +62,23 @@ import '../styles/global.scss'
     {import.meta.env.PUBLIC_ADSENSE_CLIENT && <meta name="google-adsense-account" content={import.meta.env.PUBLIC_ADSENSE_CLIENT} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          // only accept explicit values
+          var theme = stored === 'dark' || stored === 'light' ? stored : prefers
+          var root = document.documentElement
+          if (theme === 'dark') root.classList.add('dark')
+          else root.classList.add('light')
+          var meta = document.querySelector('meta[name="theme-color"]')
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#0f121f' : '#C84B31')
+        } catch (e) {
+          /* silent */
+        }
+      })()
+    </script>
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap"
     />

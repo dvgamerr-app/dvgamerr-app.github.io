@@ -38,6 +38,13 @@
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --border: 214.3 31.8% 91.4%;
+    /* Code tokens (light) */
+    --code-inline-bg: #f2f4f8;
+    --code-inline-color: #c7254e;
+    --code-inline-border: #e5e7eb;
+    --code-block-bg: #1f2430; /* darkish block in light for contrast */
+    --code-block-border: #0f141d;
+    --code-block-color: #f8f8f2;
   }
 
   /* Dark mode variables (Tailwind 'dark' class) */
@@ -66,6 +73,13 @@
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
+    /* Code tokens (dark) */
+    --code-inline-bg: rgba(255, 255, 255, 0.08);
+    --code-inline-color: #ffd479;
+    --code-inline-border: rgba(255, 255, 255, 0.12);
+    --code-block-bg: #0f121a;
+    --code-block-border: #1f2532;
+    --code-block-color: #e6eaf0;
   }
 }
 
@@ -296,7 +310,7 @@ ul {
 .markdown ul > li {
   padding-left: 14px;
 }
-.markdown li:before {
+.markdown li::marker {
   content: '∙';
   margin-left: -7px;
   padding-right: 3px;
@@ -397,17 +411,18 @@ ul {
 /* Code */
 .markdown pre {
   position: relative;
-  background: #1f2430;
-  color: #f8f8f2;
+  background: var(--code-block-bg);
+  color: var(--code-block-color);
   padding: 1em 1.1em;
   border-radius: 8px;
+  border: 1px solid var(--code-block-border);
   overflow-x: auto;
   font-size: 0.85em;
   line-height: 1.5;
   -webkit-overflow-scrolling: touch;
-}
-.dark .markdown pre {
-  background: #0f121a;
+  box-shadow:
+    0 2px 4px -1px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
 }
 .markdown pre code {
   background: transparent;
@@ -415,15 +430,39 @@ ul {
   font-size: inherit;
 }
 .markdown code {
-  background: rgba(0, 0, 0, 0.06);
+  background: var(--code-inline-bg);
+  color: var(--code-inline-color);
   padding: 0.15em 0.45em;
   border-radius: 4px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
   font-size: 0.85em;
   white-space: break-spaces;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
 }
-.dark .markdown code {
+
+/* Improve code readability when nested inside links */
+.markdown a code {
+  color: inherit;
+  filter: brightness(1.05);
+}
+
+/* Optional language label style if using data-lang attribute */
+.markdown pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 10px;
+  font-family: system-ui, sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
   background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.dark .markdown pre[data-lang]::before {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* Tables */
