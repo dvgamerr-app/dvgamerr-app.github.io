@@ -22,7 +22,7 @@ export const ui = {
     'head.income': 'Current Salary',
     'head.salary': 'Current Salary',
     'head.salary.expect': 'Expected Salary',
-    'head.salary.hour': 'Per Hour',
+    'head.salary.hour': '/ Hour',
     'head.salary.currency': '$',
     'head.national_id': 'National ID',
     'head.religion': 'Religion',
