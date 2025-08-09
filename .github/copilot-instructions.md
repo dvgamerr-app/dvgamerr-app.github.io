@@ -14,3 +14,6 @@
 - Skip explanatory text before or after code blocks
 - Only include essential comments within code when necessary for clarity
 - Respond with actionable content only
+- Use plain JavaScript only
+- Do not use TypeScript or any type annotations
+- Keep code compatible with standard JavaScript runtimes

@@ -1,40 +1,40 @@
-const logger = require('pino')({ level: 'trace' });
+const logger = require('pino')({ level: 'trace' })
 
-const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t));
+const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t))
 
 // Fetches data from GitHub API using provided method (GET, POST, etc.) and URL.
 const fetchGithub = async (method, url, body) => {
-  let data = null;
-  let status = 0;
-  let tries = 4;
-  let retry = false;
+  let data = null
+  let status = 0
+  let tries = 4
+  let retry = false
   do {
     const res = await fetch(`https://api.github.com${url}`, {
-      method,
       body,
       headers: {
-        Authorization: `token ${process.env.GH_TOKEN}`,
         Accept: 'application/vnd.github.v3+json',
+        Authorization: `token ${process.env.GH_TOKEN}`,
       },
-    });
-    status = res.status;
+      method,
+    })
+    status = res.status
 
-    retry = status > 204 && tries > 0;
+    retry = status > 204 && tries > 0
     if (retry) {
-      tries--;
-      await sleep(1000);
+      tries--
+      await sleep(1000)
     } else {
       try {
-        data = await res.json();
-      } catch (ex) {
-        const payload = await res.text();
-        if (payload) data = { payload };
-        logger.warn({ url, ...data, tries, status });
+        data = await res.json()
+      } catch {
+        const payload = await res.text()
+        if (payload) data = { payload }
+        logger.warn({ url, ...data, status, tries })
       }
     }
-  } while (retry);
-  return { data, status };
-};
+  } while (retry)
+  return { data, status }
+}
 
 // const ghlocFetch = async (owner, name) => {
 // //
@@ -44,17 +44,12 @@ const fetchGithub = async (method, url, body) => {
 // }
 
 module.exports = {
-  getContributors: async (owner, name) =>
-    fetchGithub('GET', `/repos/${owner}/${name}/stats/contributors`),
-  getCommitActivity: async (owner, name) =>
-    fetchGithub('GET', `/repos/${owner}/${name}/stats/commit_activity`),
-  getLanguages: async (owner, name) =>
-    fetchGithub('GET', `/repos/${owner}/${name}/languages`),
-  getOrgsRepos: async (owner, page) =>
-    fetchGithub('GET', `/orgs/${owner}/repos?page=${page}&per_page=100`),
-  getUserRepos: async (page) =>
-    fetchGithub('GET', `/user/repos?type=owner&page=${page}&per_page=100`),
-};
+  getCommitActivity: async (owner, name) => fetchGithub('GET', `/repos/${owner}/${name}/stats/commit_activity`),
+  getContributors: async (owner, name) => fetchGithub('GET', `/repos/${owner}/${name}/stats/contributors`),
+  getLanguages: async (owner, name) => fetchGithub('GET', `/repos/${owner}/${name}/languages`),
+  getOrgsRepos: async (owner, page) => fetchGithub('GET', `/orgs/${owner}/repos?page=${page}&per_page=100`),
+  getUserRepos: async (page) => fetchGithub('GET', `/user/repos?type=owner&page=${page}&per_page=100`),
+}
 
 // GET /orgs/{org}/repos
 

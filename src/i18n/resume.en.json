@@ -12,7 +12,7 @@
     "english": "Basic"
   },
   "job": "Software Engineer",
-  "detail": "I'm KEM is based in Bangkok and holds a Bachelor's degree in Information Technology from Phetchaburi Rajabhat University. They currently work as a Software Engineer in the Digital Technology Team at SCG Group Companies, where they contribute to developing and maintaining innovative software solutions. ",
+  "detail": "I'm KEM, a Software Engineer based in Bangkok. I hold a B.Sc. in Information Technology from Phetchaburi Rajabhat University and currently work on the Digital Technology team at SCG, contributing to the development and maintenance of innovative software solutions.",
   "work_dummy": [
     {
       "range": { "begin": "2099-03-07T09:00:00.000+07:00", "quit": null },
@@ -120,7 +120,7 @@
         "quit": "2018-12-31T23:59:59.999+07:00"
       },
       "job": "Full Stack Developer",
-      "work": "Nippon SySits Co.,Ltd, Sathorn.",
+      "work": "Nippon Sysits Co., Ltd., Sathorn.",
       "file": "2013-work-nippon-sysits.md"
     },
     {
@@ -128,7 +128,7 @@
         "begin": "2011-04-28T00:00:00.000+07:00",
         "quit": "2013-04-28T23:59:59.999+07:00"
       },
-      "job": "Freelance — Programmer",
+      "job": "Freelance Programmer",
       "work": "Phetchaburi",
       "file": "2011-work-freelance.md"
     }
@@ -137,26 +137,26 @@
     {
       "range": "2007 - 2011",
       "major": "Bachelor of Science (B.S.)",
-      "location": "Phetchaburi Rajabhat University, Phetchaburi.",
-      "branch": "Information Technology."
+      "location": "Phetchaburi Rajabhat University, Phetchaburi",
+      "branch": "Information Technology"
     },
     {
       "range": "2005 - 2007",
       "major": "Vocational Certificate",
-      "location": "Chumphon Polytechnic College, Chumphon.",
-      "branch": "Business Computer"
+      "location": "Chumphon Polytechnic College, Chumphon",
+      "branch": "Business Computer Program"
     },
     {
       "range": "2003 - 2005",
-      "major": "Grade 7-9",
-      "location": "Sawi Witthaya School, Sawi, Chumphon.",
-      "branch": "High school"
+      "major": "Grades 7-9",
+      "location": "Sawi Witthaya School, Sawi, Chumphon",
+      "branch": "Lower Secondary Education"
     },
     {
       "range": "1998 - 2003",
-      "major": "Grade 1-6",
-      "location": "Barnnapoo school, Sawi, Chumphon.",
-      "branch": "Elementary school"
+      "major": "Grades 1-6",
+      "location": "Barnnapoo School, Sawi, Chumphon",
+      "branch": "Primary Education"
     }
   ]
 }
