@@ -47,7 +47,8 @@ jobs:
         env:
           WAKA_BADGE_URL: https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square&color=blue
         run: |
-          bun ./collector/wakatime.js
+          bun ./collector/waka-badge.js
+          bun ./collector/waka-insights.js
           bun ./collector/github-repos.js
 
       - name: Setup Pages

@@ -1,139 +1,133 @@
-const dayjs = require('dayjs')
-const logger = require('pino')({ level: 'trace' })
+import dayjs from 'dayjs'
+import pino from 'pino'
 
-const { getContributors, getLanguages, getOrgsRepos, getUserRepos } = require('./github')
-const { mergeJsonResponse } = require('./json-merge')
+import { mergeJsonResponse } from './helper.js'
 
-const collectReposOrgs = async (orgsRepo = ['dvgamerr-app']) => {
-  let repos = []
-  let nextPage = false
+const logger = pino({ level: 'trace' })
+const API = 'https://api.github.com'
+const TOKEN = process.env.GH_TOKEN || ''
+let warned = false
 
-  const repoTask = []
-  for (const org of orgsRepo) {
-    repoTask.push(
-      (async () => {
-        let page = 0
-        do {
-          page++
-          const { data } = await getOrgsRepos(org, page)
-          repos = repos.concat(data)
-          nextPage = data.length > 0
-          if (nextPage) {
-            logger.debug(` - '${org}' repos: ${data.length}`)
-          }
-        } while (nextPage)
-      })(),
-    )
+async function gh(method, path) {
+  if (!TOKEN && !warned) {
+    warned = true
+    logger.warn('GH_TOKEN missing: unauthenticated requests (rate limited)')
   }
-  await Promise.all(repoTask)
-  return repos
+  let tries = 4
+  while (tries > 0) {
+    const res = await fetch(`${API}${path}`, {
+      headers: { Accept: 'application/vnd.github.v3+json', ...(TOKEN ? { Authorization: `token ${TOKEN}` } : {}) },
+      method,
+    })
+    if (res.status <= 204) {
+      try {
+        return { data: await res.json(), status: res.status }
+      } catch {
+        return { data: null, status: res.status }
+      }
+    }
+    tries--
+    if (!tries) {
+      let payload = null
+      try {
+        payload = await res.json()
+      } catch {
+        /* ignore */
+      }
+      logger.warn({ path, status: res.status, unauthenticated: !TOKEN })
+      return { data: payload, status: res.status }
+    }
+    await Bun.sleep(1000)
+  }
+  return { data: null, status: 0 }
 }
 
-const collectRepoOwner = async () => {
-  let repos = []
-  let nextPage = false
+const getContributors = (o, r) => gh('GET', `/repos/${o}/${r}/stats/contributors`)
+const getLanguages = (o, r) => gh('GET', `/repos/${o}/${r}/languages`)
+const getOrgRepos = (o, p) => gh('GET', `/orgs/${o}/repos?page=${p}&per_page=100`)
+const getUserRepos = (p) => gh('GET', `/user/repos?type=owner&page=${p}&per_page=100`)
 
-  let page = 0
-  do {
-    page++
-    const { data } = await getUserRepos(page)
-    repos = repos.concat(data)
-    nextPage = data.length > 0
-  } while (nextPage)
-  logger.debug(` - 'owner' repos: ${repos.length}`)
-  return repos
-}
-
-const collectGithubProjectStats = async () => {
-  logger.info('Query Repositories')
-  const coding = {
+async function buildSummary(allRepos) {
+  const summary = {
     commits: 0,
     languages: [],
-    loc: 0,
     private: 53,
-    public: 0,
+    public: allRepos.filter((r) => !r.private).length,
     total: 0,
     updated: dayjs().toISOString(),
   }
-
-  const orgRepos = await collectReposOrgs(['dvgamerr-app', 'dl-fansub', 'un-centralgroup', 'un-nipponsysits', 'un-wedo', 'untirkx'])
-  const usrRepos = await collectRepoOwner()
-
-  const repos = orgRepos.concat(usrRepos)
-  coding.total = repos.length + coding.private
-  coding.public = repos.filter((e) => !e.private).length
-
-  let projectRepos = []
-  for (const e of orgRepos) {
-    if (!e.owner) {
-      logger.debug('skip:', e)
-      continue
+  summary.total = allRepos.length + summary.private
+  const langBytes = {}
+  const tasks = allRepos.map(async (r) => {
+    if (!r.owner) return
+    const { data: contrib, status: sc } = await getContributors(r.owner.login, r.name)
+    if (sc === 200 && Array.isArray(contrib)) for (const c of contrib) if (c.author?.login === 'dvgamerr') summary.commits += c.total
+    const { data: langs, status: sl } = await getLanguages(r.owner.login, r.name)
+    if (sl === 200 && langs) {
+      for (const k in langs) langBytes[k] = (langBytes[k] || 0) + langs[k]
+      summary.languages = Array.from(new Set([...Object.keys(langs), ...summary.languages])).sort()
     }
-    if (e.owner.login !== 'dvgamerr-app' || !e.description || !e.topics.includes('open-source')) continue
-    projectRepos.push({
-      created_at: e.created_at,
-      description: e.description,
-      forks: e.forks,
-      homepage: e.homepage,
-      license: e.license,
-      name: e.name,
-      pushed_at: e.pushed_at,
-      stargazers_count: e.stargazers_count,
-      svn_url: e.svn_url,
-      topics: e.topics,
-      watchers: e.watchers,
-    })
-  }
-
-  projectRepos = projectRepos.sort((a, b) => {
-    const ay = dayjs(a.created_at).year()
-    const by = dayjs(b.created_at).year()
-    return a.stargazers_count > b.stargazers_count ? -1 : a.stargazers_count < b.stargazers_count ? 1 : ay > by ? -1 : 1
   })
-
-  logger.info('Contributors Task...')
-
-  const repoTask = []
-  const repoLangs = {}
-  for await (const e of repos) {
-    if (e.owner)
-      repoTask.push(
-        (async () => {
-          logger.trace(` - repos '${e.owner.login}/${e.name}'`)
-          const { data: contrib, status: statusContrib } = await getContributors(e.owner.login, e.name)
-          if (statusContrib === 200) {
-            for (const con of contrib) {
-              if (con.author.login !== 'dvgamerr') continue
-              coding.commits += con.total
-            }
-          }
-
-          const { data: langs, status: statusLangs } = await getLanguages(e.owner.login, e.name)
-          if (statusLangs === 200) {
-            for (const key in langs) {
-              repoLangs[key] = (repoLangs[key] || 0) + langs[key]
-            }
-            coding.languages = [...new Set(coding.languages.concat(Object.keys(langs)))].sort()
-          }
-        })(),
-      )
-  }
-
-  logger.info(`Task Github API (${repoTask.length}) ...`)
-  await Promise.all(repoTask)
-
-  const bytes = Object.fromEntries(Object.entries(repoLangs).sort(([, a], [, b]) => b - a))
-  await mergeJsonResponse(coding, './src/i18n/coding.json')
-  await mergeJsonResponse(
-    {
-      coding: { bytes },
-      repos: projectRepos,
-      skill: { coding: coding.languages },
-    },
-    './src/i18n/experience.json',
-  )
-
-  return coding
+  logger.info(`detail tasks: ${tasks.length}`)
+  await Promise.all(tasks)
+  return { langBytes, summary }
 }
 
-collectGithubProjectStats()
+async function fetchOrgRepos(orgs) {
+  const repos = []
+  await Promise.all(
+    orgs.map(async (org) => {
+      for (let page = 1; ; page++) {
+        const { data } = await getOrgRepos(org, page)
+        if (!Array.isArray(data) || !data.length) break
+        repos.push(...data)
+        logger.debug(`org:${org} +${data.length}`)
+      }
+    }),
+  )
+  return repos
+}
+
+async function fetchOwnerRepos() {
+  const repos = []
+  for (let page = 1; ; page++) {
+    const { data } = await getUserRepos(page)
+    if (!Array.isArray(data) || !data.length) break
+    repos.push(...data)
+  }
+  logger.debug(`owner repos: ${repos.length}`)
+  return repos
+}
+
+async function main() {
+  logger.info('Query repositories')
+  const orgRepos = await fetchOrgRepos(['dvgamerr-app', 'dl-fansub', 'un-centralgroup', 'un-nipponsysits', 'un-wedo', 'untirkx'])
+  const userRepos = await fetchOwnerRepos()
+  const allRepos = [...orgRepos, ...userRepos]
+  const projects = pickOpenSource(allRepos)
+  const { langBytes, summary } = await buildSummary(allRepos)
+  const bytes = Object.fromEntries(Object.entries(langBytes).sort(([, a], [, b]) => b - a))
+  await mergeJsonResponse(summary, './src/i18n/coding.json')
+  await mergeJsonResponse({ coding: { bytes }, repos: projects, skill: { coding: summary.languages } }, './src/i18n/experience.json')
+}
+
+await main()
+
+function pickOpenSource(repos) {
+  return repos
+    .filter((r) => r.owner && r.description && r.topics?.includes('open-source'))
+    .map((r) => ({
+      created_at: r.created_at,
+      description: r.description,
+      forks: r.forks,
+      homepage: r.homepage,
+      license: r.license,
+      name: r.name,
+      pushed_at: r.pushed_at,
+      stargazers_count: r.stargazers_count,
+      svn_url: r.svn_url,
+      topics: r.topics,
+      watchers: r.watchers,
+    }))
+    .sort((a, b) => b.stargazers_count - a.stargazers_count || dayjs(b.created_at).valueOf() - dayjs(a.created_at).valueOf())
+}

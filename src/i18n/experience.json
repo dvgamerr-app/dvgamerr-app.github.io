@@ -96,7 +96,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "dvgamerr-app.github.io",
-      "pushed_at": "2025-08-10T08:39:15Z",
+      "pushed_at": "2025-08-10T09:10:42Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
       "topics": [
@@ -136,6 +136,30 @@
       "watchers": 4
     },
     {
+      "created_at": "2023-01-14T13:40:55Z",
+      "description": "มาร่วมแสดงความยินดีกับเรา! ในพีธีแต่งงานของ กิ่งกาญจน์ & กัณฑ์อเนก ",
+      "forks": 1,
+      "homepage": "http://wedding.dvgamerr.app/",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      },
+      "name": "wedding-day",
+      "pushed_at": "2025-08-02T11:12:47Z",
+      "stargazers_count": 2,
+      "svn_url": "https://github.com/dvgamerr/wedding-day",
+      "topics": [
+        "open-source",
+        "party",
+        "wedding",
+        "wedding-website"
+      ],
+      "watchers": 2
+    },
+    {
       "created_at": "2019-03-06T10:32:58Z",
       "description": "Notify manage with LINE Notify, LINE BOT",
       "forks": 1,
@@ -170,10 +194,10 @@
       "watchers": 1
     },
     {
-      "created_at": "2024-03-01T05:17:52Z",
-      "description": "About Minima-lite is a one-size-fits-all Jekyll theme for writers.",
+      "created_at": "2024-12-06T09:18:25Z",
+      "description": "⚡ High-performance queue system built with Bun runtime, Drizzle ORM, and PostgreSQL - handles cinema schedules, lottery data, LINE bot integration with automated conflict resolution and duplicate management",
       "forks": 0,
-      "homepage": "https://dvgamerr.app/minima-lite/",
+      "homepage": "",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -181,31 +205,37 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
-      "name": "minima-lite",
-      "pushed_at": "2024-03-01T17:03:01Z",
+      "name": "aide-tokenizer",
+      "pushed_at": "2025-08-08T14:33:09Z",
       "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/minima-lite",
+      "svn_url": "https://github.com/dvgamerr/aide-tokenizer",
       "topics": [
-        "open-source"
+        "aide",
+        "data-pipeline",
+        "message-processing",
+        "microservices",
+        "open-source",
+        "queue-system",
+        "rest-api"
       ],
       "watchers": 0
     },
     {
-      "created_at": "2024-03-27T10:33:47Z",
-      "description": "error pages for k8s.",
+      "created_at": "2023-10-14T09:04:46Z",
+      "description": "School and University Management Platform",
       "forks": 0,
       "homepage": "",
       "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0",
-        "node_id": "MDc6TGljZW5zZTI="
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
       },
-      "name": "errcode-page",
-      "pushed_at": "2024-08-30T17:34:09Z",
+      "name": "go-school",
+      "pushed_at": "2023-10-16T13:31:54Z",
       "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/errcode-page",
+      "svn_url": "https://github.com/dvgamerr-app/go-school",
       "topics": [
         "open-source"
       ],
@@ -236,40 +266,22 @@
       "watchers": 0
     },
     {
-      "created_at": "2023-10-14T09:04:46Z",
-      "description": "School and University Management Platform",
+      "created_at": "2022-10-18T15:50:55Z",
+      "description": "Instantly manage Kubernetes from your Desktop. Available on Windows, macOS and Linux.",
       "forks": 0,
-      "homepage": "",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit",
-        "node_id": "MDc6TGljZW5zZTEz"
-      },
-      "name": "go-school",
-      "pushed_at": "2023-10-16T13:31:54Z",
-      "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/go-school",
-      "topics": [
-        "open-source"
-      ],
-      "watchers": 0
-    },
-    {
-      "created_at": "2022-07-20T07:01:48Z",
-      "description": "Single Sign On for TEAM Touno.io",
-      "forks": 1,
-      "homepage": "https://sso.touno.io/",
+      "homepage": "https://dvgamerr.github.io/infra-hades-app",
       "license": null,
-      "name": "sso-team",
-      "pushed_at": "2023-10-01T00:42:48Z",
+      "name": "infra-hades-app",
+      "pushed_at": "2025-07-01T14:34:56Z",
       "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/sso-team",
+      "svn_url": "https://github.com/dvgamerr-app/infra-hades-app",
       "topics": [
-        "nuxt3",
-        "open-source",
-        "sso-login"
+        "client",
+        "desktop",
+        "desktop-app",
+        "kubernetes",
+        "monitor",
+        "open-source"
       ],
       "watchers": 0
     },
@@ -295,22 +307,19 @@
       "watchers": 0
     },
     {
-      "created_at": "2022-10-18T15:50:55Z",
-      "description": "Instantly manage Kubernetes from your Desktop. Available on Windows, macOS and Linux.",
-      "forks": 0,
-      "homepage": "https://dvgamerr.github.io/infra-hades-app",
+      "created_at": "2022-07-20T07:01:48Z",
+      "description": "Single Sign On for TEAM Touno.io",
+      "forks": 1,
+      "homepage": "https://sso.touno.io/",
       "license": null,
-      "name": "infra-hades-app",
-      "pushed_at": "2025-07-01T14:34:56Z",
+      "name": "sso-team",
+      "pushed_at": "2023-10-01T00:42:48Z",
       "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/infra-hades-app",
+      "svn_url": "https://github.com/dvgamerr-app/sso-team",
       "topics": [
-        "client",
-        "desktop",
-        "desktop-app",
-        "kubernetes",
-        "monitor",
-        "open-source"
+        "nuxt3",
+        "open-source",
+        "sso-login"
       ],
       "watchers": 0
     },
@@ -332,36 +341,6 @@
       "svn_url": "https://github.com/dvgamerr-app/go-sqlint",
       "topics": [
         "open-source"
-      ],
-      "watchers": 0
-    },
-    {
-      "created_at": "2018-12-20T05:36:42Z",
-      "description": "Notify BNK48 Event Schedule with you LINE API by touno.io.",
-      "forks": 0,
-      "homepage": "",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0",
-        "node_id": "MDc6TGljZW5zZTk="
-      },
-      "name": "bnk48-events-linebot",
-      "pushed_at": "2019-02-17T15:09:27Z",
-      "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/bnk48-events-linebot",
-      "topics": [
-        "bnk48",
-        "event",
-        "line",
-        "line-bot",
-        "linebot",
-        "notify",
-        "nuxtjs",
-        "open-source",
-        "schedule",
-        "vue"
       ],
       "watchers": 0
     }
