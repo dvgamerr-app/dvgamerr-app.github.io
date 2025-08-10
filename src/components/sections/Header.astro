@@ -1,16 +1,16 @@
 ---
 import dayjs from 'dayjs'
 import numeral from 'numeral'
-import HeaderActions from './HeaderActions.astro'
-import { getLangFromUrl, getTranslate } from '../i18n/utils'
-import coding from '../i18n/coding.json'
+import HeaderActions from '../HeaderActions.astro'
+import { getLangFromUrl, getTranslate } from '../../i18n/utils'
+import coding from '../../i18n/coding.json'
 const langName = getLangFromUrl(Astro.url)
 const t = getTranslate(Astro.url)
 
 import 'dayjs/locale/th'
 
 import { Image } from 'astro:assets'
-import photo from '../assets/kk_00248.webp'
+import photo from '../../assets/kk_00248.webp'
 
 const showAge = () => birthday.fromNow(true)
 const showBirthday = () =>
@@ -56,12 +56,19 @@ const birthday = dayjs(experience.birthday)
 // codingData.wakatime provides total coding time string
 ---
 
-<section class="py-8 md:py-12">
+<section class="pt-0 pb-8 md:py-12 print-text-gray-900">
   <div class="max-w-7xl mx-auto px-4">
     <div class="md:grid md:grid-cols-8 md:gap-8">
       <div class="md:col-span-2">
-        <div class="hidden md:flex justify-end print:hidden">
-          <Image src={photo} width={510} height={620} loading="lazy" alt="" class="rounded-lg shadow-md object-cover" />
+        <div class="block md:flex justify-end print:hidden">
+          <Image
+            src={photo}
+            width={510}
+            height={620}
+            loading="lazy"
+            alt=""
+            class="w-full sm:h-64 h-[60vh] object-cover rounded-none md:rounded-lg shadow-none md:shadow-md"
+          />
         </div>
       </div>
       <div class="md:col-span-6">
@@ -127,11 +134,11 @@ const birthday = dayjs(experience.birthday)
                 >{t('head.age')}&nbsp;{showAge().replace('years', t('head.age.old'))}</small
               >
             </div>
-            <div class="flex flex-col justify-start col-span-2 sm:col-span-1">
+            <div class="flex flex-col justify-start">
               <strong class="font-medium th-label text-gray-900 dark:text-gray-100 flex flex-wrap gap-x-2">
                 {
-                  Object.keys(resume.language).map((e) => (
-                    <div class="flex items-center gap-1">
+                  Object.keys(resume.language).map((e, i) => (
+                    <div class={`flex items-center gap-1 ${i !== 0 ? 'lg:block hidden' : ''}`}>
                       <span class="capitalize leading-[0.8] ">{e}</span>
                       <small class="uppercase text-xs text-gray-500 leading-[0.8] ">({resume.language[e]})</small>
                     </div>
@@ -248,9 +255,19 @@ const birthday = dayjs(experience.birthday)
       if (!res.ok) return
       const svg = await res.text()
       const match = svg.match(/>(\d[\d,]*)<\//)
-      const count = match ? match[1].replace(/,/g, '') : '—'
+      const raw = match ? match[1].replace(/,/g, '') : ''
+      let formatted = '—'
+      if (raw) {
+        const rev = raw.split('').reverse()
+        const parts = []
+        for (let i = 0; i < rev.length; i++) {
+          if (i && i % 3 === 0) parts.push(',')
+          parts.push(rev[i])
+        }
+        formatted = parts.reverse().join('')
+      }
       const el = qs(SELECTORS.visitorsBadge)
-      if (el && count) el.textContent = count
+      if (el && formatted) el.textContent = formatted
     } catch (e) {
       console.warn('Visitor badge fetch failed', e)
     }
