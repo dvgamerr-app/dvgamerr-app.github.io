@@ -77,7 +77,6 @@ import '../styles/global.scss'
       url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap"
     />
     <title>{pageTitle}</title>
-    <script async src="https://rum.cronitor.io/script.js"></script>
     {
       import.meta.env.PROD && import.meta.env.PUBLIC_ADSENSE_CLIENT && (
         <script
@@ -85,6 +84,7 @@ import '../styles/global.scss'
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
           crossorigin="anonymous"
         />
+        <script async src="https://rum.cronitor.io/script.js"></script>
       )
     }
   </head>
