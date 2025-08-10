@@ -7,10 +7,12 @@ const { langName } = Astro.props as Props
 ---
 
 <ul class="hidden lg:flex lg:items-center gap-2 text-sm print:hidden">
-  <li>
-    <a
-      href={langName === 'en' ? '/th' : '/'}
-      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600/60 transition text-xs font-medium"
+  <li class="group">
+    <button
+      id="langSwitch"
+      type="button"
+      data-target={langName === 'en' ? '/th' : '/'}
+      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 group-hover:text-[var(--text-color-link)] dark:group-hover:text-[var(--text-color-link)] hover:bg-gray-50 dark:hover:bg-gray-600/60 transition"
       aria-label="Switch language"
     >
       <svg
@@ -26,15 +28,14 @@ const { langName } = Astro.props as Props
         <circle cx="12" cy="12" r="10"></circle>
         <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"></path>
       </svg>
-      <span class="uppercase">{languages[langName]}</span>
-    </a>
+      <span class="uppercase text-xs font-medium mt-0.5">{languages[langName]}</span>
+    </button>
   </li>
-  <li>
-    <a
-      href="#"
-      rel="noopener noreferrer"
+  <li class="group">
+    <button
+      type="button"
       id="on-printer"
-      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600/60 transition text-xs font-medium"
+      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 group-hover:text-[var(--text-color-link)] dark:group-hover:text-[var(--text-color-link)] hover:bg-gray-50 dark:hover:bg-gray-600/60 transition"
       aria-label="Print CV"
     >
       <svg
@@ -53,13 +54,13 @@ const { langName } = Astro.props as Props
         <path d="M6 17h12v3H6z"></path>
         <path d="M9 14h6"></path>
       </svg>
-      <span>CV</span>
-    </a>
+      <span class="uppercase text-xs font-medium mt-0.5">cv</span>
+    </button>
   </li>
-  <li>
+  <li class="group">
     <button
       id="themeToggle"
-      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600/60 transition"
+      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 group-hover:text-[var(--text-color-link)] dark:group-hover:text-[var(--text-color-link)] hover:bg-gray-50 dark:hover:bg-gray-600/60 transition"
       aria-label="Toggle theme"
     >
       <svg viewBox="0 0 25 25" height="16" width="16" class="pointer-events-none">
@@ -106,13 +107,22 @@ const { langName } = Astro.props as Props
   }
 </style>
 <script>
-  const S = { printBtn: 'on-printer', themeToggle: '#themeToggle' }
+  const S = { printBtn: 'on-printer', themeToggle: '#themeToggle', langSwitch: 'langSwitch' }
   function initPrint() {
     const b = document.getElementById(S.printBtn)
     if (!b) return
     b.addEventListener('click', (e) => {
       e.preventDefault()
       print()
+    })
+  }
+  function initLang() {
+    const b = document.getElementById(S.langSwitch)
+    if (!b) return
+    b.addEventListener('click', (e) => {
+      e.preventDefault()
+      const target = b.getAttribute('data-target')
+      if (target) window.location.href = target
     })
   }
   function initTheme() {
@@ -141,6 +151,7 @@ const { langName } = Astro.props as Props
   }
   const init = () => {
     initPrint()
+    initLang()
     initTheme()
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init)
