@@ -2,38 +2,68 @@ const logger = require('pino')({ level: 'trace' })
 
 const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t))
 
-// Fetches data from GitHub API using provided method (GET, POST, etc.) and URL.
+const GITHUB_API_BASE = 'https://api.github.com'
+const GH_TOKEN = process.env.GH_TOKEN || ''
+let tokenWarned = false
+
+/**
+ * Fetch GitHub API (simple retry for non-success > 204)
+ * @param {string} method HTTP method
+ * @param {string} url Path starting with /
+ * @param {BodyInit|undefined} body Optional body
+ * @returns {Promise<{data:any,status:number}>}
+ */
 const fetchGithub = async (method, url, body) => {
-  let data = null
-  let status = 0
-  let tries = 4
-  let retry = false
-  do {
-    const res = await fetch(`https://api.github.com${url}`, {
+  if (!GH_TOKEN && !tokenWarned) {
+    tokenWarned = true
+    logger.warn('GH_TOKEN missing: requests will be unauthenticated and heavily rate-limited')
+  }
+
+  let attempts = 4
+  let lastStatus = 0
+  while (attempts > 0) {
+    const res = await fetch(`${GITHUB_API_BASE}${url}`, {
       body,
       headers: {
         Accept: 'application/vnd.github.v3+json',
-        Authorization: `token ${process.env.GH_TOKEN}`,
+        ...(GH_TOKEN ? { Authorization: `token ${GH_TOKEN}` } : {}),
       },
       method,
     })
-    status = res.status
 
-    retry = status > 204 && tries > 0
-    if (retry) {
-      tries--
-      await sleep(1000)
-    } else {
+    lastStatus = res.status
+
+    // Success (<= 204) parse and return immediately
+    if (lastStatus <= 204) {
+      try {
+        const data = await res.json()
+        return { data, status: lastStatus }
+      } catch {
+        // No JSON body
+        const payload = await res.text()
+        return { data: payload ? { payload } : null, status: lastStatus }
+      }
+    }
+
+    attempts--
+    if (attempts === 0) {
+      // Final attempt -> return whatever payload we can parse
+      let data = null
       try {
         data = await res.json()
       } catch {
         const payload = await res.text()
         if (payload) data = { payload }
-        logger.warn({ url, ...data, status, tries })
       }
+      logger.warn({ attemptsRemaining: attempts, status: lastStatus, url, ...(!GH_TOKEN && { unauthenticated: true }) })
+      return { data, status: lastStatus }
     }
-  } while (retry)
-  return { data, status }
+
+    // Retry after delay
+    await sleep(1000)
+  }
+
+  return { data: null, status: lastStatus }
 }
 
 // const ghlocFetch = async (owner, name) => {
