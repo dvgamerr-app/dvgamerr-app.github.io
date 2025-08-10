@@ -10923,15 +10923,15 @@
       },
       {
         "date": "2025-08-10",
-        "total": 16776.764,
+        "total": 17068.22,
         "categories": [
           {
             "name": "Coding",
-            "total": 13423.902
+            "total": 13675.777
           },
           {
             "name": "AI Coding",
-            "total": 1960.627
+            "total": 2000.208
           },
           {
             "name": "Writing Docs",

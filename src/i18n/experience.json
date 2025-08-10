@@ -96,7 +96,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "dvgamerr-app.github.io",
-      "pushed_at": "2025-08-10T09:10:42Z",
+      "pushed_at": "2025-08-10T13:07:45Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
       "topics": [
@@ -320,27 +320,6 @@
         "nuxt3",
         "open-source",
         "sso-login"
-      ],
-      "watchers": 0
-    },
-    {
-      "created_at": "2020-01-09T08:57:11Z",
-      "description": "SQL Syntax checking and deploy command.",
-      "forks": 0,
-      "homepage": "",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit",
-        "node_id": "MDc6TGljZW5zZTEz"
-      },
-      "name": "go-sqlint",
-      "pushed_at": "2024-04-01T03:42:32Z",
-      "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/go-sqlint",
-      "topics": [
-        "open-source"
       ],
       "watchers": 0
     }

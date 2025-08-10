@@ -6,7 +6,7 @@ import { mergeJsonResponse } from './helper.js'
 const logger = pino({ level: 'trace' })
 
 async function collectWakatime() {
-  const stats = { average_seconds: 0, best_seconds: 0, daytime: [], weekly_seconds: 0 }
+  const stats = { average_seconds: 0, best_seconds: 0, weekly_seconds: 0 }
   const uid = '06633b1c-3ba7-44c2-ab5d-08e47ccc87ab'
   let userAgent = ''
   try {
