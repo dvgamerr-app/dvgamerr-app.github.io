@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/th'
 import Layout from '../layouts/Layout.astro'
 import SectionHeader from '../components/sections/Header.astro'
-import SectionMainContent from '../components/SectionMainContent.astro'
+import ContentResume from '../components/Resume.astro'
 import SectionWorkExperience from '../components/SectionWorkExperience.astro'
 import SectionFooter from '../components/SectionFooter.astro'
 import GoogleAd from '../components/GoogleAd.astro'
@@ -33,7 +33,7 @@ dayjs.locale(langName)
 >
   <div class="pt-5">
     <SectionHeader resume={resume} experience={experience} />
-    <SectionMainContent resume={resume} experience={experience} />
+    <ContentResume resume={resume} experience={experience} />
     {
       import.meta.env.PUBLIC_ADSENSE_HOME_SLOT && (
         <div class="container my-4 d-print-none">

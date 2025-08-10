@@ -1,0 +1,116 @@
+---
+import githubIco from '../../assets/icon/github.svg?raw'
+import twitterIco from '../../assets/icon/twitter.svg?raw'
+import instagramIco from '../../assets/icon/instagram.svg?raw'
+import emailIco from '../../assets/icon/email.svg?raw'
+import mobileIco from '../../assets/icon/mobile.svg?raw'
+
+import { getTranslate } from '../../i18n/utils'
+const t = getTranslate(Astro.url)
+
+const iconAssets = {
+  github: githubIco,
+  twitter: twitterIco,
+  instagram: instagramIco,
+  email: emailIco,
+  mobile: mobileIco,
+}
+
+const filterPrint = (e: any) => e.label !== 'MOBILE' && e.label !== 'EMAIL'
+
+const getContactPrint = () => {
+  return experience.contact.filter((e: any) => e.print && filterPrint(e))
+}
+const getTel = () => {
+  return experience.contact.filter((e: any) => e.print && !filterPrint(e))
+}
+const getContactView = () => {
+  return experience.contact.filter((e: any) => !e.print)
+}
+
+interface Props {
+  experience: any
+}
+
+const { experience } = Astro.props
+---
+
+<section class="pt-8 md:pt-12 pb-4 md:pb-8 print:hidden">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="md:grid md:grid-cols-12 md:gap-8">
+      <div class="md:col-span-3 mb-6 md:mb-0">
+        <h2 class="min-w-[175px] text-[1.2rem] -mt-1.5 text-gray-800 dark:text-gray-200 uppercase md:text-right">
+          {t('contact')}
+        </h2>
+      </div>
+      <div class="md:col-span-9">
+        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-2">
+          {
+            getContactPrint()
+              .filter((e: any) => e.qrcode)
+              .map((e: any) => (
+                <div class="d-print-only">
+                  <address>
+                    <img src={e.qrcode} height="160" alt={`QR ${e.label}`} data-not-lazy />
+                  </address>
+                </div>
+              ))
+          }
+          <div class="d-print-only">
+            {
+              getContactPrint()
+                .filter((e: any) => !e.qrcode)
+                .map((e: any) => (
+                  <address>
+                    <>
+                      <strong>{t(`contact.${(e.label as string).toLowerCase()}` as any)}</strong>
+                      <br />
+                    </>
+                    <a
+                      href={e.url}
+                      target={filterPrint(e) ? '_blank' : ''}
+                      class="d-flex align-flex-start justify-content-start"
+                      style="gap: .2em;"
+                    >
+                      <div set:html={iconAssets[e.icon || 'chrome']} style="width: 16px;" />
+                      <div style="padding-top:.1em">{e.text}</div>
+                    </a>
+                  </address>
+                ))
+            }
+          </div>
+
+          {
+            getContactView().map((e: any) => (
+              <div class="d-print-none">
+                <address>
+                  <>
+                    <strong>{t(`contact.${e.label.toLowerCase()}` as any)}</strong>
+                    <br />
+                  </>
+                  <a
+                    href={e.url}
+                    target={filterPrint(e) ? '_blank' : ''}
+                    class="d-flex align-flex-start justify-content-start"
+                    style="gap: .2em;"
+                  >
+                    <div set:html={iconAssets[e.icon || 'chrome']} style="width: 16px;" />
+                    <div style="padding-top:.1em">{e.text}</div>
+                  </a>
+                </address>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media print {
+    address a {
+      color: inherit !important;
+    }
+  }
+</style>
