@@ -22,29 +22,34 @@ const { experience } = Astro.props
         <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-2">
           {
             experience.repos.map((e: any) => (
-              <div class="group flex flex-col rounded-lg backdrop-blur-sm p-0.5 transition">
+              <a
+                href={e.svn_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex flex-col rounded-lg backdrop-blur-sm p-0.5 transition"
+              >
                 <div class="flex items-start gap-2 flex-wrap mb-2">
-                  <span class="inline-flex items-center rounded-md bg-blue-100 dark:bg-blue-600/20 text-blue-700 dark:text-blue-300 px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase">
+                  <span class="inline-flex items-center rounded-md bg-gray-200/70 dark:bg-gray-700/40 text-gray-800 dark:text-gray-200 px-2 pt-0.5 text-[10px] font-semibold tracking-wide uppercase">
                     {dayjs(e.created_at).year()}
                   </span>
-                  <a href={e.svn_url} target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[60%]">
+                  <div class="flex-1 min-w-[60%]">
                     <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug uppercase break-words transition-colors group-hover:text-[var(--text-color-link)] dark:group-hover:text-[var(--text-color-link)]">
                       {e.name}
                     </h3>
-                  </a>
+                  </div>
                   {e.stargazers_count ? (
                     <span class="inline-flex items-center gap-1 rounded-md bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-0.5 text-[10px] font-medium">
-                      <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true" class="fill-current">
+                      <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true" class="fill-current -mt-0.5">
                         <path d="M8 12.027 3.708 14.5l.82-4.781L1.5 6.653l4.797-.696L8 1.75l1.703 4.207 4.797.696-3.028 3.066.82 4.781L8 12.027Z" />
                       </svg>
-                      {e.stargazers_count}
+                      <span class="pt-0.5">{e.stargazers_count}</span>
                     </span>
                   ) : (
                     <span />
                   )}
                 </div>
                 {e.description && <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-4">{e.description}</p>}
-              </div>
+              </a>
             ))
           }
         </div>

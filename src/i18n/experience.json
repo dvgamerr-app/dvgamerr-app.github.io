@@ -96,10 +96,20 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "dvgamerr-app.github.io",
-      "pushed_at": "2025-08-10T03:22:05Z",
+      "pushed_at": "2025-08-10T08:39:15Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
-      "topics": ["cv", "developer-resume", "kananek", "kem", "open-source", "profile", "resume", "showcase", "thongkam"],
+      "topics": [
+        "cv",
+        "developer-resume",
+        "kananek",
+        "kem",
+        "open-source",
+        "profile",
+        "resume",
+        "showcase",
+        "thongkam"
+      ],
       "watchers": 5
     },
     {
@@ -112,7 +122,17 @@
       "pushed_at": "2023-10-01T00:44:37Z",
       "stargazers_count": 4,
       "svn_url": "https://github.com/dvgamerr-app/team-rework",
-      "topics": ["issue-tracker", "issues", "nuxtjs", "open-source", "project", "task", "task-list", "todo-app", "todolist"],
+      "topics": [
+        "issue-tracker",
+        "issues",
+        "nuxtjs",
+        "open-source",
+        "project",
+        "task",
+        "task-list",
+        "todo-app",
+        "todolist"
+      ],
       "watchers": 4
     },
     {
@@ -165,7 +185,9 @@
       "pushed_at": "2024-03-01T17:03:01Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/minima-lite",
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -184,7 +206,9 @@
       "pushed_at": "2024-08-30T17:34:09Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/errcode-page",
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -203,7 +227,12 @@
       "pushed_at": "2023-09-25T12:50:09Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/go-tsunami-cli",
-      "topics": ["cli", "datatsunami", "dataweave", "open-source"],
+      "topics": [
+        "cli",
+        "datatsunami",
+        "dataweave",
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -222,7 +251,9 @@
       "pushed_at": "2023-10-16T13:31:54Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/go-school",
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -235,7 +266,11 @@
       "pushed_at": "2023-10-01T00:42:48Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/sso-team",
-      "topics": ["nuxt3", "open-source", "sso-login"],
+      "topics": [
+        "nuxt3",
+        "open-source",
+        "sso-login"
+      ],
       "watchers": 0
     },
     {
@@ -254,7 +289,9 @@
       "pushed_at": "2022-10-12T09:53:21Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/kube-app",
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -267,7 +304,14 @@
       "pushed_at": "2025-07-01T14:34:56Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/infra-hades-app",
-      "topics": ["client", "desktop", "desktop-app", "kubernetes", "monitor", "open-source"],
+      "topics": [
+        "client",
+        "desktop",
+        "desktop-app",
+        "kubernetes",
+        "monitor",
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -286,7 +330,9 @@
       "pushed_at": "2024-04-01T03:42:32Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/go-sqlint",
-      "topics": ["open-source"],
+      "topics": [
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -305,7 +351,18 @@
       "pushed_at": "2019-02-17T15:09:27Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/bnk48-events-linebot",
-      "topics": ["bnk48", "event", "line", "line-bot", "linebot", "notify", "nuxtjs", "open-source", "schedule", "vue"],
+      "topics": [
+        "bnk48",
+        "event",
+        "line",
+        "line-bot",
+        "linebot",
+        "notify",
+        "nuxtjs",
+        "open-source",
+        "schedule",
+        "vue"
+      ],
       "watchers": 0
     }
   ],
@@ -399,25 +456,37 @@
   "social": [
     {
       "name": "github",
-      "icon": ["fab", "github"],
+      "icon": [
+        "fab",
+        "github"
+      ],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": ["fab", "linkedin"],
+      "icon": [
+        "fab",
+        "linkedin"
+      ],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": ["fas", "clock"],
+      "icon": [
+        "fas",
+        "clock"
+      ],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": ["fab", "codepen"],
+      "icon": [
+        "fab",
+        "codepen"
+      ],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -496,8 +565,25 @@
       "Discord",
       "Slack"
     ],
-    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
-    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
+    "sql": [
+      "PostgreSQL",
+      "Redis",
+      "MongoDB",
+      "Influx",
+      "MySQL",
+      "Oracle",
+      "MSSQL",
+      "SQLite"
+    ],
+    "os": [
+      "Chat GPT",
+      "AWS",
+      "Azure",
+      "GCloud",
+      "CentOS",
+      "Debian",
+      "Fedora"
+    ]
   },
   "contact": [
     {
