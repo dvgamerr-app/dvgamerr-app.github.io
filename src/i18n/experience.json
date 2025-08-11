@@ -99,17 +99,7 @@
       "pushed_at": "2025-08-10T13:07:45Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
-      "topics": [
-        "cv",
-        "developer-resume",
-        "kananek",
-        "kem",
-        "open-source",
-        "profile",
-        "resume",
-        "showcase",
-        "thongkam"
-      ],
+      "topics": ["cv", "developer-resume", "kananek", "kem", "open-source", "profile", "resume", "showcase", "thongkam"],
       "watchers": 5
     },
     {
@@ -122,17 +112,7 @@
       "pushed_at": "2023-10-01T00:44:37Z",
       "stargazers_count": 4,
       "svn_url": "https://github.com/dvgamerr-app/team-rework",
-      "topics": [
-        "issue-tracker",
-        "issues",
-        "nuxtjs",
-        "open-source",
-        "project",
-        "task",
-        "task-list",
-        "todo-app",
-        "todolist"
-      ],
+      "topics": ["issue-tracker", "issues", "nuxtjs", "open-source", "project", "task", "task-list", "todo-app", "todolist"],
       "watchers": 4
     },
     {
@@ -151,12 +131,7 @@
       "pushed_at": "2025-08-02T11:12:47Z",
       "stargazers_count": 2,
       "svn_url": "https://github.com/dvgamerr/wedding-day",
-      "topics": [
-        "open-source",
-        "party",
-        "wedding",
-        "wedding-website"
-      ],
+      "topics": ["open-source", "party", "wedding", "wedding-website"],
       "watchers": 2
     },
     {
@@ -209,15 +184,7 @@
       "pushed_at": "2025-08-08T14:33:09Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr/aide-tokenizer",
-      "topics": [
-        "aide",
-        "data-pipeline",
-        "message-processing",
-        "microservices",
-        "open-source",
-        "queue-system",
-        "rest-api"
-      ],
+      "topics": ["aide", "data-pipeline", "message-processing", "microservices", "open-source", "queue-system", "rest-api"],
       "watchers": 0
     },
     {
@@ -236,9 +203,7 @@
       "pushed_at": "2023-10-16T13:31:54Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/go-school",
-      "topics": [
-        "open-source"
-      ],
+      "topics": ["open-source"],
       "watchers": 0
     },
     {
@@ -257,12 +222,7 @@
       "pushed_at": "2023-09-25T12:50:09Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/go-tsunami-cli",
-      "topics": [
-        "cli",
-        "datatsunami",
-        "dataweave",
-        "open-source"
-      ],
+      "topics": ["cli", "datatsunami", "dataweave", "open-source"],
       "watchers": 0
     },
     {
@@ -275,14 +235,7 @@
       "pushed_at": "2025-07-01T14:34:56Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/infra-hades-app",
-      "topics": [
-        "client",
-        "desktop",
-        "desktop-app",
-        "kubernetes",
-        "monitor",
-        "open-source"
-      ],
+      "topics": ["client", "desktop", "desktop-app", "kubernetes", "monitor", "open-source"],
       "watchers": 0
     },
     {
@@ -301,9 +254,7 @@
       "pushed_at": "2022-10-12T09:53:21Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/kube-app",
-      "topics": [
-        "open-source"
-      ],
+      "topics": ["open-source"],
       "watchers": 0
     },
     {
@@ -316,11 +267,7 @@
       "pushed_at": "2023-10-01T00:42:48Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/sso-team",
-      "topics": [
-        "nuxt3",
-        "open-source",
-        "sso-login"
-      ],
+      "topics": ["nuxt3", "open-source", "sso-login"],
       "watchers": 0
     }
   ],
@@ -414,37 +361,25 @@
   "social": [
     {
       "name": "github",
-      "icon": [
-        "fab",
-        "github"
-      ],
+      "icon": ["fab", "github"],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": [
-        "fab",
-        "linkedin"
-      ],
+      "icon": ["fab", "linkedin"],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": [
-        "fas",
-        "clock"
-      ],
+      "icon": ["fas", "clock"],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": [
-        "fab",
-        "codepen"
-      ],
+      "icon": ["fab", "codepen"],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -523,25 +458,8 @@
       "Discord",
       "Slack"
     ],
-    "sql": [
-      "PostgreSQL",
-      "Redis",
-      "MongoDB",
-      "Influx",
-      "MySQL",
-      "Oracle",
-      "MSSQL",
-      "SQLite"
-    ],
-    "os": [
-      "Chat GPT",
-      "AWS",
-      "Azure",
-      "GCloud",
-      "CentOS",
-      "Debian",
-      "Fedora"
-    ]
+    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
+    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
   },
   "contact": [
     {
@@ -553,17 +471,17 @@
     },
     {
       "print": false,
-      "label": "twitter",
-      "url": "https://twitter.com/dvgamerr",
-      "text": "dvgamerr",
-      "icon": "twitter"
+      "label": "wakatime",
+      "url": "https://wakatime.com/@dvgamerr",
+      "text": "@dvgamerr",
+      "icon": "wakatime"
     },
     {
       "print": false,
-      "label": "instrgram",
-      "url": "https://www.instagram.com/dvgamerr/",
-      "text": "Kananek T.",
-      "icon": "instagram"
+      "label": "devto",
+      "url": "https://dev.to/dvgamerr",
+      "text": "dvgamerr",
+      "icon": "devto"
     },
     {
       "print": false,
