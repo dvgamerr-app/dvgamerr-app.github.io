@@ -36,7 +36,7 @@ dayjs.locale(langName)
     <ContentResume resume={resume} experience={experience} />
     {
       import.meta.env.PUBLIC_ADSENSE_HOME_SLOT && (
-        <div class="container my-4 d-print-none">
+        <div class="container my-4 print:hidden">
           <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_HOME_SLOT} />
         </div>
       )
