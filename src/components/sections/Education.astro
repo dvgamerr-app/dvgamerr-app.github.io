@@ -1,0 +1,44 @@
+---
+import { getTranslate } from '../../i18n/utils'
+const t = getTranslate(Astro.url)
+
+interface Props {
+  resume: any
+}
+
+const { resume } = Astro.props
+---
+
+<section class="pt-8 md:pt-12 pb-4 md:pb-8">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="md:grid md:grid-cols-12 md:gap-8">
+      <div class="md:col-span-3 mb-6 md:mb-0">
+        <h2 class="min-w-[175px] text-[1.2rem] -mt-1.5 text-gray-800 dark:text-gray-200 uppercase md:text-right">
+          {t('education')}
+        </h2>
+      </div>
+      <div class="md:col-span-9">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:text-base">
+          {
+            resume.education.map((e: any) => (
+              <div class="group flex flex-col pb-3 transition">
+                <div class="flex items-start gap-2 flex-wrap mb-2 w-full">
+                  <span class="text-sm inline-flex items-center rounded-md bg-gray-200/70 dark:bg-gray-700/40 text-gray-800 dark:text-gray-200 px-2 pt-0.5 font-semibold tracking-wide uppercase">
+                    {e.range}
+                  </span>
+                  <div class="flex-1 min-w-[60%] mt-1">
+                    <h3 class="font-semibold text-gray-800 dark:text-gray-200 leading-snug uppercase break-words transition-colors">
+                      {e.major}
+                    </h3>
+                  </div>
+                </div>
+                {e.location && <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-1 tracking-wide">{e.location}</h4>}
+                {e.branch && <p class="text-sm -mt-2 text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-4">{e.branch}</p>}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

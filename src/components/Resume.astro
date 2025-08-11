@@ -4,8 +4,8 @@ import SectionContact from './sections/Contact.astro'
 import SectionCoding from './sections/CodingRepos.astro'
 import SectionDaytime from './sections/CodingDaytime.astro'
 import SectionHistory from './sections/CodingHistory.astro'
-// import SectionSkill from './sections/Skill.astro'
-// import SectionEducation from './sections/Education.astro'
+import SectionSkill from './sections/Skill.astro'
+import SectionEducation from './sections/Education.astro'
 
 interface Props {
   resume: any
@@ -15,10 +15,10 @@ interface Props {
 const { resume, experience } = Astro.props
 ---
 
-<!-- <SectionProject experience={experience} /> -->
+<SectionProject experience={experience} />
 <SectionContact experience={experience} />
 <SectionCoding />
 <SectionDaytime />
 <SectionHistory />
-<!-- <SectionSkill experience={experience} />
-<SectionEducation resume={resume} /> -->
+<SectionSkill experience={experience} />
+<SectionEducation resume={resume} />
