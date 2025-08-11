@@ -1,5 +1,6 @@
 {
   "name": "dvgamerr",
+  "type": "module",
   "version": "4.1.1",
   "description": "Hey there, I'm Kananek T. and work as Software Engineer.",
   "author": "Kananek T. <kananek.dev@touno.io>",
@@ -21,15 +22,19 @@
     "@astrojs/sitemap": "^3.4.2",
     "@astrojs/tailwind": "^6.0.2",
     "@cronitorio/cronitor-rum": "^0.4.1",
+    "@tailwindcss/typography": "^0.5.16",
     "arg": "^5.0.2",
     "astro": "5.1.7",
     "astro-google-fonts-optimizer": "^0.2.2",
     "astro-robots-txt": "^1.0.0",
     "astro-webmanifest": "^1.0.0",
+    "caniuse-lite": "^1.0.30001733",
     "numeral": "^2.0.6",
     "pino": "^9.7.0",
-    "sharp": "0.34.3",
-    "tailwindcss": "^3.4.17"
+    "sass-embedded": "^1.90.0",
+    "sharp": "^0.34.3",
+    "tailwindcss": "3.4.11",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -37,7 +42,7 @@
     "@eslint/js": "^9.32.0",
     "@tailwindcss/postcss": "^4.1.11",
     "@vite-pwa/astro": "1.1.0",
-    "bootstrap": "^5.3.7",
+    "autoprefixer": "^10.4.21",
     "charts.css": "^1.2.0",
     "dayjs": "^1.11.13",
     "dotenv": "17.2.1",
@@ -46,8 +51,8 @@
     "globals": "^16.3.0",
     "lint-staged": "^16.1.4",
     "pino-pretty": "^13.1.1",
-    "prettier": "^3.6.2",
-    "sass": "^1.90.0"
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2"
   },
   "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276"
 }

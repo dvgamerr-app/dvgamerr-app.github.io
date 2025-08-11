@@ -1,7 +1,7 @@
----
-title: 'The greatest post of all time'
-author: 'Ben'
----
+- Led R&D across a face recognition system (`Python`, `OpenCV`, `Socket.IO`) and a robotics prototype (`Arduino`).
+- Built both front-end and back-end web applications, integrating payments via `Paysbuy`.
+- Managed infrastructure, servers, and containers (`IIS`, `MSSQL`, `Docker`); administered databases (`MySQL`, `MongoDB`, `Redis`, `Elasticsearch`) and `GitLab` workflows.
+- Developed and maintained applications for `Windows` (Travox Sentinel) and `Android` (CheckStock).
 
 **Research and Development**
 

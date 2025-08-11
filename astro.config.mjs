@@ -11,6 +11,7 @@ export default defineConfig({
     service: passthroughImageService(),
   },
   integrations: [
+    tailwind(),
     AstroPWA(),
     robotsTxt(),
     sitemap({
@@ -32,7 +33,6 @@ export default defineConfig({
       start_url: '/',
       theme_color: '#3068d9',
     }),
-    tailwind(),
   ],
   site: 'https://dvgamerr.app',
 })

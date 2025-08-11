@@ -1,0 +1,61 @@
+---
+import dayjs from 'dayjs'
+import coding from '../../i18n/coding.json'
+
+import { getTranslate } from '../../i18n/utils'
+const t = getTranslate(Astro.url)
+
+const getUpdated = () => {
+  return dayjs(coding.updated).format('DD-MM-YYYY')
+}
+
+const getExperience = () => {
+  const worked = dayjs().diff(coding.experience, 'month') / 12
+  const month = (worked % 1) * 12
+  return `${Math.floor(worked)} ${t('date.year')} ${Math.floor(month)} ${t('date.month')}${month > 1 ? t('date.s') : ''}`
+}
+
+const toNumber = (n: number = 0) => {
+  const loc = n / 1000000
+  const low = loc >= 1 ? `${Math.round(loc * 100) / 100} M` : n
+  return loc < 1 && n / 1000 >= 1 ? `${Math.round((n / 1000) * 100) / 100} K` : low
+}
+---
+
+<section class="pt-8 md:pt-12 pb-4 md:pb-8 print:hidden">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+      <div class="md:col-span-3 mb-6 md:mb-0">
+        <h2 class="text-[1.2rem] -mt-0.5 text-gray-800 dark:text-gray-200 uppercase md:text-right">
+          {t('my-coding')}
+        </h2>
+        <div class="hidden md:block md:text-right text-xs text-gray-500 dark:text-gray-400 -mt-2">updated {getUpdated()}</div>
+      </div>
+      <div class="md:col-span-9">
+        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-2 -mt-2.5">
+          <div class="p-4 rounded bg-white/70 dark:bg-gray-900/60 backdrop-blur">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold">{t('my-coding.experience')}</div>
+            <div class="mt-1 text-lg font-bold text-gray-800 dark:text-gray-100">{getExperience()}</div>
+          </div>
+          <div class="p-4 rounded bg-white/70 dark:bg-gray-900/60 backdrop-blur">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold">{t('my-coding.loc')}</div>
+            <div class="mt-1 text-lg font-bold text-gray-800 dark:text-gray-100">{toNumber(coding.loc)}</div>
+          </div>
+          <div class="p-4 rounded bg-white/70 dark:bg-gray-900/60 backdrop-blur">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold">
+              {t('my-coding.projects')} ({t('my-coding.opensource')})
+            </div>
+            <div class="mt-1 text-lg font-bold text-gray-800 dark:text-gray-100">
+              {`${toNumber(coding.total)} (${toNumber(coding.public)})`}
+            </div>
+          </div>
+          <div class="p-4 rounded bg-white/70 dark:bg-gray-900/60 backdrop-blur">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold">{t('my-coding.commits')}</div>
+            <div class="mt-1 text-lg font-bold text-gray-800 dark:text-gray-100">{toNumber(coding.commits)}</div>
+          </div>
+        </div>
+        <div class="md:hidden text-xs text-gray-500 dark:text-gray-400 mt-3">updated {getUpdated()}</div>
+      </div>
+    </div>
+  </div>
+</section>

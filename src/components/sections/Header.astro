@@ -1,0 +1,289 @@
+---
+import dayjs from 'dayjs'
+import numeral from 'numeral'
+import HeaderActions from '../HeaderActions.astro'
+import { getLangFromUrl, getTranslate } from '../../i18n/utils'
+import coding from '../../i18n/coding.json'
+const langName = getLangFromUrl(Astro.url)
+const t = getTranslate(Astro.url)
+
+import 'dayjs/locale/th'
+
+import { Image } from 'astro:assets'
+import photo from '../../assets/kk_00248.webp'
+
+const showAge = () => birthday.fromNow(true)
+const showBirthday = () =>
+  langName === 'en' ? birthday.locale('en').format('MMMM DD, YYYY') : birthday.add(543, 'y').locale('th').format('DD MMMM YYYY')
+
+// const availableLocales = () => {
+//   return this.$i18n.locales.filter(i => i.code === this.$i18n.locale)
+// }
+const showNationalD = () => {
+  let regex: RegExp = /(\d)(\d{4})(\d{5})(\d{2})(\d{1}).*/gi
+  const [, ...id]: any = regex.exec(resume.national_id)
+  return id.join(' ')
+}
+
+const showSalary = async () => {
+  const { base, day, hour } = experience.salary
+  if (langName == 'en') {
+    const usdt = await fetch('https://api.bitkub.com/api/market/ticker?sym=THB_USDT')
+    const res = await usdt.json()
+
+    const perHour = Math.round((base / day / hour / res['THB_USDT'].last) * 100) / 100
+    return `${t('head.salary.currency')}${perHour} ${t('head.salary.hour')}`
+  } else {
+    const perHour = Math.round((base / day / hour) * 100) / 100
+    return `${perHour} ${t('head.salary.currency')}${t('head.salary.hour')}`
+  }
+}
+const showSalaryFull = () => {
+  return `${numeral(experience.salary.base).format('0,0')} THB`
+}
+const showExpect = () => {
+  return `${numeral(experience.salary.expect).format('0,0')} THB`
+}
+
+interface Props {
+  resume: any
+  experience: any
+}
+
+const { experience, resume } = Astro.props
+const birthday = dayjs(experience.birthday)
+// Load coding stats (wakatime) from content collection
+// codingData.wakatime provides total coding time string
+---
+
+<section class="pt-0 pb-8 md:py-12 print-text-gray-900">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="md:grid md:grid-cols-8 md:gap-8">
+      <div class="md:col-span-2">
+        <div class="block md:flex justify-end print:hidden">
+          <Image
+            src={photo}
+            width={510}
+            height={620}
+            loading="lazy"
+            alt=""
+            class="w-full h-[60vh] sm:h-64 lg:h-auto object-cover rounded-none md:rounded-lg shadow-none md:shadow-md"
+          />
+        </div>
+      </div>
+      <div class="md:col-span-6">
+        <div class="flex items-center justify-between gap-4 relative">
+          <h1 class="flex flex-1 uppercase th-label mt-2 text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+            {resume.fullname}
+          </h1>
+          <HeaderActions langName={langName} />
+        </div>
+        <span class="th-label block mt-1 text-lg font-medium text-gray-600 dark:text-gray-300 print:hidden">{resume.job}</span>
+        <span class="th-label hidden print:block text-xl font-semibold text-gray-900">{resume.fullname_th}</span>
+        <div class="flex gap-2 mt-2 flex-wrap items-center print:hidden text-[11px] leading-[1.3]">
+          <a
+            id="wakatime-badge"
+            href="https://wakatime.com/@dvgamerr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-1 rounded-none border border-blue-300/60 bg-blue-50 dark:bg-blue-500/10 px-1 py-0.5 font-medium text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-500/20 transition text-center"
+            aria-label="WakaTime coding activity"
+          >
+            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+            <span class="mt-0.5">WakaTime</span>
+            <span class="mt-0.5 font-semibold" data-count>{coding.wakatime}</span>
+          </a>
+          <a
+            id="gh-followers"
+            href="https://github.com/dvgamerr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-1 rounded-none border border-yellow-300/60 bg-yellow-50 dark:bg-yellow-500/10 px-1 py-0.5 font-medium text-yellow-700 dark:text-yellow-300 hover:bg-yellow-100 dark:hover:bg-yellow-500/20 transition text-center"
+            aria-label="GitHub followers"
+          >
+            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" class="fill-current"
+              ><path
+                d="M8 0C3.58 0 0 3.73 0 8.337c0 3.687 2.292 6.81 5.47 7.91.4.077.547-.177.547-.394 0-.194-.007-.71-.01-1.395-2.226.5-2.695-1.099-2.695-1.099-.364-.958-.89-1.214-.89-1.214-.727-.51.055-.5.055-.5.803.058 1.225.845 1.225.845.715 1.255 1.874.893 2.33.683.072-.534.28-.893.508-1.098-1.777-.207-3.644-.915-3.644-4.074 0-.9.31-1.636.823-2.213-.083-.207-.357-1.04.078-2.17 0 0 .672-.22 2.2.846A7.33 7.33 0 0 1 8 3.987c.68.003 1.366.094 2.005.276 1.527-1.065 2.198-.846 2.198-.846.437 1.13.163 1.963.08 2.17.513.577.822 1.313.822 2.213 0 3.167-1.87 3.864-3.652 4.067.287.257.543.764.543 1.54 0 1.112-.01 2.008-.01 2.283 0 .219.146.474.55.393 3.175-1.101 5.465-4.223 5.465-7.909C16 3.73 12.42 0 8 0Z"
+              ></path></svg
+            >
+            <span class="mt-0.5">Github</span>
+            <span class="mt-0.5 font-semibold" data-count>...</span>
+          </a>
+          <span
+            id="visitors-badge"
+            class="inline-flex items-center justify-center gap-1 rounded-none border border-emerald-300/60 bg-emerald-50 dark:bg-emerald-500/10 px-1 py-0.5 font-medium text-emerald-700 dark:text-emerald-300 text-center"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span class="mt-0.5">Visitors</span>
+            <span class="mt-0.5 font-semibold" data-count>...</span>
+          </span>
+        </div>
+        <p contenteditable="false" class="mt-4 leading-relaxed text-gray-700 dark:text-gray-300 text-sm md:text-base">{resume.detail}</p>
+        <div class="mt-6">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+            <div class="flex flex-col justify-start">
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8] print:hidden">{resume.nickname}</strong>
+              <strong class="hidden print:block font-medium th-label leading-[0.8] text-gray-900">
+                {resume.nickname}&nbsp;{langName === 'en' ? <span class="text-gray-600">({resume.nickname_th})</span> : <span />}
+              </strong>
+              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400">{t('head.nickname')}</small>
+            </div>
+            <div class="flex flex-col justify-start">
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8]">{showBirthday}</strong>
+              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400"
+                >{t('head.age')}&nbsp;{showAge().replace('years', t('head.age.old'))}</small
+              >
+            </div>
+            <div class="flex flex-col justify-start">
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 flex flex-wrap gap-x-2">
+                {
+                  Object.keys(resume.language).map((e, i) => (
+                    <div class={`flex items-center gap-1 ${i !== 0 ? 'lg:block hidden' : ''}`}>
+                      <span class="capitalize leading-[0.8] ">{e}</span>
+                      <small class="uppercase text-xs text-gray-500 leading-[0.8] ">({resume.language[e]})</small>
+                    </div>
+                  ))
+                }
+              </strong>
+              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400">{t('head.language')}</small>
+            </div>
+            <div class="print:flex flex-col justify-start hidden">
+              <strong class="font-medium th-label leading-[0.8] text-gray-900">{resume.religion}</strong>
+              <small class="uppercase mt-0.5 text-gray-500">{t('head.religion')}</small>
+            </div>
+            <div class="print:flex flex-col justify-start hidden">
+              <strong class="font-medium th-label leading-[0.8] text-gray-900">{resume.national}</strong>
+              <small class="uppercase mt-0.5 text-gray-500">{t('head.nationality')}</small>
+            </div>
+            <div class="print:flex flex-col justify-start hidden">
+              <strong class="font-medium th-label leading-[0.8] text-gray-900">{showNationalD}</strong>
+              <small class="uppercase mt-0.5 text-gray-500">{t('head.national_id')}</small>
+            </div>
+            <div class="flex flex-col justify-start">
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8]">{resume.location}</strong>
+              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400">{t('head.location')}</small>
+            </div>
+            <div class="flex flex-col justify-start">
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8] print:hidden">{showSalary}</strong>
+              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400 print:hidden">{t('head.income')}</small>
+              <strong class="hidden print:block font-medium th-label leading-[0.8] text-gray-900">{showSalaryFull}</strong>
+              <small class="uppercase hidden print:block mt-0.5 text-gray-500">{t('head.salary')}</small>
+            </div>
+            <div class="print:flex flex-col justify-start hidden">
+              <strong class="font-medium th-label leading-[0.8] text-gray-900">{showExpect}</strong>
+              <small class="uppercase mt-0.5 text-gray-500">{t('head.salary.expect')}</small>
+            </div>
+            <div class="flex flex-col leading-[0.8] print:hidden">
+              {
+                experience.interview ? (
+                  <span class="inline-block rounded-none bg-green-600/90 text-white text-xs px-2 py-0.5 -mt-1.5 font-medium w-fit">
+                    {t('head.availability.yes')}
+                  </span>
+                ) : (
+                  <span class="inline-block rounded-none bg-red-600/90 text-white text-xs px-2 py-0.5 -mt-1.5 font-medium w-fit">
+                    {t('head.availability.no')}
+                  </span>
+                )
+              }
+              <small class="uppercase mt-1.5 text-gray-500 dark:text-gray-400">{t('head.availability')}</small>
+            </div>
+          </div>
+
+          <!-- removed old print/theme buttons -->
+        </div>
+      </div>
+    </div>
+    <notifications position="bottom right"></notifications>
+  </div>
+</section>
+
+<!-- Theme styles moved to HeaderActions -->
+
+<script>
+  // ---- Config ----
+  // Use window.location host on client (Astro.* not available in shipped HTML)
+  const SITE_HOST = typeof window !== 'undefined' ? window.location?.host || '' : ''
+  const SELECTORS = {
+    followersWrap: '#gh-followers [data-count]',
+    visitorsBadge: '#visitors-badge [data-count]',
+    wakatimeWrap: '#wakatime-badge [data-count]',
+  }
+  const API = {
+    bitkub: 'https://api.bitkub.com/api/market/ticker?sym=THB_USDT',
+    githubUser: 'https://api.github.com/users/dvgamerr',
+    visitor: (host) => `https://api.visitorbadge.io/api/visitors?path=${host}&label=visitors&countColor=%2337d67a&style=flat-square`,
+  }
+
+  // ---- DOM Helpers ----
+  const qs = (sel, ctx = document) => ctx.querySelector(sel)
+  const create = (tag, cls = '') => {
+    const el = document.createElement(tag)
+    if (cls) el.className = cls
+    return el
+  }
+
+  // ---- Features ----
+  // print & theme handled in HeaderActions
+
+  async function logUsdtTicker() {
+    try {
+      const res = await fetch(API.bitkub)
+      if (!res.ok) return
+      const json = await res.json()
+      console.log({ THB_USDT: json['THB_USDT']?.last })
+    } catch (_) {
+      /* silent */
+    }
+  }
+
+  async function updateGitHubFollowers() {
+    try {
+      const res = await fetch(API.githubUser)
+      if (!res.ok) return
+      const data = await res.json()
+      const el = qs(SELECTORS.followersWrap)
+      if (el && data.followers != null) el.textContent = data.followers
+    } catch (e) {
+      console.warn('GitHub followers fetch failed', e)
+    }
+  }
+
+  async function updateVisitorCount() {
+    if (!SITE_HOST) return
+    try {
+      const res = await fetch(API.visitor(SITE_HOST), { cache: 'no-store' })
+      if (!res.ok) return
+      const svg = await res.text()
+      const match = svg.match(/>(\d[\d,]*)<\//)
+      const raw = match ? match[1].replace(/,/g, '') : ''
+      let formatted = '—'
+      if (raw) {
+        const rev = raw.split('').reverse()
+        const parts = []
+        for (let i = 0; i < rev.length; i++) {
+          if (i && i % 3 === 0) parts.push(',')
+          parts.push(rev[i])
+        }
+        formatted = parts.reverse().join('')
+      }
+      const el = qs(SELECTORS.visitorsBadge)
+      if (el && formatted) el.textContent = formatted
+    } catch (e) {
+      console.warn('Visitor badge fetch failed', e)
+    }
+  }
+
+  const init = () =>
+    Promise.all([
+      // theme/print moved to HeaderActions
+      logUsdtTicker(), // fire & forget
+      updateGitHubFollowers(),
+      updateVisitorCount(),
+    ])
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init)
+  } else {
+    init()
+  }
+</script>

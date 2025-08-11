@@ -18,6 +18,8 @@ const { title: pageTitle, description: pageDescription, image: pageImage = '/fb-
 const date = new Date().toISOString()
 
 const lang = getLangFromUrl(Astro.url)
+
+import '../styles/global.scss'
 ---
 
 <!doctype html>
@@ -60,11 +62,21 @@ const lang = getLangFromUrl(Astro.url)
     {import.meta.env.PUBLIC_ADSENSE_CLIENT && <meta name="google-adsense-account" content={import.meta.env.PUBLIC_ADSENSE_CLIENT} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script is:inline>
+      let stored = localStorage.getItem('theme')
+      // only accept explicit values
+      let theme =
+        stored === 'dark' || stored === 'light' ? stored : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      let root = document.documentElement
+      if (theme === 'dark') root.classList.add('dark')
+      else root.classList.add('light')
+      let meta = document.querySelector('meta[name="theme-color"]')
+      if (meta) meta.setAttribute('content', theme === 'dark' ? '#0f121f' : '#C84B31')
+    </script>
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap"
     />
     <title>{pageTitle}</title>
-    <script async src="https://rum.cronitor.io/script.js"></script>
     {
       import.meta.env.PROD && import.meta.env.PUBLIC_ADSENSE_CLIENT && (
         <script
@@ -72,6 +84,7 @@ const lang = getLangFromUrl(Astro.url)
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
           crossorigin="anonymous"
         />
+        <script async src="https://rum.cronitor.io/script.js"></script>
       )
     }
   </head>
@@ -94,7 +107,10 @@ const lang = getLangFromUrl(Astro.url)
   </body>
 </html>
 <style is:global>
-  @import '../styles/global.scss';
+  .th-label {
+    font-family: 'Bai Jamjuree', 'Segoe UI' !important;
+  }
+
   #__layout {
     border-top: 5px solid var(--text-color-link);
   }

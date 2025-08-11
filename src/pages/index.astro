@@ -2,10 +2,10 @@
 import dayjs from 'dayjs'
 import 'dayjs/locale/th'
 import Layout from '../layouts/Layout.astro'
-import SectionHeader from '../components/SectionHeader.astro'
-import SectionMainContent from '../components/SectionMainContent.astro'
-import SectionWorkExperience from '../components/SectionWorkExperience.astro'
-import SectionFooter from '../components/SectionFooter.astro'
+import SectionHeader from '../components/sections/Header.astro'
+import ContentResume from '../components/Resume.astro'
+import WorkExperience from '../components/sections/WorkExperience.astro'
+import SectionFooter from '../components/Footer.astro'
 import GoogleAd from '../components/GoogleAd.astro'
 
 import { getLangFromUrl } from '../i18n/utils'
@@ -29,19 +29,92 @@ dayjs.locale(langName)
 <Layout
   title={`${resume.fullname} - ${resume.job} | Portfolio & Resume`}
   description={resume.detail.substring(0, 180) + (resume.detail.length > 180 ? '...' : '')}
+  image=""
 >
   <div class="pt-5">
     <SectionHeader resume={resume} experience={experience} />
-    <SectionMainContent resume={resume} experience={experience} />
+    <ContentResume resume={resume} experience={experience} />
     {
       import.meta.env.PUBLIC_ADSENSE_HOME_SLOT && (
-        <div class="container my-4 d-print-none">
+        <div class="container my-4 print:hidden">
           <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_HOME_SLOT} />
         </div>
       )
     }
     <p class="pagebreak"></p>
-    <SectionWorkExperience workExperience={resume.work} />
+    <WorkExperience workExperience={resume.work} />
     <SectionFooter />
   </div>
 </Layout>
+<style is:global>
+  :root {
+    --tooltip-color: #dc3545;
+  }
+
+  /* Mobile responsive styles */
+  @media (max-width: 36rem) {
+    #__layout .header {
+      padding: 2em 0 0 0;
+    }
+
+    #__layout .header .name-wrapper {
+      margin-bottom: 0em;
+    }
+
+    #__layout .header .profile-img {
+      margin-bottom: 5em;
+      height: 420px;
+    }
+
+    #__layout .header .profile-img img {
+      position: absolute;
+      object-position: top;
+      object-fit: cover;
+      max-height: 460px;
+      width: 100%;
+      top: 5px;
+      left: 0;
+    }
+
+    #__layout .header .section-wrapper.grid-personal {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+
+    #__layout .section-title {
+      padding-top: 1em;
+      text-align: left;
+    }
+
+    #__layout .section-title h2 {
+      font-size: 1.4rem;
+    }
+  }
+
+  /* Tablet and larger screens */
+  @media (min-width: 896px) {
+    #__layout .section-contact .contact-item {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Coding stats mobile layout */
+  @media (max-width: 896px) {
+    #__layout .section-coding .stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    #__layout address a {
+      fill: var(--text-secondary);
+      font-weight: bold;
+      text-decoration: none !important;
+    }
+
+    #__layout .section-contact .contact-item {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 1em;
+    }
+  }
+</style>

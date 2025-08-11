@@ -15,10 +15,10 @@
   },
   "repos": [
     {
-      "name": "hentai-downloader",
-      "svn_url": "https://github.com/dvgamerr-app/hentai-downloader",
-      "homepage": "http://dvgamerr.app/hentai-downloader/",
+      "created_at": "2017-08-01T09:18:50Z",
       "description": "downloader a exhentai.org and e-hentai.org websites that host galleries of adult-oriented.",
+      "forks": 14,
+      "homepage": "http://dvgamerr.app/hentai-downloader/",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -26,9 +26,10 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
-      "stargazers_count": 64,
-      "forks": 14,
-      "watchers": 64,
+      "name": "hentai-downloader",
+      "pushed_at": "2025-07-01T14:37:55Z",
+      "stargazers_count": 73,
+      "svn_url": "https://github.com/dvgamerr-app/hentai-downloader",
       "topics": [
         "application",
         "dougin-api",
@@ -45,14 +46,13 @@
         "open-source",
         "windows"
       ],
-      "pushed_at": "2024-05-01T11:37:57Z",
-      "created_at": "2017-08-01T09:18:50Z"
+      "watchers": 73
     },
     {
-      "name": "go-hoyolab",
-      "svn_url": "https://github.com/dvgamerr-app/go-hoyolab",
-      "homepage": "https://dvgamerr.github.io/go-hoyolab/",
+      "created_at": "2022-10-29T06:19:33Z",
       "description": "Hoyolab Automatic Daily Check-in Bot Hoyoverse Game.  A lightweight, secure, and FREE Supports Genshin Impact, Honkai Impact 3rd, Zenless Zone Zero, Honkai: Star Rail.",
+      "forks": 3,
+      "homepage": "https://dvgamerr.github.io/go-hoyolab/",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -60,9 +60,10 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
-      "stargazers_count": 46,
-      "forks": 3,
-      "watchers": 46,
+      "name": "go-hoyolab",
+      "pushed_at": "2024-12-12T03:46:30Z",
+      "stargazers_count": 47,
+      "svn_url": "https://github.com/dvgamerr-app/go-hoyolab",
       "topics": [
         "awards",
         "bot",
@@ -80,14 +81,13 @@
         "open-source",
         "zenless-zone-zero"
       ],
-      "pushed_at": "2024-12-12T03:46:30Z",
-      "created_at": "2022-10-29T06:19:33Z"
+      "watchers": 47
     },
     {
-      "name": "dvgamerr-app.github.io",
-      "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
-      "homepage": "https://dvgamerr.app/",
+      "created_at": "2021-04-04T12:57:01Z",
       "description": "Kananek T. is github profiles and resume (cv) website.",
+      "forks": 0,
+      "homepage": "https://dvgamerr.app/",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -95,51 +95,50 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
+      "name": "dvgamerr-app.github.io",
+      "pushed_at": "2025-08-10T13:07:45Z",
       "stargazers_count": 5,
-      "forks": 0,
-      "watchers": 5,
-      "topics": [
-        "cv",
-        "developer-resume",
-        "kananek",
-        "kem",
-        "open-source",
-        "profile",
-        "resume",
-        "showcase",
-        "thongkam"
-      ],
-      "pushed_at": "2025-01-28T08:17:11Z",
-      "created_at": "2021-04-04T12:57:01Z"
+      "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
+      "topics": ["cv", "developer-resume", "kananek", "kem", "open-source", "profile", "resume", "showcase", "thongkam"],
+      "watchers": 5
     },
     {
-      "name": "team-rework",
-      "svn_url": "https://github.com/dvgamerr-app/team-rework",
-      "homepage": "https://team.touno.io",
+      "created_at": "2019-02-21T11:02:30Z",
       "description": "TEAM TaskList Project with waterfall.",
-      "license": null,
-      "stargazers_count": 4,
       "forks": 0,
-      "watchers": 4,
-      "topics": [
-        "issue-tracker",
-        "issues",
-        "nuxtjs",
-        "open-source",
-        "project",
-        "task",
-        "task-list",
-        "todo-app",
-        "todolist"
-      ],
+      "homepage": "https://team.touno.io",
+      "license": null,
+      "name": "team-rework",
       "pushed_at": "2023-10-01T00:44:37Z",
-      "created_at": "2019-02-21T11:02:30Z"
+      "stargazers_count": 4,
+      "svn_url": "https://github.com/dvgamerr-app/team-rework",
+      "topics": ["issue-tracker", "issues", "nuxtjs", "open-source", "project", "task", "task-list", "todo-app", "todolist"],
+      "watchers": 4
     },
     {
-      "name": "notice-manager",
-      "svn_url": "https://github.com/dvgamerr-app/notice-manager",
-      "homepage": "",
+      "created_at": "2023-01-14T13:40:55Z",
+      "description": "มาร่วมแสดงความยินดีกับเรา! ในพีธีแต่งงานของ กิ่งกาญจน์ & กัณฑ์อเนก ",
+      "forks": 1,
+      "homepage": "http://wedding.dvgamerr.app/",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      },
+      "name": "wedding-day",
+      "pushed_at": "2025-08-02T11:12:47Z",
+      "stargazers_count": 2,
+      "svn_url": "https://github.com/dvgamerr/wedding-day",
+      "topics": ["open-source", "party", "wedding", "wedding-website"],
+      "watchers": 2
+    },
+    {
+      "created_at": "2019-03-06T10:32:58Z",
       "description": "Notify manage with LINE Notify, LINE BOT",
+      "forks": 1,
+      "homepage": "",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -147,9 +146,10 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
+      "name": "notice-manager",
+      "pushed_at": "2024-10-08T03:14:17Z",
       "stargazers_count": 1,
-      "forks": 1,
-      "watchers": 1,
+      "svn_url": "https://github.com/dvgamerr-app/notice-manager",
       "topics": [
         "api",
         "bootstrap4",
@@ -166,14 +166,13 @@
         "web",
         "web-gui"
       ],
-      "pushed_at": "2024-10-08T03:14:17Z",
-      "created_at": "2019-03-06T10:32:58Z"
+      "watchers": 1
     },
     {
-      "name": "minima-lite",
-      "svn_url": "https://github.com/dvgamerr-app/minima-lite",
-      "homepage": "https://dvgamerr.app/minima-lite/",
-      "description": "About Minima-lite is a one-size-fits-all Jekyll theme for writers.",
+      "created_at": "2024-12-06T09:18:25Z",
+      "description": "⚡ High-performance queue system built with Bun runtime, Drizzle ORM, and PostgreSQL - handles cinema schedules, lottery data, LINE bot integration with automated conflict resolution and duplicate management",
+      "forks": 0,
+      "homepage": "",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -181,90 +180,18 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
+      "name": "aide-tokenizer",
+      "pushed_at": "2025-08-08T14:33:09Z",
       "stargazers_count": 0,
-      "forks": 0,
-      "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
-      "pushed_at": "2024-03-01T17:03:01Z",
-      "created_at": "2024-03-01T05:17:52Z"
+      "svn_url": "https://github.com/dvgamerr/aide-tokenizer",
+      "topics": ["aide", "data-pipeline", "message-processing", "microservices", "open-source", "queue-system", "rest-api"],
+      "watchers": 0
     },
     {
-      "name": "errcode-page",
-      "svn_url": "https://github.com/dvgamerr-app/errcode-page",
-      "homepage": "",
-      "description": "error pages for k8s.",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0",
-        "node_id": "MDc6TGljZW5zZTI="
-      },
-      "stargazers_count": 0,
-      "forks": 0,
-      "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
-      "pushed_at": "2024-08-30T17:34:09Z",
-      "created_at": "2024-03-27T10:33:47Z"
-    },
-    {
-      "name": "gokub-app",
-      "svn_url": "https://github.com/dvgamerr-app/gokub-app",
-      "homepage": "",
-      "description": "A cryptocurrency cross platfrom app that uses bitkub.com.",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit",
-        "node_id": "MDc6TGljZW5zZTEz"
-      },
-      "stargazers_count": 0,
-      "forks": 0,
-      "watchers": 0,
-      "topics": [
-        "app",
-        "bitkub",
-        "crypto",
-        "open-source",
-        "trading"
-      ],
-      "pushed_at": "2024-04-17T11:03:03Z",
-      "created_at": "2023-04-21T03:27:40Z"
-    },
-    {
-      "name": "go-tsunami-cli",
-      "svn_url": "https://github.com/dvgamerr-app/go-tsunami-cli",
-      "homepage": "",
-      "description": "Dataweave is cool but performance is shit.",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0",
-        "node_id": "MDc6TGljZW5zZTI="
-      },
-      "stargazers_count": 0,
-      "forks": 0,
-      "watchers": 0,
-      "topics": [
-        "cli",
-        "datatsunami",
-        "dataweave",
-        "open-source"
-      ],
-      "pushed_at": "2023-09-25T12:50:09Z",
-      "created_at": "2023-09-23T03:33:53Z"
-    },
-    {
-      "name": "go-school",
-      "svn_url": "https://github.com/dvgamerr-app/go-school",
-      "homepage": "",
+      "created_at": "2023-10-14T09:04:46Z",
       "description": "School and University Management Platform",
+      "forks": 0,
+      "homepage": "",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -272,37 +199,18 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
-      "stargazers_count": 0,
-      "forks": 0,
-      "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
+      "name": "go-school",
       "pushed_at": "2023-10-16T13:31:54Z",
-      "created_at": "2023-10-14T09:04:46Z"
-    },
-    {
-      "name": "sso-team",
-      "svn_url": "https://github.com/dvgamerr-app/sso-team",
-      "homepage": "https://sso.touno.io/",
-      "description": "Single Sign On for TEAM Touno.io",
-      "license": null,
       "stargazers_count": 0,
-      "forks": 1,
-      "watchers": 0,
-      "topics": [
-        "nuxt3",
-        "open-source",
-        "sso-login"
-      ],
-      "pushed_at": "2023-10-01T00:42:48Z",
-      "created_at": "2022-07-20T07:01:48Z"
+      "svn_url": "https://github.com/dvgamerr-app/go-school",
+      "topics": ["open-source"],
+      "watchers": 0
     },
     {
-      "name": "kube-app",
-      "svn_url": "https://github.com/dvgamerr-app/kube-app",
+      "created_at": "2023-09-23T03:33:53Z",
+      "description": "Dataweave is cool but performance is shit.",
+      "forks": 0,
       "homepage": "",
-      "description": "Instantly manage and monitor Kubernetes from your Desktop.",
       "license": {
         "key": "apache-2.0",
         "name": "Apache License 2.0",
@@ -310,118 +218,90 @@
         "url": "https://api.github.com/licenses/apache-2.0",
         "node_id": "MDc6TGljZW5zZTI="
       },
+      "name": "go-tsunami-cli",
+      "pushed_at": "2023-09-25T12:50:09Z",
       "stargazers_count": 0,
-      "forks": 0,
-      "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
-      "pushed_at": "2022-10-12T09:53:21Z",
-      "created_at": "2022-08-08T02:06:41Z"
+      "svn_url": "https://github.com/dvgamerr-app/go-tsunami-cli",
+      "topics": ["cli", "datatsunami", "dataweave", "open-source"],
+      "watchers": 0
     },
     {
-      "name": "infra-hades-app",
-      "svn_url": "https://github.com/dvgamerr-app/infra-hades-app",
-      "homepage": "https://dvgamerr.github.io/infra-hades-app",
+      "created_at": "2022-10-18T15:50:55Z",
       "description": "Instantly manage Kubernetes from your Desktop. Available on Windows, macOS and Linux.",
+      "forks": 0,
+      "homepage": "https://dvgamerr.github.io/infra-hades-app",
       "license": null,
+      "name": "infra-hades-app",
+      "pushed_at": "2025-07-01T14:34:56Z",
       "stargazers_count": 0,
-      "forks": 0,
-      "watchers": 0,
-      "topics": [
-        "client",
-        "desktop",
-        "desktop-app",
-        "kubernetes",
-        "monitor",
-        "open-source"
-      ],
-      "pushed_at": "2024-04-17T10:25:55Z",
-      "created_at": "2022-10-18T15:50:55Z"
+      "svn_url": "https://github.com/dvgamerr-app/infra-hades-app",
+      "topics": ["client", "desktop", "desktop-app", "kubernetes", "monitor", "open-source"],
+      "watchers": 0
     },
     {
-      "name": "go-sqlint",
-      "svn_url": "https://github.com/dvgamerr-app/go-sqlint",
-      "homepage": "",
-      "description": "SQL Syntax checking and deploy command.",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit",
-        "node_id": "MDc6TGljZW5zZTEz"
-      },
-      "stargazers_count": 0,
+      "created_at": "2022-08-08T02:06:41Z",
+      "description": "Instantly manage and monitor Kubernetes from your Desktop.",
       "forks": 0,
-      "watchers": 0,
-      "topics": [
-        "open-source"
-      ],
-      "pushed_at": "2024-04-01T03:42:32Z",
-      "created_at": "2020-01-09T08:57:11Z"
+      "homepage": "",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      },
+      "name": "kube-app",
+      "pushed_at": "2022-10-12T09:53:21Z",
+      "stargazers_count": 0,
+      "svn_url": "https://github.com/dvgamerr-app/kube-app",
+      "topics": ["open-source"],
+      "watchers": 0
     },
     {
-      "name": "bnk48-events-linebot",
-      "svn_url": "https://github.com/dvgamerr-app/bnk48-events-linebot",
-      "homepage": "",
-      "description": "Notify BNK48 Event Schedule with you LINE API by touno.io.",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0",
-        "node_id": "MDc6TGljZW5zZTk="
-      },
+      "created_at": "2022-07-20T07:01:48Z",
+      "description": "Single Sign On for TEAM Touno.io",
+      "forks": 1,
+      "homepage": "https://sso.touno.io/",
+      "license": null,
+      "name": "sso-team",
+      "pushed_at": "2023-10-01T00:42:48Z",
       "stargazers_count": 0,
-      "forks": 0,
-      "watchers": 0,
-      "topics": [
-        "bnk48",
-        "event",
-        "line",
-        "line-bot",
-        "linebot",
-        "notify",
-        "nuxtjs",
-        "open-source",
-        "schedule",
-        "vue"
-      ],
-      "pushed_at": "2019-02-17T15:09:27Z",
-      "created_at": "2018-12-20T05:36:42Z"
+      "svn_url": "https://github.com/dvgamerr-app/sso-team",
+      "topics": ["nuxt3", "open-source", "sso-login"],
+      "watchers": 0
     }
   ],
   "coding": {
     "bytes": {
-      "JavaScript": 19464208,
-      "Vue": 1489652,
-      "HTML": 10865420,
+      "JavaScript": 14898371,
+      "Vue": 1475464,
+      "HTML": 10863547,
       "Swift": 18084,
       "Ruby": 594658,
       "Objective-C": 2024,
-      "Go": 3934380,
-      "Dockerfile": 101338,
-      "CSS": 2472276,
+      "Go": 3949913,
+      "Dockerfile": 101778,
+      "CSS": 2375149,
       "Svelte": 21274,
-      "Shell": 688849,
-      "TypeScript": 11021663,
+      "Shell": 683943,
+      "TypeScript": 7849467,
       "Makefile": 39512,
       "Procfile": 27,
-      "SCSS": 228198,
+      "SCSS": 219458,
       "C#": 2595093,
-      "Astro": 116380,
+      "Astro": 135712,
       "Rust": 116727,
       "PHP": 1643527,
       "Hack": 7144,
       "Dart": 102591,
-      "C++": 5751568,
+      "C++": 5753508,
       "CMake": 188104,
-      "C": 124069,
+      "C": 124116,
       "Kotlin": 1566977,
-      "Python": 586360,
+      "Python": 617527,
       "Stylus": 41761,
       "TSQL": 31522,
-      "Batchfile": 14251,
+      "Batchfile": 15972,
       "Smarty": 20650,
       "DataWeave": 1965,
       "AutoHotkey": 9809376,
@@ -431,14 +311,17 @@
       "Java": 138019,
       "CoffeeScript": 77805,
       "ApacheConf": 332,
-      "PowerShell": 9639,
+      "PowerShell": 14069,
       "Jupyter Notebook": 26519942,
       "Visual Basic": 225787,
       "M4": 19093,
       "EJS": 64715,
       "Jsonnet": 7419,
-      "Nix": 486,
-      "Liquid": 686
+      "Nix": 243,
+      "Liquid": 686,
+      "Perl": 80213,
+      "PLpgSQL": 35491,
+      "Lua": 6521
     },
     "top5": [
       {
@@ -478,37 +361,25 @@
   "social": [
     {
       "name": "github",
-      "icon": [
-        "fab",
-        "github"
-      ],
+      "icon": ["fab", "github"],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": [
-        "fab",
-        "linkedin"
-      ],
+      "icon": ["fab", "linkedin"],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": [
-        "fas",
-        "clock"
-      ],
+      "icon": ["fas", "clock"],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": [
-        "fab",
-        "codepen"
-      ],
+      "icon": ["fab", "codepen"],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -587,25 +458,8 @@
       "Discord",
       "Slack"
     ],
-    "sql": [
-      "PostgreSQL",
-      "Redis",
-      "MongoDB",
-      "Influx",
-      "MySQL",
-      "Oracle",
-      "MSSQL",
-      "SQLite"
-    ],
-    "os": [
-      "Chat GPT",
-      "AWS",
-      "Azure",
-      "GCloud",
-      "CentOS",
-      "Debian",
-      "Fedora"
-    ]
+    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
+    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
   },
   "contact": [
     {
@@ -617,17 +471,17 @@
     },
     {
       "print": false,
-      "label": "twitter",
-      "url": "https://twitter.com/dvgamerr",
+      "label": "wakatime",
+      "url": "https://wakatime.com/@dvgamerr",
       "text": "dvgamerr",
-      "icon": "twitter"
+      "icon": "wakatime"
     },
     {
       "print": false,
-      "label": "instrgram",
-      "url": "https://www.instagram.com/dvgamerr/",
-      "text": "Kananek T.",
-      "icon": "instagram"
+      "label": "devto",
+      "url": "https://dev.to/dvgamerr",
+      "text": "dvgamerr",
+      "icon": "devto"
     },
     {
       "print": false,

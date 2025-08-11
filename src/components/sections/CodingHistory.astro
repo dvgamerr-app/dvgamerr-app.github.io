@@ -1,0 +1,43 @@
+---
+import coding from '../../i18n/coding.json'
+import { getTranslate } from '../../i18n/utils'
+const t = getTranslate(Astro.url)
+
+const parseTime = (seconds: number = 0) => {
+  return `${seconds > 60 * 60 ? `${Math.round(seconds / 60 / 60)}${t('code-history.hour')} ` : ''}${Math.round((seconds / 60) % 60)}${t('code-history.minute')}`
+}
+---
+
+<section class="pt-8 md:pt-12 pb-4 md:pb-8 print:hidden">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+      <div class="md:col-span-3 mb-6 md:mb-0">
+        <h2 class="text-[1.2rem] -mt-0.5 text-gray-800 dark:text-gray-200 uppercase md:text-right">
+          {t('code-history')}
+        </h2>
+        <div class="hidden md:block md:text-right text-xs text-gray-500 dark:text-gray-400 -mt-2">wakatime.com</div>
+      </div>
+      <div class="md:col-span-9">
+        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-2 -mt-2.5">
+          <div class="p-4 rounded bg-white/70 dark:bg-gray-900/60 backdrop-blur">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold">{t('code-history.weekly')}</div>
+            <div class="mt-1 text-lg font-bold text-gray-800 dark:text-gray-100">{parseTime(coding.weekly_seconds)}</div>
+          </div>
+          <div class="p-4 rounded bg-white/70 dark:bg-gray-900/60 backdrop-blur">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold">{t('code-history.daily')}</div>
+            <div class="mt-1 text-lg font-bold text-gray-800 dark:text-gray-100">{parseTime(coding.average_seconds)}</div>
+          </div>
+          <div class="p-4 rounded bg-white/70 dark:bg-gray-900/60 backdrop-blur">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold">{t('code-history.best')}</div>
+            <div class="mt-1 text-lg font-bold text-gray-800 dark:text-gray-100">{parseTime(coding.best_seconds)}</div>
+          </div>
+          <div class="p-4 rounded bg-white/70 dark:bg-gray-900/60 backdrop-blur">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold">{t('code-history.languages')}</div>
+            <div class="mt-1 text-lg font-bold text-gray-800 dark:text-gray-100">{coding.languages.length}</div>
+          </div>
+        </div>
+        <div class="md:hidden text-xs text-gray-500 dark:text-gray-400 mt-3">wakatime.com</div>
+      </div>
+    </div>
+  </div>
+</section>

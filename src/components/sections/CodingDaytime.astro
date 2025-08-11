@@ -1,0 +1,138 @@
+---
+import coding from '../../i18n/coding.json'
+import { getTranslate } from '../../i18n/utils'
+const t = getTranslate(Astro.url)
+
+const maxDayTime = Math.max(...coding.daytime)
+const maxWeekTime = Math.max(...coding.weektime)
+
+const weekDay = [
+  t('daytime.mon'),
+  t('daytime.tue'),
+  t('daytime.wed'),
+  t('daytime.thu'),
+  t('daytime.fri'),
+  t('daytime.sat'),
+  t('daytime.sun'),
+]
+const weekSize = [0, 1, 2, 3, 4, 5]
+
+const chartDay = [
+  { name: t('daytime.morning'), startOfIndex: 6 },
+  { name: t('daytime.daytime'), startOfIndex: 12 },
+  { name: t('daytime.evening'), startOfIndex: 18 },
+  { name: t('daytime.night'), startOfIndex: 0 },
+]
+
+const maxGroupDay = chartDay.find((e) => maxDayTime === Math.max(...weekSize.map((i) => coding.daytime[i + e.startOfIndex]))).name
+
+const getDayHightlight = (e: any) => (maxGroupDay === e.name ? 'highlight' : '')
+const dayOfWeek = (v: any) => weekDay[coding.weektime.findIndex((e) => e === v)]
+const getWeekHightlight = (v: number) => (maxWeekTime === v ? 'highlight' : '')
+const colDaySize = (n: number = 0) => ({ '--size': `calc( ${(coding.daytime[n] * 100) / maxDayTime} / 100 )` })
+const colWeekSize = (n: number = 0) => ({ '--size': `calc( ${(n * 100) / maxWeekTime} / 100 )` })
+---
+
+<section class="pt-8 md:pt-12 pb-4 md:pb-8 print:hidden">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+      <div class="md:col-span-3 mb-6 md:mb-0">
+        <h2 class="text-[1.2rem] -mt-0.5 text-gray-800 dark:text-gray-200 uppercase md:text-right">
+          {t('daytime')}
+        </h2>
+        <div class="hidden md:block md:text-right text-xs text-gray-500 dark:text-gray-400 -mt-2">wakatime.com</div>
+      </div>
+      <div class="md:col-span-9">
+        <div class="grid gap-6 lg:grid-cols-2">
+          <div class="rounded mt-6">
+            <table class="w-full h-50 charts-css column show-heading data-spacing-2 datasets-spacing-3 hide-data show-labels">
+              <caption>{t('daytime.caption')}</caption>
+              <thead>
+                <tr>
+                  {chartDay.map((e: any) => <th>{e.name}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  chartDay.map((e: any) => (
+                    <tr>
+                      <th scope="row" class={getDayHightlight(e)}>
+                        {e.name}
+                      </th>
+                      {weekSize.map((i) => (
+                        <td class={getDayHightlight(e)} style={colDaySize(i + e.startOfIndex)} />
+                      ))}
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+          <div class="rounded mt-6">
+            <table id="charts-weektime" class="w-full h-50 charts-css column data-spacing-5 datasets-spacing-3 hide-data show-labels">
+              <tbody>
+                {
+                  coding.weektime.map((e) => (
+                    <tr>
+                      <th scope="row" class={getWeekHightlight(e)}>
+                        {dayOfWeek(e)}
+                      </th>
+                      <td style={colWeekSize(e)} class={getWeekHightlight(e)} />
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="md:hidden text-xs text-gray-500 dark:text-gray-400 mt-3">wakatime.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  html {
+    --charts-color: #cbcbcb;
+    --charts-highlight: #37d67a;
+  }
+
+  html.dark {
+    --charts-color: #444758;
+    --charts-highlight: #ffdc5a;
+  }
+
+  table.charts-css > caption {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    position: absolute;
+    margin-top: -1.9em;
+  }
+
+  table.charts-css > tbody th {
+    text-transform: capitalize;
+    font-size: 0.75rem;
+  }
+
+  table.charts-css > tbody th.highlight {
+    color: var(--charts-highlight);
+  }
+
+  table.charts-css > tbody td.highlight {
+    background-color: var(--charts-highlight);
+  }
+
+  table.charts-css > tbody td.day {
+    --color: var(--charts-color);
+  }
+
+  table.charts-css > tbody td {
+    --color: var(--charts-color);
+  }
+
+  table.charts-css > tbody tr > th[scope='row'] {
+    margin-bottom: -2.3em;
+    line-height: 2.2em;
+    border-top: 0.15em solid var(--text-muted);
+  }
+</style>

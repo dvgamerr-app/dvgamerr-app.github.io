@@ -1,0 +1,30 @@
+---
+import { getTranslate } from '../i18n/utils'
+const t = getTranslate(Astro.url)
+
+import { Image } from 'astro:assets'
+import { version } from '../../package.json'
+import webring from '../assets/webring.svg'
+const getYear = new Date().getFullYear()
+---
+
+<footer class="print:hidden pt-8 md:pt-12 pb-4 md:pb-8">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="md:grid md:grid-cols-12 md:gap-8">
+      <div class="md:col-span-3 mb-6 md:mb-0"></div>
+      <div class="md:col-span-9">
+        <div class="flex flex-row flex-nowrap justify-end items-end gap-[0.3em] font-sans font-normal text-[0.8rem]">
+          &copy; {getYear}
+          <b>dvgamerr</b>
+          {t('footer.sponser')}
+          <a href="https://sponsor.dvgamerr.app/" target="_blank" rel="noopener noreferrer">Kananek T.</a>
+          {t('footer.and')}
+          <a href="https://webring.wonderful.software#dvgamerr.app" class="inline-flex items-end gap-[0.15em]">
+            webring <Image alt="webring" src={webring} width={14} height={14} class="-mt-[0.2em] inline-block" />
+          </a>
+          v{version}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
