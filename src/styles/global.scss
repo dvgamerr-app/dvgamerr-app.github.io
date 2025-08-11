@@ -318,7 +318,7 @@ ul {
   padding-right: 3px;
 }
 /* Markdown readability improvements */
-.markdown {
+.markdown:not(.work) {
   max-width: 70ch;
   margin-inline: auto;
   font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.05rem);
