@@ -43,6 +43,9 @@ jobs:
         with:
           bun-version: latest
 
+      - name: Build 🔧
+        run: bun i
+
       - name: Update WakaTime stats
         env:
           WAKA_BADGE_URL: https://wakatime.com/badge/user/06633b1c-3ba7-44c2-ab5d-08e47ccc87ab.svg?style=flat-square&color=blue
@@ -63,9 +66,7 @@ jobs:
             ${{ runner.os }}-bun-
 
       - name: Build 🔧
-        run: |
-          bun install
-          bun run build
+        run: bun run build
 
       - name: Upload artifact 🚀
         uses: actions/upload-pages-artifact@v3
