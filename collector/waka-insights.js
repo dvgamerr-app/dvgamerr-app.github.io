@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import pino from 'pino'
 
 import { mergeJsonResponse } from './helper.js'
