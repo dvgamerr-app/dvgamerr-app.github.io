@@ -10,25 +10,32 @@ export const getWorkPeriod = (range: { begin: string; quit?: string }, langName:
     return `Start in ${dayjs(begin).fromNow(true)}`
   }
 
-  const dateBegin = dayjs(begin).add(langName == 'th' ? 543 : 0, 'year')
-  const dateQuit = dayjs(quit).add(langName == 'th' ? 543 : 0, 'year')
+  // Use original dates for accurate diff, apply Buddhist year shift only for display
+  const baseBegin = dayjs(begin)
+  const baseEnd = quit ? dayjs(quit) : dayjs()
 
-  let day = dateQuit.diff(dateBegin, 'day')
-  let month = dateQuit.diff(dateBegin, 'month')
-  const year = dateQuit.diff(dateBegin, 'year')
+  // Sequential diff to avoid rounding issues with average month length
+  let cursor = baseBegin
+  const year = baseEnd.diff(cursor, 'year')
+  cursor = cursor.add(year, 'year')
+  const month = baseEnd.diff(cursor, 'month')
+  cursor = cursor.add(month, 'month')
+  const day = baseEnd.diff(cursor, 'day')
+
   const dayOnly = !month && !year
-
-  if (!dayOnly) day = Math.round(day % 30.4377104) // (74year*365day + 25year*366day) / 99year / 12month
-  if (year > 0) month %= 12
 
   const yearText = year ? ` ${year} ${t('date.year')}` : ''
   const monthText = month ? ` ${month} ${t('date.month')}` : ''
   const dayText = day && !year ? ` ${day} ${t('date.day')}` : ''
 
+  const dateBegin = baseBegin.add(langName == 'th' ? 543 : 0, 'year')
+  const dateQuit = baseEnd.add(langName == 'th' ? 543 : 0, 'year')
+
   const formattedBegin = dateBegin.format(`${dayOnly ? 'D ' : ''}MMMM YYYY`)
+  const durationText = (yearText + monthText + dayText).trim()
   const formattedQuit = quit
-    ? `${dateQuit.format(`${dayOnly ? 'D ' : ''}MMMM YYYY`)} ( ${(yearText + monthText + dayText).trim()} )`
-    : t('date.present')
+    ? `${dateQuit.format(`${dayOnly ? 'D ' : ''}MMMM YYYY`)} ( ${durationText} )`
+    : `${t('date.present')}${durationText ? ` ( ${durationText} )` : ''}`
 
   return `${formattedBegin} — ${formattedQuit}`
 }
