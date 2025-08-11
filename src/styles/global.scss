@@ -327,7 +327,7 @@ ul {
 }
 
 /* Vertical rhythm: every element after another gets top margin */
-.markdown > * + * {
+.markdown:not(.work) > * + * {
   margin-top: 1.15em;
 }
 
@@ -369,17 +369,19 @@ ul {
   margin: 0;
   line-height: 1.7;
 }
+
 .markdown p code {
   font-size: 0.9em;
 }
 
 /* Lists */
-.markdown ul,
-.markdown ol {
+.markdown:not(.work) ul,
+.markdown:not(.work) ol {
   list-style: disc outside;
   padding-left: 1.3em;
   margin: 0;
 }
+
 .markdown ol {
   list-style: decimal outside;
 }

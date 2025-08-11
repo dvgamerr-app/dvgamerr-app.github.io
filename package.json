@@ -43,7 +43,6 @@
     "@tailwindcss/postcss": "^4.1.11",
     "@vite-pwa/astro": "1.1.0",
     "autoprefixer": "^10.4.21",
-    "bootstrap": "^5.3.7",
     "charts.css": "^1.2.0",
     "dayjs": "^1.11.13",
     "dotenv": "17.2.1",

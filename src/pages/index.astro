@@ -4,7 +4,7 @@ import 'dayjs/locale/th'
 import Layout from '../layouts/Layout.astro'
 import SectionHeader from '../components/sections/Header.astro'
 import ContentResume from '../components/Resume.astro'
-import SectionWorkExperience from '../components/SectionWorkExperience.astro'
+import WorkExperience from '../components/sections/WorkExperience.astro'
 import SectionFooter from '../components/Footer.astro'
 import GoogleAd from '../components/GoogleAd.astro'
 
@@ -42,7 +42,7 @@ dayjs.locale(langName)
       )
     }
     <p class="pagebreak"></p>
-    <SectionWorkExperience workExperience={resume.work} />
+    <WorkExperience workExperience={resume.work} />
     <SectionFooter />
   </div>
 </Layout>

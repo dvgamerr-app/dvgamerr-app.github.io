@@ -1,8 +1,3 @@
----
-job: 'The greatest post of all time'
-work: 'Ben'
----
-
 - Adopted an agile model and introduced `Gitlab` for team collaboration.
 - Set up `Gitlab Runner` on various operating systems (Windows Server, Ubuntu, CentOS, RedHat, CoreOS) for CI/CD integration with `Gitlab`.
 - Trained the Server Engineer team on the installation, configuration, and usage of `Kubernetes`, `MongoDB`, and `RedisDB`.
