@@ -11,6 +11,7 @@ const blogs = defineCollection({
       description: z.string(),
       author: z.string().optional(),
       tags: z.array(z.string()).optional(),
+      oss: z.string().optional(),
       image: z.object({
         url: z.string(),
         src: image(),

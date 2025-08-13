@@ -3,9 +3,7 @@ date: 2025-08-13
 title: 'Kitten-TTS เป็น TTS โมเดลโอเพนซอร์สที่เล็กแต่ทรงพลัง'
 description: 'ติดตั้งง่าย ใช้งานง่าย และเปิดโอกาสให้คุณสร้างโปรเจกต์เสียงพูดได้แม้ไม่มี GPU เหมาะกับทั้งงานทดลองและงานจริงบนเครื่องเล็กๆ เช่น Raspberry Pi หรือแม้แต่โน้ตบุ๊กเก่า'
 author: 'Kananek T.'
-image:
-  url: '/cover/kitten-tts.jpg'
-  src: '../../../public/cover/kitten-tts.jpg'
+oss: https://github.com/KittenML/KittenTTS
 tags:
   [
     'oss',

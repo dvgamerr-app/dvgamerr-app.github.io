@@ -5,13 +5,119 @@ import GoogleAd from '../components/GoogleAd.astro'
 const { blog = { data: { title: '', description: '', image: undefined, tags: [] } } } = Astro.props
 
 const pageTitle = blog.data.title.substring(0, 60)
-const pageImage = blog.data.image?.url || ''
+
+// Build GitHub Open Graph image if oss points to a GitHub repo
+let githubOgImage = ''
+try {
+  const oss = blog.data.oss
+  if (oss) {
+    const u = new URL(oss)
+    if (u.hostname === 'github.com') {
+      const parts = u.pathname.replace(/^\/+/, '').split('/')
+      const owner = parts[0]
+      let repo = parts[1]
+      if (owner && repo) {
+        repo = repo.replace(/\.git$/, '')
+        let token = '0'
+        try {
+          const r = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+            headers: { Accept: 'application/vnd.github+json' },
+          })
+          if (r.ok) {
+            const data = await r.json()
+            if (data && data.id) token = String(data.id)
+          }
+        } catch {}
+        githubOgImage = `https://opengraph.githubassets.com/${token}/${owner}/${repo}`
+      }
+    }
+  }
+} catch {}
+
+const pageImage = blog.data.image?.url || githubOgImage || ''
 const pageDescription = blog.data.description.substring(0, 180) + (blog.data.description.length > 180 ? '...' : '')
 const website = new URL(Astro.url.pathname, Astro.site).toString()
+const publishedISO = blog.data.date ? blog.data.date.toISOString() : ''
 ---
 
 <Layout title={pageTitle} description={pageDescription} image={pageImage} keyword={blog.data.tags.join(',')} website={website}>
   <div class="container py-4">
+    {
+      blog.data.oss && (
+        <div class="mt-3 mx-auto max-w-[40em]">
+          <a href="/blogs" class="inline-flex items-center text-sm text-blue-600 hover:underline mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-4 mx-2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+            </svg>
+            Back to Blogs
+          </a>
+          <div class="flex justify-end gap-2 mb-4">
+            <a
+              href={'https://github.com/sponsors/dvgamerr?utm_source=dvgamerr.app&ref=dvgamerr.app'}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium transition-colors shadow-sm
+              bg-white text-slate-800 border-gray-200 hover:bg-gray-50 hover:border-gray-300
+              dark:bg-slate-900 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+              aria-label="Sponsor on GitHub"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                class="opacity-90 transition-transform duration-150 group-hover:-translate-y-0.5"
+              >
+                <path
+                  d="M4 7.5A1.5 1.5 0 0 1 5.5 6h10A3.5 3.5 0 0 1 19 9.5v1a3.5 3.5 0 0 1-3.5 3.5H14l-.36 1.44A3 3 0 0 1 10.71 18H7.5A3.5 3.5 0 0 1 4 14.5v-7Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path d="M16 9h1a1.5 1.5 0 0 1 0 3h-1V9Z" fill="currentColor" />
+                <path
+                  d="M9.997 9.5c.687-1.042 2.318-1.042 3.005 0 .523.793.282 1.917-.54 2.44L11.5 12.9l-.962-.96c-.822-.524-1.063-1.648-.54-2.44Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span class="mt-1">Sponsor on GitHub</span>
+            </a>
+            <a
+              href={blog.data.oss + '?utm_source=dvgamerr.app&ref=dvgamerr.app'}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium transition-colors shadow-sm
+                bg-white text-slate-800 border-gray-200 hover:bg-gray-50 hover:border-gray-300
+                dark:bg-slate-900 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+              aria-label="View repository on GitHub"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                aria-hidden="true"
+                class="opacity-90 transition-transform duration-150 group-hover:-translate-y-0.5"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2.2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.35-1.79-1.35-1.79-1.11-.77.09-.76.09-.76 1.22.09 1.87 1.26 1.87 1.26 1.09 1.87 2.86 1.33 3.56 1.02.11-.8.43-1.33.79-1.63-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.24-3.24-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.23 1.92 1.23 3.24 0 4.63-2.8 5.66-5.48 5.96.44.38.83 1.12.83 2.26v3.35c0 .31.22.68.83.57A12 12 0 0 0 12 .5Z"
+                />
+              </svg>
+              <span class="mt-1">View in GitHub</span>
+            </a>
+          </div>
+        </div>
+      )
+    }
+
     <article class="markdown">
       <h1>{blog.data.title}</h1>
       <p>{blog.data.description}</p>
@@ -23,6 +129,21 @@ const website = new URL(Astro.url.pathname, Astro.site).toString()
         )
       }
       <slot />
+      {
+        (blog.data.author || publishedISO) && (
+          <footer class="mt-8 pt-6 border-t border-gray-200/70 dark:border-slate-700/60 text-sm text-gray-600 dark:text-gray-400">
+            <div class="flex flex-wrap items-center gap-2">
+              {blog.data.author && <span>By {blog.data.author}</span>}
+              {blog.data.author && publishedISO && <span aria-hidden>•</span>}
+              {publishedISO && (
+                <time datetime={publishedISO}>
+                  {new Date(publishedISO).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+              )}
+            </div>
+          </footer>
+        )
+      }
     </article>
   </div>
 </Layout>

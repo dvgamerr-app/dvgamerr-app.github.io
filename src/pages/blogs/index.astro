@@ -3,16 +3,33 @@ import Layout from '../../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 
 const blogs = await getCollection('blogs')
-// @ts-ignore - 'oss' will be available after Astro regenerates content types
-const oss = await (getCollection as any)('oss')
 
-const items = [...blogs.map((entry) => ({ entry, type: 'blogs' as const })), ...oss.map((entry) => ({ entry, type: 'oss' as const }))].sort(
+const items = blogs.map((entry) => ({ entry, type: 'blogs' as const })).sort(
   (a, b) => {
     const ad = a.entry.data.date ? a.entry.data.date.getTime() : 0
     const bd = b.entry.data.date ? b.entry.data.date.getTime() : 0
     return bd - ad
   },
 )
+
+const PAGE_SIZE = 50
+const initialItems = items.slice(0, PAGE_SIZE)
+
+const allItemsData = items.map((item) => {
+  const post = item.entry
+  const slug = post.id.split('_')[1] || post.id
+  const date = post.data.date ? post.data.date.toISOString() : ''
+  const cover = post.data?.image?.url ? `/../..${post.data.image.url}` : null
+  return {
+    type: item.type,
+    slug,
+    date,
+    cover,
+    title: post.data.title || '',
+    description: post.data.description || '',
+    tags: post.data.tags || [],
+  }
+})
 
 const pageTitle = 'Blogs'
 const pageDescription = 'Latest insights, guides & notes — crafted for fast, practical learning.'
@@ -87,32 +104,28 @@ const pageDescription = 'Latest insights, guides & notes — crafted for fast, p
     {items.length === 0 && <p class="text-center py-20 text-gray-500">No posts yet.</p>}
     <ul id="posts-grid" class="divide-y divide-gray-200/60 dark:divide-slate-700/60">
       {
-        items.map((item) => {
+        initialItems.map((item) => {
           const post = item.entry
           const slug = post.id.split('_')[1] || post.id
           const date = post.data.date ? post.data.date.toISOString() : ''
-          const cover = `/../..${post.data.image?.url}`
+          const cover = post.data?.image?.url ? `/../..${post.data.image.url}` : null
           return (
             <li
-              class="group relative py-4 transition-colors hover:bg-gray-50/70 dark:hover:bg-slate-800/30 rounded-xl"
+              class="group relative py-4 transition-colors hover:bg-gray-50/70 dark:hover:bg-slate-800/30"
               data-tags={(post.data.tags || []).join(',')}
               data-title={(post.data.title || '').toLowerCase()}
               data-description={(post.data.description || '').toLowerCase()}
             >
-              <a href={item.type === 'oss' ? `/oss/${slug}` : `/blogs/${slug}`} class="flex items-start gap-4">
-                {cover ? (
+              <a href={String(item.type) === 'oss' ? `/oss/${slug}` : `/blogs/${slug}`} class="flex items-start gap-4">
+                {cover && (
                   <img
                     src={cover}
                     alt={post.data.title}
                     loading="lazy"
                     class="w-24 h-24 rounded-lg object-cover object-center flex-shrink-0"
                   />
-                ) : (
-                  <div class="w-24 h-24 rounded-lg bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center text-xs text-slate-500 dark:text-slate-400 flex-shrink-0">
-                    No cover
-                  </div>
                 )}
-                <div class="min-w-0 flex-1">
+                <div class="min-w-0 flex-1 px-3">
                   <div class="flex items-center gap-2 flex-wrap mb-1 min-h-[1.5rem]">
                     {(post.data.tags || []).slice(0, 3).map((tag) => (
                       <span class="inline-flex items-center rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/20 px-2 py-0.5 text-[10px] font-medium tracking-wide uppercase">
@@ -145,13 +158,28 @@ const pageDescription = 'Latest insights, guides & notes — crafted for fast, p
         })
       }
     </ul>
+    {items.length > PAGE_SIZE && (
+      <div class="mt-6 flex items-center justify-center" id="load-more">
+        <div id="load-more-sentinel" class="h-8 w-8 rounded-full border-2 border-dashed border-gray-300 dark:border-slate-600 animate-spin" aria-hidden></div>
+      </div>
+    )}
+  <script id="posts-data" type="application/json">{JSON.stringify(allItemsData).replace(/</g, '\\u003c')}</script>
   </section>
 </Layout>
 
 <script>
+  const PAGE_SIZE = 50
   const input = document.getElementById('search') as HTMLInputElement | null
   const grid = document.getElementById('posts-grid') as HTMLUListElement | null
   const tagFilter = document.getElementById('tag-filter') as HTMLDivElement | null
+  const sentinel = document.getElementById('load-more-sentinel') as HTMLDivElement | null
+  const dataEl = document.getElementById('posts-data') as HTMLScriptElement | null
+  let allData: any[] = []
+  try {
+    allData = dataEl ? (JSON.parse(dataEl.textContent || '[]') as any[]) : []
+  } catch (e) {
+    allData = []
+  }
 
   function applyFilters() {
     const q = (input?.value || '').trim().toLowerCase()
@@ -197,6 +225,106 @@ const pageDescription = 'Latest insights, guides & notes — crafted for fast, p
       theme = theme === 'dark' ? 'light' : 'dark'
       applyTheme(theme)
     })
+  }
+
+  function createPostItem(item) {
+    const li = document.createElement('li')
+    li.className = 'group relative py-4 transition-colors hover:bg-gray-50/70 dark:hover:bg-slate-800/30'
+    li.dataset.tags = (item.tags || []).join(',')
+    li.dataset.title = (item.title || '').toLowerCase()
+    li.dataset.description = (item.description || '').toLowerCase()
+
+    const a = document.createElement('a')
+    a.href = item.type === 'oss' ? `/oss/${item.slug}` : `/blogs/${item.slug}`
+    a.className = 'flex items-start gap-4'
+
+    if (item.cover) {
+      const img = document.createElement('img')
+      img.src = item.cover
+      img.alt = item.title || ''
+      img.loading = 'lazy'
+      img.className = 'w-24 h-24 rounded-lg object-cover object-center flex-shrink-0'
+      a.appendChild(img)
+    }
+
+    const info = document.createElement('div')
+    info.className = 'min-w-0 flex-1 px-3'
+
+    const tagsWrap = document.createElement('div')
+    tagsWrap.className = 'flex items-center gap-2 flex-wrap mb-1 min-h-[1.5rem]'
+    ;(item.tags || []).slice(0, 3).forEach((tag) => {
+      const span = document.createElement('span')
+      span.className = 'inline-flex items-center rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/20 px-2 py-0.5 text-[10px] font-medium tracking-wide uppercase'
+      span.textContent = tag
+      tagsWrap.appendChild(span)
+    })
+
+    const h2 = document.createElement('h2')
+    h2.className = 'text-base md:text-lg font-semibold leading-snug text-gray-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-3'
+    h2.textContent = item.title || ''
+
+    const p = document.createElement('p')
+    p.className = 'mt-1 text-sm text-gray-600 dark:text-gray-400 line-clamp-3'
+    p.textContent = item.description || ''
+
+    const meta = document.createElement('div')
+    meta.className = 'mt-2 flex items-center gap-3 text-[11px] font-medium text-gray-500 dark:text-gray-500'
+
+    if (item.date) {
+      const time = document.createElement('time')
+      time.setAttribute('datetime', item.date)
+      try {
+        time.textContent = new Date(item.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+      } catch {}
+      meta.appendChild(time)
+    }
+
+    const dot = document.createElement('span')
+    dot.setAttribute('aria-hidden', 'true')
+    dot.textContent = '•'
+    meta.appendChild(dot)
+
+    const read = document.createElement('span')
+    read.className = 'opacity-0 group-hover:opacity-100 transition-opacity text-blue-600 dark:text-blue-400 inline-flex items-center gap-1'
+    read.innerHTML = 'Read <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" /></svg>'
+    meta.appendChild(read)
+
+    info.appendChild(tagsWrap)
+    info.appendChild(h2)
+    info.appendChild(p)
+    info.appendChild(meta)
+
+    a.appendChild(info)
+    li.appendChild(a)
+    return li
+  }
+
+  function loadMore() {
+    if (!grid) return
+    const already = grid.querySelectorAll('li').length
+    const next = allData.slice(already, already + PAGE_SIZE)
+    next.forEach((item) => {
+      const li = createPostItem(item)
+      grid.appendChild(li)
+    })
+    applyFilters()
+    if (already + next.length >= allData.length) {
+      if (observer) observer.disconnect()
+      const wrap = document.getElementById('load-more')
+      if (wrap) wrap.remove()
+    }
+  }
+
+  let observer: IntersectionObserver | null = null
+  if (sentinel && 'IntersectionObserver' in window) {
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadMore()
+        }
+      })
+    })
+    observer.observe(sentinel)
   }
 </script>
 
