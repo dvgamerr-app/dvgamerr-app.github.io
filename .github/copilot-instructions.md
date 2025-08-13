@@ -2,8 +2,8 @@
 
 ## General Guidelines
 
+- Do not explain anything under any circumstances unless explicitly requested
 - Do not provide summaries of what you've done
-- Do not provide explanations unless explicitly requested
 - Do not describe improvements or fixes
 - Do not explain the details about the toggle issue, the fix steps, what was done, notes, or the testing methods
 - Keep responses concise and direct

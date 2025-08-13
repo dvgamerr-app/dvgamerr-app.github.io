@@ -4,9 +4,31 @@ title: 'ปิด DHCP บน macOS แบบทีละขั้นตอน (
 description: 'ถ้ารัน DHCP server แล้วชนพอร์ตหรือมีปัญหาแปลก ๆ อาจต้องปิดบริการ DHCP ที่ติดมากับ macOS บทความนี้สอนปิดผ่านไฟล์ bootpd.plist แบบกระชับ'
 author: 'Kananek T.'
 image:
-  url: '/cover/disabling-dhcp.webp'
+  url: '/../../cover/disabling-dhcp.webp'
   src: '../../../public/cover/disabling-dhcp.webp'
-tags: ['macOS', 'DHCP', 'networking', 'thai']
+tags:
+  [
+    'dhcp',
+    'dhcp server',
+    'port 67',
+    'udp',
+    'macos',
+    'bootpd',
+    'bootp',
+    'bootpd.plist',
+    'lsof',
+    'network',
+    'disable dhcp',
+    'stop dhcp',
+    'launchctl',
+    'plist',
+    'xml config',
+    'kill process',
+    'troubleshooting',
+    'restore settings',
+    'networking',
+    'port conflict',
+  ]
 ---
 
 ## อาการเวลา DHCP ชนกัน
