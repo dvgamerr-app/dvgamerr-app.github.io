@@ -4,8 +4,8 @@ title: 'ปิด DHCP บน macOS แบบทีละขั้นตอน (
 description: 'ถ้ารัน DHCP server แล้วชนพอร์ตหรือมีปัญหาแปลก ๆ อาจต้องปิดบริการ DHCP ที่ติดมากับ macOS บทความนี้สอนปิดผ่านไฟล์ bootpd.plist แบบกระชับ'
 author: 'Kananek T.'
 image:
-  url: '/../../cover/disabling-dhcp.webp'
-  src: '../../../public/cover/disabling-dhcp.webp'
+  url: '/cover/disabling-dhcp.jpg'
+  src: '../../../public/cover/disabling-dhcp.jpg'
 tags:
   [
     'dhcp',

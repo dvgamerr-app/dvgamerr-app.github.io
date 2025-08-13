@@ -91,7 +91,7 @@ const pageDescription = 'Latest insights, guides & notes — crafted for fast, p
           const post = item.entry
           const slug = post.id.split('_')[1] || post.id
           const date = post.data.date ? post.data.date.toISOString() : ''
-          const cover = post.data.image?.url
+          const cover = `/../..${post.data.image?.url}`
           return (
             <li
               class="group relative py-4 transition-colors hover:bg-gray-50/70 dark:hover:bg-slate-800/30 rounded-xl"
@@ -155,7 +155,6 @@ const pageDescription = 'Latest insights, guides & notes — crafted for fast, p
 
   function applyFilters() {
     const q = (input?.value || '').trim().toLowerCase()
-    const activeTagEl = tagFilter?.querySelector('.tag-pill.active') as HTMLButtonElement | null
     grid?.querySelectorAll('li').forEach((li) => {
       const el = li as HTMLElement
       const title = el.dataset.title || ''
