@@ -12,8 +12,6 @@ const { blog = { data: { title: '', description: '', image: undefined } } } = As
 const pageTitle = blog.data.title.substring(0, 60)
 const pageImage = blog.data.image?.url || ''
 const pageDescription = blog.data.description.substring(0, 180) + (blog.data.description.length > 180 ? '...' : '')
-
-console.log(pageImage)
 ---
 
 <Layout title={pageTitle} description={pageDescription} image={pageImage}>
