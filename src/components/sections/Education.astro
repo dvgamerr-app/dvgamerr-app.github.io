@@ -23,7 +23,7 @@ const { resume } = Astro.props
             resume.education.map((e: any) => (
               <div class="group flex flex-col pb-3 transition">
                 <div class="flex items-start gap-2 flex-wrap mb-2 w-full">
-                  <span class="text-sm inline-flex items-center rounded-md bg-gray-200/70 dark:bg-gray-700/40 text-gray-800 dark:text-gray-200 px-2 pt-0.5 font-semibold tracking-wide uppercase">
+                  <span class="text-sm inline-flex items-center rounded-md bg-gray-200/70 dark:bg-gray-700/40 print:bg-transparent print:dark:bg-transparent text-gray-800 dark:text-gray-200 px-2 pt-1 print:px-0 font-semibold tracking-wide uppercase">
                     {e.range}
                   </span>
                   <div class="flex-1 min-w-[60%] mt-1">
