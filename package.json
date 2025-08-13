@@ -12,10 +12,12 @@
     "collector:gh": "bun ./collector/index.js --github | pino-pretty",
     "collector:wk": "bun ./collector/index.js --wakatime --file D:/home/Downloads/wakatime-info.dvgamergmail.com-06633b1c3ba744c2ab5d08e47ccc87ab.json | pino-pretty",
     "collector": "bun ./collector/index.js --wakatime --github | pino-pretty",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "lint-staged": {
-    "*": "prettier --check . --write",
+    "*": "prettier --write",
     "*.js": "eslint --fix"
   },
   "dependencies": {
@@ -52,7 +54,7 @@
     "lint-staged": "^16.1.5",
     "pino-pretty": "^13.1.1",
     "postcss": "^8.5.6",
-    "prettier": "^3.6.2"
-  },
-  "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276"
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1"
+  }
 }

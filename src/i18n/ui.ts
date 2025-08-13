@@ -1,9 +1,9 @@
 export const languages = {
   en: 'EN',
   th: 'ไทย',
-};
+}
 
-export const defaultLang = 'en';
+export const defaultLang = 'en'
 
 export const ui = {
   en: {
@@ -146,4 +146,4 @@ export const ui = {
     'footer.sponser': 'สนับสนุนโดย',
     'footer.and': 'และ',
   },
-} as const;
+} as const

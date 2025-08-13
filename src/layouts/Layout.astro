@@ -15,7 +15,13 @@ interface Props {
   website?: string
 }
 
-const { title: pageTitle, description: pageDescription, image: pageImage = '/fb-social.jpg', website = 'https://dvgamerr.app', keyword = "" } = Astro.props
+const {
+  title: pageTitle,
+  description: pageDescription,
+  image: pageImage = '/fb-social.jpg',
+  website = 'https://dvgamerr.app',
+  keyword = '',
+} = Astro.props
 const date = new Date().toISOString()
 
 const lang = getLangFromUrl(Astro.url)
@@ -31,7 +37,7 @@ import '../styles/global.scss'
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="icon" type="image/svg+xml" href="/icon-64.webp" />
     <meta name="application-name" content={pageTitle} />
-    <meta name="keywords" content={keyword}/>
+    <meta name="keywords" content={keyword} />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#C84B31" />
@@ -79,12 +85,14 @@ import '../styles/global.scss'
     <title>{pageTitle}</title>
     {
       import.meta.env.PROD && import.meta.env.PUBLIC_ADSENSE_CLIENT && (
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
-          crossorigin="anonymous"
-        />
-        <script async src="https://rum.cronitor.io/script.js"></script>
+        <>
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
+            crossorigin="anonymous"
+          />
+          <script async src="https://rum.cronitor.io/script.js" />
+        </>
       )
     }
   </head>

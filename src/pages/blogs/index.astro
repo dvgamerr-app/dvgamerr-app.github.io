@@ -4,13 +4,13 @@ import { getCollection } from 'astro:content'
 
 const blogs = await getCollection('blogs')
 
-const items = blogs.map((entry) => ({ entry, type: 'blogs' as const })).sort(
-  (a, b) => {
+const items = blogs
+  .map((entry) => ({ entry, type: 'blogs' as const }))
+  .sort((a, b) => {
     const ad = a.entry.data.date ? a.entry.data.date.getTime() : 0
     const bd = b.entry.data.date ? b.entry.data.date.getTime() : 0
     return bd - ad
-  },
-)
+  })
 
 const PAGE_SIZE = 50
 const initialItems = items.slice(0, PAGE_SIZE)
@@ -31,8 +31,9 @@ const allItemsData = items.map((item) => {
   }
 })
 
-const pageTitle = 'Blogs'
-const pageDescription = 'Latest insights, guides & notes — crafted for fast, practical learning.'
+const pageTitle = 'Code Chronicles'
+const pageDescription =
+  'Deep dives, breakthrough insights, and game-changing strategies that will transform how you code. Stories behind the solutions, secrets from the trenches, and discoveries that changed everything.'
 ---
 
 <Layout
@@ -41,66 +42,62 @@ const pageDescription = 'Latest insights, guides & notes — crafted for fast, p
   image=""
   keyword={Array.from(new Set(items.flatMap((p) => p.entry.data.tags || []))).join(', ')}
 >
-  <section class="relative overflow-hidden">
+  <section class="mx-auto max-w-[40em] py-4 overflow-hidden">
     <div class="absolute inset-0 -z-10 opacity-60 dark:opacity-40 [mask-image:radial-gradient(circle_at_center,white,transparent)]">
       <div
         class="absolute -top-32 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] bg-gradient-to-br from-blue-500/20 via-emerald-400/10 to-transparent blur-3xl"
       >
       </div>
     </div>
-    <div class="mx-auto max-w-7xl px-6 pt-12 pb-8">
-      <div class="max-w-3xl">
-        <h1
-          class="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 dark:from-white dark:via-slate-200 dark:to-slate-400 bg-clip-text text-transparent"
-        >
-          {pageTitle}
-        </h1>
-        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-          {pageDescription}
-        </p>
-        <div class="mt-6 flex flex-col sm:flex-row gap-4 sm:items-center">
-          <div class="relative flex-1">
-            <input
-              id="search"
-              type="search"
-              placeholder="Search posts..."
-              class="w-full rounded-xl bg-white/70 dark:bg-slate-900/60 backdrop-blur border border-gray-300/60 dark:border-slate-600/50 px-4 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500 shadow-sm"
-            />
-            <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"></path>
-              </svg>
-            </div>
+    <div class="px-6 pt-12 pb-8">
+      <h1
+        class="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-br from-gray-900 via-gray-700 to-gray-400 dark:from-white dark:via-slate-200 dark:to-slate-400 bg-clip-text text-transparent"
+      >
+        {pageTitle}
+      </h1>
+      <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+        {pageDescription}
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-4 sm:items-center">
+        <div class="relative flex-1">
+          <input
+            id="search"
+            type="search"
+            placeholder="Search posts..."
+            class="w-full rounded-xl bg-white/70 dark:bg-slate-900/60 backdrop-blur border border-gray-300/60 dark:border-slate-600/50 px-4 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500 shadow-sm"
+          />
+          <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"></path>
+            </svg>
           </div>
-          <div class="flex sm:justify-end">
-            <button
-              id="themeToggleBlog"
-              type="button"
-              class="h-10 px-3 inline-flex items-center gap-2 rounded-xl border border-gray-300/60 bg-white dark:bg-gray-700/40 hover:bg-gray-50 dark:hover:bg-gray-600/60 transition"
-              aria-label="Toggle theme"
-            >
-              <svg viewBox="0 0 25 25" height="18" width="18" class="pointer-events-none">
-                <path
-                  class="sun"
-                  fill-rule="evenodd"
-                  d="M12 17.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 1.5a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm12-7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1 0-1.6h2.4a.8.8 0 0 1 .8.8zM4 12a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1 0-1.6h2.5a.8.8 0 0 1 .8.8zm16.5-8.5a.8.8 0 0 1 0 1l-1.8 1.8a.8.8 0 0 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM6.3 17.7a.8.8 0 0 1 0 1l-1.7 1.8a.8.8 0 1 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM12 0a.8.8 0 0 1 .8.8v2.5a.8.8 0 0 1-1.6 0V.8A.8.8 0 0 1 12 0zm0 20a.8.8 0 0 1 .8.8v2.4a.8.8 0 0 1-1.6 0v-2.4a.8.8 0 0 1 .8-.8zM3.5 3.5a.8.8 0 0 1 1 0l1.8 1.8a.8.8 0 1 1-1 1L3.5 4.6a.8.8 0 0 1 0-1zm14.2 14.2a.8.8 0 0 1 1 0l1.8 1.7a.8.8 0 0 1-1 1l-1.8-1.7a.8.8 0 0 1 0-1z"
-                ></path>
-                <path
-                  class="moon"
-                  fill-rule="evenodd"
-                  d="M16.5 6A10.5 10.5 0 0 1 4.7 16.4 8.5 8.5 0 1 0 16.4 4.7l.1 1.3zm-1.7-2a9 9 0 0 1 .2 2 9 9 0 0 1-11 8.8 9.4 9.4 0 0 1-.8-.3c-.4 0-.8.3-.7.7a10 10 0 0 0 .3.8 10 10 0 0 0 9.2 6 10 10 0 0 0 4-19.2 9.7 9.7 0 0 0-.9-.3c-.3-.1-.7.3-.6.7a9 9 0 0 1 .3.8z"
-                ></path>
-              </svg>
-              <span class="sun-text text-xs font-medium hidden sm:inline">Light</span>
-              <span class="moon-text text-xs font-medium hidden sm:inline">Dark</span>
-            </button>
-          </div>
+        </div>
+        <div class="flex sm:justify-end">
+          <button
+            id="themeToggleBlog"
+            type="button"
+            class="h-10 px-3 inline-flex items-center gap-2 rounded-xl border border-gray-300/60 bg-white dark:bg-gray-700/40 hover:bg-gray-50 dark:hover:bg-gray-600/60 transition"
+            aria-label="Toggle theme"
+          >
+            <svg viewBox="0 0 25 25" height="18" width="18" class="pointer-events-none">
+              <path
+                class="sun"
+                fill-rule="evenodd"
+                d="M12 17.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 1.5a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm12-7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1 0-1.6h2.4a.8.8 0 0 1 .8.8zM4 12a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1 0-1.6h2.5a.8.8 0 0 1 .8.8zm16.5-8.5a.8.8 0 0 1 0 1l-1.8 1.8a.8.8 0 0 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM6.3 17.7a.8.8 0 0 1 0 1l-1.7 1.8a.8.8 0 1 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM12 0a.8.8 0 0 1 .8.8v2.5a.8.8 0 0 1-1.6 0V.8A.8.8 0 0 1 12 0zm0 20a.8.8 0 0 1 .8.8v2.4a.8.8 0 0 1-1.6 0v-2.4a.8.8 0 0 1 .8-.8zM3.5 3.5a.8.8 0 0 1 1 0l1.8 1.8a.8.8 0 1 1-1 1L3.5 4.6a.8.8 0 0 1 0-1zm14.2 14.2a.8.8 0 0 1 1 0l1.8 1.7a.8.8 0 0 1-1 1l-1.8-1.7a.8.8 0 0 1 0-1z"
+              ></path>
+              <path
+                class="moon"
+                fill-rule="evenodd"
+                d="M16.5 6A10.5 10.5 0 0 1 4.7 16.4 8.5 8.5 0 1 0 16.4 4.7l.1 1.3zm-1.7-2a9 9 0 0 1 .2 2 9 9 0 0 1-11 8.8 9.4 9.4 0 0 1-.8-.3c-.4 0-.8.3-.7.7a10 10 0 0 0 .3.8 10 10 0 0 0 9.2 6 10 10 0 0 0 4-19.2 9.7 9.7 0 0 0-.9-.3c-.3-.1-.7.3-.6.7a9 9 0 0 1 .3.8z"
+              ></path>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-6 pb-24" id="posts-wrapper">
+  <section class="mx-auto max-w-[40em] px-6 pb-24" id="posts-wrapper">
     {items.length === 0 && <p class="text-center py-20 text-gray-500">No posts yet.</p>}
     <ul id="posts-grid" class="divide-y divide-gray-200/60 dark:divide-slate-700/60">
       {
@@ -158,12 +155,18 @@ const pageDescription = 'Latest insights, guides & notes — crafted for fast, p
         })
       }
     </ul>
-    {items.length > PAGE_SIZE && (
-      <div class="mt-6 flex items-center justify-center" id="load-more">
-        <div id="load-more-sentinel" class="h-8 w-8 rounded-full border-2 border-dashed border-gray-300 dark:border-slate-600 animate-spin" aria-hidden></div>
-      </div>
-    )}
-  <script id="posts-data" type="application/json">{JSON.stringify(allItemsData).replace(/</g, '\\u003c')}</script>
+    {
+      items.length > PAGE_SIZE && (
+        <div class="mt-6 flex items-center justify-center" id="load-more">
+          <div
+            id="load-more-sentinel"
+            class="h-8 w-8 rounded-full border-2 border-dashed border-gray-300 dark:border-slate-600 animate-spin"
+            aria-hidden
+          />
+        </div>
+      )
+    }
+    <script id="posts-data" type="application/json" set:html={JSON.stringify(allItemsData).replace(/</g, '\\u003c')} />
   </section>
 </Layout>
 
@@ -254,13 +257,15 @@ const pageDescription = 'Latest insights, guides & notes — crafted for fast, p
     tagsWrap.className = 'flex items-center gap-2 flex-wrap mb-1 min-h-[1.5rem]'
     ;(item.tags || []).slice(0, 3).forEach((tag) => {
       const span = document.createElement('span')
-      span.className = 'inline-flex items-center rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/20 px-2 py-0.5 text-[10px] font-medium tracking-wide uppercase'
+      span.className =
+        'inline-flex items-center rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/20 px-2 py-0.5 text-[10px] font-medium tracking-wide uppercase'
       span.textContent = tag
       tagsWrap.appendChild(span)
     })
 
     const h2 = document.createElement('h2')
-    h2.className = 'text-base md:text-lg font-semibold leading-snug text-gray-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-3'
+    h2.className =
+      'text-base md:text-lg font-semibold leading-snug text-gray-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-3'
     h2.textContent = item.title || ''
 
     const p = document.createElement('p')
@@ -286,7 +291,8 @@ const pageDescription = 'Latest insights, guides & notes — crafted for fast, p
 
     const read = document.createElement('span')
     read.className = 'opacity-0 group-hover:opacity-100 transition-opacity text-blue-600 dark:text-blue-400 inline-flex items-center gap-1'
-    read.innerHTML = 'Read <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" /></svg>'
+    read.innerHTML =
+      'Read <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" /></svg>'
     meta.appendChild(read)
 
     info.appendChild(tagsWrap)

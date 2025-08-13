@@ -41,55 +41,54 @@ const publishedISO = blog.data.date ? blog.data.date.toISOString() : ''
 ---
 
 <Layout title={pageTitle} description={pageDescription} image={pageImage} keyword={blog.data.tags.join(',')} website={website}>
-  <div class="container py-4">
-    {
-      blog.data.oss && (
-        <div class="mt-3 mx-auto max-w-[40em]">
-          <a href="/blogs" class="inline-flex items-center text-sm text-blue-600 hover:underline mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-4 mx-2"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
-            </svg>
-            Back to Blogs
-          </a>
-          <div class="flex justify-end gap-2 mb-4">
-            <a
-              href={'https://github.com/sponsors/dvgamerr?utm_source=dvgamerr.app&ref=dvgamerr.app'}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium transition-colors shadow-sm
+  <div class="mx-auto max-w-[40em] py-4">
+    <div class="mt-3">
+      <a href="/blogs" class="inline-flex items-center text-sm text-blue-600 hover:underline mb-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-4 mx-2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"></path>
+        </svg>
+        Back to Blogs
+      </a>
+      <div class="flex justify-end gap-2 mb-4">
+        <a
+          href={'https://github.com/sponsors/dvgamerr?utm_source=dvgamerr.app&ref=dvgamerr.app'}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium transition-colors shadow-sm
               bg-white text-slate-800 border-gray-200 hover:bg-gray-50 hover:border-gray-300
               dark:bg-slate-900 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
-              aria-label="Sponsor on GitHub"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                class="opacity-90 transition-transform duration-150 group-hover:-translate-y-0.5"
-              >
-                <path
-                  d="M4 7.5A1.5 1.5 0 0 1 5.5 6h10A3.5 3.5 0 0 1 19 9.5v1a3.5 3.5 0 0 1-3.5 3.5H14l-.36 1.44A3 3 0 0 1 10.71 18H7.5A3.5 3.5 0 0 1 4 14.5v-7Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                />
-                <path d="M16 9h1a1.5 1.5 0 0 1 0 3h-1V9Z" fill="currentColor" />
-                <path
-                  d="M9.997 9.5c.687-1.042 2.318-1.042 3.005 0 .523.793.282 1.917-.54 2.44L11.5 12.9l-.962-.96c-.822-.524-1.063-1.648-.54-2.44Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <span class="mt-1">Sponsor on GitHub</span>
-            </a>
+          aria-label="Sponsor on GitHub"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            class="opacity-90 transition-transform duration-150 group-hover:-translate-y-0.5"
+          >
+            <path
+              d="M4 7.5A1.5 1.5 0 0 1 5.5 6h10A3.5 3.5 0 0 1 19 9.5v1a3.5 3.5 0 0 1-3.5 3.5H14l-.36 1.44A3 3 0 0 1 10.71 18H7.5A3.5 3.5 0 0 1 4 14.5v-7Z"
+              stroke="currentColor"
+              stroke-width="1.5"></path>
+            <path d="M16 9h1a1.5 1.5 0 0 1 0 3h-1V9Z" fill="currentColor"></path>
+            <path
+              d="M9.997 9.5c.687-1.042 2.318-1.042 3.005 0 .523.793.282 1.917-.54 2.44L11.5 12.9l-.962-.96c-.822-.524-1.063-1.648-.54-2.44Z"
+              fill="currentColor"></path>
+          </svg>
+          <span class="mt-1">Sponsor on GitHub</span>
+        </a>
+
+        {
+          blog.data.oss && (
             <a
               href={blog.data.oss + '?utm_source=dvgamerr.app&ref=dvgamerr.app'}
               target="_blank"
@@ -113,10 +112,10 @@ const publishedISO = blog.data.date ? blog.data.date.toISOString() : ''
               </svg>
               <span class="mt-1">View in GitHub</span>
             </a>
-          </div>
-        </div>
-      )
-    }
+          )
+        }
+      </div>
+    </div>
 
     <article class="markdown">
       <h1>{blog.data.title}</h1>

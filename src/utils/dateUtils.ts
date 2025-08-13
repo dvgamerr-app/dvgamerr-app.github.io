@@ -43,26 +43,20 @@ const formatDateRange = (
   quit: string | undefined,
   langName: string,
   dayOnly: boolean,
-  t: TranslationFunction
+  t: TranslationFunction,
 ): string => {
   const dateBegin = applyBuddhistYearOffset(baseBegin, langName)
   const dateQuit = applyBuddhistYearOffset(baseEnd, langName)
 
   const formatPattern = dayOnly ? 'D MMMM YYYY' : 'MMMM YYYY'
   const formattedBegin = dateBegin.format(formatPattern)
-  const formattedQuit = quit
-    ? dateQuit.format(formatPattern)
-    : t('date.present')
+  const formattedQuit = quit ? dateQuit.format(formatPattern) : t('date.present')
 
   return `${formattedBegin} — ${formattedQuit}`
 }
 
 // Main Functions
-export const getWorkPeriod = (
-  range: WorkRange,
-  langName: string,
-  t: TranslationFunction
-): string => {
+export const getWorkPeriod = (range: WorkRange, langName: string, t: TranslationFunction): string => {
   const { begin, quit } = range
 
   if (isNewJob(begin)) {
@@ -78,11 +72,7 @@ export const getWorkPeriod = (
   return formatDateRange(baseBegin, baseEnd, quit, langName, dayOnly, t)
 }
 
-export const getWorkDuration = (
-  range: WorkRange,
-  langName: string,
-  t: TranslationFunction
-): string => {
+export const getWorkDuration = (range: WorkRange, langName: string, t: TranslationFunction): string => {
   const { begin, quit } = range
 
   if (isNewJob(begin)) {
