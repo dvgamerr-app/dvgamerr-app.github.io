@@ -4,12 +4,13 @@
 // Usage: <GoogleAd slot="1234567890" format="auto" />
 // Props
 export interface Props {
+  layout?: string
   slot?: string
   format?: string
   style?: string
   responsive?: boolean
 }
-const { slot, format = 'auto', style = 'display:block', responsive = true } = Astro.props
+const { slot, layout = '', format = 'auto', style = 'display:block; text-align:center;', responsive = true } = Astro.props
 const client = import.meta.env.PUBLIC_ADSENSE_CLIENT
 const canRender = import.meta.env.PROD && !!client && !!slot
 ---
@@ -20,6 +21,7 @@ const canRender = import.meta.env.PROD && !!client && !!slot
       <ins
         class="adsbygoogle"
         style={style}
+        data-ad-layout={layout}
         data-ad-client={client}
         data-ad-slot={slot}
         data-ad-format={format}
