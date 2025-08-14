@@ -5,7 +5,7 @@ description: >-
   GPT‑OSS เป็นชุดโมเดลที่เปิดน้ำหนักและโมเดลให้ดาวน์โหลดได้แบบฟรี เพื่อให้สามารถนำไปใช้ฟีเจอร์ reasoning, agentic tasks และการปรับแต่งง่าย ๆ ในระบบของคุณ
 author: Kananek T.
 oss: https://github.com/openai/gpt-oss
-tags: []
+tags: [oss, AI, open-source, machine-learning, reasoning]
 ---
 
 มี 2 รุ่นหลัก: **gpt‑oss‑120b** (117B พารามิเตอร์) เหมาะกับ GPU 80 GB เช่น NVIDIA H100 หรือ AMD MI300X และ **gpt‑oss‑20b** (21B พารามิเตอร์) ที่ใช้พลัง 16 GB GPU โดยเน้นให้ latency ต่ำกว่า

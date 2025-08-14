@@ -5,24 +5,7 @@ description: >-
   A comprehensive guide to automating daily check-ins for Genshin Impact, Honkai StarRail, Honkai Impact 3, and Zenless Zone Zero. Set it up once and let it run seamlessly.
 author: Kananek T.
 oss: https://github.com/dvgamerr-app/go-hoyolab
-tags:
-  [
-    hoyolab,
-    daily-check-in,
-    genshin-impact,
-    honkai-star-rail,
-    honkai-impact-3,
-    zenless-zone-zero,
-    automation,
-    gaming-tools,
-    line-notify,
-    discord-integration,
-    chrome-profiles,
-    command-line,
-    github,
-    docker-support,
-    schedule-task,
-  ]
+tags: [hoyolab, automation, gaming, check-in, Genshin Impact, Honkai Star Rail, Zenless Zone Zero, Honkai Impact 3]
 ---
 
 ![alt text](assets/hoyolab-daily.png)
