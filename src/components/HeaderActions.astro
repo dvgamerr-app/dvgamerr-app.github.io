@@ -25,6 +25,29 @@ const { langName } = Astro.props as Props
   </li>
   <li class="group">
     <button
+      type="button"
+      id="resumeToggle"
+      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 hover:bg-gray-50 dark:hover:bg-gray-600/60 transition data-[active=true]:bg-blue-50 data-[active=true]:border-blue-300/60 data-[active=true]:text-blue-700 dark:data-[active=true]:bg-blue-500/10 dark:data-[active=true]:text-blue-300"
+      aria-label="Toggle resume mode"
+      aria-pressed="false"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        height="16"
+        width="16"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+      >
+        <path d="M4 4h16v16H4z" opacity=".15"></path>
+        <path d="M7 8h10M7 12h10M7 16h7"></path>
+      </svg>
+      <span class="uppercase text-xs font-medium mt-0.5 xl:inline hidden">resume</span>
+    </button>
+  </li>
+  <li class="group">
+    <button
       id="langSwitch"
       type="button"
       data-target={langName === 'en' ? '/th' : '/'}
@@ -123,7 +146,7 @@ const { langName } = Astro.props as Props
   }
 </style>
 <script>
-  const S = { printBtn: 'on-printer', themeToggle: '#themeToggle', langSwitch: 'langSwitch' }
+  const S = { printBtn: 'on-printer', themeToggle: '#themeToggle', langSwitch: 'langSwitch', resumeToggle: 'resumeToggle' }
   function initPrint() {
     const b = document.getElementById(S.printBtn)
     if (!b) return
@@ -139,6 +162,24 @@ const { langName } = Astro.props as Props
       e.preventDefault()
       const target = b.getAttribute('data-target')
       if (target) window.location.href = target
+    })
+  }
+  function initResume() {
+    const btn = document.getElementById(S.resumeToggle)
+    if (!btn) return
+    const url = new URL(window.location.href)
+    const isOn = url.searchParams.get('mode') === 'resume'
+    if (isOn) {
+      btn.setAttribute('data-active', 'true')
+      btn.setAttribute('aria-pressed', 'true')
+    }
+    btn.addEventListener('click', (e) => {
+      e.preventDefault()
+      const current = new URL(window.location.href)
+      const nowOn = current.searchParams.get('mode') === 'resume'
+      if (nowOn) current.searchParams.delete('mode')
+      else current.searchParams.set('mode', 'resume')
+      window.location.href = current.toString()
     })
   }
   function initTheme() {
@@ -168,6 +209,7 @@ const { langName } = Astro.props as Props
   const init = () => {
     initPrint()
     initLang()
+    initResume()
     initTheme()
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init)

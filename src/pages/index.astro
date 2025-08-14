@@ -7,6 +7,8 @@ import ContentResume from '../components/Resume.astro'
 import WorkExperience from '../components/sections/WorkExperience.astro'
 import SectionFooter from '../components/Footer.astro'
 import GoogleAd from '../components/GoogleAd.astro'
+import SectionProject from '../components/sections/Project.astro'
+import SectionBlogs from '../components/sections/Blogs.astro'
 
 import { getLangFromUrl } from '../i18n/utils'
 
@@ -15,11 +17,9 @@ interface Props {
   experience?: any
 }
 
-// Import data
 import expData from '../i18n/experience.json'
 import resumeData from '../i18n/resume.en.json'
 
-// Setup locale and data
 const langName = getLangFromUrl(Astro.url)
 const { experience = expData, resume = resumeData } = Astro.props
 
@@ -34,6 +34,10 @@ dayjs.locale(langName)
 >
   <div class="pt-5">
     <SectionHeader resume={resume} experience={experience} />
+
+    <SectionProject experience={experience} />
+    <SectionBlogs />
+
     <ContentResume resume={resume} experience={experience} />
     {
       import.meta.env.PUBLIC_ADSENSE_HOME_SLOT && (
@@ -52,7 +56,6 @@ dayjs.locale(langName)
     --tooltip-color: #dc3545;
   }
 
-  /* Mobile responsive styles */
   @media (max-width: 36rem) {
     #__layout .header {
       padding: 2em 0 0 0;
@@ -91,21 +94,18 @@ dayjs.locale(langName)
     }
   }
 
-  /* Tablet and larger screens */
   @media (min-width: 896px) {
     #__layout .section-contact .contact-item {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 
-  /* Coding stats mobile layout */
   @media (max-width: 896px) {
     #__layout .section-coding .stats {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  /* Print styles */
   @media print {
     #__layout address a {
       fill: var(--text-secondary);

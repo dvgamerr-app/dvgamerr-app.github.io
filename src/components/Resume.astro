@@ -1,5 +1,4 @@
 ---
-import SectionProject from './sections/Project.astro'
 import SectionContact from './sections/Contact.astro'
 import SectionCoding from './sections/CodingRepos.astro'
 import SectionDaytime from './sections/CodingDaytime.astro'
@@ -15,7 +14,6 @@ interface Props {
 const { resume, experience } = Astro.props
 ---
 
-<SectionProject experience={experience} />
 <SectionContact experience={experience} />
 <SectionCoding />
 <SectionDaytime />

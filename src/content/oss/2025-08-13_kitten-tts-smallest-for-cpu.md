@@ -55,7 +55,7 @@ pip install https://github.com/KittenML/KittenTTS/releases/download/0.1/kittentt
 
 ### 2. เขียนโค้ดให้พูด
 
-```pthon
+```python
 from kittentts import KittenTTS
 import soundfile as sf
 
