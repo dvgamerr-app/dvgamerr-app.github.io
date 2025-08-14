@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import OpenAI from 'openai'
 import pino from 'pino'
 import { z } from 'zod'
@@ -13,25 +14,21 @@ const json_schema = (name, object) => ({
 })
 
 const PROMPT = `
+จากข้อมูลที่ได้รับ ให้เขียนบทความสำหรับให้ผู้อื่นลงทำตามได้อย่างน่าสนใจ ที่เหมือนกำลังเป็น นักทดลอง software ใหม่ๆ, ไม่เขียนอ้างอิง และ title ใน content อีกรอบ, responses in JSON format only.
 
-จากข้อมูลที่ได้รับ ให้เขียนบทความสำหรับให้ผู้อื่นลงทำตามได้อย่างน่าสนใจ 
 ความยาว: 100 - 300 คำ  
-โทน: เป็นกันเองที่เหมือนกำลังเป็น นักทดลอง software ใหม่ๆ 
-รูปแบบ: Markdown
-
-Responses in JSON format only.
+โทน: เป็นกันเอง สั้นๆ เข้าใจง่าย
+ภาษา: ไทย
 `
 
 const invokeBlogsContent = async (data) => {
   // สร้าง Schema ด้วย Zod สำหรับ validation
   const TechNewsSchema = z.object({
-    author: z.string().describe('Name of the writer'),
-    content: z.string().describe('Blog content displayed in markdown format.'),
-    date: z.string().describe('Publisher date format: YYYY-MM-DD'),
-    description: z.string().describe('Short description of content (max 50 token)'),
-    oss: z.url(z.string()).describe('URL from github'),
-    tags: z.array(z.string()).describe('URL from github'),
-    title: z.string().describe('Title name (max 30 token)'),
+    content: z.string().describe('Blog engaging content displayed in markdown format.'),
+    description: z.string().describe('Short description of content (max 40 word) (require)'),
+    shortname: z.string().describe('Engaging English Title relate of content (max 12 word) (require)'),
+    tags: z.array(z.string()).describe('Related tags, one word each (min 5 tags) (require)'),
+    title: z.string().describe('Engaging title name (max 20 word) (require)'),
   })
 
   const res = await client.chat.completions.create({
@@ -51,7 +48,8 @@ const invokeBlogsContent = async (data) => {
     const parsed = JSON.parse(content)
     return TechNewsSchema.parse(parsed) // Validate with Zod
   } catch (error) {
-    logger.fatal({ content, error: error.message || 'invalid_json' })
+    console.log(JSON.stringify(content, null, 2))
+    throw new Error(error.message || 'invalid_json')
   }
 }
 
@@ -96,4 +94,23 @@ logger.info('Invoke AI...')
 
 const res = await invokeBlogsContent(content)
 
-console.log(res)
+logger.info('Writer...')
+console.log(JSON.stringify(res, null, 2))
+const today = dayjs().format('YYYY-MM-DD')
+const path = Bun.file(`./src/content/oss/${today}_${res.shortname.toLowerCase().replaceAll(/[\W]/gi, '-').replaceAll('--', '-')}.md`)
+await Bun.write(
+  path,
+  `---
+date: ${today}
+title: '${res.title}'
+description: >-
+  "${res.description}"
+author: Kananek T.
+oss: ${repoUrl}
+tags: [oss,${res.tags.join(', ')}]
+---
+${res.content}
+`,
+)
+
+logger.info('Done')
