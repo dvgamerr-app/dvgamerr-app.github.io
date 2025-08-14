@@ -1,7 +1,6 @@
 ---
 import dayjs from 'dayjs'
 import numeral from 'numeral'
-import HeaderActions from '../HeaderActions.astro'
 import { getLangFromUrl, getTranslate } from '../../i18n/utils'
 import coding from '../../i18n/coding.json'
 const langName = getLangFromUrl(Astro.url)
@@ -56,7 +55,7 @@ const birthday = dayjs(experience.birthday)
 // codingData.wakatime provides total coding time string
 ---
 
-<section class="pt-0 pb-8 md:py-12 print-text-gray-900">
+<section id="resume" class="pt-0 pb-8 md:py-12 print-text-gray-900">
   <div class="max-w-7xl mx-auto px-4">
     <div class="md:grid md:grid-cols-8 md:gap-8">
       <div class="md:col-span-2">
@@ -76,7 +75,6 @@ const birthday = dayjs(experience.birthday)
           <h1 class="flex flex-1 uppercase th-label mt-2 text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {resume.fullname}
           </h1>
-          <HeaderActions langName={langName} />
         </div>
         <span class="th-label block mt-1 text-lg font-medium text-gray-600 dark:text-gray-300 print:hidden">{resume.job}</span>
         <span class="th-label hidden print:block text-xl font-semibold text-gray-900">{resume.fullname_th}</span>

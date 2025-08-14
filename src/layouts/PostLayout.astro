@@ -1,10 +1,13 @@
 ---
 import Layout from './Layout.astro'
 import GoogleAd from '../components/GoogleAd.astro'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+dayjs.extend(relativeTime)
 
 const { blog = { data: { title: '', description: '', image: undefined, tags: [] } } } = Astro.props
 
-const pageTitle = blog.data.title.substring(0, 60)
+const pageTitle = blog.data.title.substring(0, 55)
 
 // Build GitHub Open Graph image if oss points to a GitHub repo
 let githubOgImage = ''
@@ -34,8 +37,8 @@ try {
   }
 } catch {}
 
-const pageImage = blog.data.image?.url || githubOgImage || ''
-const pageDescription = blog.data.description.substring(0, 180) + (blog.data.description.length > 180 ? '...' : '')
+const pageImage = blog.data.image?.url || githubOgImage
+const pageDescription = blog.data.description.substring(0, 160) + (blog.data.description.length > 180 ? '...' : '')
 const website = new URL(Astro.url.pathname, Astro.site).toString()
 const publishedISO = blog.data.date ? blog.data.date.toISOString() : ''
 ---
@@ -134,11 +137,7 @@ const publishedISO = blog.data.date ? blog.data.date.toISOString() : ''
             <div class="flex flex-wrap items-center gap-2">
               {blog.data.author && <span>By {blog.data.author}</span>}
               {blog.data.author && publishedISO && <span aria-hidden>•</span>}
-              {publishedISO && (
-                <time datetime={publishedISO}>
-                  {new Date(publishedISO).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
-                </time>
-              )}
+              {publishedISO && <time datetime={publishedISO}>{dayjs(publishedISO).fromNow()}</time>}
             </div>
           </footer>
         )

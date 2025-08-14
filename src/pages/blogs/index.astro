@@ -1,6 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+dayjs.extend(relativeTime)
 
 const blogs = await getCollection('blogs')
 
@@ -21,7 +25,6 @@ const allItemsData = items.map((item) => {
   const date = post.data.date ? post.data.date.toISOString() : ''
   const cover = post.data?.image?.url ? `/../..${post.data.image.url}` : null
   return {
-    type: item.type,
     slug,
     date,
     cover,
@@ -113,15 +116,7 @@ const pageDescription =
               data-title={(post.data.title || '').toLowerCase()}
               data-description={(post.data.description || '').toLowerCase()}
             >
-              <a href={String(item.type) === 'oss' ? `/oss/${slug}` : `/blogs/${slug}`} class="flex items-start gap-4">
-                {cover && (
-                  <img
-                    src={cover}
-                    alt={post.data.title}
-                    loading="lazy"
-                    class="w-24 h-24 rounded-lg object-cover object-center flex-shrink-0"
-                  />
-                )}
+              <a href={`/blogs/${slug}`} class="flex items-center gap-4">
                 <div class="min-w-0 flex-1 px-3">
                   <div class="flex items-center gap-2 flex-wrap mb-1 min-h-[1.5rem]">
                     {(post.data.tags || []).slice(0, 3).map((tag) => (
@@ -135,11 +130,7 @@ const pageDescription =
                   </h2>
                   <p class="mt-1 text-sm text-gray-600 dark:text-gray-400 line-clamp-3">{post.data.description}</p>
                   <div class="mt-2 flex items-center gap-3 text-[11px] font-medium text-gray-500 dark:text-gray-500">
-                    {date && (
-                      <time datetime={date}>
-                        {new Date(date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
-                      </time>
-                    )}
+                    {date && <time datetime={date}>{dayjs(date).fromNow()}</time>}
                     <span aria-hidden>•</span>
                     <span class="opacity-0 group-hover:opacity-100 transition-opacity text-blue-600 dark:text-blue-400 inline-flex items-center gap-1">
                       Read
@@ -171,6 +162,9 @@ const pageDescription =
 </Layout>
 
 <script>
+  import dayjs from 'dayjs'
+  import relativeTime from 'dayjs/plugin/relativeTime'
+  dayjs.extend(relativeTime)
   const PAGE_SIZE = 50
   const input = document.getElementById('search') as HTMLInputElement | null
   const grid = document.getElementById('posts-grid') as HTMLUListElement | null
@@ -239,7 +233,7 @@ const pageDescription =
 
     const a = document.createElement('a')
     a.href = item.type === 'oss' ? `/oss/${item.slug}` : `/blogs/${item.slug}`
-    a.className = 'flex items-start gap-4'
+    a.className = 'flex items-center gap-4'
 
     if (item.cover) {
       const img = document.createElement('img')
@@ -279,7 +273,7 @@ const pageDescription =
       const time = document.createElement('time')
       time.setAttribute('datetime', item.date)
       try {
-        time.textContent = new Date(item.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+        time.textContent = dayjs(item.date).fromNow()
       } catch {}
       meta.appendChild(time)
     }

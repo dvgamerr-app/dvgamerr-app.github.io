@@ -9,8 +9,10 @@ import SectionFooter from '../components/Footer.astro'
 import GoogleAd from '../components/GoogleAd.astro'
 import SectionProject from '../components/sections/Project.astro'
 import SectionBlogs from '../components/sections/Blogs.astro'
+import HeaderActions from '../components/HeaderActions.astro'
 
-import { getLangFromUrl } from '../i18n/utils'
+import { getLangFromUrl, getTranslate } from '../i18n/utils'
+const t = getTranslate(Astro.url)
 
 interface Props {
   resume: any
@@ -29,93 +31,140 @@ dayjs.locale(langName)
 <Layout
   title={`${resume.fullname} - ${resume.job} | Portfolio & Resume`}
   description={resume.detail.substring(0, 180) + (resume.detail.length > 180 ? '...' : '')}
-  image=""
+  image="/fb-social.jpg"
   keyword="kananek,t.,kananek-thongkam,thongkam,tk,resume,kem,kanane,kt"
 >
   <div class="pt-5">
-    <SectionHeader resume={resume} experience={experience} />
+    <div class="max-w-7xl mx-auto px-4 pt-0 pb-8 md:py-12">
+      <div class="xl:h-[calc(100dvh-10em)] xl:min-h-[65em] h-auto print:hidden">
+        <section class="md:grid md:grid-cols-8 md:gap-8">
+          <div class="md:col-span-2"></div>
+          <div class="md:col-span-6">
+            <div class="flex items-center justify-between gap-4 relative">
+              <div class="flex flex-1 mt-2"></div>
+              <HeaderActions langName={langName} />
+            </div>
+            <div class="mt-6 px-6 py-6">
+              <h1 class="text-2xl md:text-4xl font-semibold tracking-tight">
+                {resume.fullname} — {resume.job}
+              </h1>
+              <p class="mt-2 text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-2xl">
+                {resume.detail}
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <a
+                  href="#resume"
+                  class="th-label inline-flex items-center text-sm font-semibold border border-[var(--text-color-link)] text-[var(--text-color-link)] px-4 py-2 hover:text-white bg-transparent hover:bg-[var(--text-color-link)] focus:outline-none"
+                >
+                  {t('head.button.resume')}
+                </a>
+                <a
+                  href="#projects"
+                  class="th-label inline-flex items-center text-sm font-semibold border border-gray-600/50 px-4 py-2 text-gray-600 dark:text-gray-100 hover:border-[var(--text-color-link)] hover:text-[var(--text-color-link)] dark:hover:text-[var(--text-color-link)] focus:outline-none"
+                >
+                  {t('head.button.project')}
+                </a>
+                <a
+                  href="#blog"
+                  class="th-label inline-flex items-center text-sm font-semibold border border-gray-600/50 px-4 py-2 text-gray-600 dark:text-gray-100 hover:border-[var(--text-color-link)] hover:text-[var(--text-color-link)] dark:hover:text-[var(--text-color-link)] focus:outline-none"
+                >
+                  {t('head.button.blogs')}
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="projects">
+          <SectionProject experience={experience} />
+        </section>
+        <section id="blog" class="mt-4">
+          <SectionBlogs />
+        </section>
+      </div>
+      <hr
+        class="border-0 h-px my-10 bg-gradient-to-r from-transparent via-black/20 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white/25 dark:to-transparent"
+      />
+      {
+        import.meta.env.PUBLIC_ADSENSE_HOME_SLOT && (
+          <div class="container my-4 print:hidden">
+            <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_HOME_SLOT} />
+          </div>
+        )
+      }
 
-    <SectionProject experience={experience} />
-    <SectionBlogs />
-
-    <ContentResume resume={resume} experience={experience} />
-    {
-      import.meta.env.PUBLIC_ADSENSE_HOME_SLOT && (
-        <div class="container my-4 print:hidden">
-          <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_HOME_SLOT} />
-        </div>
-      )
-    }
-    <p class="pagebreak"></p>
-    <WorkExperience workExperience={resume.work} />
-    <SectionFooter />
+      <SectionHeader resume={resume} experience={experience} />
+      <ContentResume resume={resume} experience={experience} />
+      <p class="pagebreak"></p>
+      <WorkExperience workExperience={resume.work} />
+      <SectionFooter />
+    </div>
   </div>
+  <style is:global>
+    :root {
+      --tooltip-color: #dc3545;
+    }
+
+    @media (max-width: 36rem) {
+      #__layout .header {
+        padding: 2em 0 0 0;
+      }
+
+      #__layout .header .name-wrapper {
+        margin-bottom: 0em;
+      }
+
+      #__layout .header .profile-img {
+        margin-bottom: 5em;
+        height: 420px;
+      }
+
+      #__layout .header .profile-img img {
+        position: absolute;
+        object-position: top;
+        object-fit: cover;
+        max-height: 460px;
+        width: 100%;
+        top: 5px;
+        left: 0;
+      }
+
+      #__layout .header .section-wrapper.grid-personal {
+        grid-template-columns: repeat(1, 1fr) !important;
+      }
+
+      #__layout .section-title {
+        padding-top: 1em;
+        text-align: left;
+      }
+
+      #__layout .section-title h2 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (min-width: 896px) {
+      #__layout .section-contact .contact-item {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 896px) {
+      #__layout .section-coding .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media print {
+      #__layout address a {
+        fill: var(--text-secondary);
+        font-weight: bold;
+        text-decoration: none !important;
+      }
+
+      #__layout .section-contact .contact-item {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1em;
+      }
+    }
+  </style>
 </Layout>
-<style is:global>
-  :root {
-    --tooltip-color: #dc3545;
-  }
-
-  @media (max-width: 36rem) {
-    #__layout .header {
-      padding: 2em 0 0 0;
-    }
-
-    #__layout .header .name-wrapper {
-      margin-bottom: 0em;
-    }
-
-    #__layout .header .profile-img {
-      margin-bottom: 5em;
-      height: 420px;
-    }
-
-    #__layout .header .profile-img img {
-      position: absolute;
-      object-position: top;
-      object-fit: cover;
-      max-height: 460px;
-      width: 100%;
-      top: 5px;
-      left: 0;
-    }
-
-    #__layout .header .section-wrapper.grid-personal {
-      grid-template-columns: repeat(1, 1fr) !important;
-    }
-
-    #__layout .section-title {
-      padding-top: 1em;
-      text-align: left;
-    }
-
-    #__layout .section-title h2 {
-      font-size: 1.4rem;
-    }
-  }
-
-  @media (min-width: 896px) {
-    #__layout .section-contact .contact-item {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  @media (max-width: 896px) {
-    #__layout .section-coding .stats {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media print {
-    #__layout address a {
-      fill: var(--text-secondary);
-      font-weight: bold;
-      text-decoration: none !important;
-    }
-
-    #__layout .section-contact .contact-item {
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 1em;
-    }
-  }
-</style>
