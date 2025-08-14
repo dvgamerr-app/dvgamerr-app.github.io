@@ -32,11 +32,13 @@
     "astro-webmanifest": "^1.0.0",
     "caniuse-lite": "^1.0.30001734",
     "numeral": "^2.0.6",
+    "openai": "^5.12.2",
     "pino": "^9.8.0",
     "sass-embedded": "^1.90.0",
     "sharp": "^0.34.3",
     "tailwindcss": "3.4.11",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^4.0.17"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
