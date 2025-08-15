@@ -1,5 +1,5 @@
 ---
-date: 2025-08-15
+date: 2025-08-15T01:22:52.967Z
 title: 'ทดลองเล่นเกมแบบ Headless ด้วย Docker Steam'
 description: >-
   "สัมผัสประสบการณ์การเล่นเกมบน Docker Steam พร้อม features ที่ครบเครื่อง!"
