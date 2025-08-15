@@ -14,7 +14,7 @@ const json_schema = (name, object) => ({
 })
 
 const PROMPT = `
-จากข้อมูลที่ได้รับ ให้เขียนบทความสำหรับให้ผู้อื่นลงทำตามได้อย่างน่าสนใจ ที่เหมือนกำลังเป็น นักทดลอง software ใหม่ๆ, ไม่เขียนอ้างอิง และ title ใน content อีกรอบ, responses in JSON format only.
+จากข้อมูลที่ได้รับ ให้เขียนบทความสำหรับให้ผู้อื่นลงทำตามได้อย่างน่าสนใจ ที่เหมือนกำลังเป็น นักทดลอง software ใหม่ๆ และถ้ามีรูปเอามาแสดงสักรูปด้วย, ไม่เขียนอ้างอิง และ title ใน content อีกรอบ, ไม่ต้องทักทาย,responses in JSON format only.
 
 ความยาว: 100 - 300 คำ  
 โทน: เป็นกันเอง สั้นๆ เข้าใจง่าย
@@ -96,12 +96,14 @@ const res = await invokeBlogsContent(content)
 
 logger.info('Writer...')
 console.log(JSON.stringify(res, null, 2))
-const today = dayjs().format('YYYY-MM-DD')
-const path = Bun.file(`./src/content/oss/${today}_${res.shortname.toLowerCase().replaceAll(/[\W]/gi, '-').replaceAll('--', '-')}.md`)
+const today = dayjs()
+const path = Bun.file(
+  `./src/content/oss/${today.format('YYYY-MM-DD')}_${res.shortname.toLowerCase().replaceAll(/[\W]/gi, '-').replaceAll('--', '-')}.md`,
+)
 await Bun.write(
   path,
   `---
-date: ${today}
+date: ${today.toISOString()}
 title: '${res.title}'
 description: >-
   "${res.description}"
