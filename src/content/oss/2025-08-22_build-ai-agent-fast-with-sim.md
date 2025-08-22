@@ -8,12 +8,6 @@ oss: https://github.com/simstudioai/sim
 tags: [oss, AI, Sim, Software, Development, OpenSource]
 ---
 
-<p align="center">
-  <a href="https://sim.ai" target="_blank" rel="noopener noreferrer">
-    <img src="apps/sim/public/logo/reverse/text/large.png" alt="Sim Logo" width="500"/>
-  </a>
-</p>
-
 <p align="center">สร้างและนำ AI agent workflows ไปใช้ได้ภายในไม่กี่นาที</p>
 
 ต้นแบบการสร้าง AI Agent ของคุณง่ายมาก! หากคุณยังใหม่กับการพัฒนาซอฟต์แวร์ ลองใช้ Sim ซึ่งเป็นเครื่องมือที่เปิดให้ใช้สาธารณะเพื่อสร้าง AI agent workflows Clash กับเครื่องมือต่างๆ ได้อย่างง่ายดาย เพียงแค่ทำตามขั้นตอนด้านล่างนี้:

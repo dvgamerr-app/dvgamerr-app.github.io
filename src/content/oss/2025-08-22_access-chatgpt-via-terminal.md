@@ -10,8 +10,6 @@ tags: [oss, ChatGPT, Tool, CLI, Terminal, Installation]
 
 `Chatbang` เป็นเครื่องมือที่ออกแบบมาให้คุณสามารถเข้าถึง ChatGPT ได้จาก Terminal โดยไม่จำเป็นต้องใช้ API Key
 
-![Chatbang](./assets/chatbang.png)
-
 ## การติดตั้ง
 
 คุณสามารถติดตั้งบน Linux ได้ง่ายๆ ด้วยคำสั่งต่อไปนี้:

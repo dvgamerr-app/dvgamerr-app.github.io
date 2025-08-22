@@ -8,7 +8,6 @@ oss: https://github.com/anthropics/dxt
 tags: [oss, DXT, Desktop, Extensions, MCP, Local]
 ---
 
-![Desktop Extensions](https://example.com/dxt-image.jpg)  
 วิธีการสร้าง Desktop Extensions (DXT) สำหรับแอปในเครื่องนั้นง่ายและสนุก! DXT เป็นไฟล์ zip ที่บรรจุเซิร์ฟเวอร์ MCP ท้องถิ่น พร้อมไฟล์ `manifest.json` ที่อธิบายเซิร์ฟเวอร์และฟีเจอร์ของมัน สำหรับนักพัฒนาที่ต้องการทำให้การติดตั้งเซิร์ฟเวอร์สะดวกยิ่งขึ้น ลองทำตามขั้นตอนต่อไปนี้กันเลย!
 
 ### ขั้นตอนที่ 1: ติดตั้งเครื่องมือ CLI
