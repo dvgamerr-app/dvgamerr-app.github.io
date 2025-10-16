@@ -1,45 +1,60 @@
 ---
 date: 2025-08-22T06:11:20.850Z
-title: 'สัมผัสประสบการณ์ Cyber Companion กับ AIRI'
+title: 'ทดลอง AIRI: เพื่อน AI เล่นเกมได้'
 description: >-
-  "ทดลองสร้างและพัฒนา AIRI เพื่อนสาวไซเบอร์ของคุณเองในโลกเสมือนจริงได้อย่างง่ายดาย!"
+  "ลอง AIRI แบบนักทดลองซอฟต์แวร์: ตั้งค่าเร็ว รันเว็บ/เดสก์ท็อป คุยเสียง เล่น Minecraft/Factorio เชื่อม Discord/Telegram และปรับแต่ง Live2D/VRM ได้ง่าย"
 author: Kananek T.
 oss: https://github.com/moeru-ai/airi
-tags: [oss,AIRI, AI, Cyber, Gaming, Community]
+tags: [oss, AIRI, AI, VTuber, WebGPU, Tauri, Voice, Minecraft, Factorio, selfhosted]
 ---
+
 <picture>
-  <source
-    width="100%"
-    srcset="./docs/content/public/banner-dark-1280x640.avif"
-    media="(prefers-color-scheme: dark)"
-  />
-  <source
-    width="100%"
-    srcset="./docs/content/public/banner-light-1280x640.avif"
-    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-  />
-  <img width="250" src="./docs/content/public/banner-light-1280x640.avif" />
+  <source width="100%" srcset="https://raw.githubusercontent.com/moeru-ai/airi/main/docs/content/public/banner-dark-1280x640.avif" media="(prefers-color-scheme: dark)" />
+  <source width="100%" srcset="https://raw.githubusercontent.com/moeru-ai/airi/main/docs/content/public/banner-light-1280x640.avif" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
+  <img width="250" src="https://raw.githubusercontent.com/moeru-ai/airi/main/docs/content/public/banner-light-1280x640.avif" />
 </picture>
 
-## มาทำความรู้จักกับ AIRI
+วันนี้เรามาลอง AIRI โอเพ่นซอร์ส “cyber waifu/husbando” ที่คุยสด เล่นเกม และรันได้ทั้งเว็บ/เดสก์ท็อป ในสไตล์นักทดลองซอฟต์แวร์หน้าใหม่ กันแบบเร็วๆ
 
-AIRI คือโปรเจคที่มีเป้าหมายในการสร้างเพื่อนสาวไลฟ์ไซเบอร์ของคุณเอง ด้วยการใช้เทคโนโลยีที่ล้ำสมัย จะทำให้คุณสามารถพูดคุยและเล่นเกมกับ AIRI ได้อย่างสนุกสนาน ไม่ว่าจะเป็นการเล่น Minecraft หรือ Factorio โดยสามารถเลือกใช้ได้ทั้งใน Web, macOS หรือ Windows
+สิ่งที่ต้องมี
 
-## วิธีเริ่มต้นสร้าง AIRI
-1. **ติดตั้ง Dependencies**  
-   เริ่มต้นด้วยการติดตั้ง dependencies โดยใช้คำสั่ง:
-   ```shell
-   pnpm i
-   ```
+- Node.js + pnpm
+- เดสก์ท็อปมี GPU (NVIDIA/Apple) จะเร่งได้ดีขึ้น
 
-2. **เริ่มเซิร์ฟเวอร์สำหรับพัฒนา**  
-   เมื่อเตรียมพร้อมแล้วให้เริ่มเซิร์ฟเวอร์ในการพัฒนา:
-   ```shell
-   pnpm dev
-   ```
+เริ่มต้น (เวอร์ชันเว็บ)
 
-3. **สำรวจและพัฒนา**  
-   พัฒนาต่อยอดจาก AIRI โดยสามารถเข้าร่วมใน Discord ของโปรเจคหรือทำการปรับแต่งตามความชอบของคุณ
+1. เปิดเทอร์มินัล
 
-## ทำไมถึงควรทดลอง AIRI
-AIRI ช่วยให้คุณเป็นเจ้าของประสบการณ์ในโลกดิจิตอลและสร้างการเชื่อมต่อที่น่าสนใจเพื่อเข้าใกล้กับโลกของ AI ขอเชิญชวนทุกคนมาทดลองเล่นและเป็นส่วนหนึ่งของการพัฒนาเพื่อก้าวไปสู่อนาคตใหม่ พร้อมร่วมสร้างสรรค์สิ่งแปลกใหม่ในชุมชนของเรา
+```shell
+pnpm i
+pnpm dev
+```
+
+2. เปิดเบราว์เซอร์ไปที่ localhost ที่แจ้งในคอนโซล
+
+เดสก์ท็อป (Tamagotchi)
+
+```shell
+pnpm dev:tamagotchi
+```
+
+หรือใช้ Nix
+
+```shell
+nix run github:moeru-ai/airi
+```
+
+ทดลองฟีเจอร์เหมือนแล็บส่วนตัว
+
+- เปิดไมค์แล้วคุยเสียงแบบเรียลไทม์ (VAD+STT+TTS)
+- โหลดโมเดล Live2D/VRM เห็นกระพริบตา มองตาม อนิเมชันไหลลื่น
+- เชื่อม Discord/Telegram เพื่อแชทในห้องจริง
+- โหมดเล่นเกม: ให้ AIRI เข้า Minecraft หรือ Factorio ได้ (เตรียมเซิร์ฟเวอร์ให้พร้อม)
+
+ทิปปรับแต่ง
+
+- เน้นแรง: ใช้เดสก์ท็อปเพื่อเปิด CUDA/Metal
+- เน้นพกพา: ติดตั้งเป็น PWA บนมือถือ
+- สายทดลอง: ลองเปิดปลั๊กอิน/หน่วยความจำในเบราว์เซอร์
+
+พร้อมอัญเชิญ “วิญญาณดิจิทัล” ตัวแรกของคุณหรือยัง? กดรัน แล้วให้ AIRI พูด เดิน เล่น และเรียนรู้ไปกับคุณเลย!

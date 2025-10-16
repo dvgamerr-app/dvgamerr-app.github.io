@@ -1,41 +1,35 @@
 ---
 date: 2025-09-02T05:26:21.177Z
-title: 'ทดลองสร้างแอป AI ง่ายๆ ด้วย Sim'
+title: 'ลอง Sim: สร้าง-ดีพลอย AI Agents ภายในไม่กี่นาที'
 description: >-
-  "เรียนรู้วิธีสร้างและติดตั้ง AI agent workflows ด้วย Sim ในเวลาสั้นๆ"
+  "ลอง Sim เพื่อสร้างและดีพลอย AI agent workflows ได้ภายในไม่กี่นาที ทั้งแบบคลาวด์และเซลฟ์โฮสต์ พร้อมตัวเลือกใช้โมเดลโลคอลผ่าน Ollama."
 author: Kananek T.
 oss: https://github.com/simstudioai/sim
-tags: [oss,AI, Sim, Workflow, OpenSource, Development]
+tags: [oss, AI, agents, workflow, open-source, Docker, Ollama]
 ---
-<p align="center">
-  <a href="https://sim.ai" target="_blank" rel="noopener noreferrer">
-    <img src="apps/sim/public/logo/reverse/text/large.png" alt="Sim Logo" width="500"/>
-  </a>
-</p>
 
-<p align="center">สร้างและปล่อย AI agent workflows ได้ในเวลาไม่กี่นาที!</p>
+![Sim demo](https://raw.githubusercontent.com/simstudioai/sim/HEAD/apps/sim/public/static/demo.gif)
 
-Sim เป็นแพลตฟอร์ม Open-source ที่ช่วยให้คุณสามารถสร้างแนวทางการทำงานของ AI ได้อย่างรวดเร็วและง่ายดาย ไม่ว่าคุณจะเป็นนักพัฒนาที่ต้องการทดลองหรือผู้ที่สนใจใน AI ก็สามารถลงมือทำตามได้ง่ายๆ!
+อยากลองเป็นนักทดลองเอเจนต์ AI แบบไวๆ มาลอง Sim แพลตฟอร์มโอเพนซอร์สสำหรับสร้างและดีพลอยเวิร์กโฟลว์เอเจนต์กัน
 
-## การเริ่มต้นใช้ Sim
+เริ่มไวสุด (คลาวด์)
 
-### ตัวอย่างการใช้งาน - Self-hosted ใช้ Docker Compose
-1. เริ่มต้นด้วยการ Clone โครงการ
-   ```bash
-   git clone https://github.com/simstudioai/sim.git
-   cd sim
-   # เริ่มใช้งาน Sim
-   docker compose -f docker-compose.prod.yml up -d
-   ```
-2. จากนั้นเข้าถึงที่อยู่ [http://localhost:3000/](http://localhost:3000/)
+- เข้า sim.ai แล้วสร้าง Flow แรก ลากบล็อก LLM/Tool/HTTP ต่อสาย กด Run ทันที
 
-### การใช้กับโมเดล AI ในเครื่อง
-ถ้าคุณไม่ต้องการใช้ API ภายนอก สามารถใช้โมเดล AI ในเครื่องได้ด้วยการใช้งาน Ollama:
-```bash
-# เริ่มต้นด้วยการสนับสนุน GPU
-docker compose -f docker-compose.ollama.yml --profile setup up -d
-```
+โหมดเซลฟ์โฮสต์ (เร็วและง่าย)
 
-หลังจากดาวน์โหลดโมเดลเสร็จแล้ว สามารถเข้าไปที่ [http://localhost:3000](http://localhost:3000) และเริ่มทดลองสร้าง AI Agent ของคุณได้!
+- ต้องมี Docker รันอยู่
+- ทดลองทันที: `npx simstudio` แล้วเปิด http://localhost:3000 (เปลี่ยนพอร์ตได้ด้วย `--port 4000`)
+- โหมดโปรดักชัน: `git clone https://github.com/simstudioai/sim.git && cd sim && docker compose -f docker-compose.prod.yml up -d`
 
-ด้วยการสร้าง AI workflow ที่ Sim ให้มา คุณสามารถสร้างแนวทางเฉพาะที่ตอบโจทย์การทำงานของคุณได้อย่างง่ายดาย ลองเลย!
+ใช้โมเดลโลคอล (ไม่พึ่ง API ภายนอก) ด้วย Ollama
+
+- GPU/เริ่มต้น: `docker compose -f docker-compose.ollama.yml --profile setup up -d`
+- เพิ่มโมเดล: `docker compose -f docker-compose.ollama.yml exec ollama ollama pull llama3.1:8b`
+
+ทิปส์พร้อมลองจริง
+
+- ต้องการ Copilot บนเซลฟ์โฮสต์: สร้างคีย์ที่ Settings → Copilot จากนั้นใส่ `COPILOT_API_KEY` ใน apps/sim/.env
+- ถ้าอยาก dev เต็มสูบ ลอง VS Code Dev Containers แล้วรัน `bun run dev:full`
+
+ถึงเวลาเล่น: ต่อ Input → LLM → Tool → Output แล้วกด Run ดูผลแบบเรียลไทม์ สนุกและปรับแต่งได้ตามใจ!
