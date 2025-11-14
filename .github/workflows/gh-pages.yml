@@ -44,6 +44,7 @@ jobs:
 
       - name: Install dependencies 🔧
         run: |
+          rm -rf node_modules
           bun i --frozen-lockfile
           bun pm cache rm
 
