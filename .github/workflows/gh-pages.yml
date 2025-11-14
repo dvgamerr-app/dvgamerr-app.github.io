@@ -4,11 +4,11 @@ name: dvgamerr.app
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
+    branches: ["main"]
 
   # Scheduled build every Monday at 06:00 UTC
   schedule:
-    - cron: '0 6 * * 1'
+    - cron: "0 6 * * 1"
 
   workflow_dispatch:
 
@@ -19,7 +19,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
@@ -42,8 +42,10 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Build 🔧
-        run: bun i
+      - name: Install dependencies 🔧
+        run: |
+          bun i --frozen-lockfile
+          bun pm cache rm
 
       - name: Update WakaTime stats
         env:
@@ -55,14 +57,6 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
-      - name: Setup Bun cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
 
       - name: Build 🔧
         run: bun run build
