@@ -27,8 +27,8 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "hentai-downloader",
-      "pushed_at": "2025-07-01T14:37:55Z",
-      "stargazers_count": 73,
+      "pushed_at": "2025-10-21T03:09:17Z",
+      "stargazers_count": 75,
       "svn_url": "https://github.com/dvgamerr-app/hentai-downloader",
       "topics": [
         "application",
@@ -46,7 +46,7 @@
         "open-source",
         "windows"
       ],
-      "watchers": 73
+      "watchers": 75
     },
     {
       "created_at": "2022-10-29T06:19:33Z",
@@ -96,10 +96,20 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "dvgamerr-app.github.io",
-      "pushed_at": "2025-08-10T13:07:45Z",
+      "pushed_at": "2025-11-14T05:26:47Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
-      "topics": ["cv", "developer-resume", "kananek", "kem", "open-source", "profile", "resume", "showcase", "thongkam"],
+      "topics": [
+        "cv",
+        "developer-resume",
+        "kananek",
+        "kem",
+        "open-source",
+        "profile",
+        "resume",
+        "showcase",
+        "thongkam"
+      ],
       "watchers": 5
     },
     {
@@ -112,7 +122,17 @@
       "pushed_at": "2023-10-01T00:44:37Z",
       "stargazers_count": 4,
       "svn_url": "https://github.com/dvgamerr-app/team-rework",
-      "topics": ["issue-tracker", "issues", "nuxtjs", "open-source", "project", "task", "task-list", "todo-app", "todolist"],
+      "topics": [
+        "issue-tracker",
+        "issues",
+        "nuxtjs",
+        "open-source",
+        "project",
+        "task",
+        "task-list",
+        "todo-app",
+        "todolist"
+      ],
       "watchers": 4
     },
     {
@@ -128,11 +148,46 @@
         "node_id": "MDc6TGljZW5zZTY="
       },
       "name": "wedding-day",
-      "pushed_at": "2025-08-02T11:12:47Z",
+      "pushed_at": "2025-11-04T03:05:28Z",
       "stargazers_count": 2,
       "svn_url": "https://github.com/dvgamerr/wedding-day",
-      "topics": ["open-source", "party", "wedding", "wedding-website"],
+      "topics": [
+        "open-source",
+        "party",
+        "wedding",
+        "wedding-website"
+      ],
       "watchers": 2
+    },
+    {
+      "created_at": "2021-12-03T07:05:33Z",
+      "description": "🚀 Model Context Protocol (MCP) server for Bitkub Cryptocurrency Exchange API - Connect Claude Desktop with Bitkub trading platform using Go",
+      "forks": 1,
+      "homepage": "",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "name": "gokub-mcp",
+      "pushed_at": "2025-11-12T10:18:38Z",
+      "stargazers_count": 1,
+      "svn_url": "https://github.com/dvgamerr-app/gokub-mcp",
+      "topics": [
+        "bitkub",
+        "bitkub-api",
+        "claude-desktop",
+        "cryptocurrency",
+        "go-bitkub",
+        "golang",
+        "mcp-server",
+        "open-source",
+        "trading-bot",
+        "trading-tools"
+      ],
+      "watchers": 1
     },
     {
       "created_at": "2019-03-06T10:32:58Z",
@@ -181,10 +236,18 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "aide-tokenizer",
-      "pushed_at": "2025-08-08T14:33:09Z",
+      "pushed_at": "2025-11-10T02:14:38Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr/aide-tokenizer",
-      "topics": ["aide", "data-pipeline", "message-processing", "microservices", "open-source", "queue-system", "rest-api"],
+      "topics": [
+        "aide",
+        "data-pipeline",
+        "message-processing",
+        "microservices",
+        "open-source",
+        "queue-system",
+        "rest-api"
+      ],
       "watchers": 0
     },
     {
@@ -203,26 +266,9 @@
       "pushed_at": "2023-10-16T13:31:54Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/go-school",
-      "topics": ["open-source"],
-      "watchers": 0
-    },
-    {
-      "created_at": "2023-09-23T03:33:53Z",
-      "description": "Dataweave is cool but performance is shit.",
-      "forks": 0,
-      "homepage": "",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0",
-        "node_id": "MDc6TGljZW5zZTI="
-      },
-      "name": "go-tsunami-cli",
-      "pushed_at": "2023-09-25T12:50:09Z",
-      "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/go-tsunami-cli",
-      "topics": ["cli", "datatsunami", "dataweave", "open-source"],
+      "topics": [
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -232,29 +278,17 @@
       "homepage": "https://dvgamerr.github.io/infra-hades-app",
       "license": null,
       "name": "infra-hades-app",
-      "pushed_at": "2025-07-01T14:34:56Z",
+      "pushed_at": "2025-10-20T22:58:08Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/infra-hades-app",
-      "topics": ["client", "desktop", "desktop-app", "kubernetes", "monitor", "open-source"],
-      "watchers": 0
-    },
-    {
-      "created_at": "2022-08-08T02:06:41Z",
-      "description": "Instantly manage and monitor Kubernetes from your Desktop.",
-      "forks": 0,
-      "homepage": "",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0",
-        "node_id": "MDc6TGljZW5zZTI="
-      },
-      "name": "kube-app",
-      "pushed_at": "2022-10-12T09:53:21Z",
-      "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/kube-app",
-      "topics": ["open-source"],
+      "topics": [
+        "client",
+        "desktop",
+        "desktop-app",
+        "kubernetes",
+        "monitor",
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -267,29 +301,60 @@
       "pushed_at": "2023-10-01T00:42:48Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/sso-team",
-      "topics": ["nuxt3", "open-source", "sso-login"],
+      "topics": [
+        "nuxt3",
+        "open-source",
+        "sso-login"
+      ],
+      "watchers": 0
+    },
+    {
+      "created_at": "2021-12-15T11:41:20Z",
+      "description": "Go SDK for Bitkub cryptocurrency exchange API - Market data, trading, wallet management with type-safe implementation",
+      "forks": 0,
+      "homepage": "",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "name": "go-bitkub",
+      "pushed_at": "2025-11-11T06:52:02Z",
+      "stargazers_count": 0,
+      "svn_url": "https://github.com/dvgamerr-app/go-bitkub",
+      "topics": [
+        "bitkub",
+        "bitkub-api",
+        "crypto-exchange",
+        "crypto-sdk",
+        "crypto-trading",
+        "cryptocurrency",
+        "open-source"
+      ],
       "watchers": 0
     }
   ],
   "coding": {
     "bytes": {
-      "JavaScript": 14898371,
+      "JavaScript": 15031786,
       "Vue": 1475464,
-      "HTML": 10863547,
+      "HTML": 10870953,
       "Swift": 18084,
       "Ruby": 594658,
       "Objective-C": 2024,
-      "Go": 3949913,
-      "Dockerfile": 101778,
-      "CSS": 2375149,
-      "Svelte": 21274,
-      "Shell": 683943,
-      "TypeScript": 7849467,
-      "Makefile": 39512,
+      "Go": 4108195,
+      "Dockerfile": 103311,
+      "CSS": 2384472,
+      "Svelte": 93131,
+      "Shell": 684118,
+      "TypeScript": 7909688,
+      "Makefile": 41280,
       "Procfile": 27,
-      "SCSS": 219458,
+      "SCSS": 237174,
       "C#": 2595093,
-      "Astro": 135712,
+      "Astro": 180087,
       "Rust": 116727,
       "PHP": 1643527,
       "Hack": 7144,
@@ -301,7 +366,7 @@
       "Python": 617527,
       "Stylus": 41761,
       "TSQL": 31522,
-      "Batchfile": 15972,
+      "Batchfile": 16144,
       "Smarty": 20650,
       "DataWeave": 1965,
       "AutoHotkey": 9809376,
@@ -361,25 +426,37 @@
   "social": [
     {
       "name": "github",
-      "icon": ["fab", "github"],
+      "icon": [
+        "fab",
+        "github"
+      ],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": ["fab", "linkedin"],
+      "icon": [
+        "fab",
+        "linkedin"
+      ],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": ["fas", "clock"],
+      "icon": [
+        "fas",
+        "clock"
+      ],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": ["fab", "codepen"],
+      "icon": [
+        "fab",
+        "codepen"
+      ],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -458,8 +535,25 @@
       "Discord",
       "Slack"
     ],
-    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
-    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
+    "sql": [
+      "PostgreSQL",
+      "Redis",
+      "MongoDB",
+      "Influx",
+      "MySQL",
+      "Oracle",
+      "MSSQL",
+      "SQLite"
+    ],
+    "os": [
+      "Chat GPT",
+      "AWS",
+      "Azure",
+      "GCloud",
+      "CentOS",
+      "Debian",
+      "Fedora"
+    ]
   },
   "contact": [
     {

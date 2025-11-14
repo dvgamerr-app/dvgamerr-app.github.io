@@ -1,8 +1,8 @@
 {
-  "wakatime": "9,616 hrs 44 mins",
-  "total": 294,
+  "wakatime": "9,785 hrs 19 mins",
+  "total": 302,
   "private": 53,
-  "public": 241,
+  "public": 249,
   "languages": [
     "ApacheConf",
     "Astro",
@@ -51,11 +51,11 @@
     "Visual Basic",
     "Vue"
   ],
-  "commits": 3059,
+  "commits": 1235,
   "experience": "2013-04-29T00:00:00.000+07:00",
-  "updated": "2025-08-10T13:12:06.286Z",
-  "weekly_seconds": 13368.738142857143,
-  "average_seconds": 12231.075639663015,
+  "updated": "2025-11-14T05:38:07.853Z",
+  "weekly_seconds": 8528.307428571428,
+  "average_seconds": 11891.791629915067,
   "best_seconds": 56858.798109,
   "loc": 0,
   "daytime": [714, 354, 97, 28, 10, 12, 10, 32, 140, 571, 998, 1110, 1132, 1230, 1393, 1414, 1405, 1335, 1134, 790, 794, 784, 869, 880],
