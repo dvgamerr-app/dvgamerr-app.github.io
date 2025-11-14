@@ -1,8 +1,9 @@
-- Designed and implemented API solutions using `KrakenD Enterprise` and custom plugins.
-- Developed microservices utilizing `Bun.js`.
-- Configured logging pipelines for `SnapLogic` (`Fluent Bit` to `ClickHouse`) and `MuleSoft` (`Promtail` to `Loki`).
-- Deployed and implemented the `SnapLogic` platform.
-- Led the design and development of `KrakenD Gateway API` solutions while building and managing a dedicated team.
-- `LangChain` for a seamless conversational experience with agents with `AI` chatbots.
-- Developed AI-driven solutions using `LangChain` to improve user and customer engagement.
-- Built and deployed `AI Agentic Chat` for `SCG Home` on the `LINE` platform, enabling intelligent customer service automation and personalized home improvement recommendations.
+- Architected and implemented the `SCG Home AI Service (Homie)` using FastAPI, LangGraph, PostgreSQL, Redis, and LiteLLM, delivering real-time streaming responses, multi-agent orchestration, multi-LLM integration, file processing, and production-grade observability.
+- Designed and built the `Agentic Chat UI` with Astro + Svelte 5 and Elysia.js (Bun runtime), supporting real-time messaging, tool execution visualization, keyboard-driven UX, session persistence, and proxy integration to multiple AI backends.
+- Developed and deployed `AI-driven conversational systems` using LangChain and custom tools, enabling product search, pricing lookup, store locator, knowledge-based answers, and automated recommendations for SCG Home customers.
+- Built scalable `microservices and AI pipelines` using Docker, Kubernetes, Helm, ArgoCD, GitHub Actions, and AWS ECR, supporting multi-environment GitOps deployments (dev/uat/prod) with automated versioning and multi-platform builds.
+- Designed and managed `KrakenD Enterprise API gateway` solutions, including custom plugins and high-performance API aggregation for enterprise workloads.
+- Implemented microservices using `Bun.js`, improving request latency and resource efficiency for internal API workloads.
+- Built centralized logging pipelines for `SnapLogic` (Fluent Bit → ClickHouse) and `MuleSoft` (Promtail → Loki), improving reliability and cross-platform observability.
+- Deployed and optimized the `SnapLogic` integration platform for high-volume enterprise automation and data workflows.
+- Led engineering efforts for API gateway systems, including team management, architectural design, and delivery of mission-critical services.
