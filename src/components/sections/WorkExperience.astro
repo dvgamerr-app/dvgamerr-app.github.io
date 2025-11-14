@@ -33,7 +33,7 @@ const t = useTranslations(langName)
             {(Array.isArray(e.level) ? e.level : []).map((j) => (
               <>
                 <div class="md:col-span-3 mb-2 md:mb-0 md:mt-3 mt-6 md:text-right">
-                  <small class="flex xl:flex-row flex-col xs:flex-row justify-end gap-1 mb-1 text-[11px] font-medium text-gray-600 dark:text-gray-400 tracking-wide uppercase">
+                  <small class="flex xl:flex-row flex-col xs:flex-row justify-end gap-0.5 mb-1 text-[11px] font-medium text-gray-600 dark:text-gray-400 tracking-wide uppercase">
                     <span>{getWorkPeriod(j, langName, t)}</span>
                     <span>{getWorkDuration(j, langName, t)}</span>
                   </small>
