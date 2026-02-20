@@ -3,12 +3,12 @@
   "interview": true,
   "currencry": {
     "ccy": "USD",
-    "sell": 33.76,
-    "buy": 33.77
+    "sell": 31.2,
+    "buy": 31.2
   },
   "salary": {
-    "base": 74360,
-    "extra": 18487.5,
+    "base": 77270,
+    "extra": 242460,
     "expect": 126000,
     "day": 20,
     "hour": 8
