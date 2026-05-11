@@ -8,7 +8,6 @@ import WorkExperience from '../components/sections/WorkExperience.astro'
 import SectionFooter from '../components/Footer.astro'
 import GoogleAd from '../components/GoogleAd.astro'
 import SectionProject from '../components/sections/Project.astro'
-import SectionBlogs from '../components/sections/Blogs.astro'
 import HeaderActions from '../components/HeaderActions.astro'
 
 import { getLangFromUrl, getTranslate } from '../i18n/utils'
@@ -64,12 +63,7 @@ dayjs.locale(langName)
                 >
                   {t('head.button.project')}
                 </a>
-                <a
-                  href="#blog"
-                  class="th-label inline-flex items-center text-sm font-semibold border border-gray-600/50 px-4 py-2 text-gray-600 dark:text-gray-100 hover:border-[var(--text-color-link)] hover:text-[var(--text-color-link)] dark:hover:text-[var(--text-color-link)] focus:outline-none"
-                >
-                  {t('head.button.blogs')}
-                </a>
+
               </div>
             </div>
           </div>
@@ -77,9 +71,7 @@ dayjs.locale(langName)
         <section id="projects">
           <SectionProject experience={experience} />
         </section>
-        <section id="blog" class="mt-4">
-          <SectionBlogs />
-        </section>
+
       </div>
       <hr
         class="border-0 h-px my-10 bg-gradient-to-r from-transparent via-black/20 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white/25 dark:to-transparent"
