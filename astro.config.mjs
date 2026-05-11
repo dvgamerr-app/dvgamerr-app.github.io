@@ -2,7 +2,6 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import AstroPWA from '@vite-pwa/astro'
 import robotsTxt from 'astro-robots-txt'
-import webmanifest from 'astro-webmanifest'
 import { defineConfig, passthroughImageService } from 'astro/config'
 
 // https://astro.build/config
@@ -12,7 +11,30 @@ export default defineConfig({
   },
   integrations: [
     tailwind(),
-    AstroPWA(),
+    AstroPWA({
+      includeAssets: ['favicon.svg', 'icon-128.png', 'icon-144.png'],
+      manifest: {
+        background_color: '#f8f8f8',
+        description: "Hey there, My name is Kananek T. and I'm a Software Engineer.",
+        display: 'standalone',
+        icons: [
+          {
+            sizes: '192x192',
+            src: '/icon-192.png',
+            type: 'image/png',
+          },
+          {
+            sizes: '512x512',
+            src: '/icon-512.png',
+            type: 'image/png',
+          },
+        ],
+        name: 'Kananek Thongkam | Software Engineer',
+        short_name: 'dvgamerr',
+        start_url: '/',
+        theme_color: '#C84B31',
+      },
+    }),
     robotsTxt(),
     sitemap({
       i18n: {
@@ -22,16 +44,6 @@ export default defineConfig({
           th: 'th-TH',
         },
       },
-    }),
-    webmanifest({
-      background_color: '#f8f8f8',
-      description: "Hey there, My name is Kananek T. and I'm a Software Engineer.",
-      display: 'standalone',
-      icon: 'public/icon.webp', // source for favicon & icons
-      name: 'Kananek Thongkam | Software Engineer',
-      short_name: 'dvgamerr',
-      start_url: '/',
-      theme_color: '#3068d9',
     }),
   ],
   site: 'https://dvgamerr.app',

@@ -4,11 +4,11 @@ name: dvgamerr.app
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ['main']
 
   # Scheduled build every Monday at 06:00 UTC
   schedule:
-    - cron: "0 6 * * 1"
+    - cron: '0 6 * * 1'
 
   workflow_dispatch:
 
@@ -19,7 +19,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -31,7 +31,6 @@ jobs:
       PROD: true
       PUBLIC_ADSENSE_CLIENT: ${{ vars.PUBLIC_ADSENSE_CLIENT }}
       PUBLIC_ADSENSE_HOME_SLOT: ${{ vars.PUBLIC_ADSENSE_HOME_SLOT }}
-      PUBLIC_ADSENSE_BLOG_SLOT: ${{ vars.PUBLIC_ADSENSE_BLOG_SLOT }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout

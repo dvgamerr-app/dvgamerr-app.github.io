@@ -26,15 +26,26 @@ const showNationalD = () => {
 
 const showSalary = async () => {
   const { base, day, hour } = experience.salary
-  if (langName == 'en') {
-    const usdt = await fetch('https://api.bitkub.com/api/market/ticker?sym=THB_USDT')
-    const res = await usdt.json()
+  const perHourTHB = Math.round((base / day / hour) * 100) / 100
 
-    const perHour = Math.round((base / day / hour / res['THB_USDT'].last) * 100) / 100
-    return `${t('head.salary.currency')}${perHour} ${t('head.salary.hour')}`
+  if (langName == 'en') {
+    try {
+      const usdt = await fetch('https://api.bitkub.com/api/market/ticker?sym=THB_USDT')
+      if (!usdt.ok) return `${perHourTHB} THB${t('head.salary.hour')}`
+
+      const res = await usdt.json()
+      const exchangeRate = res?.THB_USDT?.last
+      if (typeof exchangeRate !== 'number' || !Number.isFinite(exchangeRate) || exchangeRate <= 0) {
+        return `${perHourTHB} THB${t('head.salary.hour')}`
+      }
+
+      const perHourUSD = Math.round((perHourTHB / exchangeRate) * 100) / 100
+      return `${t('head.salary.currency')}${perHourUSD} ${t('head.salary.hour')}`
+    } catch {
+      return `${perHourTHB} THB${t('head.salary.hour')}`
+    }
   } else {
-    const perHour = Math.round((base / day / hour) * 100) / 100
-    return `${perHour} ${t('head.salary.currency')}${t('head.salary.hour')}`
+    return `${perHourTHB} ${t('head.salary.currency')}${t('head.salary.hour')}`
   }
 }
 const showSalaryFull = () => {

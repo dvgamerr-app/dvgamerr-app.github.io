@@ -5,6 +5,9 @@ import globals from 'globals'
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
+    ignores: ['dist/**', 'node_modules/**', '.astro/**', 'static/**', '.cache/**', '.next/**', '.nuxt/**', '.build/**', 'coverage/**'],
+  },
+  {
     languageOptions: {
       globals: { ...globals.browser, ...globals.node, Bun: false },
     },
