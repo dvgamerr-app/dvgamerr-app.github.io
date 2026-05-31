@@ -38,7 +38,7 @@ const { experience } = Astro.props
                     </h3>
                   </div>
                   {e.stargazers_count ? (
-                    <span class="inline-flex items-center gap-1 rounded-md bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-0.5 text-[10px] font-medium">
+                    <span aria-label={`${e.stargazers_count} stars`} class="inline-flex items-center gap-1 rounded-md bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-0.5 text-[10px] font-medium">
                       <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true" class="fill-current -mt-0.5">
                         <path d="M8 12.027 3.708 14.5l.82-4.781L1.5 6.653l4.797-.696L8 1.75l1.703 4.207 4.797.696-3.028 3.066.82 4.781L8 12.027Z" />
                       </svg>
@@ -48,7 +48,7 @@ const { experience } = Astro.props
                     <span />
                   )}
                 </div>
-                {e.description && <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-4">{e.description}</p>}
+                {e.description && <p title={e.description} class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-4">{e.description}</p>}
               </a>
             ))
           }

@@ -32,7 +32,7 @@ const { langName } = Astro.props as Props
       id="langSwitch"
       type="button"
       data-target={langName === 'en' ? '/th' : '/'}
-      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 group-hover:text-[var(--text-color-link)] dark:group-hover:text-[var(--text-color-link)] hover:bg-gray-50 dark:hover:bg-gray-600/60 transition"
+      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 group-hover:text-(--text-color-link) dark:group-hover:text-(--text-color-link) hover:bg-gray-50 dark:hover:bg-gray-600/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400/60 transition"
       aria-label="Switch language"
     >
       <svg
@@ -55,7 +55,7 @@ const { langName } = Astro.props as Props
     <button
       type="button"
       id="on-printer"
-      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 group-hover:text-[var(--text-color-link)] dark:group-hover:text-[var(--text-color-link)] hover:bg-gray-50 dark:hover:bg-gray-600/60 transition"
+      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 group-hover:text-(--text-color-link) dark:group-hover:text-(--text-color-link) hover:bg-gray-50 dark:hover:bg-gray-600/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400/60 transition"
       aria-label="Print CV"
     >
       <svg
@@ -80,7 +80,7 @@ const { langName } = Astro.props as Props
   <li class="group">
     <button
       id="themeToggle"
-      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 group-hover:text-[var(--text-color-link)] dark:group-hover:text-[var(--text-color-link)] hover:bg-gray-50 dark:hover:bg-gray-600/60 transition"
+      class="h-8 px-3 inline-flex items-center gap-1 border border-gray-300/60 bg-white dark:bg-gray-700/40 group-hover:text-(--text-color-link) dark:group-hover:text-(--text-color-link) hover:bg-gray-50 dark:hover:bg-gray-600/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400/60 transition"
       aria-label="Toggle theme"
     >
       <svg viewBox="0 0 25 25" height="16" width="16" class="pointer-events-none">
