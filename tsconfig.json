@@ -2,6 +2,12 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "checkJs": false,
+    "allowJs": true,
+    "skipLibCheck": true,
     "paths": {
       "~/*": ["./*"],
       "@/*": ["./*"],

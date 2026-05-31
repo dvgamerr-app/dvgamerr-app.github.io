@@ -1,6 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin "tailwindcss-animate";
+
+/* ─── Dark mode via .dark class (matches old darkMode: ['class']) ─── */
+@variant dark (&:where(.dark, .dark *));
+
+/* ─── Map CSS custom properties → Tailwind color/radius/animation tokens ─── */
+@theme inline {
+  /* Semantic color tokens (shadcn-style — values are HSL component variables) */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  /* Sidebar */
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  /* Border radius (mirrors borderRadius in old tailwind.config.js) */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/* Accordion keyframes (referenced by --animate-* above) */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Container utility (mirrors old container: { center, padding, screens['2xl'] }) */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@import 'charts.css/dist/charts.css';
 
 @layer base {
   /* Core light/dark background tokens */
@@ -34,7 +115,7 @@
     --bg-navbar: #f7f7f7;
     --border-navbar: transparent;
 
-    /* Minimal tokens retained for Tailwind utilities still in use */
+    /* HSL component values for Tailwind semantic color tokens */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --border: 214.3 31.8% 91.4%;
@@ -42,12 +123,12 @@
     --code-inline-bg: #f2f4f8;
     --code-inline-color: #c7254e;
     --code-inline-border: #e5e7eb;
-    --code-block-bg: #1f2430; /* darkish block in light for contrast */
+    --code-block-bg: #1f2430;
     --code-block-border: #0f141d;
     --code-block-color: #f8f8f2;
   }
 
-  /* Dark mode variables (Tailwind 'dark' class) */
+  /* Dark mode variables */
   .dark {
     --bg-color: var(--bg-dark);
     --bg-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9Ijk3LjExOSUiIGlkPSJhIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzBGMTIxRiIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMTMxNzI0IiBvZmZzZXQ9IjEwMCUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01NTAgLTEyMTIpIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGNpcmNsZSBmaWxsPSJ1cmwoI2EpIiBjeD0iNTgxIiBjeT0iMTcxMiIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIGZpbGw9InVybCgjYSkiIGN4PSIyMDQ1IiBjeT0iMTQ4OCIgcj0iMzA2Ii8+CiAgICA8Y2lyY2xlIHN0cm9rZT0idXJsKCNhKSIgc3Ryb2tlLXdpZHRoPSIyIiB0cmFuc2Zvcm09InJvdGF0ZSgxODAgMTcyNCAyMDg2KSIgY3g9IjE3MjQiIGN5PSIyMDg2IiByPSIzMDYiLz4KICA8L2c+Cjwvc3ZnPgo=');
@@ -69,7 +150,7 @@
     --border-navbar: #212436;
     --link-color: #a2a2b3;
 
-    /* Tailwind tokens */
+    /* HSL component values for Tailwind semantic color tokens */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
@@ -83,7 +164,7 @@
 
     @media print {
       section * {
-        color: #111827 !important; /* Tailwind gray-900 */
+        color: #111827 !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -100,8 +181,6 @@
     @apply bg-background text-foreground;
   }
 }
-
-@import 'charts.css/dist/charts.css';
 
 @page {
   size: A3;
@@ -121,7 +200,7 @@
     display: block !important;
   }
 
-  .print:hidden {
+  .print\:hidden {
     display: none !important;
   }
 
@@ -220,22 +299,16 @@ h6 {
   line-height: 1.5em;
 }
 
-/* --------------------------------------
-* LINK STYLE
-*------------------------------------------*/
+/* ── Link style ── */
 a {
   color: var(--text-color-link);
   text-decoration: none;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 
 a,
 a:active,
-a:focus,
-a:active {
+a:focus {
   text-decoration: none;
   outline: none;
 }
@@ -256,7 +329,6 @@ ul {
   list-style: none;
 }
 
-/*btn-primary*/
 .btn-primary {
   background-color: var(--text-color-link);
 }
@@ -285,10 +357,7 @@ ul {
   color: #888888;
 }
 
-/*-------------------
-* Contact
-*-------------------*/
-
+/* ── Contact ── */
 .section-contact address strong {
   font-size: 13px;
   text-transform: uppercase;
@@ -309,6 +378,7 @@ ul {
   margin-bottom: 0px !important;
 }
 
+/* ── Markdown ── */
 .markdown ul > li {
   padding-left: 14px;
 }
@@ -317,7 +387,7 @@ ul {
   margin-left: -7px;
   padding-right: 3px;
 }
-/* Markdown readability improvements */
+
 .markdown:not(.work) {
   max-width: 70ch;
   margin-inline: auto;
@@ -326,7 +396,6 @@ ul {
   word-wrap: break-word;
 }
 
-/* Vertical rhythm: every element after another gets top margin */
 .markdown:not(.work) > * + * {
   margin-top: 1.15em;
 }
@@ -364,7 +433,6 @@ ul {
   letter-spacing: 0.5px;
 }
 
-/* Paragraphs */
 .markdown p {
   margin: 0;
   line-height: 1.7;
@@ -374,7 +442,6 @@ ul {
   font-size: 0.9em;
 }
 
-/* Lists */
 .markdown:not(.work) ul,
 .markdown:not(.work) ol {
   list-style: disc outside;
@@ -393,7 +460,6 @@ ul {
   margin-top: 0.4em;
 }
 
-/* Blockquote */
 .markdown blockquote {
   margin: 1.2em 0;
   padding: 0.8em 1em 0.8em 1.1em;
@@ -412,7 +478,6 @@ ul {
   margin-bottom: 0;
 }
 
-/* Code */
 .markdown pre {
   position: relative;
   background: var(--code-block-bg);
@@ -444,13 +509,11 @@ ul {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
 }
 
-/* Improve code readability when nested inside links */
 .markdown a code {
   color: inherit;
   filter: brightness(1.05);
 }
 
-/* Optional language label style if using data-lang attribute */
 .markdown pre[data-lang]::before {
   content: attr(data-lang);
   position: absolute;
@@ -469,7 +532,6 @@ ul {
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* Tables */
 .markdown table {
   width: 100%;
   border-collapse: collapse;
@@ -499,14 +561,12 @@ ul {
   background: rgba(255, 255, 255, 0.04);
 }
 
-/* Responsive table wrapper */
 .markdown table {
   display: block;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-/* Images */
 .markdown img {
   max-width: 100%;
   height: auto;
@@ -515,7 +575,6 @@ ul {
   border-radius: 6px;
 }
 
-/* Horizontal rule */
 .markdown hr {
   border: 0;
   height: 1px;
@@ -526,7 +585,6 @@ ul {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
 }
 
-/* Links inside markdown */
 .markdown a {
   text-decoration: underline;
   text-decoration-color: rgba(0, 0, 0, 0.25);
@@ -536,7 +594,6 @@ ul {
   text-decoration-color: var(--text-color-link);
 }
 
-/* Inline note/admonition (using blockquote variant via custom syntax if needed) */
 .markdown .note {
   border-left: 4px solid #3b82f6;
   background: rgba(59, 130, 246, 0.08);
@@ -547,7 +604,11 @@ ul {
   background: rgba(59, 130, 246, 0.15);
 }
 
-/* Mobile adjustments */
+.markdown a:focus-visible {
+  outline: 2px dashed var(--text-color-link);
+  outline-offset: 2px;
+}
+
 @media (max-width: 640px) {
   .markdown {
     font-size: clamp(0.95rem, 0.9rem + 0.6vw, 1.02rem);
@@ -562,10 +623,4 @@ ul {
   .markdown pre {
     font-size: 0.8em;
   }
-}
-
-/* Improve focus for keyboard navigation */
-.markdown a:focus-visible {
-  outline: 2px dashed var(--text-color-link);
-  outline-offset: 2px;
 }

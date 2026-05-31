@@ -1,3 +1,8 @@
+- Support the definition and validation of system architecture, technologies, libraries, and development standards for new systems.
+- Work with Leads and Managers to improve workflows, develop tools, and enhance Developer productivity.
+- Support the development of team capabilities, including technical skills, working practices, and development standards.
+- Monitor, analyze, and communicate critical security or technology-related issues that may impact systems, enabling the team to respond and resolve issues quickly.
+- Collaborate with Leads and Managers to review and improve systems, processes, and workflows to ensure quality, stability, and efficiency.
 - Architected and implemented the `SCG Home AI Service (Homie)` using FastAPI, LangGraph, PostgreSQL, Redis, and LiteLLM, delivering real-time streaming responses, multi-agent orchestration, multi-LLM integration, file processing, and production-grade observability.
 - Designed and built the `Agentic Chat UI` with Astro + Svelte 5 and Elysia.js (Bun runtime), supporting real-time messaging, tool execution visualization, keyboard-driven UX, session persistence, and proxy integration to multiple AI backends.
 - Developed and deployed `AI-driven conversational systems` using LangChain and custom tools, enabling product search, pricing lookup, store locator, knowledge-based answers, and automated recommendations for SCG Home customers.

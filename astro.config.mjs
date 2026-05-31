@@ -1,5 +1,5 @@
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
+import tailwindcss from '@tailwindcss/vite'
 import AstroPWA from '@vite-pwa/astro'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig, passthroughImageService } from 'astro/config'
@@ -10,7 +10,6 @@ export default defineConfig({
     service: passthroughImageService(),
   },
   integrations: [
-    tailwind(),
     AstroPWA({
       includeAssets: ['favicon.svg', 'icon-128.png', 'icon-144.png'],
       manifest: {
@@ -47,4 +46,7 @@ export default defineConfig({
     }),
   ],
   site: 'https://dvgamerr.app',
+  vite: {
+    plugins: [tailwindcss()],
+  },
 })
