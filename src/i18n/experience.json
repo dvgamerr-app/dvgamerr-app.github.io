@@ -27,7 +27,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "hentai-downloader",
-      "pushed_at": "2025-11-21T00:20:13Z",
+      "pushed_at": "2026-05-23T16:49:14Z",
       "stargazers_count": 78,
       "svn_url": "https://github.com/dvgamerr-app/hentai-downloader",
       "topics": [
@@ -96,10 +96,20 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "dvgamerr-app.github.io",
-      "pushed_at": "2026-05-11T03:39:07Z",
+      "pushed_at": "2026-05-11T03:46:49Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
-      "topics": ["cv", "developer-resume", "kananek", "kem", "open-source", "profile", "resume", "showcase", "thongkam"],
+      "topics": [
+        "cv",
+        "developer-resume",
+        "kananek",
+        "kem",
+        "open-source",
+        "profile",
+        "resume",
+        "showcase",
+        "thongkam"
+      ],
       "watchers": 5
     },
     {
@@ -112,8 +122,40 @@
       "pushed_at": "2023-10-01T00:44:37Z",
       "stargazers_count": 4,
       "svn_url": "https://github.com/dvgamerr-app/team-rework",
-      "topics": ["issue-tracker", "issues", "nuxtjs", "open-source", "project", "task", "task-list", "todo-app", "todolist"],
+      "topics": [
+        "issue-tracker",
+        "issues",
+        "nuxtjs",
+        "open-source",
+        "project",
+        "task",
+        "task-list",
+        "todo-app",
+        "todolist"
+      ],
       "watchers": 4
+    },
+    {
+      "created_at": "2026-03-30T03:33:50Z",
+      "description": "Desktop app for syncing Jira with a centralized hub. Built with TypeScript, React, and Rust.",
+      "forks": 0,
+      "homepage": "",
+      "license": null,
+      "name": "jirasync-hub-app",
+      "pushed_at": "2026-05-26T10:39:17Z",
+      "stargazers_count": 1,
+      "svn_url": "https://github.com/dvgamerr-app/jirasync-hub-app",
+      "topics": [
+        "desktop-app",
+        "jira",
+        "open-source",
+        "react",
+        "synchronization",
+        "tailwind",
+        "tauri",
+        "vite"
+      ],
+      "watchers": 1
     },
     {
       "created_at": "2021-12-03T07:05:33Z",
@@ -180,6 +222,24 @@
       "watchers": 1
     },
     {
+      "created_at": "2025-05-04T17:17:31Z",
+      "description": "Set per-monitor wallpapers — including live video — from the command line on Windows.",
+      "forks": 0,
+      "homepage": "",
+      "license": null,
+      "name": "go-livepaper",
+      "pushed_at": "2026-05-30T11:59:11Z",
+      "stargazers_count": 0,
+      "svn_url": "https://github.com/dvgamerr-app/go-livepaper",
+      "topics": [
+        "live-wallpaper",
+        "open-source",
+        "wallpapers",
+        "windows"
+      ],
+      "watchers": 0
+    },
+    {
       "created_at": "2024-12-06T09:18:25Z",
       "description": "⚡ High-performance queue system built with Bun runtime, Drizzle ORM, and PostgreSQL - handles cinema schedules, lottery data, LINE bot integration with automated conflict resolution and duplicate management",
       "forks": 0,
@@ -195,26 +255,15 @@
       "pushed_at": "2025-11-10T02:14:38Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr/aide-tokenizer",
-      "topics": ["aide", "data-pipeline", "message-processing", "microservices", "open-source", "queue-system", "rest-api"],
-      "watchers": 0
-    },
-    {
-      "created_at": "2023-10-14T09:04:46Z",
-      "description": "School and University Management Platform",
-      "forks": 0,
-      "homepage": "",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit",
-        "node_id": "MDc6TGljZW5zZTEz"
-      },
-      "name": "go-school",
-      "pushed_at": "2023-10-16T13:31:54Z",
-      "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr-app/go-school",
-      "topics": ["open-source"],
+      "topics": [
+        "aide",
+        "data-pipeline",
+        "message-processing",
+        "microservices",
+        "open-source",
+        "queue-system",
+        "rest-api"
+      ],
       "watchers": 0
     },
     {
@@ -227,7 +276,14 @@
       "pushed_at": "2026-04-07T16:06:50Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/infra-hades-app",
-      "topics": ["client", "desktop", "desktop-app", "kubernetes", "monitor", "open-source"],
+      "topics": [
+        "client",
+        "desktop",
+        "desktop-app",
+        "kubernetes",
+        "monitor",
+        "open-source"
+      ],
       "watchers": 0
     },
     {
@@ -240,7 +296,11 @@
       "pushed_at": "2026-02-01T00:03:00Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/sso-team",
-      "topics": ["nuxt3", "open-source", "sso-login"],
+      "topics": [
+        "nuxt3",
+        "open-source",
+        "sso-login"
+      ],
       "watchers": 0
     },
     {
@@ -259,30 +319,38 @@
       "pushed_at": "2025-12-07T04:52:35Z",
       "stargazers_count": 0,
       "svn_url": "https://github.com/dvgamerr-app/go-bitkub",
-      "topics": ["bitkub", "bitkub-api", "crypto-exchange", "crypto-sdk", "crypto-trading", "cryptocurrency", "open-source"],
+      "topics": [
+        "bitkub",
+        "bitkub-api",
+        "crypto-exchange",
+        "crypto-sdk",
+        "crypto-trading",
+        "cryptocurrency",
+        "open-source"
+      ],
       "watchers": 0
     }
   ],
   "coding": {
     "bytes": {
-      "JavaScript": 17208681,
-      "Vue": 1501734,
+      "JavaScript": 17346275,
+      "Vue": 1508331,
       "HTML": 11552286,
       "Swift": 18084,
       "Ruby": 594658,
       "Objective-C": 2024,
-      "Go": 4273693,
+      "Go": 4313900,
       "Dockerfile": 106867,
-      "CSS": 2409112,
-      "Svelte": 278886,
-      "Shell": 684816,
-      "TypeScript": 11381099,
+      "CSS": 2419774,
+      "Svelte": 301458,
+      "Shell": 684617,
+      "TypeScript": 21733114,
       "Makefile": 41612,
       "Procfile": 27,
       "SCSS": 256741,
       "C#": 2595093,
-      "Astro": 164822,
-      "Rust": 120476,
+      "Astro": 228690,
+      "Rust": 122191,
       "PHP": 1643527,
       "Hack": 7144,
       "Dart": 102591,
@@ -293,7 +361,7 @@
       "Python": 617527,
       "Stylus": 41761,
       "TSQL": 31522,
-      "Batchfile": 16440,
+      "Batchfile": 18688,
       "Smarty": 20650,
       "DataWeave": 1965,
       "AutoHotkey": 9809376,
@@ -303,7 +371,7 @@
       "Java": 138019,
       "CoffeeScript": 77805,
       "ApacheConf": 332,
-      "PowerShell": 23425,
+      "PowerShell": 40326,
       "Jupyter Notebook": 26519942,
       "Visual Basic": 225787,
       "M4": 19093,
@@ -314,7 +382,8 @@
       "Perl": 80213,
       "PLpgSQL": 35491,
       "Lua": 6521,
-      "Handlebars": 637578
+      "Handlebars": 637578,
+      "NSIS": 4267
     },
     "top5": [
       {
@@ -354,25 +423,37 @@
   "social": [
     {
       "name": "github",
-      "icon": ["fab", "github"],
+      "icon": [
+        "fab",
+        "github"
+      ],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": ["fab", "linkedin"],
+      "icon": [
+        "fab",
+        "linkedin"
+      ],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": ["fas", "clock"],
+      "icon": [
+        "fas",
+        "clock"
+      ],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": ["fab", "codepen"],
+      "icon": [
+        "fab",
+        "codepen"
+      ],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -406,6 +487,7 @@
       "M4",
       "Makefile",
       "Mathematica",
+      "NSIS",
       "Nix",
       "Objective-C",
       "PHP",
@@ -452,8 +534,25 @@
       "Discord",
       "Slack"
     ],
-    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
-    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
+    "sql": [
+      "PostgreSQL",
+      "Redis",
+      "MongoDB",
+      "Influx",
+      "MySQL",
+      "Oracle",
+      "MSSQL",
+      "SQLite"
+    ],
+    "os": [
+      "Chat GPT",
+      "AWS",
+      "Azure",
+      "GCloud",
+      "CentOS",
+      "Debian",
+      "Fedora"
+    ]
   },
   "contact": [
     {

@@ -62,23 +62,90 @@ async function buildSummary(allRepos) {
   }
   summary.total = allRepos.length + summary.private
   const langBytes = {}
-  const tasks = allRepos.map(async (r) => {
-    if (!r.owner) return
-    const contrib = await getContributors(r.owner.login, r.name)
-    for (const c of contrib) {
-      if (c.author?.login !== 'dvgamerr') continue
-      for (const w of c.weeks ?? []) summary.loc += (w.a ?? 0) - (w.d ?? 0)
-    }
-    const { data: langs, status: sl } = await getLanguages(r.owner.login, r.name)
-    if (sl === 200 && langs) {
-      for (const k in langs) langBytes[k] = (langBytes[k] || 0) + langs[k]
-      summary.languages = Array.from(new Set([...Object.keys(langs), ...summary.languages])).sort()
-    }
-  })
-  logger.info(`detail tasks: ${tasks.length}`)
-  await Promise.all(tasks)
-  if (!summary.loc) delete summary.loc
+
+  const CONCURRENCY = 10
+  logger.info(`detail tasks: ${allRepos.length} (concurrency: ${CONCURRENCY})`)
+  for (let i = 0; i < allRepos.length; i += CONCURRENCY) {
+    const batch = allRepos.slice(i, i + CONCURRENCY)
+    await Promise.all(
+      batch.map(async (r) => {
+        if (!r.owner) return
+        const { data: langs, status: sl } = await getLanguages(r.owner.login, r.name)
+        if (sl === 200 && langs) {
+          for (const k in langs) langBytes[k] = (langBytes[k] || 0) + langs[k]
+          summary.languages = Array.from(new Set([...Object.keys(langs), ...summary.languages])).sort()
+        }
+      }),
+    )
+  }
+
   return { langBytes, summary }
+}
+
+async function fetchLocFromGraphQL(allRepos) {
+  const GH_EMAIL = 'info.dvgamer@gmail.com'
+  const BATCH = 10
+  let loc = 0
+
+  for (let i = 0; i < allRepos.length; i += BATCH) {
+    const batch = allRepos.slice(i, i + BATCH).filter((r) => r.owner)
+    if (!batch.length) continue
+
+    const aliases = batch
+      .map(
+        (r, idx) => `r${idx}: repository(owner: "${r.owner.login}", name: "${r.name}") {
+        defaultBranchRef { target { ... on Commit { history(author: {emails: ["${GH_EMAIL}"]}, first: 100) {
+          nodes { additions deletions }
+          pageInfo { hasNextPage endCursor }
+        }}}}
+      }`,
+      )
+      .join('\n')
+
+    const res = await fetch('https://api.github.com/graphql', {
+      body: JSON.stringify({ query: `{ ${aliases} }` }),
+      headers: { Authorization: `bearer ${TOKEN}`, 'Content-Type': 'application/json' },
+      method: 'POST',
+    })
+    const { data, errors } = await res.json()
+    if (errors?.length) {
+      logger.warn({ graphql_errors: errors.map((e) => e.message) })
+      continue
+    }
+
+    for (const [key, repoData] of Object.entries(data ?? {})) {
+      const history = repoData?.defaultBranchRef?.target?.history
+      if (!history) continue
+      for (const c of history.nodes ?? []) loc += (c.additions ?? 0) - (c.deletions ?? 0)
+
+      let cursor = history.pageInfo?.hasNextPage ? history.pageInfo.endCursor : null
+      const repo = batch[Number(key.slice(1))]
+      let pages = 0
+      while (cursor && pages < 4) {
+        pages++
+        const pageRes = await fetch('https://api.github.com/graphql', {
+          body: JSON.stringify({
+            query: `{ repository(owner: "${repo.owner.login}", name: "${repo.name}") {
+              defaultBranchRef { target { ... on Commit { history(author: {emails: ["${GH_EMAIL}"]}, first: 100, after: "${cursor}") {
+                nodes { additions deletions }
+                pageInfo { hasNextPage endCursor }
+              }}}}
+            }}`,
+          }),
+          headers: { Authorization: `bearer ${TOKEN}`, 'Content-Type': 'application/json' },
+          method: 'POST',
+        })
+        const { data: pd } = await pageRes.json()
+        const ph = pd?.repository?.defaultBranchRef?.target?.history
+        if (!ph) break
+        for (const c of ph.nodes ?? []) loc += (c.additions ?? 0) - (c.deletions ?? 0)
+        cursor = ph.pageInfo?.hasNextPage ? ph.pageInfo.endCursor : null
+      }
+    }
+  }
+
+  logger.info(`loc (graphql): ${loc}`)
+  return loc
 }
 
 async function fetchOrgRepos(orgs) {
@@ -118,19 +185,6 @@ async function fetchTotalCommits() {
   return 0
 }
 
-async function getContributors(o, r) {
-  for (let i = 0; i < 5; i++) {
-    const { data, status } = await gh('GET', `/repos/${o}/${r}/stats/contributors`)
-    if (status === 200 && Array.isArray(data)) return data
-    if (status === 202) {
-      await Bun.sleep(3000)
-      continue
-    }
-    break
-  }
-  return []
-}
-
 async function main() {
   logger.info('Query repositories')
   const [orgRepos, userRepos, totalCommits] = await Promise.all([
@@ -142,6 +196,8 @@ async function main() {
   const projects = pickOpenSource(allRepos)
   const { langBytes, summary } = await buildSummary(allRepos)
   if (totalCommits) summary.commits = totalCommits
+  const loc = await fetchLocFromGraphQL(allRepos)
+  if (loc) summary.loc = loc
   const bytes = Object.fromEntries(Object.entries(langBytes).sort(([, a], [, b]) => b - a))
   await mergeJsonResponse(summary, './src/i18n/coding.json')
   await mergeJsonResponse({ coding: { bytes }, repos: projects, skill: { coding: summary.languages } }, './src/i18n/experience.json')
