@@ -24,29 +24,16 @@ const showNationalD = () => {
   return id.join(' ')
 }
 
-const showSalary = async () => {
+const showSalary = () => {
   const { base, day, hour } = experience.salary
   const perHourTHB = Math.round((base / day / hour) * 100) / 100
 
-  if (langName == 'en') {
-    try {
-      const usdt = await fetch('https://api.bitkub.com/api/market/ticker?sym=THB_USDT')
-      if (!usdt.ok) return `${perHourTHB} THB${t('head.salary.hour')}`
-
-      const res = await usdt.json()
-      const exchangeRate = res?.THB_USDT?.last
-      if (typeof exchangeRate !== 'number' || !Number.isFinite(exchangeRate) || exchangeRate <= 0) {
-        return `${perHourTHB} THB${t('head.salary.hour')}`
-      }
-
-      const perHourUSD = Math.round((perHourTHB / exchangeRate) * 100) / 100
-      return `${t('head.salary.currency')}${perHourUSD} ${t('head.salary.hour')}`
-    } catch {
-      return `${perHourTHB} THB${t('head.salary.hour')}`
-    }
-  } else {
-    return `${perHourTHB} ${t('head.salary.currency')}${t('head.salary.hour')}`
+  if (langName === 'en') {
+    const rate = experience.currencry.sell
+    const perHourUSD = Math.round((perHourTHB / rate) * 100) / 100
+    return `${t('head.salary.currency')}${perHourUSD} ${t('head.salary.hour')}`
   }
+  return `${perHourTHB} ${t('head.salary.currency')}${t('head.salary.hour')}`
 }
 const showSalaryFull = () => {
   return `${numeral(experience.salary.base).format('0,0')} THB`
@@ -66,7 +53,7 @@ const birthday = dayjs(experience.birthday)
 // codingData.wakatime provides total coding time string
 ---
 
-<section id="resume" class="pt-0 pb-8 md:py-12 print-text-gray-900">
+<section id="resume" class="pt-0 pb-8 md:py-12 print:pt-0 print-text-gray-900">
   <div class="max-w-7xl mx-auto px-4">
     <div class="md:grid md:grid-cols-8 md:gap-8">
       <div class="md:col-span-2">
@@ -173,7 +160,7 @@ const birthday = dayjs(experience.birthday)
               <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400">{t('head.location')}</small>
             </div>
             <div class="flex flex-col justify-start">
-              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8] print:hidden">{showSalary}</strong>
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8] print:hidden">{showSalary()}</strong>
               <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400 print:hidden">{t('head.income')}</small>
               <strong class="hidden print:block font-medium th-label leading-[0.8] text-gray-900">{showSalaryFull}</strong>
               <small class="uppercase hidden print:block mt-0.5 text-gray-500">{t('head.salary')}</small>
