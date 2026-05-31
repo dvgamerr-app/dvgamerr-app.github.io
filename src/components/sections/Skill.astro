@@ -30,9 +30,9 @@ const skillList = Object.keys(experience.skill)
                   <h3 class="mb-2 font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400  transition-colors">
                     {t(`skills.${e}` as any)}
                   </h3>
-                  <ul class="flex flex-wrap gap-1.5 print:gap-y-0 print:gap-x-1">
+                  <ul class="flex flex-wrap gap-2 print:gap-y-0 print:gap-x-1">
                     {list.map((l: string) => (
-                      <li class="skills-badge select-none rounded-sm bg-gray-100/70 px-2 pt-1 pb-0.5 text-[0.75rem] text-gray-700 ring-1 ring-gray-200/70 backdrop-blur-sm transition hover:bg-indigo-50  dark:bg-gray-800/60 dark:text-gray-300 dark:ring-gray-700/70  print:bg-transparent print:ring-0 print:shadow-none print:backdrop-blur-none dark:print:bg-transparent print:text-black dark:print:text-black print:px-0">
+                      <li class="skills-badge select-none rounded-sm bg-gray-100/70 px-2 py-1 text-[0.75rem] text-gray-700 ring-1 ring-gray-200/70 backdrop-blur-sm transition hover:bg-indigo-50  dark:bg-gray-800/60 dark:text-gray-300 dark:ring-gray-700/70  print:bg-transparent print:ring-0 print:shadow-none print:backdrop-blur-none dark:print:bg-transparent print:text-black dark:print:text-black print:px-0">
                         {l}
                       </li>
                     ))}

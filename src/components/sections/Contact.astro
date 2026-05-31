@@ -63,7 +63,7 @@ const { experience } = Astro.props
                 .map((e: any) => (
                   <div class="my-5">
                     <strong>{t(`contact.${(e.label as string).toLowerCase()}` as any)}</strong>
-                    <a href={e.url} target={filterPrint(e) ? '_blank' : ''} class="flex items-start justify-start gap-1">
+                    <a href={e.url} target={filterPrint(e) ? '_blank' : ''} aria-label={e.text} class="flex items-start justify-start gap-1">
                       <div set:html={iconAssets[e.icon || 'chrome']} class="w-4 mx-1 my-1 text-gray-800 dark:text-gray-200 " />
                       <div class="pt-0.5 print:text-gray-950">{e.text}</div>
                     </a>
@@ -76,7 +76,7 @@ const { experience } = Astro.props
               <div class="print:hidden">
                 <span class="font-bold text-sm uppercase">{t(`contact.${e.label.toLowerCase()}` as any)}</span>
                 <br />
-                <a href={e.url} target={filterPrint(e) ? '_blank' : ''} class="flex items-start justify-start gap-1">
+                <a href={e.url} target={filterPrint(e) ? '_blank' : ''} aria-label={e.text} class="flex items-start justify-start gap-1 hover:text-(--text-color-link) dark:hover:text-(--text-color-link) transition">
                   <div set:html={iconAssets[e.icon || 'chrome']} class="w-4 my-1 text-gray-800 dark:text-gray-200 " />
                   <div class="pt-0.5 print:text-gray-950">{e.text}</div>
                 </a>
