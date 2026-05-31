@@ -81,8 +81,6 @@
   }
 }
 
-@import 'charts.css/dist/charts.css';
-
 @layer base {
   /* Core light/dark background tokens */
   :root {

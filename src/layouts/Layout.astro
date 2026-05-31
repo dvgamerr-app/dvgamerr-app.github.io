@@ -26,6 +26,7 @@ const date = new Date().toISOString()
 const lang = getLangFromUrl(Astro.url)
 
 import '../styles/global.css'
+import chartsCss from 'charts.css/dist/charts.css?raw'
 ---
 
 <!doctype html>
@@ -35,6 +36,7 @@ import '../styles/global.css'
     <meta name="description" content={pageDescription} />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="icon" type="image/svg+xml" href="/icon-64.webp" />
+    <style set:html={chartsCss}></style>
     <meta name="application-name" content={pageTitle} />
     <meta name="keywords" content={keyword} />
     <meta name="mobile-web-app-capable" content="yes" />
