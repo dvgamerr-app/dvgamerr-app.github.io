@@ -64,7 +64,7 @@ jobs:
           git push
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Build 🔧
         run: bun run build
