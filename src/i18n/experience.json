@@ -28,7 +28,7 @@
       },
       "name": "hentai-downloader",
       "pushed_at": "2026-05-23T16:49:14Z",
-      "stargazers_count": 78,
+      "stargazers_count": 79,
       "svn_url": "https://github.com/dvgamerr-app/hentai-downloader",
       "topics": [
         "application",
@@ -46,7 +46,7 @@
         "open-source",
         "windows"
       ],
-      "watchers": 78
+      "watchers": 79
     },
     {
       "created_at": "2022-10-29T06:19:33Z",
@@ -96,7 +96,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "dvgamerr-app.github.io",
-      "pushed_at": "2026-06-01T07:46:09Z",
+      "pushed_at": "2026-06-15T02:08:31Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
       "topics": [
@@ -136,13 +136,43 @@
       "watchers": 4
     },
     {
+      "created_at": "2021-12-03T07:05:33Z",
+      "description": "🚀 Model Context Protocol (MCP) server for Bitkub Cryptocurrency Exchange API - Connect Claude Desktop with Bitkub trading platform using Go",
+      "forks": 2,
+      "homepage": "",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "name": "gokub-mcp",
+      "pushed_at": "2026-04-27T04:33:15Z",
+      "stargazers_count": 2,
+      "svn_url": "https://github.com/dvgamerr-app/gokub-mcp",
+      "topics": [
+        "bitkub",
+        "bitkub-api",
+        "claude-desktop",
+        "cryptocurrency",
+        "go-bitkub",
+        "golang",
+        "mcp-server",
+        "open-source",
+        "trading-bot",
+        "trading-tools"
+      ],
+      "watchers": 2
+    },
+    {
       "created_at": "2026-03-30T03:33:50Z",
       "description": "Desktop app for syncing Jira with a centralized hub. Built with TypeScript, React, and Rust.",
       "forks": 0,
       "homepage": "",
       "license": null,
       "name": "jirasync-hub-app",
-      "pushed_at": "2026-06-02T09:59:07Z",
+      "pushed_at": "2026-06-12T09:35:17Z",
       "stargazers_count": 1,
       "svn_url": "https://github.com/dvgamerr-app/jirasync-hub-app",
       "topics": [
@@ -172,36 +202,6 @@
         "open-source",
         "wallpapers",
         "windows"
-      ],
-      "watchers": 1
-    },
-    {
-      "created_at": "2021-12-03T07:05:33Z",
-      "description": "🚀 Model Context Protocol (MCP) server for Bitkub Cryptocurrency Exchange API - Connect Claude Desktop with Bitkub trading platform using Go",
-      "forks": 2,
-      "homepage": "",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit",
-        "node_id": "MDc6TGljZW5zZTEz"
-      },
-      "name": "gokub-mcp",
-      "pushed_at": "2026-04-27T04:33:15Z",
-      "stargazers_count": 1,
-      "svn_url": "https://github.com/dvgamerr-app/gokub-mcp",
-      "topics": [
-        "bitkub",
-        "bitkub-api",
-        "claude-desktop",
-        "cryptocurrency",
-        "go-bitkub",
-        "golang",
-        "mcp-server",
-        "open-source",
-        "trading-bot",
-        "trading-tools"
       ],
       "watchers": 1
     },
