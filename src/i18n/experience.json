@@ -17,7 +17,7 @@
     {
       "created_at": "2017-08-01T09:18:50Z",
       "description": "downloader a exhentai.org and e-hentai.org websites that host galleries of adult-oriented.",
-      "forks": 13,
+      "forks": 12,
       "homepage": "http://dvgamerr.app/hentai-downloader/",
       "license": {
         "key": "mit",
@@ -27,8 +27,8 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "hentai-downloader",
-      "pushed_at": "2026-05-23T16:49:14Z",
-      "stargazers_count": 79,
+      "pushed_at": "2026-06-19T00:04:16Z",
+      "stargazers_count": 78,
       "svn_url": "https://github.com/dvgamerr-app/hentai-downloader",
       "topics": [
         "application",
@@ -46,7 +46,7 @@
         "open-source",
         "windows"
       ],
-      "watchers": 79
+      "watchers": 78
     },
     {
       "created_at": "2022-10-29T06:19:33Z",
@@ -96,7 +96,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "dvgamerr-app.github.io",
-      "pushed_at": "2026-06-15T02:08:31Z",
+      "pushed_at": "2026-06-22T08:02:31Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
       "topics": [
@@ -113,33 +113,10 @@
       "watchers": 5
     },
     {
-      "created_at": "2019-02-21T11:02:30Z",
-      "description": "TEAM TaskList Project with waterfall.",
-      "forks": 0,
-      "homepage": "https://team.touno.io",
-      "license": null,
-      "name": "team-rework",
-      "pushed_at": "2023-10-01T00:44:37Z",
-      "stargazers_count": 4,
-      "svn_url": "https://github.com/dvgamerr-app/team-rework",
-      "topics": [
-        "issue-tracker",
-        "issues",
-        "nuxtjs",
-        "open-source",
-        "project",
-        "task",
-        "task-list",
-        "todo-app",
-        "todolist"
-      ],
-      "watchers": 4
-    },
-    {
       "created_at": "2021-12-03T07:05:33Z",
       "description": "🚀 Model Context Protocol (MCP) server for Bitkub Cryptocurrency Exchange API - Connect Claude Desktop with Bitkub trading platform using Go",
       "forks": 2,
-      "homepage": "",
+      "homepage": "http://dvgamerr.app/gokub-mcp/",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -148,8 +125,8 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "gokub-mcp",
-      "pushed_at": "2026-04-27T04:33:15Z",
-      "stargazers_count": 2,
+      "pushed_at": "2026-06-19T13:47:12Z",
+      "stargazers_count": 3,
       "svn_url": "https://github.com/dvgamerr-app/gokub-mcp",
       "topics": [
         "bitkub",
@@ -163,7 +140,30 @@
         "trading-bot",
         "trading-tools"
       ],
-      "watchers": 2
+      "watchers": 3
+    },
+    {
+      "created_at": "2019-02-21T11:02:30Z",
+      "description": "TEAM TaskList Project with waterfall.",
+      "forks": 0,
+      "homepage": "https://team.touno.io",
+      "license": null,
+      "name": "team-rework",
+      "pushed_at": "2023-10-01T00:44:37Z",
+      "stargazers_count": 3,
+      "svn_url": "https://github.com/dvgamerr-app/team-rework",
+      "topics": [
+        "issue-tracker",
+        "issues",
+        "nuxtjs",
+        "open-source",
+        "project",
+        "task",
+        "task-list",
+        "todo-app",
+        "todolist"
+      ],
+      "watchers": 3
     },
     {
       "created_at": "2026-03-30T03:33:50Z",
@@ -172,7 +172,7 @@
       "homepage": "",
       "license": null,
       "name": "jirasync-hub-app",
-      "pushed_at": "2026-06-12T09:35:17Z",
+      "pushed_at": "2026-06-22T04:57:29Z",
       "stargazers_count": 1,
       "svn_url": "https://github.com/dvgamerr-app/jirasync-hub-app",
       "topics": [
@@ -184,24 +184,6 @@
         "tailwind",
         "tauri",
         "vite"
-      ],
-      "watchers": 1
-    },
-    {
-      "created_at": "2025-05-04T17:17:31Z",
-      "description": "Set per-monitor wallpapers — including live video — from the command line on Windows.",
-      "forks": 0,
-      "homepage": "",
-      "license": null,
-      "name": "go-livepaper",
-      "pushed_at": "2026-06-06T03:34:13Z",
-      "stargazers_count": 1,
-      "svn_url": "https://github.com/dvgamerr-app/go-livepaper",
-      "topics": [
-        "live-wallpaper",
-        "open-source",
-        "wallpapers",
-        "windows"
       ],
       "watchers": 1
     },
@@ -218,7 +200,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "notice-manager",
-      "pushed_at": "2024-10-08T03:14:17Z",
+      "pushed_at": "2026-06-19T00:03:21Z",
       "stargazers_count": 1,
       "svn_url": "https://github.com/dvgamerr-app/notice-manager",
       "topics": [
@@ -240,8 +222,26 @@
       "watchers": 1
     },
     {
+      "created_at": "2025-05-04T17:17:31Z",
+      "description": "Set per-monitor wallpapers — including live video — from the command line on Windows.",
+      "forks": 0,
+      "homepage": "",
+      "license": null,
+      "name": "go-livepaper",
+      "pushed_at": "2026-06-06T03:34:13Z",
+      "stargazers_count": 0,
+      "svn_url": "https://github.com/dvgamerr-app/go-livepaper",
+      "topics": [
+        "live-wallpaper",
+        "open-source",
+        "wallpapers",
+        "windows"
+      ],
+      "watchers": 0
+    },
+    {
       "created_at": "2024-12-06T09:18:25Z",
-      "description": "⚡ High-performance queue system built with Bun runtime, Drizzle ORM, and PostgreSQL - handles cinema schedules, lottery data, LINE bot integration with automated conflict resolution and duplicate management",
+      "description": "⚡ High-performance queue system built with Bun runtime, Drizzle ORM, and PostgreSQL - handles cinema schedules, lottery data, conflict resolution and duplicate management",
       "forks": 0,
       "homepage": "",
       "license": {
@@ -251,10 +251,10 @@
         "url": "https://api.github.com/licenses/mit",
         "node_id": "MDc6TGljZW5zZTEz"
       },
-      "name": "aide-tokenizer",
-      "pushed_at": "2025-11-10T02:14:38Z",
+      "name": "aide-collector",
+      "pushed_at": "2026-06-22T01:58:44Z",
       "stargazers_count": 0,
-      "svn_url": "https://github.com/dvgamerr/aide-tokenizer",
+      "svn_url": "https://github.com/dvgamerr-app/aide-collector",
       "topics": [
         "aide",
         "data-pipeline",
@@ -333,24 +333,24 @@
   ],
   "coding": {
     "bytes": {
-      "JavaScript": 17485789,
+      "JavaScript": 14014363,
       "Vue": 1508331,
-      "HTML": 11552286,
+      "HTML": 10863322,
       "Swift": 18084,
       "Ruby": 594658,
       "Objective-C": 2024,
-      "Go": 4419023,
-      "Dockerfile": 106867,
-      "CSS": 2465146,
+      "Go": 4585782,
+      "Dockerfile": 104087,
+      "CSS": 2445100,
       "Svelte": 301458,
-      "Shell": 684617,
-      "TypeScript": 21733114,
+      "Shell": 684422,
+      "TypeScript": 15996598,
       "Makefile": 41612,
       "Procfile": 27,
-      "SCSS": 244188,
+      "SCSS": 235415,
       "C#": 2595093,
-      "Astro": 232668,
-      "Rust": 122191,
+      "Astro": 237422,
+      "Rust": 19952249,
       "PHP": 1643527,
       "Hack": 7144,
       "Dart": 102591,
@@ -361,7 +361,7 @@
       "Python": 617527,
       "Stylus": 41761,
       "TSQL": 31522,
-      "Batchfile": 18688,
+      "Batchfile": 18628,
       "Smarty": 20650,
       "DataWeave": 1965,
       "AutoHotkey": 9809376,
@@ -477,7 +477,6 @@
       "Go",
       "HTML",
       "Hack",
-      "Handlebars",
       "Java",
       "JavaScript",
       "Jsonnet",

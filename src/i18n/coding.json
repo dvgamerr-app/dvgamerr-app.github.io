@@ -1,5 +1,5 @@
 {
-  "wakatime": "10,357 hrs 2 mins",
+  "wakatime": "10,411 hrs 13 mins",
   "total": 310,
   "private": 53,
   "public": 257,
@@ -21,7 +21,6 @@
     "Go",
     "HTML",
     "Hack",
-    "Handlebars",
     "Java",
     "JavaScript",
     "Jsonnet",
@@ -53,13 +52,13 @@
     "Visual Basic",
     "Vue"
   ],
-  "commits": 5292,
+  "commits": 5398,
   "experience": "2013-04-29T00:00:00.000+07:00",
-  "updated": "2026-06-15T02:08:51.874Z",
+  "updated": "2026-06-22T08:02:53.097Z",
   "weekly_seconds": 17731.753857142856,
   "average_seconds": 8290.336625687672,
   "best_seconds": 41413.533,
-  "loc": 1196494,
+  "loc": 1175637,
   "daytime": [
     714,
     354,
