@@ -107,7 +107,11 @@ async function fetchLocFromGraphQL(allRepos) {
       headers: { Authorization: `bearer ${TOKEN}`, 'Content-Type': 'application/json' },
       method: 'POST',
     })
-    const { data, errors } = await res.json()
+    const { data, errors } = await res.json().catch(() => ({}))
+    if (!data) {
+      logger.warn(`graphql batch ${i} non-json (status ${res.status})`)
+      continue
+    }
     if (errors?.length) {
       logger.warn({ graphql_errors: errors.map((e) => e.message) })
       continue
@@ -135,7 +139,7 @@ async function fetchLocFromGraphQL(allRepos) {
           headers: { Authorization: `bearer ${TOKEN}`, 'Content-Type': 'application/json' },
           method: 'POST',
         })
-        const { data: pd } = await pageRes.json()
+        const { data: pd } = await pageRes.json().catch(() => ({}))
         const ph = pd?.repository?.defaultBranchRef?.target?.history
         if (!ph) break
         for (const c of ph.nodes ?? []) loc += (c.additions ?? 0) - (c.deletions ?? 0)
