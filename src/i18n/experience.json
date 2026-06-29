@@ -17,7 +17,7 @@
     {
       "created_at": "2017-08-01T09:18:50Z",
       "description": "downloader a exhentai.org and e-hentai.org websites that host galleries of adult-oriented.",
-      "forks": 12,
+      "forks": 13,
       "homepage": "http://dvgamerr.app/hentai-downloader/",
       "license": {
         "key": "mit",
@@ -27,8 +27,8 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "hentai-downloader",
-      "pushed_at": "2026-06-19T00:04:16Z",
-      "stargazers_count": 78,
+      "pushed_at": "2026-06-22T12:53:32Z",
+      "stargazers_count": 79,
       "svn_url": "https://github.com/dvgamerr-app/hentai-downloader",
       "topics": [
         "application",
@@ -46,7 +46,7 @@
         "open-source",
         "windows"
       ],
-      "watchers": 78
+      "watchers": 79
     },
     {
       "created_at": "2022-10-29T06:19:33Z",
@@ -96,7 +96,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "dvgamerr-app.github.io",
-      "pushed_at": "2026-06-22T08:02:31Z",
+      "pushed_at": "2026-06-22T08:05:40Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
       "topics": [
@@ -113,6 +113,29 @@
       "watchers": 5
     },
     {
+      "created_at": "2019-02-21T11:02:30Z",
+      "description": "TEAM TaskList Project with waterfall.",
+      "forks": 0,
+      "homepage": "https://team.touno.io",
+      "license": null,
+      "name": "team-rework",
+      "pushed_at": "2023-10-01T00:44:37Z",
+      "stargazers_count": 4,
+      "svn_url": "https://github.com/dvgamerr-app/team-rework",
+      "topics": [
+        "issue-tracker",
+        "issues",
+        "nuxtjs",
+        "open-source",
+        "project",
+        "task",
+        "task-list",
+        "todo-app",
+        "todolist"
+      ],
+      "watchers": 4
+    },
+    {
       "created_at": "2021-12-03T07:05:33Z",
       "description": "🚀 Model Context Protocol (MCP) server for Bitkub Cryptocurrency Exchange API - Connect Claude Desktop with Bitkub trading platform using Go",
       "forks": 2,
@@ -125,7 +148,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "gokub-mcp",
-      "pushed_at": "2026-06-19T13:47:12Z",
+      "pushed_at": "2026-06-26T11:35:39Z",
       "stargazers_count": 3,
       "svn_url": "https://github.com/dvgamerr-app/gokub-mcp",
       "topics": [
@@ -139,29 +162,6 @@
         "open-source",
         "trading-bot",
         "trading-tools"
-      ],
-      "watchers": 3
-    },
-    {
-      "created_at": "2019-02-21T11:02:30Z",
-      "description": "TEAM TaskList Project with waterfall.",
-      "forks": 0,
-      "homepage": "https://team.touno.io",
-      "license": null,
-      "name": "team-rework",
-      "pushed_at": "2023-10-01T00:44:37Z",
-      "stargazers_count": 3,
-      "svn_url": "https://github.com/dvgamerr-app/team-rework",
-      "topics": [
-        "issue-tracker",
-        "issues",
-        "nuxtjs",
-        "open-source",
-        "project",
-        "task",
-        "task-list",
-        "todo-app",
-        "todolist"
       ],
       "watchers": 3
     },
@@ -333,23 +333,23 @@
   ],
   "coding": {
     "bytes": {
-      "JavaScript": 14014363,
+      "JavaScript": 14018768,
       "Vue": 1508331,
       "HTML": 10863322,
       "Swift": 18084,
       "Ruby": 594658,
       "Objective-C": 2024,
-      "Go": 4585782,
+      "Go": 4590445,
       "Dockerfile": 104087,
-      "CSS": 2445100,
-      "Svelte": 301458,
+      "CSS": 2449301,
+      "Svelte": 341482,
       "Shell": 684422,
-      "TypeScript": 15996598,
+      "TypeScript": 16050864,
       "Makefile": 41612,
       "Procfile": 27,
       "SCSS": 235415,
       "C#": 2595093,
-      "Astro": 237422,
+      "Astro": 423980,
       "Rust": 19952249,
       "PHP": 1643527,
       "Hack": 7144,
