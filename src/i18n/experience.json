@@ -27,7 +27,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "hentai-downloader",
-      "pushed_at": "2026-06-22T12:53:32Z",
+      "pushed_at": "2026-07-31T00:05:22Z",
       "stargazers_count": 79,
       "svn_url": "https://github.com/dvgamerr-app/hentai-downloader",
       "topics": [
@@ -96,7 +96,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "dvgamerr-app.github.io",
-      "pushed_at": "2026-07-24T07:51:58Z",
+      "pushed_at": "2026-07-27T09:39:04Z",
       "stargazers_count": 5,
       "svn_url": "https://github.com/dvgamerr-app/dvgamerr-app.github.io",
       "topics": [
@@ -148,8 +148,8 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "gokub-mcp",
-      "pushed_at": "2026-07-17T00:05:44Z",
-      "stargazers_count": 3,
+      "pushed_at": "2026-07-31T00:06:59Z",
+      "stargazers_count": 2,
       "svn_url": "https://github.com/dvgamerr-app/gokub-mcp",
       "topics": [
         "bitkub",
@@ -163,7 +163,7 @@
         "trading-bot",
         "trading-tools"
       ],
-      "watchers": 3
+      "watchers": 2
     },
     {
       "created_at": "2026-03-30T03:33:50Z",
@@ -172,7 +172,7 @@
       "homepage": "",
       "license": null,
       "name": "jirasync-hub-app",
-      "pushed_at": "2026-07-25T03:03:39Z",
+      "pushed_at": "2026-08-01T11:36:59Z",
       "stargazers_count": 1,
       "svn_url": "https://github.com/dvgamerr-app/jirasync-hub-app",
       "topics": [
@@ -184,33 +184,6 @@
         "tailwind",
         "tauri",
         "vite"
-      ],
-      "watchers": 1
-    },
-    {
-      "created_at": "2021-12-15T11:41:20Z",
-      "description": "Go SDK for Bitkub cryptocurrency exchange API - Market data, trading, wallet management with type-safe implementation",
-      "forks": 0,
-      "homepage": "",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit",
-        "node_id": "MDc6TGljZW5zZTEz"
-      },
-      "name": "go-bitkub",
-      "pushed_at": "2026-07-14T04:14:05Z",
-      "stargazers_count": 1,
-      "svn_url": "https://github.com/dvgamerr-app/go-bitkub",
-      "topics": [
-        "bitkub",
-        "bitkub-api",
-        "crypto-exchange",
-        "crypto-sdk",
-        "crypto-trading",
-        "cryptocurrency",
-        "open-source"
       ],
       "watchers": 1
     },
@@ -227,7 +200,7 @@
         "node_id": "MDc6TGljZW5zZTEz"
       },
       "name": "notice-manager",
-      "pushed_at": "2026-06-19T00:03:21Z",
+      "pushed_at": "2026-07-31T00:04:29Z",
       "stargazers_count": 1,
       "svn_url": "https://github.com/dvgamerr-app/notice-manager",
       "topics": [
@@ -329,28 +302,55 @@
         "sso-login"
       ],
       "watchers": 0
+    },
+    {
+      "created_at": "2021-12-15T11:41:20Z",
+      "description": "Go SDK for Bitkub cryptocurrency exchange API - Market data, trading, wallet management with type-safe implementation",
+      "forks": 0,
+      "homepage": "",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "name": "go-bitkub",
+      "pushed_at": "2026-07-14T04:14:05Z",
+      "stargazers_count": 0,
+      "svn_url": "https://github.com/dvgamerr-app/go-bitkub",
+      "topics": [
+        "bitkub",
+        "bitkub-api",
+        "crypto-exchange",
+        "crypto-sdk",
+        "crypto-trading",
+        "cryptocurrency",
+        "open-source"
+      ],
+      "watchers": 0
     }
   ],
   "coding": {
     "bytes": {
-      "JavaScript": 14056627,
+      "JavaScript": 14058117,
       "Vue": 1508331,
-      "HTML": 10876949,
+      "HTML": 10878031,
       "Swift": 18084,
       "Ruby": 594658,
       "Objective-C": 2024,
-      "Go": 5207753,
+      "Go": 5564527,
       "Dockerfile": 105246,
-      "CSS": 2521725,
-      "Svelte": 425104,
-      "Shell": 703644,
-      "TypeScript": 16085764,
-      "Makefile": 41612,
+      "CSS": 2461183,
+      "Svelte": 452564,
+      "Shell": 707689,
+      "TypeScript": 16085329,
+      "Makefile": 42534,
       "Procfile": 27,
       "SCSS": 235415,
       "C#": 2595093,
       "Astro": 366514,
-      "Rust": 20229636,
+      "Rust": 20265719,
       "PHP": 1643527,
       "Hack": 7144,
       "Dart": 102591,
@@ -371,7 +371,7 @@
       "Java": 138019,
       "CoffeeScript": 77805,
       "ApacheConf": 332,
-      "PowerShell": 40326,
+      "PowerShell": 59772,
       "Jupyter Notebook": 26519942,
       "Visual Basic": 225787,
       "M4": 19093,
@@ -383,7 +383,7 @@
       "PLpgSQL": 2992,
       "Lua": 6521,
       "Handlebars": 637578,
-      "NSIS": 4267
+      "NSIS": 36274
     },
     "top5": [
       {
