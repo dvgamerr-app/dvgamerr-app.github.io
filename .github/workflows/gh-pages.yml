@@ -43,7 +43,7 @@ jobs:
 
       - name: Install dependencies 🔧
         run: |
-          bun i --frozen-lockfile
+          bun install --frozen-lockfile
           bun add sharp
           bun pm cache rm
 
