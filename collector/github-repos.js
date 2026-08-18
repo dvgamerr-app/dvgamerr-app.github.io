@@ -224,6 +224,10 @@ async function main() {
     fetchTotalCommits(),
   ])
   const allRepos = [...orgRepos, ...userRepos]
+  if (!allRepos.length) {
+    logger.error('no repositories fetched (GitHub API failure?) - skipping stats update to avoid wiping existing data')
+    return
+  }
   const projects = pickOpenSource(allRepos)
   const { langBytes, summary } = await buildSummary(allRepos)
   if (totalCommits) summary.commits = totalCommits
