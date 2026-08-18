@@ -19,6 +19,7 @@ const pageImageUrl = pageImage.startsWith('https') ? pageImage : site + pageImag
 const date = new Date().toISOString()
 
 const lang = getLangFromUrl(Astro.url)
+const markdownUrl = lang === 'th' ? '/th/index.md' : '/index.md'
 
 import '../styles/global.css'
 import chartsCss from 'charts.css/dist/charts.css?raw'
@@ -31,6 +32,8 @@ import chartsCss from 'charts.css/dist/charts.css?raw'
     <meta name="description" content={pageDescription} />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="icon" type="image/svg+xml" href="/icon-64.webp" />
+    <link rel="alternate" type="text/markdown" href={markdownUrl} />
+    <link rel="describedby" href="/llms.txt" />
     <style set:html={chartsCss}></style>
     <meta name="application-name" content={pageTitle} />
     <meta name="keywords" content={keyword} />

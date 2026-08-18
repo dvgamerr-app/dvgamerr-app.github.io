@@ -1,0 +1,20 @@
+# dvgamerr.app
+
+> The bilingual portfolio and resume of Kananek Thongkam (KEM), a Software Engineer based in Bangkok, Thailand.
+
+The site is available in English and Thai. It covers professional experience, education, software projects, technical skills, coding activity, and public contact channels.
+
+## Portfolio
+
+- [English portfolio and resume](https://dvgamerr.app/index.md): Markdown version of the primary English-language profile.
+- [Thai portfolio and resume](https://dvgamerr.app/th/index.md): Markdown version of the Thai-language profile.
+
+## Profiles and source
+
+- [GitHub profile](https://github.com/dvgamerr): Public repositories and engineering activity.
+- [Portfolio source repository](https://github.com/dvgamerr-app/dvgamerr-app.github.io): Astro source code for this website.
+
+## Optional
+
+- [English website](https://dvgamerr.app/): Human-readable English portfolio.
+- [Thai website](https://dvgamerr.app/th/): Human-readable Thai portfolio.
