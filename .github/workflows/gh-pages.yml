@@ -44,7 +44,7 @@ jobs:
       - name: Install dependencies 🔧
         run: |
           bun i --frozen-lockfile
-          npm install --platform=linux --arch=x64 --legacy-peer-deps sharp
+          bun add sharp
           bun pm cache rm
 
       - name: Update WakaTime stats

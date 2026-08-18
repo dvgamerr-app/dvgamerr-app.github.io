@@ -7,17 +7,17 @@
   "private": false,
   "packageManager": "bun@1.3.14",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
+    "dev": "bun x --bun astro dev",
+    "start": "bun x --bun astro dev",
+    "build": "bun x --bun astro build",
     "collector:gh": "bun ./collector/index.js --github | pino-pretty",
     "collector:wk": "bun ./collector/index.js --wakatime --file D:/home/Downloads/wakatime-info.dvgamergmail.com-06633b1c3ba744c2ab5d08e47ccc87ab.json | pino-pretty",
     "collector": "bun ./collector/index.js --wakatime --github | pino-pretty",
-    "astro": "astro",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "astro": "bun x --bun astro",
+    "lint": "bun x --bun eslint .",
+    "lint:fix": "bun x --bun eslint --fix .",
+    "format": "bun x --bun prettier --check .",
+    "format:fix": "bun x --bun prettier --write ."
   },
   "lint-staged": {
     "*": "prettier --write",
@@ -27,7 +27,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@cronitorio/cronitor-rum": "^0.4.2",
     "arg": "^5.0.2",
-    "astro": "7.2.2",
+    "astro": "7.2.3",
     "astro-google-fonts-optimizer": "^0.2.2",
     "astro-robots-txt": "^1.0.0",
     "caniuse-lite": "^1.0.30001809",
@@ -57,5 +57,8 @@
     "postcss": "^8.5.26",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1"
+  },
+  "engines": {
+    "bun": ">=1.3.14"
   }
 }
