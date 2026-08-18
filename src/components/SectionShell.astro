@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string
+  note?: string
+  printHidden?: boolean
+  titleClass?: string
+}
+
+const { title, note, printHidden = false, titleClass } = Astro.props
+---
+
+<section class:list={['max-w-7xl mx-auto px-4 pt-8 md:pt-12 pb-4 md:pb-8', { 'print:hidden': printHidden }]}>
+  <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+    <header class="md:col-span-3 mb-6 md:mb-0">
+      <h2 class:list={['text-gray-800 dark:text-gray-200 uppercase md:text-right', titleClass]}>
+        {title}
+      </h2>
+      {note && <p class="hidden md:block md:text-right text-xs text-gray-500 dark:text-gray-400 -mt-2">{note}</p>}
+    </header>
+    <div class="md:col-span-9">
+      <slot />
+      {note && <p class="md:hidden text-xs text-gray-500 dark:text-gray-400 mt-3">{note}</p>}
+    </div>
+  </div>
+</section>

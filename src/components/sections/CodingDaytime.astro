@@ -1,6 +1,8 @@
 ---
 import coding from '../../i18n/coding.json'
 import { getTranslate } from '../../i18n/utils'
+import SectionShell from '../SectionShell.astro'
+
 const t = getTranslate(Astro.url)
 
 const maxDayTime = Math.max(...coding.daytime)
@@ -24,72 +26,61 @@ const chartDay = [
   { name: t('daytime.night'), startOfIndex: 0 },
 ]
 
-const maxGroupDay = chartDay.find((e) => maxDayTime === Math.max(...weekSize.map((i) => coding.daytime[i + e.startOfIndex]))).name
+const maxGroupDay = chartDay.find(
+  (group) => maxDayTime === Math.max(...weekSize.map((hour) => coding.daytime[hour + group.startOfIndex])),
+)?.name
 
-const getDayHightlight = (e: any) => (maxGroupDay === e.name ? 'highlight' : '')
-const dayOfWeek = (v: any) => weekDay[coding.weektime.findIndex((e) => e === v)]
-const getWeekHightlight = (v: number) => (maxWeekTime === v ? 'highlight' : '')
+const getDayHighlight = (group: (typeof chartDay)[number]) => (maxGroupDay === group.name ? 'highlight' : '')
+const dayOfWeek = (value: number) => weekDay[coding.weektime.findIndex((weekTime) => weekTime === value)]
+const getWeekHighlight = (value: number) => (maxWeekTime === value ? 'highlight' : '')
 const colDaySize = (n: number = 0) => ({ '--size': `calc( ${(coding.daytime[n] * 100) / maxDayTime} / 100 )` })
 const colWeekSize = (n: number = 0) => ({ '--size': `calc( ${(n * 100) / maxWeekTime} / 100 )` })
 ---
 
-<section class="pt-8 md:pt-12 pb-4 md:pb-8 print:hidden">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-      <div class="md:col-span-3 mb-6 md:mb-0">
-        <h2 class="text-[1.2rem] -mt-0.5 text-gray-800 dark:text-gray-200 uppercase md:text-right">
-          {t('daytime')}
-        </h2>
-        <div class="hidden md:block md:text-right text-xs text-gray-500 dark:text-gray-400 -mt-2">wakatime.com</div>
-      </div>
-      <div class="md:col-span-9">
-        <div class="grid gap-6 lg:grid-cols-2">
-          <div class="rounded mt-6">
-            <table class="w-full h-50 charts-css column show-heading data-spacing-2 datasets-spacing-3 hide-data show-labels">
-              <caption>{t('daytime.caption')}</caption>
-              <thead>
-                <tr>
-                  {chartDay.map((e: any) => <th>{e.name}</th>)}
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  chartDay.map((e: any) => (
-                    <tr>
-                      <th scope="row" class={getDayHightlight(e)}>
-                        {e.name}
-                      </th>
-                      {weekSize.map((i) => (
-                        <td class={getDayHightlight(e)} style={colDaySize(i + e.startOfIndex)} />
-                      ))}
-                    </tr>
-                  ))
-                }
-              </tbody>
-            </table>
-          </div>
-          <div class="rounded mt-6">
-            <table id="charts-weektime" class="w-full h-50 charts-css column data-spacing-5 datasets-spacing-3 hide-data show-labels">
-              <tbody>
-                {
-                  coding.weektime.map((e) => (
-                    <tr>
-                      <th scope="row" class={getWeekHightlight(e)}>
-                        {dayOfWeek(e)}
-                      </th>
-                      <td style={colWeekSize(e)} class={getWeekHightlight(e)} />
-                    </tr>
-                  ))
-                }
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="md:hidden text-xs text-gray-500 dark:text-gray-400 mt-3">wakatime.com</div>
-      </div>
+<SectionShell title={t('daytime')} note="wakatime.com" printHidden titleClass="text-[1.2rem] -mt-0.5">
+  <div class="grid gap-6 lg:grid-cols-2">
+    <div class="rounded mt-6">
+      <table class="w-full h-50 charts-css column show-heading data-spacing-2 datasets-spacing-3 hide-data show-labels">
+        <caption>{t('daytime.caption')}</caption>
+        <thead>
+          <tr>
+            {chartDay.map((group) => <th>{group.name}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            chartDay.map((group) => (
+              <tr>
+                <th scope="row" class={getDayHighlight(group)}>
+                  {group.name}
+                </th>
+                {weekSize.map((hour) => (
+                  <td class={getDayHighlight(group)} style={colDaySize(hour + group.startOfIndex)} />
+                ))}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="rounded mt-6">
+      <table id="charts-weektime" class="w-full h-50 charts-css column data-spacing-5 datasets-spacing-3 hide-data show-labels">
+        <tbody>
+          {
+            coding.weektime.map((weekTime) => (
+              <tr>
+                <th scope="row" class={getWeekHighlight(weekTime)}>
+                  {dayOfWeek(weekTime)}
+                </th>
+                <td style={colWeekSize(weekTime)} class={getWeekHighlight(weekTime)} />
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
     </div>
   </div>
-</section>
+</SectionShell>
 
 <style>
   html {
@@ -120,10 +111,6 @@ const colWeekSize = (n: number = 0) => ({ '--size': `calc( ${(n * 100) / maxWeek
 
   table.charts-css > tbody td.highlight {
     background-color: var(--charts-highlight);
-  }
-
-  table.charts-css > tbody td.day {
-    --color: var(--charts-color);
   }
 
   table.charts-css > tbody td {

@@ -1,5 +1,6 @@
 ---
 import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import numeral from 'numeral'
 import { getLangFromUrl, getTranslate } from '../../i18n/utils'
 import coding from '../../i18n/coding.json'
@@ -7,6 +8,8 @@ const langName = getLangFromUrl(Astro.url)
 const t = getTranslate(Astro.url)
 
 import 'dayjs/locale/th'
+
+dayjs.extend(relativeTime)
 
 import { Image } from 'astro:assets'
 import photo from '../../assets/kk_00248.webp'
