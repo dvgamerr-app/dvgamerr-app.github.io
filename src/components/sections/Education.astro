@@ -12,7 +12,7 @@ const { resume } = Astro.props
 ---
 
 <SectionShell title={t('education')} titleClass="min-w-43.75 text-[1.2rem] -mt-1.5">
-  <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:text-base">
+  <div class="grid md:grid-cols-2 grid-cols-1 print:grid-cols-2 gap-2 md:text-base">
     {
       resume.education.map((education: any) => (
         <div class="group flex flex-col pb-3 transition">
