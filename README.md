@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<p>เว็บส่วนตัวของ Kananek T. (Software Engineer) สร้างด้วย Astro 5 + TypeScript + Tailwind เน้นความไว การเข้าถึง (a11y) และ SEO ครบเครื่อง พร้อม PWA และ i18n ไทย/อังกฤษ</p>
+<p>เว็บส่วนตัวของ Kananek T. (Software Engineer) สร้างด้วย Astro 6 + TypeScript + Tailwind เน้นความไว การเข้าถึง (a11y) และ SEO ครบเครื่อง พร้อม PWA และ i18n ไทย/อังกฤษ</p>
 
 <p>
   <a href="https://dvgamerr.app" title="Website status">
@@ -16,7 +16,7 @@
   </a>
   <br/>
   <a href="https://astro.build/" title="Astro">
-    <img alt="Astro" src="https://img.shields.io/badge/Astro-5-FF5D01?logo=astro&logoColor=white">
+    <img alt="Astro" src="https://img.shields.io/badge/Astro-6-FF5D01?logo=astro&logoColor=white">
   </a>
   <a href="https://www.typescriptlang.org/" title="TypeScript">
     <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white">
@@ -52,27 +52,39 @@
 
 ## ทำไมเว็บนี้ถึง “ไว” และ “ครบ”
 
-- Astro 5: ส่ง HTML ล้วนแบบ Islands — โหลดเร็วมากโดยไม่พา JS ส่วนเกินติดมาด้วย
+- Astro 6: สร้างหน้า static สองภาษาและส่ง JavaScript เท่าที่ฟีเจอร์ต้องใช้
 - Tailwind CSS Utilities: ออกแบบให้สวยไวโดยไม่ต้องแบก CSS หนักๆ
 - PWA พร้อมใช้งาน: เว็บแอปติดตั้งได้ ออฟไลน์ได้ (ผ่าน @vite-pwa/astro)
 - SEO/Meta ครบ: sitemap, robots.txt, Open Graph พร้อมตั้งแต่แรก
 - ภาพคม ชัด เร็ว: ใช้ astro:assets กับไฟล์ภาพที่เตรียมไว้ล่วงหน้า
 - i18n 2 ภาษา: English/ไทย ด้วยโครงสร้างไฟล์ชัดเจน ใช้งานง่าย
+- Markup ที่ใช้ซ้ำรวมไว้ใน `SectionShell.astro` และ `StatGrid.astro` เพื่อลด wrapper และป้องกัน style ของแต่ละ section คลาดเคลื่อนกัน
 
 ---
 
 ## Quick Start
 
 ```shell
-bun i
-bun dev
+bun install
+bun run dev
 ```
+
+## Quality checks
+
+```shell
+bun run lint
+bun run format
+bun run build
+```
+
+`bun run build` สร้าง static output ที่ `dist/` รวมหน้า English (`/`) และ Thai (`/th/`)
 
 ## การเพิ่ม/แก้คอนเทนต์ (Authoring)
 
 - Work timeline: `src/components/work/en|th/*.md`
-- บทความ/บล็อก: `src/content/blogs/*.md` (กำหนดหน้าผ่าน `src/pages/posts/*.md`)
+- ข้อมูล resume และสถิติ: `src/i18n/*.json`
 - สลับภาษา: โครงหน้าหลัก EN ที่ `src/pages/index.astro` และ TH ที่ `src/pages/th/index.astro`
+- section layout และ stat cards ที่ใช้ร่วมกัน: `src/components/SectionShell.astro` และ `src/components/StatGrid.astro`
 
 ---
 
