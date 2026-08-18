@@ -46,6 +46,33 @@ async function gh(method, path, extraHeaders = {}) {
   return { data: null, status: 0 }
 }
 
+const POPULAR_LANGUAGES = new Set([
+  'Astro',
+  'C',
+  'C#',
+  'C++',
+  'CSS',
+  'Dart',
+  'Dockerfile',
+  'Go',
+  'HTML',
+  'Java',
+  'JavaScript',
+  'Kotlin',
+  'Objective-C',
+  'PHP',
+  'PowerShell',
+  'Python',
+  'Ruby',
+  'Rust',
+  'SCSS',
+  'Shell',
+  'Svelte',
+  'Swift',
+  'TypeScript',
+  'Vue',
+])
+
 const getLanguages = (o, r) => gh('GET', `/repos/${o}/${r}/languages`)
 const getOrgRepos = (o, p) => gh('GET', `/orgs/${o}/repos?page=${p}&per_page=100`)
 const getUserRepos = (p) => gh('GET', `/user/repos?type=owner&page=${p}&per_page=100`)
@@ -204,7 +231,8 @@ async function main() {
   if (loc) summary.loc = loc
   const bytes = Object.fromEntries(Object.entries(langBytes).sort(([, a], [, b]) => b - a))
   await mergeJsonResponse(summary, './src/i18n/coding.json')
-  await mergeJsonResponse({ coding: { bytes }, repos: projects, skill: { coding: summary.languages } }, './src/i18n/experience.json')
+  const popularLanguages = summary.languages.filter((lang) => POPULAR_LANGUAGES.has(lang))
+  await mergeJsonResponse({ coding: { bytes }, repos: projects, skill: { coding: popularLanguages } }, './src/i18n/experience.json')
 }
 
 await main()
