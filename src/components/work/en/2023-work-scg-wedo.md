@@ -12,3 +12,7 @@
 - Built centralized logging pipelines for `SnapLogic` (Fluent Bit → ClickHouse) and `MuleSoft` (Promtail → Loki), improving reliability and cross-platform observability.
 - Deployed and optimized the `SnapLogic` integration platform for high-volume enterprise automation and data workflows.
 - Led engineering efforts for API gateway systems, including team management, architectural design, and delivery of mission-critical services.
+- Led presales design for a compliance-monitoring dashboard sourcing `POMS` sensor data through `low-code data pipelines`, threshold-based `LINE` alerting, and reporting on `Google BigQuery`/`Looker`.
+- Designed an `AI document search agent` architecture with `agent-to-agent (A2A)` orchestration behind an `API gateway`, secure data-warehouse integration, and automated email delivery.
+- Architected an enterprise procurement portal on `Kubernetes` with an `LLM`-backed chatbot and `GitOps` CI/CD.
+- Supported the Manager in driving developer velocity, designing internal `AI-enablement` tooling and workflows that help the dev team adopt `AI` assisted development effectively.
