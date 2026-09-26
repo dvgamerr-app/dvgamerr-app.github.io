@@ -1,4 +1,5 @@
 import sitemap from '@astrojs/sitemap'
+import svelte from '@astrojs/svelte'
 import tailwindcss from '@tailwindcss/vite'
 import AstroPWA from '@vite-pwa/astro'
 import robotsTxt from 'astro-robots-txt'
@@ -10,6 +11,7 @@ export default defineConfig({
     service: passthroughImageService(),
   },
   integrations: [
+    svelte(),
     AstroPWA({
       includeAssets: ['favicon.svg', 'icon-128.png', 'icon-144.png'],
       manifest: {

@@ -1,0 +1,118 @@
+<script lang="ts">
+	import Scene from "./GlobeScene.svelte";
+	import { cn } from "../utils/cn";
+	import type { ComponentProps, Snippet } from "svelte";
+	import type { GlobeMarker, GlobeMarkerTooltipContext } from "./types";
+
+	type SceneProps = ComponentProps<typeof Scene>;
+
+	interface Props {
+		/**
+		 * Additional CSS classes for the container.
+		 */
+		class?: string;
+		/**
+		 * Scale multiplier for the globe field.
+		 * @default 1
+		 */
+		scale?: SceneProps["scale"];
+		/**
+		 * Horizontal globe offset in normalized viewport units.
+		 * @default 0
+		 */
+		offsetX?: SceneProps["offsetX"];
+		/**
+		 * Vertical globe offset in normalized viewport units.
+		 * @default 0
+		 */
+		offsetY?: SceneProps["offsetY"];
+		/**
+		 * Optional overrides for the Fresnel shader uniforms.
+		 */
+		fresnelConfig?: SceneProps["fresnelConfig"];
+		/**
+		 * Optional configuration for the atmospheric halo.
+		 */
+		atmosphereConfig?: SceneProps["atmosphereConfig"];
+		/**
+		 * Number of points rendered on the surface.
+		 * @default 15000
+		 */
+		pointCount?: SceneProps["pointCount"];
+		/**
+		 * Color applied to points that fall on land.
+		 * @default "#f77114"
+		 */
+		landPointColor?: SceneProps["landPointColor"];
+		/**
+		 * Size of each point in world units.
+		 * @default 0.05
+		 */
+		pointSize?: SceneProps["pointSize"];
+		/**
+		 * Whether the globe should auto-rotate.
+		 * @default true
+		 */
+		autoRotate?: SceneProps["autoRotate"];
+		/**
+		 * Whether to lock the camera's polar angle (vertical rotation).
+		 * If true, limits the vertical view to a narrow band.
+		 * @default true
+		 */
+		lockedPolarAngle?: boolean;
+		/**
+		 * Array of markers to display on the globe.
+		 */
+		markers?: GlobeMarker[];
+		/**
+		 * Optional custom tooltip renderer for markers.
+		 * Receives marker data and visibility context.
+		 */
+		markerTooltip?: Snippet<[GlobeMarkerTooltipContext]>;
+		/**
+		 * Coordinates [lat, lon] to focus the camera on.
+		 * When set, auto-rotation will be disabled temporarily.
+		 */
+		focusOn?: [number, number] | null;
+
+		[key: string]: unknown;
+	}
+
+	let {
+		class: className = "",
+		scale = 1,
+		offsetX = 0,
+		offsetY = 0,
+		fresnelConfig,
+		atmosphereConfig,
+		pointCount,
+		landPointColor,
+		pointSize,
+		autoRotate = true,
+		lockedPolarAngle = true,
+		markers = [],
+		markerTooltip,
+		focusOn = null,
+		...rest
+	}: Props = $props();
+</script>
+
+<div class={cn("relative h-full w-full overflow-hidden", className)} {...rest}>
+	<div class="absolute inset-0 z-0">
+		<Scene
+			{scale}
+			{offsetX}
+			{offsetY}
+			{fresnelConfig}
+			{atmosphereConfig}
+			{pointCount}
+			{landPointColor}
+			{pointSize}
+			{autoRotate}
+			{lockedPolarAngle}
+			{markers}
+			{markerTooltip}
+			{focusOn}
+		/>
+	</div>
+</div>
