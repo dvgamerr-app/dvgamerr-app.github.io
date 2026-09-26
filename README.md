@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<p>เว็บส่วนตัวของ Kananek T. (Software Engineer) สร้างด้วย Astro 6 + TypeScript + Tailwind เน้นความไว การเข้าถึง (a11y) และ SEO ครบเครื่อง พร้อม PWA และ i18n ไทย/อังกฤษ</p>
+<p>เว็บส่วนตัวของ Kananek T. (Software Engineer) สร้างด้วย Astro 7 + Svelte 5 + TypeScript + Tailwind เน้นความไว การเข้าถึง (a11y) และ SEO ครบเครื่อง พร้อม PWA และ i18n ไทย/อังกฤษ</p>
 
 <p>
   <a href="https://dvgamerr.app" title="Website status">
@@ -16,7 +16,10 @@
   </a>
   <br/>
   <a href="https://astro.build/" title="Astro">
-    <img alt="Astro" src="https://img.shields.io/badge/Astro-6-FF5D01?logo=astro&logoColor=white">
+    <img alt="Astro" src="https://img.shields.io/badge/Astro-7-FF5D01?logo=astro&logoColor=white">
+  </a>
+  <a href="https://svelte.dev/" title="Svelte">
+    <img alt="Svelte" src="https://img.shields.io/badge/Svelte-5-FF3E00?logo=svelte&logoColor=white">
   </a>
   <a href="https://www.typescriptlang.org/" title="TypeScript">
     <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white">
@@ -52,13 +55,14 @@
 
 ## ทำไมเว็บนี้ถึง “ไว” และ “ครบ”
 
-- Astro 6: สร้างหน้า static สองภาษาและส่ง JavaScript เท่าที่ฟีเจอร์ต้องใช้
+- Astro 7 + Svelte 5: สร้างหน้า static สองภาษา และ hydrate เฉพาะ island ที่ต้องใช้ JavaScript
+- Hero แบบ 3D motion เต็มจอ: ลูกโลก WebGL จาก [Motion Core](https://motion-core.dev/) (OGL + GSAP ScrollTrigger) ที่ขยับตามการ scroll แล้วกลายเป็นพื้นหลังของ resume
 - Tailwind CSS Utilities: ออกแบบให้สวยไวโดยไม่ต้องแบก CSS หนักๆ
 - PWA พร้อมใช้งาน: เว็บแอปติดตั้งได้ ออฟไลน์ได้ (ผ่าน @vite-pwa/astro)
 - SEO/Meta ครบ: sitemap, robots.txt, Open Graph พร้อมตั้งแต่แรก
 - ภาพคม ชัด เร็ว: ใช้ astro:assets กับไฟล์ภาพที่เตรียมไว้ล่วงหน้า
 - i18n 2 ภาษา: English/ไทย ด้วยโครงสร้างไฟล์ชัดเจน ใช้งานง่าย
-- Markup ที่ใช้ซ้ำรวมไว้ใน `SectionShell.astro` และ `StatGrid.astro` เพื่อลด wrapper และป้องกัน style ของแต่ละ section คลาดเคลื่อนกัน
+- Markup ที่ใช้ซ้ำรวมไว้ใน `SectionShell.svelte` และ `StatGrid.svelte` เพื่อลด wrapper และป้องกัน style ของแต่ละ section คลาดเคลื่อนกัน
 
 ---
 
@@ -84,7 +88,8 @@ bun run build
 - Work timeline: `src/components/work/en|th/*.md`
 - ข้อมูล resume และสถิติ: `src/i18n/*.json`
 - สลับภาษา: โครงหน้าหลัก EN ที่ `src/pages/index.astro` และ TH ที่ `src/pages/th/index.astro`
-- section layout และ stat cards ที่ใช้ร่วมกัน: `src/components/SectionShell.astro` และ `src/components/StatGrid.astro`
+- section layout และ stat cards ที่ใช้ร่วมกัน: `src/components/SectionShell.svelte` และ `src/components/StatGrid.svelte`
+- Motion Core components: `src/lib/motion-core/` (เพิ่มด้วย `bunx @motion-core/cli add <component>` และห้ามรัน token sync เข้า `global.css`)
 
 ---
 
@@ -99,4 +104,4 @@ License: โปรดดูที่ไฟล์ [LICENSE](./LICENSE)
 
 —
 
-Made with Astro & a lot of care. หากมีข้อเสนอแนะ/ไอเดีย PR ได้เลย หรือเปิด Issue มาพูดคุยกันครับ 🙌
+Made with Astro, Svelte & a lot of care. หากมีข้อเสนอแนะ/ไอเดีย PR ได้เลย หรือเปิด Issue มาพูดคุยกันครับ 🙌

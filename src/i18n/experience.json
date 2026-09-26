@@ -1,15 +1,15 @@
 {
   "birthday": "1988-09-30T07:00:00.000+07:00",
-  "interview": true,
+  "interview": false,
   "currencry": {
     "ccy": "USD",
     "sell": 31.2,
     "buy": 31.2
   },
   "salary": {
-    "base": 77270,
+    "base": 87670,
     "extra": 242460,
-    "expect": 126000,
+    "expect": 140272,
     "day": 20,
     "hour": 8
   },
@@ -107,37 +107,25 @@
   "social": [
     {
       "name": "github",
-      "icon": [
-        "fab",
-        "github"
-      ],
+      "icon": ["fab", "github"],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": [
-        "fab",
-        "linkedin"
-      ],
+      "icon": ["fab", "linkedin"],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": [
-        "fas",
-        "clock"
-      ],
+      "icon": ["fas", "clock"],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": [
-        "fab",
-        "codepen"
-      ],
+      "icon": ["fab", "codepen"],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -194,25 +182,8 @@
       "Discord",
       "Slack"
     ],
-    "sql": [
-      "PostgreSQL",
-      "Redis",
-      "MongoDB",
-      "Influx",
-      "MySQL",
-      "Oracle",
-      "MSSQL",
-      "SQLite"
-    ],
-    "os": [
-      "Chat GPT",
-      "AWS",
-      "Azure",
-      "GCloud",
-      "CentOS",
-      "Debian",
-      "Fedora"
-    ]
+    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
+    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
   },
   "contact": [
     {
