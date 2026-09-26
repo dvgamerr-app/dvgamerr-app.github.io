@@ -14,7 +14,8 @@
 	} from "ogl";
 	import { gsap } from "gsap";
 	import type { Snippet } from "svelte";
-	import landTextureUrl from "../assets/land-texture.png";
+	// Astro turns bare image imports into ImageMetadata objects; `?url` keeps a plain string.
+	import landTextureUrl from "../assets/land-texture.png?url";
 	import { type ColorRepresentation, toLinearRgb } from "../helpers/color";
 	import type { GlobeMarker, GlobeMarkerTooltipContext } from "./types";
 	import GlobeMarkerItem from "./GlobeMarkerItem.svelte";
@@ -133,6 +134,12 @@
 		 * Coordinates [lat, lon] to focus on.
 		 */
 		focusOn?: [number, number] | null;
+		/**
+		 * Extra longitude rotation in radians applied on top of the camera
+		 * (e.g. driven by scroll progress).
+		 * @default 0
+		 */
+		rotationOffset?: number;
 	}
 
 	interface ProjectedMarker {
@@ -202,6 +209,7 @@
 		markers = [],
 		markerTooltip,
 		focusOn = null,
+		rotationOffset = 0,
 	}: Props = $props();
 
 	let projectedMarkers = $state<ProjectedMarker[]>([]);
@@ -369,7 +377,8 @@
 			canvas: targetCanvas,
 			alpha: true,
 			antialias: true,
-			dpr: typeof window !== "undefined" ? window.devicePixelRatio : 1,
+			// Cap DPR: the globe is a full-screen fragment shader.
+			dpr: typeof window !== "undefined" ? Math.min(window.devicePixelRatio, 1.5) : 1,
 		});
 		const gl = renderer.gl;
 		gl.clearColor(0, 0, 0, 0);
@@ -643,9 +652,9 @@
 						markerColor /= markerWeightSum;
 					}
 
-					vec3 surface = uBaseColor;
-					surface += uRimColor * rim;
-					surface += uLandPointColor * (landDots * (1.0 - markerMask));
+					// Mix instead of add so light base colors do not wash out to white.
+					vec3 surface = mix(uBaseColor, uRimColor, clamp(rim, 0.0, 1.0));
+					surface = mix(surface, uLandPointColor, landDots * (1.0 - markerMask));
 
 					// Keep marker color clean and dominant over land dots.
 					vec3 boostedMarker = markerColor * (1.0 + 0.25 * markerMask);
@@ -1040,9 +1049,10 @@
 			phi += (targetPhi - phi) * easing;
 			theta += (targetTheta - theta) * easing;
 
-			uniforms.uRotation.value.set(phi, theta);
+			const displayPhi = phi + rotationOffset;
+			uniforms.uRotation.value.set(displayPhi, theta);
 
-			syncMarkers(phi, theta, currentScale);
+			syncMarkers(displayPhi, theta, currentScale);
 			renderer.render({ scene: globeScene, camera, clear: true });
 			renderer.render({ scene: atmosphereScene, camera, clear: false });
 			raf = window.requestAnimationFrame(tick);

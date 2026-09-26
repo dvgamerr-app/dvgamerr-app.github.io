@@ -74,6 +74,11 @@
 		 * When set, auto-rotation will be disabled temporarily.
 		 */
 		focusOn?: [number, number] | null;
+		/**
+		 * Extra longitude rotation in radians applied on top of the camera.
+		 * @default 0
+		 */
+		rotationOffset?: SceneProps["rotationOffset"];
 
 		[key: string]: unknown;
 	}
@@ -93,6 +98,7 @@
 		markers = [],
 		markerTooltip,
 		focusOn = null,
+		rotationOffset = 0,
 		...rest
 	}: Props = $props();
 </script>
@@ -113,6 +119,7 @@
 			{markers}
 			{markerTooltip}
 			{focusOn}
+			{rotationOffset}
 		/>
 	</div>
 </div>
