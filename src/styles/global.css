@@ -287,6 +287,28 @@ ul {
   page-break-before: always;
 }
 
+/* ── Scroll motion: resume blocks rise in as they enter the viewport (CSS scroll-driven, no JS) ── */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @supports (animation-timeline: view()) {
+    .scroll-reveal {
+      animation: scroll-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+  }
+}
+
+@keyframes scroll-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(2.5rem);
+  }
+}
+
 /* ── Markdown ── */
 .markdown ul > li {
   padding-left: 14px;
