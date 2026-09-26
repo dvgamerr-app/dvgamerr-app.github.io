@@ -13,6 +13,10 @@
   },
   "job": "Software Engineer",
   "detail": "I'm KEM, a Software Engineer based in Bangkok. I hold a B.Sc. in Information Technology from Phetchaburi Rajabhat University and currently work on the Digital Technology team at SCG, contributing to the development and maintenance of innovative software solutions.",
+  "hero": {
+    "lead": "Software Engineer crafting",
+    "words": ["scalable APIs", "modern web apps", "CI/CD automation", "open-source tools"]
+  },
   "work_dump": [
     {
       "work": "Bangkok, Sathorn.",

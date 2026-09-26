@@ -12,7 +12,3 @@ export function getLangFromUrl(url: URL) {
 export function useTranslations(lang: Lang) {
   return (key: TranslationKey) => ui[lang][key] || ui[defaultLang][key]
 }
-
-export function getTranslate(url: URL) {
-  return useTranslations(getLangFromUrl(url))
-}
