@@ -48,7 +48,7 @@
         <div class="grid sm:grid-cols-2 xl:grid-cols-4 print:grid-cols-3 gap-2">
           {#each contactPrint.filter((e) => e.qrcode) as e, i (i)}
             <div class="hidden print:block">
-              <img src={e.qrcode} height="160" alt={`QR ${e.label}`} data-not-lazy />
+              <img src={`/${e.qrcode}`} height="160" alt={`QR ${e.label}`} data-not-lazy />
             </div>
           {/each}
           <div class="hidden print:block">
