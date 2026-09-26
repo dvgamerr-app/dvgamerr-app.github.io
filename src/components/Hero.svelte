@@ -200,8 +200,8 @@
             <path d="M12 5v14M6 13l6 6 6-6"></path>
           </svg>
         </a>
-        <a href="#contact" class={button.secondary}>
-          {t('hero.contact')}
+        <a href="#experience" class={button.secondary}>
+          {t('hero.experience')}
         </a>
       </div>
     </div>

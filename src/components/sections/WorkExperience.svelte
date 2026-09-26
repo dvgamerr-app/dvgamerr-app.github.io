@@ -18,7 +18,7 @@
   const t = $derived(useTranslations(lang))
 </script>
 
-<section class="pt-8 md:pt-0 pb-6 md:pb-10">
+<section id="experience" class="scroll-mt-4 pt-8 md:pt-0 pb-6 md:pb-10">
   <div class="max-w-7xl mx-auto px-4 md:grid md:grid-cols-12 md:gap-x-8 md:gap-y-1 print:mt-12">
     <div class="md:col-span-3 mb-2">
       <SectionTitle>{t('experience')}</SectionTitle>
