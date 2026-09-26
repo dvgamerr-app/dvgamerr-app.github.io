@@ -241,10 +241,10 @@
     }
   }
 
+  /* No opacity: 0 here, so the hero h1 stays a paint candidate for Largest Contentful Paint. */
   @keyframes hero-rise {
     from {
-      opacity: 0;
-      filter: blur(6px);
+      filter: blur(8px);
       transform: translateY(1.5rem);
     }
   }

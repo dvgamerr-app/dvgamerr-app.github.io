@@ -63,7 +63,7 @@
             src={photo}
             width="510"
             height="620"
-            loading="eager"
+            loading="lazy"
             decoding="async"
             alt={`${resume.fullname} - profile photo`}
             class="w-full h-[60vh] sm:h-64 lg:h-auto object-cover ring-1 ring-gray-900/10 dark:ring-white/10"
@@ -73,9 +73,10 @@
       <div class="md:col-span-6">
         <p class="eyebrow mt-6 md:mt-1 text-(--text-color-link) print:hidden">{resume.job}</p>
         <div class="flex items-center justify-between gap-4 relative">
-          <h1 class="flex flex-1 uppercase th-label mt-2 text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+          <!-- The hero owns the page h1; this h2 keeps the former 36px h1 size from global.css. -->
+          <h2 class="flex flex-1 uppercase th-label mt-2 text-[36px]! font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {resume.fullname}
-          </h1>
+          </h2>
         </div>
         <span class="th-label hidden print:block text-xl font-semibold text-gray-900">{resume.fullname_th}</span>
         {@render badges?.()}
