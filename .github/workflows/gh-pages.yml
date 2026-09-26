@@ -31,6 +31,7 @@ jobs:
       PROD: true
       PUBLIC_ADSENSE_CLIENT: ${{ vars.PUBLIC_ADSENSE_CLIENT }}
       PUBLIC_ADSENSE_HOME_SLOT: ${{ vars.PUBLIC_ADSENSE_HOME_SLOT }}
+      PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout

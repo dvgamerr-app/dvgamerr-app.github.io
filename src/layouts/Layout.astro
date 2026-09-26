@@ -27,6 +27,7 @@ const canonicalUrl = pageUrl(lang)
 const markdownUrl = lang === 'th' ? '/th/index.md' : '/index.md'
 const ogLocale = { en: 'en_US', th: 'th_TH' }
 const [firstName, ...lastName] = fullname.split(' ')
+const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
 // Escape "<" so no string inside the JSON can close the script element.
 const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\u003c')
 ---
@@ -51,6 +52,7 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="icon" type="image/webp" sizes="64x64" href="/icon-64.webp" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
+    {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
     <meta name="application-name" content="dvgamerr.app" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
