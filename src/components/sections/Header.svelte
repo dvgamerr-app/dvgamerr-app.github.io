@@ -34,9 +34,12 @@
     return id.join(' ')
   }
 
+  // Monthly income spreads the yearly extra across 12 months on top of the base salary.
+  const monthlyIncome = $derived(experience.salary.base + experience.salary.extra / 12)
+
   const showSalary = () => {
-    const { base, day, hour } = experience.salary
-    const perHourTHB = Math.round((base / day / hour) * 100) / 100
+    const { day, hour } = experience.salary
+    const perHourTHB = Math.round((monthlyIncome / day / hour) * 100) / 100
 
     if (lang === 'en') {
       const rate = experience.currencry.sell
@@ -45,7 +48,7 @@
     }
     return `${perHourTHB} ${t('head.salary.currency')}${t('head.salary.hour')}`
   }
-  const showSalaryFull = () => `${numeral(experience.salary.base).format('0,0')} THB`
+  const showSalaryFull = () => `${numeral(monthlyIncome).format('0,0')} THB`
   const showExpect = () => `${numeral(experience.salary.expect).format('0,0')} THB`
 </script>
 
