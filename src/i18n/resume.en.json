@@ -17,6 +17,12 @@
     "lead": "Software Engineer shipping",
     "words": ["agentic AI", "multi-agent orchestration", "AI-native apps", "LLMOps pipelines", "GitOps platforms"]
   },
+  "seo": {
+    "title": "Kananek Thongkam (dvgamerr) — Software Engineer in Bangkok",
+    "description": "Kananek Thongkam (KEM, dvgamerr) is a Software Engineer at SCG in Bangkok building agentic AI, multi-agent systems and GitOps platforms. Resume and experience.",
+    "keywords": "Kananek Thongkam, กัณฑ์อเนก ทองคำ, dvgamerr, KEM, Software Engineer, Bangkok, Thailand, SCG, agentic AI, resume, portfolio",
+    "worksFor": "SCG"
+  },
   "work_dump": [
     {
       "work": "Bangkok, Sathorn.",

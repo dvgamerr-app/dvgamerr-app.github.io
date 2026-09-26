@@ -16,6 +16,12 @@
     "lead": "วิศวกรซอฟต์แวร์ผู้สร้าง",
     "words": ["Agentic AI", "ระบบ Multi-agent", "แอป AI-native", "ไปป์ไลน์ LLMOps", "แพลตฟอร์ม GitOps"]
   },
+  "seo": {
+    "title": "กัณฑ์อเนก ทองคำ (Kananek Thongkam) — วิศวกรซอฟต์แวร์ กรุงเทพฯ",
+    "description": "กัณฑ์อเนก ทองคำ (เขม, dvgamerr) วิศวกรซอฟต์แวร์ที่ SCG กรุงเทพฯ ทำงานด้าน Agentic AI ระบบ Multi-agent และแพลตฟอร์ม GitOps ดูเรซูเม่ ทักษะ และประสบการณ์ทำงาน",
+    "keywords": "กัณฑ์อเนก ทองคำ, Kananek Thongkam, dvgamerr, เขม, วิศวกรซอฟต์แวร์, Software Engineer, กรุงเทพฯ, SCG, เรซูเม่, พอร์ตโฟลิโอ",
+    "worksFor": "SCG"
+  },
   "work_dummy": [
     {
       "work": "Bangkok, Sathorn.",

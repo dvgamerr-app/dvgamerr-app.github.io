@@ -13,6 +13,7 @@ import expData from '../i18n/experience.json'
 import resumeData from '../i18n/resume.en.json'
 import { getLangFromUrl } from '../i18n/utils'
 import Layout from '../layouts/Layout.astro'
+import { buildStructuredData } from '../utils/seo'
 import { loadWorkHtml } from '../utils/workContent'
 
 interface Props {
@@ -27,13 +28,17 @@ dayjs.locale(lang)
 
 const workHtml = await loadWorkHtml(lang)
 const adSlot = import.meta.env.PUBLIC_ADSENSE_HOME_SLOT
+const { title, description, keywords } = resume.seo
+const structuredData = buildStructuredData(lang, { title, description })
 ---
 
 <Layout
-  title={`${resume.fullname} - ${resume.job} | Portfolio & Resume`}
-  description={resume.detail.substring(0, 180) + (resume.detail.length > 180 ? '...' : '')}
+  title={title}
+  description={description}
   image="/fb-social.jpg"
-  keyword="kananek,t.,kananek-thongkam,thongkam,tk,resume,kem,kanane,kt"
+  keyword={keywords}
+  fullname={resume.fullname}
+  structuredData={structuredData}
 >
   <Hero client:load lang={lang} resume={resume} interview={experience.interview} />
   <main class="relative z-10 max-w-7xl mx-auto px-4 pt-5 pb-8 md:pt-17 md:pb-12">
