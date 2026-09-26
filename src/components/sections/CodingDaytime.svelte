@@ -44,8 +44,8 @@
 </script>
 
 <SectionShell title={t('daytime')} note="wakatime.com" printHidden titleClass="text-[1.2rem] -mt-0.5">
-  <div class="grid gap-6 lg:grid-cols-2">
-    <div class="rounded mt-6">
+  <div class="grid gap-x-10 gap-y-12 lg:grid-cols-2">
+    <div class="mt-6">
       <table class="w-full h-50 charts-css column show-heading data-spacing-2 datasets-spacing-3 hide-data show-labels">
         <caption>{t('daytime.caption')}</caption>
         <thead>
@@ -67,7 +67,7 @@
         </tbody>
       </table>
     </div>
-    <div class="rounded mt-6">
+    <div class="mt-6">
       <table id="charts-weektime" class="w-full h-50 charts-css column data-spacing-5 datasets-spacing-3 hide-data show-labels">
         <tbody>
           {#each coding.weektime as weekTime, i (i)}
