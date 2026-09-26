@@ -1,30 +1,34 @@
 ---
 import dayjs from 'dayjs'
 import 'dayjs/locale/th'
-import Layout from '../layouts/Layout.astro'
-import SectionHeader from '../components/sections/Header.astro'
-import ContentResume from '../components/Resume.astro'
-import WorkExperience from '../components/sections/WorkExperience.astro'
-import SectionFooter from '../components/Footer.astro'
-import GoogleAd from '../components/GoogleAd.astro'
-import SectionProject from '../components/sections/Project.astro'
-import HeaderActions from '../components/HeaderActions.astro'
 
-import { getLangFromUrl, getTranslate } from '../i18n/utils'
-const t = getTranslate(Astro.url)
+import Footer from '../components/Footer.svelte'
+import GoogleAd from '../components/GoogleAd.svelte'
+import HeaderActions from '../components/HeaderActions.svelte'
+import ProfileBadges from '../components/ProfileBadges.svelte'
+import Resume from '../components/Resume.svelte'
+import Header from '../components/sections/Header.svelte'
+import SectionProject from '../components/sections/Project.astro'
+import WorkExperience from '../components/sections/WorkExperience.svelte'
+import expData from '../i18n/experience.json'
+import resumeData from '../i18n/resume.en.json'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import Layout from '../layouts/Layout.astro'
+import { loadWorkHtml } from '../utils/workContent'
 
 interface Props {
   resume: any
   experience?: any
 }
 
-import expData from '../i18n/experience.json'
-import resumeData from '../i18n/resume.en.json'
-
-const langName = getLangFromUrl(Astro.url)
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 const { experience = expData, resume = resumeData } = Astro.props
 
-dayjs.locale(langName)
+dayjs.locale(lang)
+
+const workHtml = await loadWorkHtml(lang)
+const adSlot = import.meta.env.PUBLIC_ADSENSE_HOME_SLOT
 ---
 
 <Layout
@@ -38,7 +42,7 @@ dayjs.locale(langName)
       <section class="md:grid md:grid-cols-8 md:gap-8">
         <div class="md:col-start-3 md:col-span-6">
           <div class="flex items-center justify-end gap-4 relative">
-            <HeaderActions langName={langName} />
+            <HeaderActions client:load lang={lang} />
           </div>
           <div class="mt-6 px-6 py-6">
             <h1 class="text-2xl md:text-4xl font-semibold tracking-tight">
@@ -70,17 +74,19 @@ dayjs.locale(langName)
       class="border-0 h-px my-10 bg-gradient-to-r from-transparent via-black/20 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white/25 dark:to-transparent"
     />
     {
-      import.meta.env.PUBLIC_ADSENSE_HOME_SLOT && (
+      adSlot && (
         <div class="container my-4 print:hidden">
-          <GoogleAd slot={import.meta.env.PUBLIC_ADSENSE_HOME_SLOT} />
+          <GoogleAd client:visible adSlot={adSlot} />
         </div>
       )
     }
 
-    <SectionHeader resume={resume} experience={experience} />
-    <ContentResume resume={resume} experience={experience} />
+    <Header lang={lang} resume={resume} experience={experience}>
+      <ProfileBadges client:idle slot="badges" />
+    </Header>
+    <Resume lang={lang} resume={resume} experience={experience} />
     <div class="pagebreak" aria-hidden="true"></div>
-    <WorkExperience workExperience={resume.work} />
-    <SectionFooter />
+    <WorkExperience lang={lang} workExperience={resume.work} workHtml={workHtml} />
+    <Footer lang={lang} />
   </main>
 </Layout>
