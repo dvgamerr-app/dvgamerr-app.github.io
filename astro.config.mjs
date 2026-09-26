@@ -45,6 +45,7 @@ export default defineConfig({
           th: 'th-TH',
         },
       },
+      lastmod: new Date(),
     }),
   ],
   site: 'https://dvgamerr.app',
