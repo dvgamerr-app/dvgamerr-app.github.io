@@ -287,6 +287,27 @@ ul {
   page-break-before: always;
 }
 
+/* ── Tracked uppercase labels shared with the hero; Thai keeps normal spacing so word shapes stay intact ── */
+@layer components {
+  .caps {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .caps:lang(th),
+  .eyebrow:lang(th) {
+    letter-spacing: normal;
+  }
+}
+
 /* ── Scroll motion: resume blocks rise in as they enter the viewport (CSS scroll-driven, no JS) ── */
 @media screen and (prefers-reduced-motion: no-preference) {
   html {

@@ -8,6 +8,7 @@
 
   import photo from '../../assets/kk_00248.webp?url'
   import { type Lang, useTranslations } from '../../i18n/utils'
+  import { pill } from '../../lib/ui'
   import type { Experience, Resume } from '../../types'
 
   dayjs.extend(relativeTime)
@@ -56,7 +57,8 @@
   <div class="max-w-7xl mx-auto px-4">
     <div class="md:grid md:grid-cols-8 md:gap-8">
       <div class="md:col-span-2">
-        <div class="block md:flex justify-end print:hidden">
+        <div class="relative block md:flex justify-end print:hidden">
+          <span class="absolute top-0 left-0 z-10 h-px w-12 bg-(--text-color-link)" aria-hidden="true"></span>
           <img
             src={photo}
             width="510"
@@ -64,17 +66,17 @@
             loading="eager"
             decoding="async"
             alt={`${resume.fullname} - profile photo`}
-            class="w-full h-[60vh] sm:h-64 lg:h-auto object-cover rounded-none md:rounded-lg shadow-none md:shadow-md"
+            class="w-full h-[60vh] sm:h-64 lg:h-auto object-cover ring-1 ring-gray-900/10 dark:ring-white/10"
           />
         </div>
       </div>
       <div class="md:col-span-6">
+        <p class="eyebrow mt-6 md:mt-1 text-(--text-color-link) print:hidden">{resume.job}</p>
         <div class="flex items-center justify-between gap-4 relative">
           <h1 class="flex flex-1 uppercase th-label mt-2 text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {resume.fullname}
           </h1>
         </div>
-        <span class="th-label block mt-1 text-lg font-medium text-gray-600 dark:text-gray-300 print:hidden">{resume.job}</span>
         <span class="th-label hidden print:block text-xl font-semibold text-gray-900">{resume.fullname_th}</span>
         {@render badges?.()}
         <p contenteditable="false" class="mt-4 leading-relaxed text-gray-700 dark:text-gray-300 text-sm md:text-base">{resume.detail}</p>
@@ -85,11 +87,11 @@
               <strong class="hidden print:block font-medium th-label leading-[0.8] text-gray-900">
                 {resume.nickname}&nbsp;{#if lang === 'en'}<span class="text-gray-600">({resume.nickname_th})</span>{/if}
               </strong>
-              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400">{t('head.nickname')}</small>
+              <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400">{t('head.nickname')}</small>
             </div>
             <div class="flex flex-col justify-start">
               <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8]">{showBirthday()}</strong>
-              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400"
+              <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400"
                 >{t('head.age')}&nbsp;{showAge().replace('years', t('head.age.old'))}</small
               >
             </div>
@@ -102,45 +104,47 @@
                   </div>
                 {/each}
               </strong>
-              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400">{t('head.language')}</small>
+              <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400">{t('head.language')}</small>
             </div>
             <div class="print:flex flex-col justify-start hidden">
               <strong class="font-medium th-label leading-[0.8] text-gray-900">{resume.religion}</strong>
-              <small class="uppercase mt-0.5 text-gray-500">{t('head.religion')}</small>
+              <small class="eyebrow mt-1 text-[10px] text-gray-500">{t('head.religion')}</small>
             </div>
             <div class="print:flex flex-col justify-start hidden">
               <strong class="font-medium th-label leading-[0.8] text-gray-900">{resume.national}</strong>
-              <small class="uppercase mt-0.5 text-gray-500">{t('head.nationality')}</small>
+              <small class="eyebrow mt-1 text-[10px] text-gray-500">{t('head.nationality')}</small>
             </div>
             <div class="print:flex flex-col justify-start hidden">
               <strong class="font-medium th-label leading-[0.8] text-gray-900">{showNationalId()}</strong>
-              <small class="uppercase mt-0.5 text-gray-500">{t('head.national_id')}</small>
+              <small class="eyebrow mt-1 text-[10px] text-gray-500">{t('head.national_id')}</small>
             </div>
             <div class="flex flex-col justify-start">
               <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8]">{resume.location}</strong>
-              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400">{t('head.location')}</small>
+              <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400">{t('head.location')}</small>
             </div>
             <div class="flex flex-col justify-start">
               <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8] print:hidden">{showSalary()}</strong>
-              <small class="uppercase mt-0.5 text-gray-500 dark:text-gray-400 print:hidden">{t('head.income')}</small>
+              <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400 print:hidden">{t('head.income')}</small>
               <strong class="hidden print:block font-medium th-label leading-[0.8] text-gray-900">{showSalaryFull()}</strong>
-              <small class="uppercase hidden print:block mt-0.5 text-gray-500">{t('head.salary')}</small>
+              <small class="eyebrow hidden print:block mt-1 text-[10px] text-gray-500">{t('head.salary')}</small>
             </div>
             <div class="print:flex flex-col justify-start hidden">
               <strong class="font-medium th-label leading-[0.8] text-gray-900">{showExpect()}</strong>
-              <small class="uppercase mt-0.5 text-gray-500">{t('head.salary.expect')}</small>
+              <small class="eyebrow mt-1 text-[10px] text-gray-500">{t('head.salary.expect')}</small>
             </div>
             <div class="flex flex-col leading-[0.8] print:hidden">
               {#if experience.interview}
-                <span class="inline-block rounded-none bg-green-600/90 text-white text-xs px-2 py-0.5 -mt-1.5 font-medium w-fit">
+                <span class={[pill('success'), 'w-fit -mt-1.5']}>
+                  <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true"></span>
                   {t('head.availability.yes')}
                 </span>
               {:else}
-                <span class="inline-block rounded-none bg-red-600/90 text-white text-xs px-2 py-0.5 -mt-1.5 font-medium w-fit">
+                <span class={[pill('danger'), 'w-fit -mt-1.5']}>
+                  <span class="h-1.5 w-1.5 rounded-full bg-red-500" aria-hidden="true"></span>
                   {t('head.availability.no')}
                 </span>
               {/if}
-              <small class="uppercase mt-1.5 text-gray-500 dark:text-gray-400">{t('head.availability')}</small>
+              <small class="eyebrow mt-2 text-[10px] text-gray-500 dark:text-gray-400">{t('head.availability')}</small>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@
   import { type Lang, useTranslations } from '../i18n/utils'
   import { Globe, type GlobeMarker, type GlobeMarkerTooltipContext, TextLoop } from '../lib/motion-core'
   import { themeState } from '../lib/theme.svelte'
+  import { button, pill } from '../lib/ui'
   import type { Resume } from '../types'
   import HeaderActions from './HeaderActions.svelte'
 
@@ -18,8 +19,6 @@
   let { lang, resume, interview }: Props = $props()
 
   const t = $derived(useTranslations(lang))
-  // Wide tracking reads well in Latin caps but breaks Thai word shapes.
-  const eyebrowTracking = $derived(lang === 'th' ? 'tracking-normal' : 'tracking-[0.2em]')
 
   const BANGKOK: [number, number] = [13.7563, 100.5018]
 
@@ -150,12 +149,7 @@
 
   <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-end px-4 pt-10 pb-28 landscape:items-center">
     <div bind:this={copyEl} class="max-w-xl">
-      <p
-        class={[
-          'hero-rise flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium uppercase text-gray-600 dark:text-gray-400',
-          eyebrowTracking,
-        ]}
-      >
+      <p class="hero-rise eyebrow flex flex-wrap items-center gap-x-3 gap-y-2 text-gray-600 dark:text-gray-400">
         <span class="th-label inline-flex items-center gap-1.5">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
             <path d="M12 21s-7-5.4-7-11a7 7 0 1 1 14 0c0 5.6-7 11-7 11Z"></path>
@@ -164,9 +158,7 @@
           {t('hero.location')}
         </span>
         {#if interview}
-          <span
-            class="th-label inline-flex items-center gap-1.5 rounded-full border border-green-600/30 dark:border-green-400/30 bg-green-50/80 dark:bg-green-900/30 px-2.5 py-1 normal-case tracking-normal text-green-700 dark:text-green-300"
-          >
+          <span class={[pill('success'), 'normal-case tracking-normal']}>
             <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true"></span>
             {t('hero.available')}
           </span>
@@ -202,19 +194,13 @@
       </p>
 
       <div class="hero-rise mt-8 flex flex-wrap items-center gap-3" style="--delay: 320ms">
-        <a
-          href="#resume"
-          class="th-label inline-flex min-h-11 items-center gap-2 border border-(--text-color-link) bg-(--text-color-link) px-5 text-sm font-semibold text-white! hover:bg-transparent hover:text-(--text-color-link)! focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--text-color-link)"
-        >
+        <a href="#resume" class={button.primary}>
           {t('head.button.resume')}
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M12 5v14M6 13l6 6 6-6"></path>
           </svg>
         </a>
-        <a
-          href="#contact"
-          class="th-label inline-flex min-h-11 items-center border border-gray-600/40 bg-white/40 dark:bg-gray-900/30 px-5 text-sm font-semibold text-gray-700! dark:text-gray-100! backdrop-blur-sm hover:border-(--text-color-link) hover:text-(--text-color-link)! focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
-        >
+        <a href="#contact" class={button.secondary}>
           {t('hero.contact')}
         </a>
       </div>
@@ -224,10 +210,7 @@
   <a
     bind:this={cueEl}
     href="#resume"
-    class={[
-      'th-label absolute bottom-6 left-1/2 flex min-h-11 -translate-x-1/2 flex-col items-center gap-2 text-[11px] font-medium uppercase text-gray-500! dark:text-gray-400!',
-      eyebrowTracking,
-    ]}
+    class="eyebrow th-label absolute bottom-6 left-1/2 flex min-h-11 -translate-x-1/2 flex-col items-center gap-2 text-[11px] font-medium text-gray-500! dark:text-gray-400!"
   >
     <span>{t('hero.scroll')}</span>
     <span class="relative h-10 w-px overflow-hidden bg-gray-400/40" aria-hidden="true">

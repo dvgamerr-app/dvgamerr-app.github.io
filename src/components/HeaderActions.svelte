@@ -2,6 +2,7 @@
   import { type Lang, useTranslations } from '../i18n/utils'
   import { languages } from '../i18n/ui'
   import { applyTheme, themeState } from '../lib/theme.svelte'
+  import { button } from '../lib/ui'
 
   interface Props {
     lang: Lang
@@ -11,30 +12,29 @@
 
   const t = $derived(useTranslations(lang))
   const otherLang = $derived<Lang>(lang === 'en' ? 'th' : 'en')
-
-  const itemClass =
-    'h-10 min-w-10 lg:h-8 lg:min-w-0 px-2.5 lg:px-3 inline-flex items-center justify-center gap-1 border border-gray-300/60 bg-white/80 dark:bg-gray-700/40 backdrop-blur-sm text-gray-700! dark:text-gray-200! hover:text-(--text-color-link)! hover:bg-gray-50 dark:hover:bg-gray-600/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400/60 transition'
 </script>
 
 <ul class="flex items-center gap-2 text-sm print:hidden">
   <li>
-    <a
-      href="https://github.com/sponsors/dvgamerr"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="h-10 min-w-10 lg:h-8 lg:min-w-0 px-2.5 lg:px-3 inline-flex items-center justify-center gap-1 border border-pink-300/60 hover:border-pink-300 bg-pink-50 dark:bg-pink-900/40 text-pink-600! dark:text-pink-300! transition"
-      aria-label="Sponsor"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16" width="16" fill="currentColor" aria-hidden="true">
+    <a href="https://github.com/sponsors/dvgamerr" target="_blank" rel="noopener noreferrer" class={button.icon} aria-label="Sponsor">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        height="16"
+        width="16"
+        fill="currentColor"
+        class="text-pink-500"
+        aria-hidden="true"
+      >
         <path
           d="M12.1 21.35l-1.1-1.01C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41.81 4.5 2.09C12.09 4.81 13.76 4 15.5 4 18 4 20 6 20 8.5c0 3.78-3.4 6.86-9 11.84l-1 .91z"
         ></path>
       </svg>
-      <span class="uppercase text-xs font-medium mt-0.5 xl:inline hidden">{t('head.sponsor')}</span>
+      <span class="mt-0.5 hidden xl:inline">{t('head.sponsor')}</span>
     </a>
   </li>
   <li>
-    <a href={otherLang === 'en' ? '/' : '/th'} hreflang={otherLang} class={itemClass} aria-label="Switch language">
+    <a href={otherLang === 'en' ? '/' : '/th'} hreflang={otherLang} class={button.icon} aria-label="Switch language">
       <svg
         viewBox="0 0 24 24"
         width="16"
@@ -49,11 +49,11 @@
         <circle cx="12" cy="12" r="10"></circle>
         <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"></path>
       </svg>
-      <span class="uppercase text-xs font-medium mt-0.5 xl:inline hidden">{languages[lang]}</span>
+      <span class="mt-0.5 hidden xl:inline">{languages[lang]}</span>
     </a>
   </li>
   <li>
-    <button type="button" class={itemClass} aria-label="Print CV" onclick={() => print()}>
+    <button type="button" class={button.icon} aria-label="Print CV" onclick={() => print()}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -71,13 +71,13 @@
         <path d="M6 17h12v3H6z"></path>
         <path d="M9 14h6"></path>
       </svg>
-      <span class="uppercase text-xs font-medium mt-0.5 xl:inline hidden">cv</span>
+      <span class="mt-0.5 hidden xl:inline">cv</span>
     </button>
   </li>
   <li>
     <button
       type="button"
-      class={itemClass}
+      class={button.icon}
       aria-label="Toggle theme"
       onclick={() => applyTheme(themeState.current === 'dark' ? 'light' : 'dark')}
     >
@@ -93,8 +93,8 @@
           d="M16.5 6A10.5 10.5 0 0 1 4.7 16.4 8.5 8.5 0 1 0 16.4 4.7l.1 1.3zm-1.7-2a9 9 0 0 1 .2 2 9 9 0 0 1-11 8.8 9.4 9.4 0 0 1-.8-.3c-.4 0-.8.3-.7.7a10 10 0 0 0 .3.8 10 10 0 0 0 9.2 6 10 10 0 0 0 4-19.2 9.7 9.7 0 0 0-.9-.3c-.3-.1-.7.3-.6.7a9 9 0 0 1 .3.8z"
         ></path>
       </svg>
-      <span class="text-xs mt-0.5 font-medium hidden xl:inline xl:dark:hidden">{t('button.light')}</span>
-      <span class="text-xs mt-0.5 font-medium hidden xl:dark:inline">{t('button.dark')}</span>
+      <span class="mt-0.5 hidden xl:inline xl:dark:hidden">{t('button.light')}</span>
+      <span class="mt-0.5 hidden xl:dark:inline">{t('button.dark')}</span>
     </button>
   </li>
 </ul>

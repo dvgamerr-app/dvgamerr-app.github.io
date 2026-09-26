@@ -15,7 +15,7 @@
 
 <footer class="print:hidden max-w-7xl mx-auto px-4 pt-8 md:pt-12 pb-4 md:pb-8">
   <div class="md:grid md:grid-cols-12 md:gap-8">
-    <div class="md:col-start-4 md:col-span-9">
+    <div class="md:col-start-4 md:col-span-9 border-t border-gray-900/10 pt-6 dark:border-white/10">
       <div class="flex flex-row flex-nowrap justify-end items-end gap-1 font-sans font-normal text-[0.8rem]">
         &copy; {year}
         <b>dvgamerr</b>
