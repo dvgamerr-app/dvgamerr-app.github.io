@@ -16,7 +16,7 @@ export default defineConfig({
       includeAssets: ['favicon.svg', 'icon-128.png', 'icon-144.png'],
       manifest: {
         background_color: '#f8f8f8',
-        description: "Hey there, My name is Kananek T. and I'm a Software Engineer.",
+        description: "Hey there, My name is Kananek T. and I'm a Technical Lead Software Engineer.",
         display: 'standalone',
         icons: [
           {
@@ -30,7 +30,7 @@ export default defineConfig({
             type: 'image/png',
           },
         ],
-        name: 'Kananek Thongkam | Software Engineer',
+        name: 'Kananek Thongkam | Technical Lead Software Engineer',
         short_name: 'dvgamerr',
         start_url: '/',
         theme_color: '#C84B31',

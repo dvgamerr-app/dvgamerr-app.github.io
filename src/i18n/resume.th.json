@@ -10,16 +10,16 @@
     "ไทย": "หลัก",
     "อังกฤษ": "พื้นฐาน"
   },
-  "job": "Software Engineer",
-  "detail": "เขม อาศัยอยู่ในกรุงเทพฯ สำเร็จการศึกษาระดับปริญญาตรี สาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี ปัจจุบันเป็นวิศวกรซอฟต์แวร์ในทีมเทคโนโลยีดิจิทัลของ SCG Group รับผิดชอบออกแบบ พัฒนา และดูแลโซลูชันซอฟต์แวร์เชิงนวัตกรรม.มีความเชี่ยวชาญด้านสถาปัตยกรรมเว็บ ฟรอนต์เอนด์ แบ็กเอนด์ ระบบอัตโนมัติ CI/CD การออกแบบ API และการปรับปรุงประสิทธิภาพระบบให้รองรับการเติบโต.",
+  "job": "Technical Lead Software Engineer",
+  "detail": "เขม อาศัยอยู่ในกรุงเทพฯ สำเร็จการศึกษาระดับปริญญาตรี สาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี ปัจจุบันเป็น Technical Lead Software Engineer ในทีมเทคโนโลยีดิจิทัลของ SCG Group รับผิดชอบออกแบบ พัฒนา และดูแลโซลูชันซอฟต์แวร์เชิงนวัตกรรม.มีความเชี่ยวชาญด้านสถาปัตยกรรมเว็บ ฟรอนต์เอนด์ แบ็กเอนด์ ระบบอัตโนมัติ CI/CD การออกแบบ API และการปรับปรุงประสิทธิภาพระบบให้รองรับการเติบโต.",
   "hero": {
-    "lead": "วิศวกรซอฟต์แวร์ผู้สร้าง",
+    "lead": "Technical Lead ผู้สร้าง",
     "words": ["Agentic AI", "ระบบ Multi-agent", "แอป AI-native", "ไปป์ไลน์ LLMOps", "แพลตฟอร์ม GitOps"]
   },
   "seo": {
-    "title": "กัณฑ์อเนก ทองคำ (Kananek Thongkam) — วิศวกรซอฟต์แวร์ กรุงเทพฯ",
-    "description": "กัณฑ์อเนก ทองคำ (เขม, dvgamerr) วิศวกรซอฟต์แวร์ที่ SCG กรุงเทพฯ ทำงานด้าน Agentic AI ระบบ Multi-agent และแพลตฟอร์ม GitOps ดูเรซูเม่ ทักษะ และประสบการณ์ทำงาน",
-    "keywords": "กัณฑ์อเนก ทองคำ, Kananek Thongkam, dvgamerr, เขม, วิศวกรซอฟต์แวร์, Software Engineer, กรุงเทพฯ, SCG, เรซูเม่, พอร์ตโฟลิโอ",
+    "title": "กัณฑ์อเนก ทองคำ (Kananek Thongkam) — Technical Lead Software Engineer",
+    "description": "กัณฑ์อเนก ทองคำ (เขม, dvgamerr) Technical Lead ที่ SCG กรุงเทพฯ ทำงานด้าน Agentic AI ระบบ Multi-agent และแพลตฟอร์ม GitOps ดูเรซูเม่ ทักษะ และประสบการณ์ทำงาน",
+    "keywords": "กัณฑ์อเนก ทองคำ, Kananek Thongkam, dvgamerr, เขม, Technical Lead, วิศวกรซอฟต์แวร์, Software Engineer, กรุงเทพฯ, SCG, เรซูเม่, พอร์ตโฟลิโอ",
     "worksFor": "SCG"
   },
   "work_dummy": [
@@ -101,15 +101,21 @@
       "work": "SCG Digital Office, บางซื่อ.",
       "level": [
         {
-          "begin": "2024-01-01T00:00:00.000+07:00",
+          "begin": "2026-10-01T00:00:00.000+07:00",
           "quit": null,
-          "job": "วิศวกรซอฟต์แวร์",
+          "job": "Technical Lead Software Engineer",
+          "file": "2026-work-scg-wedo.md"
+        },
+        {
+          "begin": "2024-01-01T00:00:00.000+07:00",
+          "quit": "2026-09-30T23:59:59.999+07:00",
+          "job": "Software Engineer",
           "file": "2023-work-scg-wedo.md"
         },
         {
           "begin": "2022-11-01T00:00:00.000+07:00",
           "quit": "2023-12-31T23:59:59.999+07:00",
-          "job": "ผู้พัฒนาเทคโนโลยี",
+          "job": "Technology Developer",
           "file": "2022-work-scg-wedo.md"
         }
       ]
@@ -123,13 +129,13 @@
         {
           "begin": "2019-02-01T00:00:00.000+07:00",
           "quit": "2022-10-31T23:59:59.999+07:00",
-          "job": "วิศวกรฟูลสแต็กอาวุโส",
+          "job": "Senior Full Stack Engineer",
           "file": "2018-work-central-group-2.md"
         },
         {
           "begin": "2018-02-01T00:00:00.000+07:00",
           "quit": "2019-02-01T23:59:59.999+07:00",
-          "job": "ผู้ช่วยผู้จัดการแผนกพัฒนาอาวุโส",
+          "job": "Senior Development asst. Division Manager",
           "file": "2018-work-central-group-1.md"
         }
       ]
@@ -143,7 +149,7 @@
         {
           "begin": "2013-04-29T00:00:00.000+07:00",
           "quit": "2018-12-31T23:59:59.999+07:00",
-          "job": "นักพัฒนาฟูลสแต็ก",
+          "job": "Full Stack Developer",
           "file": "2013-work-nippon-sysits.md"
         }
       ]
@@ -154,7 +160,7 @@
         {
           "begin": "2011-04-28T00:00:00.000+07:00",
           "quit": "2013-04-28T23:59:59.999+07:00",
-          "job": "โปรแกรมเมอร์",
+          "job": "Programmer",
           "file": "2011-work-freelance.md"
         }
       ]
