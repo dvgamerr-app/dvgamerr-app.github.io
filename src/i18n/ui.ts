@@ -8,6 +8,7 @@ export const defaultLang = 'en'
 export const ui = {
   en: {
     'date.present': 'Present',
+    'date.startIn': 'Starts in',
     'date.year': 'year',
     'date.month': 'month',
     'date.s': '',
@@ -83,6 +84,7 @@ export const ui = {
   },
   th: {
     'date.present': 'ปัจจุบัน',
+    'date.startIn': 'เริ่มในอีก',
     'date.year': 'ปี',
     'date.month': 'เดือน',
     'date.day': 'วัน',

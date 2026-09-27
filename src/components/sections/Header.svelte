@@ -84,68 +84,70 @@
         <div class="mt-6">
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
             <div class="flex flex-col justify-start">
-              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8] print:hidden">{resume.nickname}</strong>
-              <strong class="hidden print:block font-medium th-label leading-[0.8] text-gray-900">
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-6 print:hidden">{resume.nickname}</strong>
+              <strong class="hidden print:block font-medium th-label leading-6 text-gray-900">
                 {resume.nickname}&nbsp;{#if lang === 'en'}<span class="text-gray-600">({resume.nickname_th})</span>{/if}
               </strong>
               <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400">{t('head.nickname')}</small>
             </div>
             <div class="flex flex-col justify-start">
-              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8]">{showBirthday()}</strong>
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-6">{showBirthday()}</strong>
               <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400"
                 >{t('head.age')}&nbsp;{showAge().replace('years', t('head.age.old'))}</small
               >
             </div>
             <div class="flex flex-col justify-start">
-              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 flex flex-wrap gap-x-2">
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 flex flex-wrap gap-x-2 leading-6">
                 {#each Object.entries(resume.language) as [name, level], i (name)}
-                  <div class={['flex items-center gap-1', i !== 0 && 'lg:block hidden']}>
-                    <span class="capitalize leading-[0.8]">{name}</span>
-                    <small class="uppercase text-xs text-gray-500 leading-[0.8]">({level})</small>
+                  <div class={['items-center gap-1', i !== 0 ? 'hidden lg:flex' : 'flex']}>
+                    <span class="capitalize">{name}</span>
+                    <small class="uppercase text-xs text-gray-500">({level})</small>
                   </div>
                 {/each}
               </strong>
               <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400">{t('head.language')}</small>
             </div>
             <div class="print:flex flex-col justify-start hidden">
-              <strong class="font-medium th-label leading-[0.8] text-gray-900">{resume.religion}</strong>
+              <strong class="font-medium th-label leading-6 text-gray-900">{resume.religion}</strong>
               <small class="eyebrow mt-1 text-[10px] text-gray-500">{t('head.religion')}</small>
             </div>
             <div class="print:flex flex-col justify-start hidden">
-              <strong class="font-medium th-label leading-[0.8] text-gray-900">{resume.national}</strong>
+              <strong class="font-medium th-label leading-6 text-gray-900">{resume.national}</strong>
               <small class="eyebrow mt-1 text-[10px] text-gray-500">{t('head.nationality')}</small>
             </div>
             <div class="print:flex flex-col justify-start hidden">
-              <strong class="font-medium th-label leading-[0.8] text-gray-900">{showNationalId()}</strong>
+              <strong class="font-medium th-label leading-6 text-gray-900">{showNationalId()}</strong>
               <small class="eyebrow mt-1 text-[10px] text-gray-500">{t('head.national_id')}</small>
             </div>
             <div class="flex flex-col justify-start">
-              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8]">{resume.location}</strong>
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-6">{resume.location}</strong>
               <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400">{t('head.location')}</small>
             </div>
             <div class="flex flex-col justify-start">
-              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-[0.8] print:hidden">{showSalary()}</strong>
+              <strong class="font-medium th-label text-gray-900 dark:text-gray-100 leading-6 print:hidden">{showSalary()}</strong>
               <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400 print:hidden">{t('head.income')}</small>
-              <strong class="hidden print:block font-medium th-label leading-[0.8] text-gray-900">{showSalaryFull()}</strong>
+              <strong class="hidden print:block font-medium th-label leading-6 text-gray-900">{showSalaryFull()}</strong>
               <small class="eyebrow hidden print:block mt-1 text-[10px] text-gray-500">{t('head.salary')}</small>
             </div>
             <div class="print:flex flex-col justify-start hidden">
-              <strong class="font-medium th-label leading-[0.8] text-gray-900">{showExpect()}</strong>
+              <strong class="font-medium th-label leading-6 text-gray-900">{showExpect()}</strong>
               <small class="eyebrow mt-1 text-[10px] text-gray-500">{t('head.salary.expect')}</small>
             </div>
-            <div class="flex flex-col leading-[0.8] print:hidden">
-              {#if experience.interview}
-                <span class={[pill('success'), 'w-fit -mt-1.5']}>
-                  <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true"></span>
-                  {t('head.availability.yes')}
-                </span>
-              {:else}
-                <span class={[pill('danger'), 'w-fit -mt-1.5']}>
-                  <span class="h-1.5 w-1.5 rounded-full bg-red-500" aria-hidden="true"></span>
-                  {t('head.availability.no')}
-                </span>
-              {/if}
-              <small class="eyebrow mt-2 text-[10px] text-gray-500 dark:text-gray-400">{t('head.availability')}</small>
+            <div class="flex flex-col print:hidden">
+              <div class="flex h-6 items-center">
+                {#if experience.interview}
+                  <span class={pill('success', 'sm')}>
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true"></span>
+                    {t('head.availability.yes')}
+                  </span>
+                {:else}
+                  <span class={pill('danger', 'sm')}>
+                    <span class="h-1.5 w-1.5 rounded-full bg-red-500" aria-hidden="true"></span>
+                    {t('head.availability.no')}
+                  </span>
+                {/if}
+              </div>
+              <small class="eyebrow mt-1 text-[10px] text-gray-500 dark:text-gray-400">{t('head.availability')}</small>
             </div>
           </div>
         </div>

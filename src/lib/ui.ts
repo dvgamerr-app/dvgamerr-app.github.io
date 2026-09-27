@@ -21,5 +21,6 @@ const pillTones = {
 
 export type PillTone = keyof typeof pillTones
 
-export const pill = (tone: PillTone = 'neutral') =>
-  `th-label inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${pillTones[tone]}`
+// `sm` fits a 24px (leading-6) text row, e.g. next to other label/value pairs.
+export const pill = (tone: PillTone = 'neutral', size: 'md' | 'sm' = 'md') =>
+  `th-label inline-flex items-center gap-1.5 rounded-full border px-2.5 ${size === 'sm' ? 'py-0.5' : 'py-1'} text-xs font-medium backdrop-blur-sm ${pillTones[tone]}`

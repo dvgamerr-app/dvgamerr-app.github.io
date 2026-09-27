@@ -1,5 +1,9 @@
 import dayjs from 'dayjs'
 import 'dayjs/locale/th'
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+// fromNow() below needs relativeTime; register it here instead of relying on another module to have run first.
+dayjs.extend(relativeTime)
 
 // Types
 interface WorkRange {
@@ -60,7 +64,7 @@ export const getWorkPeriod = (range: WorkRange, langName: string, t: Translation
   const { begin, quit } = range
 
   if (isNewJob(begin)) {
-    return `Start in ${dayjs(begin).fromNow(true)}`
+    return `${t('date.startIn')} ${dayjs(begin).fromNow(true)}`
   }
 
   const baseBegin = dayjs(begin)
@@ -76,7 +80,7 @@ export const getWorkDuration = (range: WorkRange, langName: string, t: Translati
   const { begin, quit } = range
 
   if (isNewJob(begin)) {
-    return `Start in ${dayjs(begin).fromNow(true)}`
+    return `${t('date.startIn')} ${dayjs(begin).fromNow(true)}`
   }
 
   const baseBegin = dayjs(begin)
@@ -90,5 +94,5 @@ export const getWorkDuration = (range: WorkRange, langName: string, t: Translati
 
   const durationText = (yearText + monthText + dayText).trim()
 
-  return durationText ? ` ( ${durationText} )` : ''
+  return durationText
 }
