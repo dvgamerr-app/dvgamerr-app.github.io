@@ -1,6 +1,6 @@
 # dvgamerr.app
 
-> The bilingual portfolio and resume of Kananek Thongkam (กัณฑ์อเนก ทองคำ, KEM, dvgamerr), a Technical Lead Software Engineer at SCG based in Bangkok, Thailand.
+> The bilingual portfolio and resume of Kananek Thongkam (กัณฑ์อเนก ทองคำ, KEM, dvgamerr), a Technical Lead Software Engineer at WEDO (SCG Digital Office), the digital business arm of SCG (Siam Cement Group), based in Bangkok, Thailand.
 
 The site is available in English and Thai. It covers professional experience (agentic AI, multi-agent systems, GitOps platforms), education, technical skills, coding activity, and public contact channels.
 

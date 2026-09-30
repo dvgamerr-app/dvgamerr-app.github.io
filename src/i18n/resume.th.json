@@ -11,16 +11,17 @@
     "อังกฤษ": "พื้นฐาน"
   },
   "job": "Technical Lead Software Engineer",
-  "detail": "เขม อาศัยอยู่ในกรุงเทพฯ สำเร็จการศึกษาระดับปริญญาตรี สาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี ปัจจุบันเป็น Technical Lead Software Engineer ในทีมเทคโนโลยีดิจิทัลของ SCG Group รับผิดชอบออกแบบ พัฒนา และดูแลโซลูชันซอฟต์แวร์เชิงนวัตกรรม.มีความเชี่ยวชาญด้านสถาปัตยกรรมเว็บ ฟรอนต์เอนด์ แบ็กเอนด์ ระบบอัตโนมัติ CI/CD การออกแบบ API และการปรับปรุงประสิทธิภาพระบบให้รองรับการเติบโต.",
+  "detail": "เขม — Technical Lead ที่ WEDO (SCG Digital Office) ทีมดิจิทัลที่สร้างธุรกิจใหม่ให้เอสซีจี (ปูนซิเมนต์ไทย) พาไอเดียจากแบบร่างแรกไปสู่ระบบจริงบนโปรดักชัน ทั้งผู้ช่วย AI แบบ Agentic บริการ Multi-agent ไปจนถึง API Gateway และแพลตฟอร์ม GitOps ที่ทำให้ทุกอย่างรันได้ต่อเนื่อง จบปริญญาตรีสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏเพชรบุรี",
   "hero": {
     "lead": "Technical Lead ผู้สร้าง",
     "words": ["Agentic AI", "ระบบ Multi-agent", "แอป AI-native", "ไปป์ไลน์ LLMOps", "แพลตฟอร์ม GitOps"]
   },
   "seo": {
     "title": "กัณฑ์อเนก ทองคำ (Kananek Thongkam) — Technical Lead Software Engineer",
-    "description": "กัณฑ์อเนก ทองคำ (เขม, dvgamerr) Technical Lead ที่ SCG กรุงเทพฯ ทำงานด้าน Agentic AI ระบบ Multi-agent และแพลตฟอร์ม GitOps ดูเรซูเม่ ทักษะ และประสบการณ์ทำงาน",
-    "keywords": "กัณฑ์อเนก ทองคำ, Kananek Thongkam, dvgamerr, เขม, Technical Lead, วิศวกรซอฟต์แวร์, Software Engineer, กรุงเทพฯ, SCG, เรซูเม่, พอร์ตโฟลิโอ",
-    "worksFor": "SCG"
+    "description": "กัณฑ์อเนก ทองคำ (เขม, dvgamerr) Technical Lead ที่ WEDO (SCG Digital Office) กรุงเทพฯ สร้าง Agentic AI ระบบ Multi-agent และแพลตฟอร์ม GitOps ดูเรซูเม่ ทักษะ และประสบการณ์ทำงาน",
+    "keywords": "กัณฑ์อเนก ทองคำ, Kananek Thongkam, dvgamerr, เขม, Technical Lead, วิศวกรซอฟต์แวร์, Software Engineer, กรุงเทพฯ, WEDO, SCG Digital Office, เอสซีจี, SCG, เรซูเม่, พอร์ตโฟลิโอ",
+    "worksFor": "WEDO (SCG Digital Office)",
+    "parentOrganization": "SCG (Siam Cement Group)"
   },
   "work_dummy": [
     {
@@ -98,7 +99,7 @@
   ],
   "work": [
     {
-      "work": "SCG Digital Office, บางซื่อ.",
+      "work": "SCG, WEDO (Digital Office), บางซื่อ.",
       "level": [
         {
           "begin": "2026-10-01T00:00:00.000+07:00",

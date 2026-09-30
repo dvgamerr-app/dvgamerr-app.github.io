@@ -73,7 +73,11 @@ export function buildStructuredData(lang: Lang, { title, description }: PageMeta
         nationality: { '@type': 'Country', name: 'Thailand' },
         sameAs: profileLinks(),
         url: `${SITE}/`,
-        worksFor: { '@type': 'Organization', name: resumeEn.seo.worksFor },
+        worksFor: {
+          '@type': 'Organization',
+          name: resumeEn.seo.worksFor,
+          parentOrganization: { '@type': 'Organization', name: resumeEn.seo.parentOrganization },
+        },
       },
     ],
   }
