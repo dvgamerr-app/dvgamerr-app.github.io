@@ -5,7 +5,6 @@
   import { pill } from '../lib/ui'
 
   const API = {
-    bitkub: 'https://api.bitkub.com/api/market/ticker?sym=THB_USDT',
     githubUser: 'https://api.github.com/users/dvgamerr',
     visitor: (host: string) =>
       `https://api.visitorbadge.io/api/visitors?path=${host}&label=visitors&countColor=%2337d67a&style=flat-square`,
@@ -13,17 +12,6 @@
 
   let followers = $state('...')
   let visitors = $state('...')
-
-  async function logUsdtTicker() {
-    try {
-      const res = await fetch(API.bitkub)
-      if (!res.ok) return
-      const json = await res.json()
-      console.log({ THB_USDT: json['THB_USDT']?.last })
-    } catch {
-      /* silent */
-    }
-  }
 
   async function updateGitHubFollowers() {
     try {
@@ -52,7 +40,6 @@
   }
 
   onMount(() => {
-    logUsdtTicker()
     updateGitHubFollowers()
     updateVisitorCount()
   })

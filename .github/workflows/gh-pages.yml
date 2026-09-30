@@ -55,6 +55,7 @@ jobs:
           bun ./collector/waka-badge.js
           bun ./collector/waka-insights.js
           bun ./collector/github-repos.js
+          bun ./collector/currency.js
 
       - name: Commit updated stats
         run: |
