@@ -2,7 +2,7 @@
 	import Scene from "./GlobeScene.svelte";
 	import { cn } from "../utils/cn";
 	import type { ComponentProps, Snippet } from "svelte";
-	import type { GlobeMarker, GlobeMarkerTooltipContext } from "./types";
+	import type { GlobeFrame, GlobeLight, GlobeMarker, GlobeMarkerTooltipContext } from "./types";
 
 	type SceneProps = ComponentProps<typeof Scene>;
 
@@ -79,6 +79,14 @@
 		 * @default 0
 		 */
 		rotationOffset?: SceneProps["rotationOffset"];
+		/**
+		 * Local patch: screen-space scene light direction (see GlobeScene).
+		 */
+		lightDirection?: GlobeLight | null;
+		/**
+		 * Local patch: per-frame projection callback (see GlobeScene).
+		 */
+		onFrame?: (frame: GlobeFrame) => void;
 
 		[key: string]: unknown;
 	}
@@ -99,6 +107,8 @@
 		markerTooltip,
 		focusOn = null,
 		rotationOffset = 0,
+		lightDirection = null,
+		onFrame,
 		...rest
 	}: Props = $props();
 </script>
@@ -120,6 +130,8 @@
 			{markerTooltip}
 			{focusOn}
 			{rotationOffset}
+			{lightDirection}
+			{onFrame}
 		/>
 	</div>
 </div>

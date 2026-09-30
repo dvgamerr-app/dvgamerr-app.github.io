@@ -17,7 +17,7 @@
 	// Astro turns bare image imports into ImageMetadata objects; `?url` keeps a plain string.
 	import landTextureUrl from "../assets/land-texture.png?url";
 	import { type ColorRepresentation, toLinearRgb } from "../helpers/color";
-	import type { GlobeMarker, GlobeMarkerTooltipContext } from "./types";
+	import type { GlobeFrame, GlobeLight, GlobeMarker, GlobeMarkerTooltipContext } from "./types";
 	import GlobeMarkerItem from "./GlobeMarkerItem.svelte";
 
 	interface FresnelConfig {
@@ -140,6 +140,17 @@
 		 * @default 0
 		 */
 		rotationOffset?: number;
+		/**
+		 * Local patch: screen-space direction (x right, y up) of the scene light.
+		 * The rim and atmosphere brighten toward it. Mutate the same object to
+		 * animate it without re-rendering; null keeps the uniform rim.
+		 */
+		lightDirection?: GlobeLight | null;
+		/**
+		 * Local patch: called every frame after the camera update with a
+		 * projection helper, so overlays (e.g. orbiting satellites) stay in sync.
+		 */
+		onFrame?: (frame: GlobeFrame) => void;
 	}
 
 	interface ProjectedMarker {
@@ -210,6 +221,8 @@
 		markerTooltip,
 		focusOn = null,
 		rotationOffset = 0,
+		lightDirection = null,
+		onFrame,
 	}: Props = $props();
 
 	let projectedMarkers = $state<ProjectedMarker[]>([]);
@@ -425,6 +438,7 @@
 			uAtmospherePower: { value: resolvedAtmosphereConfig.power },
 			uAtmosphereCoefficient: { value: resolvedAtmosphereConfig.coefficient },
 			uAtmosphereIntensity: { value: resolvedAtmosphereConfig.intensity },
+			uLightDir: { value: new Vec3(0, 0, 0) },
 			uLandPointColor: { value: new Vec3(0, 0, 0) },
 			uLandTexture: { value: landTexture },
 			uMarkerCount: { value: 0 },
@@ -460,6 +474,7 @@
 			uniform vec3 uRimColor;
 			uniform float uRimPower;
 			uniform float uRimIntensity;
+			uniform vec3 uLightDir;
 			uniform vec3 uLandPointColor;
 			uniform sampler2D uLandTexture;
 			uniform float uMarkerCount;
@@ -615,6 +630,8 @@
 
 					float dotNV = clamp(p.z / kSphereRadius, 0.0, 1.0);
 					float rim = pow(1.0 - dotNV, max(0.0001, uRimPower)) * uRimIntensity;
+					// Local patch: brighten the rim toward the scene light, dim the far side.
+					rim *= uLightDir.z > 0.5 ? mix(0.3, 1.4, smoothstep(-0.5, 0.9, dot(uv / max(1e-4, sqrt(l)), normalize(uLightDir.xy)))) : 1.0;
 					// Match the geometric foreshortening from the old instanced point mesh:
 					// near the silhouette points should visually fade instead of staying fully crisp.
 					float dotFade = smoothstep(0.04, 0.28, dotNV);
@@ -682,6 +699,7 @@
 			uniform float uAtmospherePower;
 			uniform float uAtmosphereCoefficient;
 			uniform float uAtmosphereIntensity;
+			uniform vec3 uLightDir;
 
 			const float kSphereRadius = 0.8;
 
@@ -726,6 +744,8 @@
 				float falloff = exp(-pow(max(0.0, x), 1.2) * max(0.15, uAtmospherePower * 0.09));
 				float finalFactor =
 					falloff * uAtmosphereIntensity * max(0.0, uAtmosphereCoefficient);
+
+				finalFactor *= uLightDir.z > 0.5 ? mix(0.35, 1.3, smoothstep(-0.5, 0.9, dot(uv / max(1e-4, radial), normalize(uLightDir.xy)))) : 1.0;
 
 				vec3 finalColor = uAtmosphereColor * finalFactor;
 				float alpha = finalFactor;
@@ -1053,6 +1073,35 @@
 			uniforms.uRotation.value.set(displayPhi, theta);
 
 			syncMarkers(displayPhi, theta, currentScale);
+			if (lightDirection) uniforms.uLightDir.value.set(lightDirection.x, lightDirection.y, 1);
+			else uniforms.uLightDir.value.set(0, 0, 0);
+			if (onFrame) {
+				const aspect = width / Math.max(1, height);
+				// Same orthographic projection as the markers; points behind the sphere report occluded.
+				const project = (x: number, y: number, z: number) => {
+					const r = applyRotation(x, y, z, displayPhi, theta);
+					const t = applyDisplayTransform((r.rx / aspect) * currentScale, -r.ry * currentScale, aspect);
+					return {
+						x: (t.x + 1) * 0.5,
+						y: (t.y + 1) * 0.5,
+						depth: r.rz / COBE_GLOBE_RADIUS,
+						occluded: r.rz < 0 && Math.hypot(r.rx, r.ry) < COBE_GLOBE_RADIUS,
+						planar: Math.hypot(r.rx, r.ry) / COBE_GLOBE_RADIUS,
+					};
+				};
+				onFrame({
+					delta,
+					height,
+					project,
+					projectLatLon: (lat: number, lon: number, altitude = 1) => {
+						const p = lonLatToCartesian(lon, lat, COBE_GLOBE_RADIUS * altitude);
+						return project(p.x, p.y, p.z);
+					},
+					radius: COBE_GLOBE_RADIUS,
+					time: uniforms.uTime.value,
+					width,
+				});
+			}
 			renderer.render({ scene: globeScene, camera, clear: true });
 			renderer.render({ scene: atmosphereScene, camera, clear: false });
 			raf = window.requestAnimationFrame(tick);
