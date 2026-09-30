@@ -4,11 +4,14 @@
   import { onMount } from 'svelte'
 
   import { type Lang, useTranslations } from '../i18n/utils'
-  import { Globe, type GlobeMarker, type GlobeMarkerTooltipContext, TextLoop } from '../lib/motion-core'
+  import { Globe, type GlobeFrame, type GlobeLight, type GlobeMarker, type GlobeMarkerTooltipContext, TextLoop } from '../lib/motion-core'
+  import type { SkyState } from '../lib/orbit'
   import { themeState } from '../lib/theme.svelte'
   import { button, pill } from '../lib/ui'
   import type { Resume } from '../types'
   import HeaderActions from './HeaderActions.svelte'
+  import SatelliteLayer from './SatelliteLayer.svelte'
+  import SkyLayer from './SkyLayer.svelte'
 
   interface Props {
     lang: Lang
@@ -49,11 +52,54 @@
   const motion = $state({ offsetX: 0.22, offsetY: 0, px: 0, py: 0, scale: 1, spin: 0, sway: 0, veil: 0 })
   let reduceMotion = $state(false)
 
+  // Orbital layer: the far sun/moon circles behind the globe; satellites ride the globe camera.
+  const ORBIT_SPEED = (2 * Math.PI) / 120 // one lap every two minutes
+  let orbitAngle = -0.8 // start upper right of the globe
+  const sky = $state<SkyState>({ dirX: -1, dirY: -0.3, height: 900, ready: false, width: 1440, x: 0, y: 0 })
+  // Mutated in place every frame; the globe reads it in its render loop without a Svelte update.
+  const light: GlobeLight = { x: 0.7, y: 0.5 }
+  let satellites = $state<SatelliteLayer>()
+  let satelliteCount = $state(6)
+  let wideScreen = $state(true)
+  const labelOpacity = $derived(wideScreen ? Math.max(0, 1 - motion.veil * 3) : 0)
+
+  const onGlobeFrame = (frame: GlobeFrame) => {
+    const { height, width } = frame
+    const center = frame.project(0, 0, 0)
+    const cx = center.x * width
+    const cy = center.y * height
+    const globeRadius = 0.4 * motion.scale * height
+    if (!reduceMotion) orbitAngle += frame.delta * ORBIT_SPEED
+    // Flattened, tilted ellipse partly anchored to the viewport, so the far body drifts less than the globe (parallax).
+    const ox = cx * 0.65 + width * 0.5 * 0.35
+    const oy = cy * 0.65 + height * 0.35 * 0.35
+    // Clamp the radii so the body stays on screen on narrow portrait viewports.
+    const ex = Math.cos(orbitAngle) * Math.min(globeRadius * 1.5, width * 0.4)
+    const ey = Math.sin(orbitAngle) * Math.min(globeRadius * 0.6, height * 0.28)
+    const tilt = -0.3
+    const x = ox + ex * Math.cos(tilt) - ey * Math.sin(tilt)
+    const y = oy + ex * Math.sin(tilt) + ey * Math.cos(tilt)
+    const lx = x - cx
+    const ly = cy - y
+    const length = Math.hypot(lx, ly) || 1
+    light.x = lx / length
+    light.y = ly / length
+    Object.assign(sky, { dirX: -light.x, dirY: -light.y, height, ready: true, width, x, y })
+    satellites?.update(frame)
+  }
+
   let heroEl = $state<HTMLElement>()
   let copyEl = $state<HTMLElement>()
   let cueEl = $state<HTMLElement>()
 
   onMount(() => {
+    const wide = window.matchMedia('(min-width: 640px)')
+    const syncWidth = () => {
+      wideScreen = wide.matches
+      satelliteCount = wide.matches ? 6 : 3
+    }
+    syncWidth()
+    wide.addEventListener('change', syncWidth)
     gsap.registerPlugin(ScrollTrigger)
     const mm = gsap.matchMedia()
 
@@ -99,7 +145,10 @@
       return () => window.removeEventListener('pointermove', onPointerMove)
     })
 
-    return () => mm.revert()
+    return () => {
+      wide.removeEventListener('change', syncWidth)
+      mm.revert()
+    }
   })
 </script>
 
@@ -113,6 +162,7 @@
 {/snippet}
 
 <div class="motion-backdrop pointer-events-none fixed inset-0 z-0 print:hidden" aria-hidden="true">
+  <SkyLayer theme={themeState.current} {sky} reduced={reduceMotion} />
   <Globe
     scale={motion.scale}
     offsetX={motion.offsetX + motion.px}
@@ -127,6 +177,16 @@
     pointSize={0.055}
     {markers}
     markerTooltip={markerLabel}
+    lightDirection={light}
+    onFrame={onGlobeFrame}
+  />
+  <SatelliteLayer
+    bind:this={satellites}
+    count={satelliteCount}
+    hub={BANGKOK}
+    {labelOpacity}
+    reduced={reduceMotion}
+    ufoActive={motion.veil < 0.5}
   />
   <div class="absolute inset-0 bg-background" style:opacity={motion.veil}></div>
 </div>
