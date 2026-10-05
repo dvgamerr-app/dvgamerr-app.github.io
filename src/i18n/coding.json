@@ -1,8 +1,8 @@
 {
-  "wakatime": "10,896 hrs 53 mins",
-  "total": 334,
+  "wakatime": "10,974 hrs 12 mins",
+  "total": 335,
   "private": 53,
-  "public": 218,
+  "public": 219,
   "languages": [
     "ApacheConf",
     "Astro",
@@ -32,7 +32,6 @@
     "Makefile",
     "Mathematica",
     "NSIS",
-    "Nix",
     "Objective-C",
     "PHP",
     "PLpgSQL",
@@ -55,13 +54,13 @@
     "Visual Basic",
     "Vue"
   ],
-  "commits": 15407,
+  "commits": 15546,
   "experience": "2013-04-29T00:00:00.000+07:00",
-  "updated": "2026-09-28T12:33:03.224Z",
+  "updated": "2026-10-05T13:14:02.913Z",
   "weekly_seconds": 17731.753857142856,
   "average_seconds": 8290.336625687672,
   "best_seconds": 41413.533,
-  "loc": 1034038,
+  "loc": 1021146,
   "daytime": [
     714,
     354,
