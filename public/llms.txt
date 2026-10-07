@@ -1,8 +1,8 @@
 # dvgamerr.app
 
-> The bilingual portfolio and resume of Kananek Thongkam (KEM), a Software Engineer based in Bangkok, Thailand.
+> The bilingual portfolio and resume of Kananek Thongkam (กัณฑ์อเนก ทองคำ, KEM, dvgamerr), a Technical Lead Software Engineer at WEDO (SCG Digital Office), the digital business arm of SCG (Siam Cement Group), based in Bangkok, Thailand.
 
-The site is available in English and Thai. It covers professional experience, education, software projects, technical skills, coding activity, and public contact channels.
+The site is available in English and Thai. It covers professional experience (agentic AI, multi-agent systems, GitOps platforms), education, technical skills, coding activity, and public contact channels.
 
 ## Portfolio
 
@@ -12,7 +12,10 @@ The site is available in English and Thai. It covers professional experience, ed
 ## Profiles and source
 
 - [GitHub profile](https://github.com/dvgamerr): Public repositories and engineering activity.
-- [Portfolio source repository](https://github.com/dvgamerr-app/dvgamerr-app.github.io): Astro source code for this website.
+- [LinkedIn profile](https://www.linkedin.com/in/kananek-thongkam/): Professional profile.
+- [dev.to profile](https://dev.to/dvgamerr): Technical writing.
+- [WakaTime profile](https://wakatime.com/@dvgamerr): Coding activity statistics.
+- [Portfolio source repository](https://github.com/dvgamerr-app/dvgamerr-app.github.io): Astro and Svelte source code for this website.
 
 ## Optional
 

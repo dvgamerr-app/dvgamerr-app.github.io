@@ -68,10 +68,7 @@ export function renderResumeMarkdown(lang = 'en') {
     '',
     ...renderContacts(),
     '',
-    `## ${text.projects}`,
-    '',
-    ...renderProjects(),
-    '',
+    ...renderProjects(text.projects),
     `## ${text.coding}`,
     '',
     `- ${text.updated}: ${String(coding.updated).slice(0, 10)}`,
@@ -138,12 +135,15 @@ function renderEducation(resume) {
   return resume.education.map(({ branch, location, major, range }) => `- **${range} — ${major}**, ${location}: ${branch}`)
 }
 
-function renderProjects() {
-  return experience.repos.map(({ description, name, stargazers_count: stars, svn_url: url }) => {
+// The page no longer lists projects; keep the Markdown section only when the collector provides repositories.
+function renderProjects(heading) {
+  if (!experience.repos.length) return []
+  const items = experience.repos.map(({ description, name, stargazers_count: stars, svn_url: url }) => {
     const details = cleanText(description)
     const popularity = stars ? ` (${formatNumber(stars)} GitHub ${stars === 1 ? 'star' : 'stars'})` : ''
     return `- [${name}](${url})${details ? `: ${details}` : ''}${popularity}`
   })
+  return [`## ${heading}`, '', ...items, '']
 }
 
 function renderSkills(lang) {

@@ -1,8 +1,13 @@
 import sitemap from '@astrojs/sitemap'
+import svelte from '@astrojs/svelte'
 import tailwindcss from '@tailwindcss/vite'
 import AstroPWA from '@vite-pwa/astro'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig, passthroughImageService } from 'astro/config'
+import { loadEnv } from 'vite'
+
+const { PORT } = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '')
+const port = Number(PORT || process.env.PORT) || undefined
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,11 +15,12 @@ export default defineConfig({
     service: passthroughImageService(),
   },
   integrations: [
+    svelte(),
     AstroPWA({
       includeAssets: ['favicon.svg', 'icon-128.png', 'icon-144.png'],
       manifest: {
         background_color: '#f8f8f8',
-        description: "Hey there, My name is Kananek T. and I'm a Software Engineer.",
+        description: "Hey there, My name is Kananek T. and I'm a Technical Lead Software Engineer.",
         display: 'standalone',
         icons: [
           {
@@ -28,7 +34,7 @@ export default defineConfig({
             type: 'image/png',
           },
         ],
-        name: 'Kananek Thongkam | Software Engineer',
+        name: 'Kananek Thongkam | Technical Lead Software Engineer',
         short_name: 'dvgamerr',
         start_url: '/',
         theme_color: '#C84B31',
@@ -43,8 +49,10 @@ export default defineConfig({
           th: 'th-TH',
         },
       },
+      lastmod: new Date(),
     }),
   ],
+  server: { port },
   site: 'https://dvgamerr.app',
   vite: {
     plugins: [tailwindcss()],

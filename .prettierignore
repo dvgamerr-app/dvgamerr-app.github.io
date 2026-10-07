@@ -3,3 +3,6 @@ build
 coverage
 dist
 node_modules
+
+# Vendored Motion Core registry code (managed by `bunx @motion-core/cli add`)
+src/lib/motion-core

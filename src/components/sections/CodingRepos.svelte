@@ -1,0 +1,44 @@
+<script lang="ts">
+  import dayjs from 'dayjs'
+
+  import coding from '../../i18n/coding.json'
+  import { type Lang, useTranslations } from '../../i18n/utils'
+  import SectionShell from '../SectionShell.svelte'
+  import StatGrid from '../StatGrid.svelte'
+
+  interface Props {
+    lang: Lang
+  }
+
+  let { lang }: Props = $props()
+
+  const t = $derived(useTranslations(lang))
+
+  const updated = dayjs(coding.updated).format('DD-MM-YYYY')
+
+  const getExperience = () => {
+    const worked = dayjs().diff(coding.experience, 'month') / 12
+    const month = (worked % 1) * 12
+    return `${Math.floor(worked)} ${t('date.year')} ${Math.floor(month)} ${t('date.month')}${month > 1 ? t('date.s') : ''}`
+  }
+
+  const toNumber = (n: number = 0) => {
+    const loc = n / 1000000
+    const low = loc >= 1 ? `${Math.round(loc * 100) / 100} M` : n
+    return loc < 1 && n / 1000 >= 1 ? `${Math.round((n / 1000) * 100) / 100} K` : low
+  }
+
+  const stats = $derived([
+    { label: t('my-coding.experience'), value: getExperience() },
+    { label: t('my-coding.loc'), value: toNumber(coding.loc) },
+    {
+      label: `${t('my-coding.projects')} (${t('my-coding.opensource')})`,
+      value: `${toNumber(coding.total)} (${toNumber(coding.public)})`,
+    },
+    { label: t('my-coding.commits'), value: toNumber(coding.commits) },
+  ])
+</script>
+
+<SectionShell title={t('my-coding')} note={`updated ${updated}`} printHidden titleClass="text-[1.2rem] -mt-0.5">
+  <StatGrid items={stats} />
+</SectionShell>

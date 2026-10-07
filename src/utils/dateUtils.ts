@@ -1,5 +1,9 @@
 import dayjs from 'dayjs'
 import 'dayjs/locale/th'
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+// fromNow() below needs relativeTime; register it here instead of relying on another module to have run first.
+dayjs.extend(relativeTime)
 
 // Types
 interface WorkRange {
@@ -40,17 +44,16 @@ const applyBuddhistYearOffset = (date: dayjs.Dayjs, langName: string): dayjs.Day
 const formatDateRange = (
   baseBegin: dayjs.Dayjs,
   baseEnd: dayjs.Dayjs,
-  quit: string | undefined,
-  langName: string,
-  dayOnly: boolean,
+  options: { dayOnly: boolean; langName: string; ongoing: boolean },
   t: TranslationFunction,
 ): string => {
+  const { dayOnly, langName, ongoing } = options
   const dateBegin = applyBuddhistYearOffset(baseBegin, langName)
   const dateQuit = applyBuddhistYearOffset(baseEnd, langName)
 
   const formatPattern = dayOnly ? 'D MMMM YYYY' : 'MMMM YYYY'
   const formattedBegin = dateBegin.format(formatPattern)
-  const formattedQuit = quit ? dateQuit.format(formatPattern) : t('date.present')
+  const formattedQuit = ongoing ? t('date.present') : dateQuit.format(formatPattern)
 
   return `${formattedBegin} — ${formattedQuit}`
 }
@@ -60,7 +63,7 @@ export const getWorkPeriod = (range: WorkRange, langName: string, t: Translation
   const { begin, quit } = range
 
   if (isNewJob(begin)) {
-    return `Start in ${dayjs(begin).fromNow(true)}`
+    return `${t('date.startIn')} ${dayjs(begin).fromNow(true)}`
   }
 
   const baseBegin = dayjs(begin)
@@ -69,14 +72,14 @@ export const getWorkPeriod = (range: WorkRange, langName: string, t: Translation
   const { year, month } = getSequentialDuration(baseBegin, baseEnd)
   const dayOnly = !month && !year
 
-  return formatDateRange(baseBegin, baseEnd, quit, langName, dayOnly, t)
+  return formatDateRange(baseBegin, baseEnd, { dayOnly, langName, ongoing: !quit }, t)
 }
 
 export const getWorkDuration = (range: WorkRange, langName: string, t: TranslationFunction): string => {
   const { begin, quit } = range
 
   if (isNewJob(begin)) {
-    return `Start in ${dayjs(begin).fromNow(true)}`
+    return `${t('date.startIn')} ${dayjs(begin).fromNow(true)}`
   }
 
   const baseBegin = dayjs(begin)
@@ -90,5 +93,5 @@ export const getWorkDuration = (range: WorkRange, langName: string, t: Translati
 
   const durationText = (yearText + monthText + dayText).trim()
 
-  return durationText ? ` ( ${durationText} )` : ''
+  return durationText
 }

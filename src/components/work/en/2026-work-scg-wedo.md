@@ -1,0 +1,5 @@
+- Support the definition and validation of system architecture, technologies, libraries, and development standards for new systems.
+- Work with Leads and Managers to improve workflows, develop tools, and enhance Developer productivity.
+- Support the development of team capabilities, including technical skills, working practices, and development standards.
+- Monitor, analyze, and communicate critical security or technology-related issues that may impact systems, enabling the team to respond and resolve issues quickly.
+- Collaborate with Leads and Managers to review and improve systems, processes, and workflows to ensure quality, stability, and efficiency.
