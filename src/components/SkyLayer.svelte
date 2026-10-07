@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { GodRays } from '../lib/motion-core'
   import type { SkyState } from '../lib/orbit'
   import type { Theme } from '../lib/theme.svelte'
 
@@ -10,13 +9,6 @@
   }
 
   let { theme, sky, reduced }: Props = $props()
-
-  // Page background per theme (matches `bg-background`), so the opaque ray canvas blends into the page.
-  const PALETTE = {
-    dark: { background: '#020817', intensity: 0.2, rays: '#8ea3e6', spread: 0.8 },
-    light: { background: '#ffffff', intensity: 0.95, rays: '#ffb24a', spread: 1.25 },
-  }
-  const palette = $derived(PALETTE[theme])
 
   // Deterministic star field so server and client markup match.
   const stars = Array.from({ length: 90 }, (_, i) => {
@@ -29,19 +21,17 @@
 </script>
 
 <div class="absolute inset-0" aria-hidden="true">
-  <GodRays
-    backgroundColor={palette.background}
-    color={palette.rays}
-    intensity={palette.intensity}
-    lightSpread={palette.spread}
-    anchorX={sky.x / Math.max(1, sky.width)}
-    anchorY={1 - sky.y / Math.max(1, sky.height)}
-    directionX={sky.dirX}
-    directionY={sky.dirY}
-    rayLength={1.3}
-    fadeDistance={1.1}
-    speed={reduced ? 0 : 0.5}
-  />
+  <!-- Local scattering falls off around the body instead of forming a sweeping spotlight. -->
+  <div class={['absolute inset-0', !sky.ready && 'opacity-0']}>
+    <div
+      class={['sky-glow absolute inset-0 transition-opacity duration-1000', theme === 'light' ? 'opacity-100' : 'opacity-0']}
+      style:background={`radial-gradient(circle at ${sky.x}px ${sky.y}px, rgb(255 229 183 / 0.18) 0, rgb(255 237 210 / 0.07) 100px, transparent 320px)`}
+    ></div>
+    <div
+      class={['sky-glow absolute inset-0 transition-opacity duration-1000', theme === 'dark' ? 'opacity-100' : 'opacity-0']}
+      style:background={`radial-gradient(circle at ${sky.x}px ${sky.y}px, rgb(205 215 229 / 0.045) 0, rgb(190 205 225 / 0.015) 60px, transparent 160px)`}
+    ></div>
+  </div>
 
   <div class={['absolute inset-0 transition-opacity duration-1000', theme === 'dark' ? 'opacity-100' : 'opacity-0']}>
     {#each stars as star, i (i)}
@@ -53,6 +43,7 @@
         style:height={`${star.size}px`}
         style:opacity={star.opacity}
         style:animation-delay={`${star.delay}s`}
+        style:animation-play-state={reduced ? 'paused' : 'running'}
       ></span>
     {/each}
   </div>
@@ -76,10 +67,10 @@
     width: 56px;
     height: 56px;
     margin: -28px 0 0 -28px;
-    background: radial-gradient(circle at 42% 40%, #fffbea 0%, #ffe39a 38%, #ffb24a 72%, #ff9a3c 100%);
+    background: radial-gradient(circle, #fffef9 0%, #fff9e5 70%, #ffedbd 100%);
     box-shadow:
-      0 0 40px 12px rgb(255 190 90 / 0.55),
-      0 0 120px 40px rgb(255 170 70 / 0.25);
+      0 0 24px 5px rgb(255 223 160 / 0.35),
+      0 0 80px 20px rgb(255 211 140 / 0.12);
   }
 
   .moon {
@@ -93,9 +84,9 @@
       radial-gradient(circle at 40% 38%, #c9ccd4 0%, #9ea4b1 70%, #7d8392 100%);
     /* Crescent phase: the inset shadow is the night side. */
     box-shadow:
-      inset -13px 5px 0 1px rgb(2 8 23 / 0.85),
-      0 0 22px 3px rgb(150 170 235 / 0.16),
-      0 0 70px 16px rgb(130 150 230 / 0.06);
+      inset -13px 5px 3px 1px rgb(2 8 23 / 0.96),
+      0 0 18px 2px rgb(190 207 230 / 0.08),
+      0 0 48px 10px rgb(170 192 222 / 0.025);
     /* Keep the moon a quiet backdrop element rather than a bright focal point. */
     filter: brightness(0.8);
   }
@@ -109,6 +100,14 @@
   @keyframes twinkle {
     50% {
       opacity: 0.1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sky-glow,
+    .sun,
+    .moon {
+      transition: none;
     }
   }
 </style>
