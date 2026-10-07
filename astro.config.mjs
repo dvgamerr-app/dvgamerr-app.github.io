@@ -4,6 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 import AstroPWA from '@vite-pwa/astro'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig, passthroughImageService } from 'astro/config'
+import { loadEnv } from 'vite'
+
+const { PORT } = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '')
+const port = Number(PORT || process.env.PORT) || undefined
 
 // https://astro.build/config
 export default defineConfig({
@@ -48,6 +52,7 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
+  server: { port },
   site: 'https://dvgamerr.app',
   vite: {
     plugins: [tailwindcss()],
