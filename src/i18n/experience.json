@@ -3,8 +3,8 @@
   "interview": true,
   "currencry": {
     "ccy": "USD",
-    "sell": 33.56,
-    "buy": 33.56
+    "sell": 33.67,
+    "buy": 33.67
   },
   "salary": {
     "base": 84250,
@@ -16,7 +16,7 @@
   "repos": [],
   "coding": {
     "bytes": {
-      "JavaScript": 10695475,
+      "JavaScript": 10695535,
       "Vue": 1761305,
       "HTML": 12347176,
       "Swift": 18084,
@@ -24,16 +24,16 @@
       "Objective-C": 2024,
       "Go": 5606485,
       "Dockerfile": 114097,
-      "CSS": 2887768,
-      "Svelte": 532644,
+      "CSS": 2888206,
+      "Svelte": 529897,
       "Shell": 828224,
-      "TypeScript": 4533441,
+      "TypeScript": 4615111,
       "Makefile": 42190,
       "Procfile": 27,
       "SCSS": 134101,
       "C#": 2520818,
       "Astro": 187568,
-      "Rust": 20900976,
+      "Rust": 20909367,
       "PHP": 1643527,
       "Hack": 7144,
       "Dart": 102008,
@@ -107,25 +107,37 @@
   "social": [
     {
       "name": "github",
-      "icon": ["fab", "github"],
+      "icon": [
+        "fab",
+        "github"
+      ],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": ["fab", "linkedin"],
+      "icon": [
+        "fab",
+        "linkedin"
+      ],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": ["fas", "clock"],
+      "icon": [
+        "fas",
+        "clock"
+      ],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": ["fab", "codepen"],
+      "icon": [
+        "fab",
+        "codepen"
+      ],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -182,8 +194,25 @@
       "Discord",
       "Slack"
     ],
-    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
-    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
+    "sql": [
+      "PostgreSQL",
+      "Redis",
+      "MongoDB",
+      "Influx",
+      "MySQL",
+      "Oracle",
+      "MSSQL",
+      "SQLite"
+    ],
+    "os": [
+      "Chat GPT",
+      "AWS",
+      "Azure",
+      "GCloud",
+      "CentOS",
+      "Debian",
+      "Fedora"
+    ]
   },
   "contact": [
     {
