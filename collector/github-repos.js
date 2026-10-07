@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import pino from 'pino'
 
+import { fetchLocFromGraphQL } from './github-loc.js'
 import { mergeJsonResponse } from './helper.js'
 
 const logger = pino({ level: 'trace' })
@@ -8,42 +9,32 @@ const API = 'https://api.github.com'
 const TOKEN = process.env.GH_TOKEN || ''
 let warned = false
 
+const readJson = async (res) => {
+  try {
+    return await res.json()
+  } catch {
+    return null
+  }
+}
+
 async function gh(method, path, extraHeaders = {}) {
   if (!TOKEN && !warned) {
     warned = true
     logger.warn('GH_TOKEN missing: unauthenticated requests (rate limited)')
   }
-  let tries = 4
-  while (tries > 0) {
-    const res = await fetch(`${API}${path}`, {
-      headers: { Accept: 'application/vnd.github.v3+json', ...(TOKEN ? { Authorization: `token ${TOKEN}` } : {}), ...extraHeaders },
-      method,
-    })
-    if (res.status <= 204) {
-      try {
-        return { data: await res.json(), status: res.status }
-      } catch {
-        return { data: null, status: res.status }
-      }
-    }
+  const headers = { Accept: 'application/vnd.github.v3+json', ...(TOKEN ? { Authorization: `token ${TOKEN}` } : {}), ...extraHeaders }
+  let res
+  for (let tries = 4; tries > 0; tries--) {
+    res = await fetch(`${API}${path}`, { headers, method })
+    if (res.status <= 204) return { data: await readJson(res), status: res.status }
     if (res.status === 403 || res.status === 404) {
       logger.warn({ path, status: res.status })
       return { data: null, status: res.status }
     }
-    tries--
-    if (!tries) {
-      let payload = null
-      try {
-        payload = await res.json()
-      } catch {
-        /* ignore */
-      }
-      logger.warn({ path, status: res.status, unauthenticated: !TOKEN })
-      return { data: payload, status: res.status }
-    }
-    await Bun.sleep(1000)
+    if (tries > 1) await Bun.sleep(1000)
   }
-  return { data: null, status: 0 }
+  logger.warn({ path, status: res.status, unauthenticated: !TOKEN })
+  return { data: await readJson(res), status: res.status }
 }
 
 const POPULAR_LANGUAGES = new Set([
@@ -107,76 +98,6 @@ async function buildSummary(allRepos) {
   }
 
   return { langBytes, summary }
-}
-
-async function fetchLocFromGraphQL(allRepos) {
-  const GH_EMAIL = 'info.dvgamer@gmail.com'
-  const BATCH = 10
-  let loc = 0
-
-  for (let i = 0; i < allRepos.length; i += BATCH) {
-    const batch = allRepos.slice(i, i + BATCH).filter((r) => r.owner)
-    if (!batch.length) continue
-
-    const aliases = batch
-      .map(
-        (r, idx) => `r${idx}: repository(owner: "${r.owner.login}", name: "${r.name}") {
-        defaultBranchRef { target { ... on Commit { history(author: {emails: ["${GH_EMAIL}"]}, first: 100) {
-          nodes { additions deletions }
-          pageInfo { hasNextPage endCursor }
-        }}}}
-      }`,
-      )
-      .join('\n')
-
-    const res = await fetch('https://api.github.com/graphql', {
-      body: JSON.stringify({ query: `{ ${aliases} }` }),
-      headers: { Authorization: `bearer ${TOKEN}`, 'Content-Type': 'application/json' },
-      method: 'POST',
-    })
-    const { data, errors } = await res.json().catch(() => ({}))
-    if (!data) {
-      logger.warn(`graphql batch ${i} non-json (status ${res.status})`)
-      continue
-    }
-    if (errors?.length) {
-      logger.warn({ graphql_errors: errors.map((e) => e.message) })
-      continue
-    }
-
-    for (const [key, repoData] of Object.entries(data ?? {})) {
-      const history = repoData?.defaultBranchRef?.target?.history
-      if (!history) continue
-      for (const c of history.nodes ?? []) loc += (c.additions ?? 0) - (c.deletions ?? 0)
-
-      let cursor = history.pageInfo?.hasNextPage ? history.pageInfo.endCursor : null
-      const repo = batch[Number(key.slice(1))]
-      let pages = 0
-      while (cursor && pages < 4) {
-        pages++
-        const pageRes = await fetch('https://api.github.com/graphql', {
-          body: JSON.stringify({
-            query: `{ repository(owner: "${repo.owner.login}", name: "${repo.name}") {
-              defaultBranchRef { target { ... on Commit { history(author: {emails: ["${GH_EMAIL}"]}, first: 100, after: "${cursor}") {
-                nodes { additions deletions }
-                pageInfo { hasNextPage endCursor }
-              }}}}
-            }}`,
-          }),
-          headers: { Authorization: `bearer ${TOKEN}`, 'Content-Type': 'application/json' },
-          method: 'POST',
-        })
-        const { data: pd } = await pageRes.json().catch(() => ({}))
-        const ph = pd?.repository?.defaultBranchRef?.target?.history
-        if (!ph) break
-        for (const c of ph.nodes ?? []) loc += (c.additions ?? 0) - (c.deletions ?? 0)
-        cursor = ph.pageInfo?.hasNextPage ? ph.pageInfo.endCursor : null
-      }
-    }
-  }
-
-  logger.info(`loc (graphql): ${loc}`)
-  return loc
 }
 
 async function fetchOrgRepos(orgs) {

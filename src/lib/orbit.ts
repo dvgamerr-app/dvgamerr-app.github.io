@@ -70,20 +70,23 @@ export function startIncident(satellite: Satellite, time: number) {
 export function incidentState(satellite: Satellite, time: number): { stage: IncidentStage; progress: number } | null {
   const incident = satellite.incident
   if (!incident) return null
-  const span = (from: number, to: number) => Math.min(1, Math.max(0, (time - from) / (to - from)))
   if (time >= incident.end) {
     satellite.incident = null
     return null
   }
-  if (time < incident.glitchEnd) return { progress: span(incident.startedAt, incident.glitchEnd), stage: 'glitch' }
-  if (time < incident.debugEnd) return { progress: span(incident.glitchEnd, incident.debugEnd), stage: 'debug' }
-  if (!incident.restored) {
+  if (time >= incident.debugEnd && !incident.restored) {
     satellite.altitudeTarget = incident.saved.altitude
     satellite.speedTarget = incident.saved.speed
     incident.restored = true
   }
-  if (time < incident.fixEnd) return { progress: span(incident.debugEnd, incident.fixEnd), stage: 'fix' }
-  return { progress: span(incident.fixEnd, incident.end), stage: 'recovered' }
+  const stages: [IncidentStage, number, number][] = [
+    ['glitch', incident.startedAt, incident.glitchEnd],
+    ['debug', incident.glitchEnd, incident.debugEnd],
+    ['fix', incident.debugEnd, incident.fixEnd],
+    ['recovered', incident.fixEnd, incident.end],
+  ]
+  const [stage, from, to] = stages.find(([, , end]) => time < end) ?? stages[3]
+  return { progress: Math.min(1, Math.max(0, (time - from) / (to - from))), stage }
 }
 
 export interface Fleet {
@@ -250,93 +253,113 @@ const smooth = (edge0: number, edge1: number, x: number) => {
   return t * t * (3 - 2 * t)
 }
 
-/**
- * Advance the UFO and return where to draw it, or null while idle.
- * `project` is the globe camera projection; `active` pauses spawning while the hero is scrolled away.
- */
-export function stepUfo(
-  ufo: Ufo,
-  time: number,
-  delta: number,
-  width: number,
-  height: number,
-  radius: number,
-  project: (x: number, y: number, z: number) => { x: number; y: number; depth: number; planar: number },
-  active: boolean,
-): UfoPose | null {
-  const orbitPoint = (elapsed: number) => {
+export interface UfoView {
+  height: number
+  project: (x: number, y: number, z: number) => { depth: number; planar: number; x: number; y: number }
+  radius: number
+  width: number
+}
+
+type OrbitPoint = (elapsed: number) => { depth: number; planar: number; x: number; y: number }
+
+const makeOrbitPoint =
+  (ufo: Ufo, view: UfoView): OrbitPoint =>
+  (elapsed) => {
     const phase = ufo.phase0 + elapsed * UFO_ORBIT_SPEED
-    const r = radius * UFO_ALTITUDE
+    const r = view.radius * UFO_ALTITUDE
     const x0 = Math.cos(phase) * r
     const z0 = Math.sin(phase) * r
     const y1 = -z0 * Math.sin(ufo.inclination)
     const z1 = z0 * Math.cos(ufo.inclination)
-    return project(x0 * Math.cos(ufo.node) + z1 * Math.sin(ufo.node), y1, -x0 * Math.sin(ufo.node) + z1 * Math.cos(ufo.node))
+    return view.project(x0 * Math.cos(ufo.node) + z1 * Math.sin(ufo.node), y1, -x0 * Math.sin(ufo.node) + z1 * Math.cos(ufo.node))
   }
+
+/** Pick a fresh flight path for the next visit. */
+function beginUfoVisit(ufo: Ufo, time: number, orbitPoint: OrbitPoint) {
+  const side = Math.floor(Math.random() * 3)
+  ufo.from = edgePoint(side)
+  ufo.to = edgePoint((side + 1 + Math.floor(Math.random() * 2)) % 3)
+  ufo.inclination = (Math.random() - 0.5) * 1.6
+  ufo.node = Math.random() * Math.PI * 2
+  // Start the orbit on the visible side so the approach ends in front of the globe.
+  ufo.phase0 = 0
+  for (let k = 0; k < 12; k++) {
+    ufo.phase0 = (k / 12) * Math.PI * 2
+    if (orbitPoint(0).depth > 0.3) break
+  }
+  ufo.state = 'enter'
+  ufo.startedAt = time
+  ufo.lockIndex = -1
+  ufo.struck = false
+}
+
+interface UfoFrame {
+  px: number
+  py: number
+  stretch: number
+  target: number
+}
+
+function stepUfoEnter(ufo: Ufo, time: number, elapsed: number, orbitPoint: OrbitPoint): UfoFrame {
+  const k = easeInOut(Math.min(1, elapsed / UFO_TIMING.enter))
+  const start = orbitPoint(0)
+  if (elapsed >= UFO_TIMING.enter) {
+    ufo.state = 'orbit'
+    ufo.startedAt = time
+  }
+  return { px: ufo.from.x + (start.x - ufo.from.x) * k, py: ufo.from.y + (start.y - ufo.from.y) * k, stretch: 1, target: 1 }
+}
+
+function stepUfoOrbit(ufo: Ufo, time: number, elapsed: number, orbitPoint: OrbitPoint): UfoFrame {
+  const point = orbitPoint(elapsed)
+  // Same limb fade as the satellites.
+  const behind = smooth(0, -0.35, point.depth)
+  const beside = smooth(0.9, 1.25, point.planar)
+  if (elapsed >= UFO_TIMING.orbit) {
+    ufo.state = 'exit'
+    ufo.startedAt = time
+    ufo.exitFrom = { x: point.x, y: point.y }
+  }
+  return { px: point.x, py: point.y, stretch: 1, target: 1 - behind * (1 - beside * 0.6) }
+}
+
+function stepUfoExit(ufo: Ufo, time: number, elapsed: number): UfoFrame {
+  const k = Math.min(1, elapsed / UFO_TIMING.exit)
+  const warp = k * k * k
+  if (elapsed >= UFO_TIMING.exit) {
+    ufo.state = 'idle'
+    ufo.alpha = 0
+    ufo.nextAt = time + UFO_INTERVAL + (Math.random() - 0.5) * UFO_JITTER
+  }
+  return {
+    px: ufo.exitFrom.x + (ufo.to.x - ufo.exitFrom.x) * warp,
+    py: ufo.exitFrom.y + (ufo.to.y - ufo.exitFrom.y) * warp,
+    stretch: 1 + warp * 3,
+    target: 1,
+  }
+}
+
+/**
+ * Advance the UFO and return where to draw it, or null while idle.
+ * `view.project` is the globe camera projection; `active` pauses spawning while the hero is scrolled away.
+ */
+export function stepUfo(ufo: Ufo, time: number, delta: number, view: UfoView, active: boolean): UfoPose | null {
+  const orbitPoint = makeOrbitPoint(ufo, view)
 
   if (ufo.state === 'idle') {
     if (time < ufo.nextAt || !active) return null
-    const side = Math.floor(Math.random() * 3)
-    ufo.from = edgePoint(side)
-    ufo.to = edgePoint((side + 1 + Math.floor(Math.random() * 2)) % 3)
-    ufo.inclination = (Math.random() - 0.5) * 1.6
-    ufo.node = Math.random() * Math.PI * 2
-    // Start the orbit on the visible side so the approach ends in front of the globe.
-    ufo.phase0 = 0
-    for (let k = 0; k < 12; k++) {
-      ufo.phase0 = (k / 12) * Math.PI * 2
-      if (orbitPoint(0).depth > 0.3) break
-    }
-    ufo.state = 'enter'
-    ufo.startedAt = time
-    ufo.lockIndex = -1
-    ufo.struck = false
+    beginUfoVisit(ufo, time, orbitPoint)
   }
 
   const elapsed = time - ufo.startedAt
-  let px = 0
-  let py = 0
-  let target = 1
-  let stretch = 1
+  const frame =
+    ufo.state === 'enter'
+      ? stepUfoEnter(ufo, time, elapsed, orbitPoint)
+      : ufo.state === 'orbit'
+        ? stepUfoOrbit(ufo, time, elapsed, orbitPoint)
+        : stepUfoExit(ufo, time, elapsed)
+  if (ufo.state === 'idle') return null
 
-  if (ufo.state === 'enter') {
-    const k = easeInOut(Math.min(1, elapsed / UFO_TIMING.enter))
-    const start = orbitPoint(0)
-    px = ufo.from.x + (start.x - ufo.from.x) * k
-    py = ufo.from.y + (start.y - ufo.from.y) * k
-    if (elapsed >= UFO_TIMING.enter) {
-      ufo.state = 'orbit'
-      ufo.startedAt = time
-    }
-  } else if (ufo.state === 'orbit') {
-    const point = orbitPoint(elapsed)
-    px = point.x
-    py = point.y
-    // Same limb fade as the satellites.
-    const behind = smooth(0, -0.35, point.depth)
-    const beside = smooth(0.9, 1.25, point.planar)
-    target = 1 - behind * (1 - beside * 0.6)
-    if (elapsed >= UFO_TIMING.orbit) {
-      ufo.state = 'exit'
-      ufo.startedAt = time
-      ufo.exitFrom = { x: px, y: py }
-    }
-  } else {
-    const k = Math.min(1, elapsed / UFO_TIMING.exit)
-    const warp = k * k * k
-    px = ufo.exitFrom.x + (ufo.to.x - ufo.exitFrom.x) * warp
-    py = ufo.exitFrom.y + (ufo.to.y - ufo.exitFrom.y) * warp
-    stretch = 1 + warp * 3
-    if (elapsed >= UFO_TIMING.exit) {
-      ufo.state = 'idle'
-      ufo.alpha = 0
-      ufo.nextAt = time + UFO_INTERVAL + (Math.random() - 0.5) * UFO_JITTER
-      return null
-    }
-  }
-
-  ufo.alpha += (target - ufo.alpha) * (1 - Math.exp(-delta * 6))
-  const x = px * width
-  const y = py * height
-  return { alpha: ufo.alpha, angle: 0, stretch, x, y }
+  ufo.alpha += (frame.target - ufo.alpha) * (1 - Math.exp(-delta * 6))
+  return { alpha: ufo.alpha, angle: 0, stretch: frame.stretch, x: frame.px * view.width, y: frame.py * view.height }
 }

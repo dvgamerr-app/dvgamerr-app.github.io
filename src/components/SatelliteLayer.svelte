@@ -78,7 +78,7 @@
       return { alpha, px: screen.x * width, py: screen.y * height, world }
     })
 
-    const pose = reduced ? null : stepUfo(ufo, time, frame.delta, width, height, radius, frame.project, ufoActive)
+    const pose = reduced ? null : stepUfo(ufo, time, frame.delta, { height, project: frame.project, radius, width }, ufoActive)
     let tracker = -1
     if (!pose || !ufoEl) {
       hide(ufoEl)

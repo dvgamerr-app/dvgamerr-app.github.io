@@ -44,17 +44,16 @@ const applyBuddhistYearOffset = (date: dayjs.Dayjs, langName: string): dayjs.Day
 const formatDateRange = (
   baseBegin: dayjs.Dayjs,
   baseEnd: dayjs.Dayjs,
-  quit: string | undefined,
-  langName: string,
-  dayOnly: boolean,
+  options: { dayOnly: boolean; langName: string; ongoing: boolean },
   t: TranslationFunction,
 ): string => {
+  const { dayOnly, langName, ongoing } = options
   const dateBegin = applyBuddhistYearOffset(baseBegin, langName)
   const dateQuit = applyBuddhistYearOffset(baseEnd, langName)
 
   const formatPattern = dayOnly ? 'D MMMM YYYY' : 'MMMM YYYY'
   const formattedBegin = dateBegin.format(formatPattern)
-  const formattedQuit = quit ? dateQuit.format(formatPattern) : t('date.present')
+  const formattedQuit = ongoing ? t('date.present') : dateQuit.format(formatPattern)
 
   return `${formattedBegin} — ${formattedQuit}`
 }
@@ -73,7 +72,7 @@ export const getWorkPeriod = (range: WorkRange, langName: string, t: Translation
   const { year, month } = getSequentialDuration(baseBegin, baseEnd)
   const dayOnly = !month && !year
 
-  return formatDateRange(baseBegin, baseEnd, quit, langName, dayOnly, t)
+  return formatDateRange(baseBegin, baseEnd, { dayOnly, langName, ongoing: !quit }, t)
 }
 
 export const getWorkDuration = (range: WorkRange, langName: string, t: TranslationFunction): string => {
