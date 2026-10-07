@@ -48,7 +48,9 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
     <link rel="alternate" hreflang="x-default" href={pageUrl('en')} />
     <link rel="alternate" type="text/markdown" href={markdownUrl} />
     <link rel="describedby" href="/llms.txt" />
-    {profileLinks().map((url) => <link rel="me" href={url} />)}
+    {profileLinks().map((url) => (
+      <link rel="me" href={url} />
+    ))}
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="icon" type="image/webp" sizes="64x64" href="/icon-64.webp" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
@@ -97,22 +99,18 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
       let meta = document.querySelector('meta[name="theme-color"]')
       if (meta) meta.setAttribute('content', theme === 'dark' ? '#0f121f' : '#C84B31')
     </script>
-    <GoogleFontsOptimizer
-      url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap"
-    />
+    <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap" />
     <style set:html={chartsCss}></style>
-    {
-      import.meta.env.PROD && import.meta.env.PUBLIC_ADSENSE_CLIENT && (
-        <>
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
-            crossorigin="anonymous"
-          />
-          <script async src="https://rum.cronitor.io/script.js" />
-        </>
-      )
-    }
+    {import.meta.env.PROD && import.meta.env.PUBLIC_ADSENSE_CLIENT && (
+      <>
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
+          crossorigin="anonymous"
+        />
+        <script async src="https://rum.cronitor.io/script.js" />
+      </>
+    )}
   </head>
   <body>
     <div id="__layout">

@@ -42,13 +42,11 @@ const structuredData = buildStructuredData(lang, { title, description })
 >
   <Hero client:load lang={lang} resume={resume} interview={experience.interview} />
   <main class="relative z-10 max-w-7xl mx-auto px-4 pt-5 pb-8 md:pt-17 md:pb-12">
-    {
-      adSlot && (
-        <div class="container my-4 print:hidden">
-          <GoogleAd client:visible adSlot={adSlot} />
-        </div>
-      )
-    }
+    {adSlot && (
+      <div class="container my-4 print:hidden">
+        <GoogleAd client:visible adSlot={adSlot} />
+      </div>
+    )}
     <Header lang={lang} resume={resume} experience={experience}>
       <ProfileBadges client:idle slot="badges" />
     </Header>
