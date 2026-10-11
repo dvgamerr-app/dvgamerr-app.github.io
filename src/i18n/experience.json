@@ -107,37 +107,25 @@
   "social": [
     {
       "name": "github",
-      "icon": [
-        "fab",
-        "github"
-      ],
+      "icon": ["fab", "github"],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": [
-        "fab",
-        "linkedin"
-      ],
+      "icon": ["fab", "linkedin"],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": [
-        "fas",
-        "clock"
-      ],
+      "icon": ["fas", "clock"],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": [
-        "fab",
-        "codepen"
-      ],
+      "icon": ["fab", "codepen"],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -194,25 +182,8 @@
       "Discord",
       "Slack"
     ],
-    "sql": [
-      "PostgreSQL",
-      "Redis",
-      "MongoDB",
-      "Influx",
-      "MySQL",
-      "Oracle",
-      "MSSQL",
-      "SQLite"
-    ],
-    "os": [
-      "Chat GPT",
-      "AWS",
-      "Azure",
-      "GCloud",
-      "CentOS",
-      "Debian",
-      "Fedora"
-    ]
+    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
+    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
   },
   "contact": [
     {
