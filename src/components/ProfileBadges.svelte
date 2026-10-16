@@ -6,12 +6,9 @@
 
   const API = {
     githubUser: 'https://api.github.com/users/dvgamerr',
-    visitor: (host: string) =>
-      `https://api.visitorbadge.io/api/visitors?path=${host}&label=visitors&countColor=%2337d67a&style=flat-square`,
   }
 
   let followers = $state('...')
-  let visitors = $state('...')
 
   async function updateGitHubFollowers() {
     try {
@@ -24,24 +21,8 @@
     }
   }
 
-  async function updateVisitorCount() {
-    const host = window.location.host
-    if (!host) return
-    try {
-      const res = await fetch(API.visitor(host), { cache: 'no-store' })
-      if (!res.ok) return
-      const svg = await res.text()
-      const match = svg.match(/>(\d[\d,]*)<\//)
-      const raw = match ? match[1].replace(/,/g, '') : ''
-      visitors = raw ? Number(raw).toLocaleString('en-US') : '—'
-    } catch (e) {
-      console.warn('Visitor badge fetch failed', e)
-    }
-  }
-
   onMount(() => {
     updateGitHubFollowers()
-    updateVisitorCount()
   })
 </script>
 
@@ -72,9 +53,4 @@
     <span>Github</span>
     <span class="font-semibold">{followers}</span>
   </a>
-  <span class={pill('success')}>
-    <span class="h-1.5 w-1.5 rounded-full bg-green-500" aria-hidden="true"></span>
-    <span>Visitors</span>
-    <span class="font-semibold">{visitors}</span>
-  </span>
 </div>

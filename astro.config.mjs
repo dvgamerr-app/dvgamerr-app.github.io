@@ -52,6 +52,8 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
+  // Dev server only: let the Traceway dashboard (session replay) load subresources such as /qr-chrome.svg.
+  security: { allowedDomains: [{ hostname: 'otel.dvgamerr.app', protocol: 'https' }] },
   server: { port },
   site: 'https://dvgamerr.app',
   vite: {
