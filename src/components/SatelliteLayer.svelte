@@ -25,15 +25,15 @@
   const pairs = fleet.satellites.flatMap((_, i) => fleet.satellites.slice(i + 1).map((__, k) => [i, i + 1 + k] as const))
 
   let svg = $state<SVGSVGElement>()
-  const satEls: SVGGElement[] = []
-  const glyphEls: SVGGElement[] = []
-  const labelEls: SVGTextElement[] = []
-  const beamEls: SVGLineElement[] = []
-  const linkEls: SVGLineElement[] = []
-  const packetEls: SVGCircleElement[] = []
+  const satEls = $state<SVGGElement[]>([])
+  const glyphEls = $state<SVGGElement[]>([])
+  const labelEls = $state<SVGTextElement[]>([])
+  const beamEls = $state<SVGLineElement[]>([])
+  const linkEls = $state<SVGLineElement[]>([])
+  const packetEls = $state<SVGCircleElement[]>([])
   const headings = fleet.satellites.map(() => 0)
   const alphas = fleet.satellites.map(() => 0)
-  const progressEls: SVGCircleElement[] = []
+  const progressEls = $state<SVGCircleElement[]>([])
   const stateOf = fleet.satellites.map(() => 'ok')
   let assistEl = $state<SVGLineElement>()
   let strikeUntil = 0
