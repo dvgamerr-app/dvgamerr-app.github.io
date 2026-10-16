@@ -2,6 +2,7 @@
 import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer'
 import chartsCss from 'charts.css/dist/charts.css?raw'
 
+import TracewayReporter from '../components/TracewayReporter.svelte'
 import { getLangFromUrl } from '../i18n/utils'
 import { pageUrl, profileLinks, SITE } from '../utils/seo'
 import '../styles/global.css'
@@ -113,6 +114,7 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
     )}
   </head>
   <body>
+    <TracewayReporter client:idle />
     <div id="__layout">
       <slot />
     </div>
