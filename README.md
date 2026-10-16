@@ -36,7 +36,7 @@ Static Astro pages, Svelte 5 islands only where they are needed, a WebGL globe t
 ## Why
 
 - **A hero people remember.** A full-screen [Motion Core](https://motion-core.dev/) globe centered on Bangkok sits behind the whole page, with a sky that follows the theme (sun, moon, stars, god rays) and orbiting satellites. Scrolling spins it down into a horizon behind your resume.
-- **Fast by default.** Pages are static HTML. Only three islands hydrate (`Hero` on load, profile badges on idle, the ad slot when visible). The Hero island is about 83 KB gzip, including GSAP and OGL.
+- **Fast by default.** Pages are static HTML. Only a few islands hydrate (`Hero` on load, profile badges on idle). The Hero island is about 83 KB gzip, including GSAP and OGL.
 - **Two languages, one codebase.** English at `/` and Thai at `/th/`, from the same components and separate JSON.
 - **Content is data.** Edit JSON and Markdown, not markup. Income, stats and coding charts are derived from the data files.
 
@@ -105,8 +105,7 @@ Replace the personal data, icons in `public/`, and the domain in `CNAME` and `as
    Astro pages  ──►  static HTML  (/  and  /th/)
             │
             ▼
-   Svelte 5 islands: Hero (load) · ProfileBadges (idle) · GoogleAd (visible)
-            │
+   Svelte 5 islands: Hero (load) · ProfileBadges (idle)            │
             ▼
    Motion Core globe (OGL) + GSAP ScrollTrigger + sky and satellite layers
 ```

@@ -86,7 +86,6 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="630" />
     {jsonLd && <script is:inline type="application/ld+json" set:html={jsonLd} />}
-    {import.meta.env.PUBLIC_ADSENSE_CLIENT && <meta name="google-adsense-account" content={import.meta.env.PUBLIC_ADSENSE_CLIENT} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script is:inline>
@@ -102,34 +101,12 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
     </script>
     <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Hind:wght@300;400;500;600;700&display=swap" />
     <style set:html={chartsCss}></style>
-    {import.meta.env.PROD && import.meta.env.PUBLIC_ADSENSE_CLIENT && (
-      <>
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
-          crossorigin="anonymous"
-        />
-        <script async src="https://rum.cronitor.io/script.js" />
-      </>
-    )}
   </head>
   <body>
     <TracewayReporter client:idle />
     <div id="__layout">
       <slot />
     </div>
-    <script>
-      // @ts-ignore: any
-      window.cronitor =
-        // @ts-ignore: any
-        window.cronitor ||
-        function () {
-          // @ts-ignore: any
-          ;(window.cronitor.q = window.cronitor.q || []).push(arguments)
-        }
-      // @ts-ignore: any
-      cronitor('config', { clientKey: 'a08df15d735c0c7518246129767fd319' })
-    </script>
   </body>
 </html>
 <style is:global>

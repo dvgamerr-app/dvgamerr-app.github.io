@@ -26,7 +26,6 @@
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
     "@astrojs/svelte": "9.1.0",
-    "@cronitorio/cronitor-rum": "^0.4.2",
     "@tracewayapp/svelte": "^1.2.1",
     "arg": "^5.0.2",
     "astro": "7.4.0",
