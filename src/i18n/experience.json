@@ -3,8 +3,8 @@
   "interview": true,
   "currencry": {
     "ccy": "USD",
-    "sell": 33.56,
-    "buy": 33.56
+    "sell": 33.44,
+    "buy": 33.44
   },
   "salary": {
     "base": 84250,
@@ -16,35 +16,35 @@
   "repos": [],
   "coding": {
     "bytes": {
-      "JavaScript": 10881645,
+      "JavaScript": 10877963,
       "Vue": 1725051,
-      "HTML": 12352982,
+      "HTML": 12352082,
       "Swift": 18084,
       "Ruby": 595044,
       "Objective-C": 2024,
       "Go": 5606485,
-      "Dockerfile": 119983,
-      "CSS": 2890797,
+      "Dockerfile": 119877,
+      "CSS": 2886109,
       "Svelte": 529897,
-      "Shell": 903427,
-      "TypeScript": 4702918,
+      "Shell": 914077,
+      "TypeScript": 4316360,
       "Makefile": 42190,
       "Procfile": 27,
       "SCSS": 131813,
-      "C#": 2520818,
+      "C#": 2554164,
       "Astro": 198181,
-      "Rust": 49618271,
+      "Rust": 59471710,
       "PHP": 1638616,
       "Hack": 12055,
       "Dart": 102008,
       "C++": 5753508,
       "CMake": 188104,
       "C": 140499,
-      "Kotlin": 1572795,
+      "Kotlin": 1566977,
       "Python": 737553,
       "Stylus": 41761,
       "TSQL": 51141,
-      "Batchfile": 46127,
+      "Batchfile": 44460,
       "Smarty": 20650,
       "DataWeave": 1965,
       "AutoHotkey": 9809376,
@@ -54,7 +54,7 @@
       "Java": 139707,
       "CoffeeScript": 77805,
       "ApacheConf": 332,
-      "PowerShell": 192540,
+      "PowerShell": 194008,
       "Jupyter Notebook": 26519942,
       "Visual Basic": 225787,
       "M4": 19093,
@@ -68,7 +68,7 @@
       "Handlebars": 637578,
       "NSIS": 37609,
       "MDX": 1172961,
-      "WGSL": 538586,
+      "WGSL": 548018,
       "Blade": 1376
     },
     "top5": [
@@ -109,25 +109,37 @@
   "social": [
     {
       "name": "github",
-      "icon": ["fab", "github"],
+      "icon": [
+        "fab",
+        "github"
+      ],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": ["fab", "linkedin"],
+      "icon": [
+        "fab",
+        "linkedin"
+      ],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": ["fas", "clock"],
+      "icon": [
+        "fas",
+        "clock"
+      ],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": ["fab", "codepen"],
+      "icon": [
+        "fab",
+        "codepen"
+      ],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -184,8 +196,25 @@
       "Discord",
       "Slack"
     ],
-    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
-    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
+    "sql": [
+      "PostgreSQL",
+      "Redis",
+      "MongoDB",
+      "Influx",
+      "MySQL",
+      "Oracle",
+      "MSSQL",
+      "SQLite"
+    ],
+    "os": [
+      "Chat GPT",
+      "AWS",
+      "Azure",
+      "GCloud",
+      "CentOS",
+      "Debian",
+      "Fedora"
+    ]
   },
   "contact": [
     {
