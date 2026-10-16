@@ -27,10 +27,7 @@ jobs:
       contents: write
       pages: write
     env:
-      # AdSense envs (prefer Secrets, fallback to Repository/Org Variables)
       PROD: true
-      PUBLIC_ADSENSE_CLIENT: ${{ vars.PUBLIC_ADSENSE_CLIENT }}
-      PUBLIC_ADSENSE_HOME_SLOT: ${{ vars.PUBLIC_ADSENSE_HOME_SLOT }}
       PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
       PUBLIC_TRACEWAY_DSN: ${{ secrets.PUBLIC_TRACEWAY_DSN }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}

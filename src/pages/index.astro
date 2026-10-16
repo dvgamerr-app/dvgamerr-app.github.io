@@ -3,7 +3,6 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/th'
 
 import Footer from '../components/Footer.svelte'
-import GoogleAd from '../components/GoogleAd.svelte'
 import Hero from '../components/Hero.svelte'
 import ProfileBadges from '../components/ProfileBadges.svelte'
 import Resume from '../components/Resume.svelte'
@@ -27,7 +26,6 @@ const { experience = expData, resume = resumeData } = Astro.props
 dayjs.locale(lang)
 
 const workHtml = await loadWorkHtml(lang)
-const adSlot = import.meta.env.PUBLIC_ADSENSE_HOME_SLOT
 const { title, description, keywords } = resume.seo
 const structuredData = buildStructuredData(lang, { title, description })
 ---
@@ -42,11 +40,6 @@ const structuredData = buildStructuredData(lang, { title, description })
 >
   <Hero client:load lang={lang} resume={resume} interview={experience.interview} />
   <main class="relative z-10 max-w-7xl mx-auto px-4 pt-5 pb-8 md:pt-17 md:pb-12">
-    {adSlot && (
-      <div class="container my-4 print:hidden">
-        <GoogleAd client:visible adSlot={adSlot} />
-      </div>
-    )}
     <Header lang={lang} resume={resume} experience={experience}>
       <ProfileBadges client:idle slot="badges" />
     </Header>

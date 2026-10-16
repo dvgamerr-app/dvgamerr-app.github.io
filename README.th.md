@@ -105,8 +105,7 @@ bun run build
    Astro pages  ──►  static HTML  (/  และ  /th/)
             │
             ▼
-   Svelte 5 islands: Hero (load) · ProfileBadges (idle) · GoogleAd (visible)
-            │
+   Svelte 5 islands: Hero (load) · ProfileBadges (idle)            │
             ▼
    Motion Core globe (OGL) + GSAP ScrollTrigger + ชั้นท้องฟ้าและดาวเทียม
 ```
