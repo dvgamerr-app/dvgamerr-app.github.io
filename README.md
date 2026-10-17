@@ -89,13 +89,6 @@ bun run build
 
 Replace the personal data, icons in `public/`, and the domain in `CNAME` and `astro.config.mjs`.
 
-<details>
-<summary>Refreshing the telemetry data</summary>
-
-`bun run collector` pulls GitHub and WakaTime data through `collector/index.js`. `collector:wk` reads a WakaTime export from a local file path that is hard-coded in `package.json`, so change that path first.
-
-</details>
-
 ## Architecture
 
 ```
