@@ -89,13 +89,6 @@ bun run build
 
 แทนที่ข้อมูลส่วนตัว ไอคอนใน `public/` และโดเมนใน `CNAME` กับ `astro.config.mjs`
 
-<details>
-<summary>การรีเฟรชข้อมูล telemetry</summary>
-
-`bun run collector` ดึงข้อมูล GitHub และ WakaTime ผ่าน `collector/index.js` ส่วน `collector:wk` อ่านไฟล์ export ของ WakaTime จาก path ในเครื่องที่ฝังไว้ใน `package.json` ต้องแก้ path นั้นก่อนใช้
-
-</details>
-
 ## สถาปัตยกรรม
 
 ```

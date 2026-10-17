@@ -2,9 +2,9 @@
   "birthday": "1988-09-30T07:00:00.000+07:00",
   "interview": true,
   "currencry": {
+    "buy": 33.42,
     "ccy": "USD",
-    "sell": 33.44,
-    "buy": 33.44
+    "sell": 33.42
   },
   "salary": {
     "base": 84250,
@@ -16,91 +16,78 @@
   "repos": [],
   "coding": {
     "bytes": {
-      "JavaScript": 10877963,
-      "Vue": 1725051,
-      "HTML": 12352082,
-      "Swift": 18084,
-      "Ruby": 595044,
-      "Objective-C": 2024,
-      "Go": 5606485,
-      "Dockerfile": 119877,
-      "CSS": 2886109,
-      "Svelte": 529897,
-      "Shell": 914077,
-      "TypeScript": 4316360,
-      "Makefile": 42190,
-      "Procfile": 27,
-      "SCSS": 131813,
-      "C#": 2554164,
-      "Astro": 198181,
-      "Rust": 59471710,
-      "PHP": 1638616,
-      "Hack": 12055,
-      "Dart": 102008,
-      "C++": 5753508,
-      "CMake": 188104,
-      "C": 140499,
-      "Kotlin": 1566977,
-      "Python": 737553,
-      "Stylus": 41761,
-      "TSQL": 51141,
-      "Batchfile": 44460,
-      "Smarty": 20650,
-      "DataWeave": 1965,
-      "AutoHotkey": 9809376,
-      "Mathematica": 581462,
-      "SuperCollider": 73,
-      "VBScript": 562,
-      "Java": 139707,
-      "CoffeeScript": 77805,
+      "Python": 13594614,
+      "Dockerfile": 71043,
+      "Shell": 418636,
+      "TypeScript": 39828980,
+      "CSS": 1760490,
+      "JavaScript": 8424514,
+      "HTML": 4144539,
+      "Mako": 1378,
+      "Batchfile": 47870,
+      "SCSS": 358029,
+      "PowerShell": 202665,
+      "Go": 6854755,
+      "Makefile": 7704,
+      "Astro": 643736,
+      "NSIS": 43060,
+      "C++": 281386,
+      "C": 39026,
+      "Svelte": 1697310,
+      "Vue": 1324518,
+      "HCL": 5211,
+      "C#": 2145862,
+      "Stylus": 326,
+      "MDX": 1201248,
+      "TSQL": 122883,
+      "PLpgSQL": 308188,
+      "Swift": 27486,
+      "PHP": 1430493,
       "ApacheConf": 332,
-      "PowerShell": 194008,
-      "Jupyter Notebook": 26519942,
-      "Visual Basic": 225787,
-      "M4": 19093,
-      "EJS": 64715,
-      "Jsonnet": 7419,
-      "Nix": 243,
-      "Liquid": 686,
-      "Perl": 80213,
-      "PLpgSQL": 42806,
+      "Java": 12973,
+      "Rust": 1738115,
+      "Blade": 1376,
+      "Hack": 12055,
+      "Jupyter Notebook": 30912,
+      "CMake": 35340,
+      "EJS": 487038,
+      "Dart": 42342,
+      "Kotlin": 131553,
+      "Objective-C": 38,
+      "VBScript": 562,
+      "DataWeave": 1965,
       "Lua": 6521,
-      "Handlebars": 637578,
-      "NSIS": 37609,
-      "MDX": 1172961,
-      "WGSL": 548018,
-      "Blade": 1376
+      "Perl": 80213,
+      "Ruby": 2802,
+      "Visual Basic": 225787,
+      "Liquid": 686,
+      "Smarty": 5683
     },
     "top5": [
       {
         "caption": "JavaScript",
-        "commits": 3941,
-        "loc": 782828
+        "commits": 4386,
+        "loc": 517008
       },
       {
-        "caption": "CSS",
-        "commits": 1247,
-        "loc": 751121
+        "caption": "Go",
+        "commits": 2928,
+        "loc": 187486
       },
       {
-        "caption": "HTML",
-        "commits": 670,
-        "loc": 343673
+        "caption": "TypeScript",
+        "commits": 1478,
+        "loc": 559565
       },
       {
-        "caption": "C#",
-        "commits": 349,
-        "loc": 1391018
+        "caption": "Python",
+        "commits": 1035,
+        "loc": 355972
       },
       {
-        "caption": "Shell",
-        "commits": 307,
-        "loc": 390
-      },
-      {
-        "caption": "SQL",
-        "commits": 156,
-        "loc": 81635
+        "caption": "Svelte",
+        "commits": 891,
+        "loc": 43213
       }
     ],
     "best_languages": "Vue.js",
@@ -109,37 +96,25 @@
   "social": [
     {
       "name": "github",
-      "icon": [
-        "fab",
-        "github"
-      ],
+      "icon": ["fab", "github"],
       "link": "https://github.com/dvgamerr",
       "alt": "github.com"
     },
     {
       "name": "linkedin",
-      "icon": [
-        "fab",
-        "linkedin"
-      ],
+      "icon": ["fab", "linkedin"],
       "link": "https://www.linkedin.com/in/kananek-thongkam/",
       "alt": "linkedin"
     },
     {
       "name": "wakatime",
-      "icon": [
-        "fas",
-        "clock"
-      ],
+      "icon": ["fas", "clock"],
       "link": "https://wakatime.com/dvgamerr",
       "alt": "wakatime.com"
     },
     {
       "name": "community",
-      "icon": [
-        "fab",
-        "codepen"
-      ],
+      "icon": ["fab", "codepen"],
       "link": "https://discord.gg/QDccF497Mw",
       "alt": "discord.com"
     }
@@ -196,25 +171,8 @@
       "Discord",
       "Slack"
     ],
-    "sql": [
-      "PostgreSQL",
-      "Redis",
-      "MongoDB",
-      "Influx",
-      "MySQL",
-      "Oracle",
-      "MSSQL",
-      "SQLite"
-    ],
-    "os": [
-      "Chat GPT",
-      "AWS",
-      "Azure",
-      "GCloud",
-      "CentOS",
-      "Debian",
-      "Fedora"
-    ]
+    "sql": ["PostgreSQL", "Redis", "MongoDB", "Influx", "MySQL", "Oracle", "MSSQL", "SQLite"],
+    "os": ["Chat GPT", "AWS", "Azure", "GCloud", "CentOS", "Debian", "Fedora"]
   },
   "contact": [
     {

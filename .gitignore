@@ -22,4 +22,3 @@ pnpm-debug.log*
 
 .nuxtjs-project/
 **-lock.json
-collector/waka
