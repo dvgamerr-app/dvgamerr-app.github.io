@@ -17,7 +17,8 @@
     "lint": "bun x --bun eslint .",
     "lint:fix": "bun x --bun eslint --fix .",
     "format": "bun x --bun prettier --check .",
-    "format:fix": "bun x --bun prettier --write ."
+    "format:fix": "bun x --bun prettier --write .",
+    "test:ci": "bun test"
   },
   "lint-staged": {
     "*": "prettier --write",
