@@ -38,6 +38,9 @@
           {#each Array.isArray(e.level) ? e.level : [] as j (j.file)}
             {@const period = getWorkPeriod(j, lang, t)}
             {@const duration = getWorkDuration(j, lang, t)}
+            {#if 'pagebreak' in j && j.pagebreak}
+              <p class="pagebreak md:col-span-12"></p>
+            {/if}
             <div class="scroll-reveal md:col-span-3 mb-2 md:mb-0 md:mt-3 mt-6 md:text-right">
               <!-- Period and duration stack on their own lines so long ranges never squeeze into two ragged columns. -->
               <p class="caps mb-1.5 flex flex-col gap-0.5 text-[11px] font-medium leading-snug md:items-end">

@@ -1,15 +1,6 @@
-- Designed and developed the database, user interface, and APIs for the `Notice-Subscriber` project.
-- Implemented a Kubernetes architecture for the `DAAS` project.
-- Developed `Golang` APIs for the `DAAS` project.
-- Designed and implemented `Azure PostgreSQL` databases for the `DAAS` project.
-- Redesigned the ETL engine service for the `DAAS` project, ensuring improved performance and handling of large amounts of data (200GB).
-- Set up and configured `Azure Kubernetes Service` (AKS) for the `DAAS` project.
-- Configured Kubernetes servers for the `PPE-API` and `GWP` projects.
-- Implemented zero-downtime automation for the `PPE-API` project.
-- Adopted an agile model and introduced `Gitlab` for team collaboration.
-- Set up `Gitlab Runner` on various operating systems (Windows Server, Ubuntu, CentOS, RedHat, CoreOS) for CI/CD integration with `Gitlab`.
-- Trained the Server Engineer team on the installation, configuration, and usage of `Kubernetes`, `MongoDB`, and `RedisDB`.
-- Developed automated health check, API, logging, scheduling, and reporting features for the `Notice-Manager` project.
-- Developed the `PPE-API` project, a high-performance API capable of handling up to 1,000 requests per second.
-- Migrated the `Talend BigData Community Edition` ETL to a new `Golang`-based ETL engine.
-- Developed the `GWP` project, a `promotion setup` tool.
+- Built `DAAS` APIs in `Go`, designed its `Azure PostgreSQL` databases, and implemented its k9s architecture on `Azure k9s Service` (AKS).
+- Redesigned the `DAAS` ETL engine to improve performance and handle **200 GB of data**; migrated `Talend BigData Community Edition` workflows to a `Go`-based ETL engine.
+- Developed `PPE-API` to handle up to **1,000 requests per second**, configured its k9s infrastructure, and implemented zero-downtime automation.
+- Designed and built the database, user interface, and APIs for `Notice-Subscriber`.
+- Developed `Notice-Manager` health checks, APIs, logging, scheduled tasks, and automated reporting.
+- Built `GWP`, a promotion configuration tool, and configured its k9s infrastructure.

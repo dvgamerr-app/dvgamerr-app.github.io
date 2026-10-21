@@ -15,7 +15,6 @@
   const t = $derived(useTranslations(lang))
 
   const { aiLinePercent, agentSessions, longestTaskSeconds, linesPerMillionTokens, monthly, models, tokens } = telemetry.aiAssisted
-  const range = `${dayjs(telemetry.rangeStart).format('DD-MM-YYYY')} – ${dayjs(telemetry.rangeEnd).format('DD-MM-YYYY')}`
 
   const compact = new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 })
   const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
@@ -47,7 +46,7 @@
   const maxHours = Math.max(...topModels.map(({ hours }) => hours))
 </script>
 
-<SectionShell title={t('ai-assisted')} note={range} printHidden titleClass="text-[1.2rem] -mt-0.5">
+<SectionShell title={t('ai-assisted')} note="wakatime.com" printHidden titleClass="text-[1.2rem] -mt-0.5">
   <StatGrid items={stats} />
   <div class="grid gap-x-10 gap-y-12 lg:grid-cols-2 mt-10">
     <figure>

@@ -14,8 +14,6 @@
 
   const t = $derived(useTranslations(lang))
 
-  const updated = dayjs(coding.updated).format('DD-MM-YYYY')
-
   const getExperience = () => {
     const worked = dayjs().diff(coding.experience, 'month') / 12
     const month = (worked % 1) * 12
@@ -39,6 +37,6 @@
   ])
 </script>
 
-<SectionShell title={t('my-coding')} note={`updated ${updated}`} printHidden titleClass="text-[1.2rem] -mt-0.5">
+<SectionShell title={t('my-coding')} note="github.com" printHidden titleClass="text-[1.2rem] -mt-0.5">
   <StatGrid items={stats} />
 </SectionShell>

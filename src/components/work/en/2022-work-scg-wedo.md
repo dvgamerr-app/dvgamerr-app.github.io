@@ -1,4 +1,3 @@
-- Clearly and effectively communicate with internal and external parties.
-- Collaborate closely with business, discovery, delivery, and IT teams or related teams across the organization.
-- Build CI/CD for Java with the `MuleSoft` Framework on the `GoCD` platform.
-- Maintain the `MuleSoft` API Gateway.
+- Built CI/CD pipelines for Java applications using `MuleSoft` on `GoCD`.
+- Maintained the `MuleSoft` API Gateway.
+- Coordinated with business, discovery, delivery, and IT teams, and with internal and external stakeholders.
