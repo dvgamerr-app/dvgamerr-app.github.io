@@ -84,3 +84,6 @@ name = "trufflehog"
 
 [[plugin]]
 name = "zizmor"
+
+[[plugin]]
+name = "osv-scanner"
