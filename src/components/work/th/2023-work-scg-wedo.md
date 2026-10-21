@@ -1,13 +1,13 @@
-- ออกแบบและพัฒนา `SCG Home AI Service (Homie)` ด้วย FastAPI, LangGraph, PostgreSQL, Redis และ LiteLLM รองรับการตอบแบบสตรีมมิง การประมวลผลหลายเอเจนต์ การเชื่อมต่อหลายโมเดล AI การจัดการไฟล์ และระบบสังเกตการณ์ระดับโปรดักชัน
-- พัฒนา `Agentic Chat UI` โดยใช้ Astro + Svelte 5 และ Elysia.js (Bun runtime) รองรับการสื่อสารแบบเรียลไทม์ ระบบแสดงการทำงานของ AI tools การใช้งานด้วยคีย์บอร์ด ระบบบันทึกเซสชัน และการเชื่อมต่อหลาย backend ผ่าน proxy
-- สร้างและดีไซน์ระบบสนทนา AI โดยใช้ LangChain และชุด tools แบบ custom สำหรับค้นหาสินค้า ตรวจสอบราคา ค้นหาร้าน ให้ข้อมูลความรู้เชิงเทคนิค และแนะนำสินค้าแบบอัตโนมัติสำหรับลูกค้า SCG Home
-- พัฒนาและดีพลอย `microservices และ AI pipelines` ด้วย Docker, Kubernetes, Helm, ArgoCD, GitHub Actions และ AWS ECR รองรับ GitOps หลายสภาพแวดล้อม (dev/uat/prod) พร้อมระบบเวอร์ชันอัตโนมัติและ multi-platform builds
-- ออกแบบและบริหารงานด้าน `KrakenD Enterprise API Gateway` รวมถึงพัฒนา custom plugins และระบบรวม API ประสิทธิภาพสูงสำหรับงานระดับองค์กร
-- พัฒนา microservices ด้วย `Bun.js` ช่วยลด latency และเพิ่มประสิทธิภาพทรัพยากรสำหรับงานภายในองค์กร
-- ออกแบบและตั้งค่า `ระบบรวม logs แบบศูนย์กลาง` สำหรับ SnapLogic (Fluent Bit → ClickHouse) และ MuleSoft (Promtail → Loki) เพื่อเพิ่มความน่าเชื่อถือและความสามารถในการตรวจสอบระบบ
-- ดีพลอยและปรับแต่งแพลตฟอร์ม `SnapLogic` สำหรับงานอัตโนมัติและ data workflow ภายในองค์กร
-- นำทีมและออกแบบสถาปัตยกรรมระบบ API gateway ทั้งการวางโครงสร้าง การโค้ด และการบริหารทีมวิศวกร
-- นำการออกแบบ Presales ของ Dashboard ติดตามการปฏิบัติตามมาตรฐานจากข้อมูล `POMS` ด้วย `Data pipeline` แบบ Low-code, แจ้งเตือนตาม Threshold ผ่าน `LINE` และแสดงผลบน `Google BigQuery`/`Looker`
-- ออกแบบสถาปัตยกรรม `AI Agent ค้นหาเอกสาร` แบบ `Agent-to-Agent (A2A)` ผ่าน `API Gateway` เชื่อมต่อ Data warehouse อย่างปลอดภัย และส่งเอกสารอัตโนมัติทางอีเมล
-- ออกแบบพอร์ทัลจัดซื้อระดับองค์กรบน `Kubernetes` พร้อม Chatbot ที่ขับเคลื่อนด้วย `LLM` และวางระบบ `GitOps` CI/CD
-- สนับสนุน Manager ในการขับเคลื่อนทีม Dev ออกแบบเครื่องมือและ Workflow `AI-enablement` ภายใน ให้ทีมนำ `AI` มาช่วยพัฒนางานได้อย่างมีประสิทธิภาพ
+- ออกแบบสถาปัตยกรรม **AI-assisted workflow engine** แยกขั้นตอนตรวจสอบ จัดหมวดหมู่ ประเมินกฎ และจับคู่ข้อมูล พร้อมให้ผู้ใช้ตรวจทานและอนุมัติ (**human-in-the-loop, HITL**) โดยใช้ `Bun`, `Elysia`, `TypeScript`, `Drizzle ORM` และ `PostgreSQL`
+- ออกแบบ **event-driven agent workflows** ด้วย `AWS SQS`, `Python`, `FastAPI`, `LangGraph` และ `LiteLLM` เพื่อขอข้อมูลที่ขาด สกัดข้อมูลจากอีเมลตอบกลับให้อยู่ในรูปแบบที่ประมวลผลได้ และประเมินกฎธุรกิจซ้ำ ใช้ **hexagonal architecture** แยกส่วนเชื่อมต่อระบบ และส่งกรณีที่ยังหาข้อสรุปไม่ได้ให้ผู้ใช้ตรวจทาน
+- ออกแบบระบบแบบ **modular monolith** สำหรับเว็บแชต `LINE` และระบบองค์กร ด้วย `Bun`, `Elysia`, `TypeORM` และ `PostgreSQL` ใช้ `Redis` และ `BullMQ` จัดคิว FIFO ที่จำกัดขนาดต่อผู้ใช้ พร้อมกำหนดจำนวนงานที่ประมวลผลพร้อมกัน timeout, retry และ circuit breaker
+- พัฒนาระบบยืนยันตัวตน สิทธิ์ตามบทบาท และบันทึกการใช้งานเพื่อตรวจสอบย้อนหลังด้วย `Microsoft Entra ID` และ `Better Auth` เชื่อม `Power BI` ผ่าน embed token จาก backend และ row-level security ที่ผูกกับผู้ใช้เมื่อมีการตั้งค่า
+- ออกแบบและพัฒนา **SCG Home AI Service (Homie)** สำหรับค้นหาสินค้า ตรวจสอบราคา ค้นหาร้าน และแนะนำสินค้า ด้วย `FastAPI`, `LangGraph`, `PostgreSQL`, `Redis` และ `LiteLLM` รองรับการตอบแบบสตรีม การทำงานร่วมกันของหลายเอเจนต์ ผู้ให้บริการ LLM หลายราย และการจัดการไฟล์
+- พัฒนา **Agentic Chat UI** ด้วย `Astro`, `Svelte 5` และ `Elysia` บน `Bun` เชื่อม backend เดิมและ **Agent-to-Agent (A2A)** ผ่าน transport adapter พร้อมแสดงการทำงานของ tools แบบสตรีม ประวัติสนทนาสำหรับผู้ใช้ที่ยืนยันตัวตน หน้าจัดการระบบ **nonce-based CSP** และการตรวจสอบความถูกต้องของไฟล์ asset
+- เชื่อมต่อ `SQL Server`, `PostgreSQL` และข้อมูลอ้างอิงขององค์กรผ่าน ETL mirror เพื่อรองรับงาน AI พร้อมพัฒนางานอัตโนมัติบน `SnapLogic`
+- สร้างระบบรวม log ด้วย `Fluent Bit → ClickHouse` และ `Promtail → Loki` สำหรับ `MuleSoft` ใช้ `OpenTelemetry` ติดตามการทำงานข้ามบริการแบบ asynchronous พร้อมเชื่อม `SigNoz` และ `Langfuse` เพื่อติดตามบริการและ LLM
+- สร้าง **GitOps delivery workflows** ด้วย `Docker`, `Kubernetes`, `Helm`, `Argo CD`, `GitHub Actions` และ `AWS ECR` สำหรับการดีพลอยแยกตามสภาพแวดล้อม ระบบเวอร์ชันอัตโนมัติ และการ build สำหรับหลายแพลตฟอร์ม
+- นำงานวิศวกรรม API gateway ด้วย **KrakenD Enterprise** ทั้ง custom plugins การรวม API การประสานงานทีม และการตัดสินใจด้านสถาปัตยกรรมสำหรับงานเชื่อมต่อที่สำคัญต่อธุรกิจ
+- นำการออกแบบสถาปัตยกรรมในงาน presales สำหรับติดตามเซนเซอร์ `POMS` แจ้งเตือนตามเกณฑ์ที่กำหนดผ่าน `LINE` และจัดทำรายงานบน `BigQuery`/`Looker`
+- ออกแบบโซลูชัน **ค้นหาเอกสารแบบ A2A**
+- สนับสนุนผู้บริหารทีมวิศวกรด้วยเครื่องมือและเวิร์กโฟลว์ **AI-assisted development** ภายในองค์กร

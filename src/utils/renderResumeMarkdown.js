@@ -20,7 +20,6 @@ const labels = {
     openSource: 'open source',
     present: 'Present',
     projects: 'Projects',
-    skills: 'Skills',
     updated: 'Updated',
     work: 'Work experience',
   },
@@ -35,15 +34,9 @@ const labels = {
     openSource: 'โอเพนซอร์ส',
     present: 'ปัจจุบัน',
     projects: 'โปรเจกต์',
-    skills: 'ทักษะ',
     updated: 'อัปเดต',
     work: 'ประสบการณ์ทำงาน',
   },
-}
-
-const skillLabels = {
-  en: { coding: 'Programming', os: 'Operating systems and cloud', sql: 'Databases', tools: 'Tools' },
-  th: { coding: 'การเขียนโปรแกรม', os: 'ระบบปฏิบัติการและคลาวด์', sql: 'ฐานข้อมูล', tools: 'เครื่องมือ' },
 }
 
 const publicContactLabels = new Set(['devto', 'email', 'github', 'wakatime', 'website'])
@@ -81,9 +74,6 @@ export function renderResumeMarkdown(lang = 'en') {
     '',
     ...topLanguages,
     '',
-    `## ${text.skills}`,
-    '',
-    ...renderSkills(locale),
     `## ${text.education}`,
     '',
     ...renderEducation(resume),
@@ -144,14 +134,6 @@ function renderProjects(heading) {
     return `- [${name}](${url})${details ? `: ${details}` : ''}${popularity}`
   })
   return [`## ${heading}`, '', ...items, '']
-}
-
-function renderSkills(lang) {
-  return Object.entries(experience.skill).flatMap(([group, skills]) => {
-    const visibleSkills = skills.filter((skill) => skill.toLowerCase() !== 'hack').sort((a, b) => a.localeCompare(b))
-    if (!visibleSkills.length) return []
-    return [`### ${skillLabels[lang][group] || group}`, '', visibleSkills.join(', '), '']
-  })
 }
 
 function renderWork(lang, resume, present) {

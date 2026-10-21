@@ -1,13 +1,13 @@
-- Architected and implemented the `SCG Home AI Service (Homie)` using FastAPI, LangGraph, PostgreSQL, Redis, and LiteLLM, delivering real-time streaming responses, multi-agent orchestration, multi-LLM integration, file processing, and production-grade observability.
-- Designed and built the `Agentic Chat UI` with Astro + Svelte 5 and Elysia.js (Bun runtime), supporting real-time messaging, tool execution visualization, keyboard-driven UX, session persistence, and proxy integration to multiple AI backends.
-- Developed and deployed `AI-driven conversational systems` using LangChain and custom tools, enabling product search, pricing lookup, store locator, knowledge-based answers, and automated recommendations for SCG Home customers.
-- Built scalable `microservices and AI pipelines` using Docker, Kubernetes, Helm, ArgoCD, GitHub Actions, and AWS ECR, supporting multi-environment GitOps deployments (dev/uat/prod) with automated versioning and multi-platform builds.
-- Designed and managed `KrakenD Enterprise API gateway` solutions, including custom plugins and high-performance API aggregation for enterprise workloads.
-- Implemented microservices using `Bun.js`, improving request latency and resource efficiency for internal API workloads.
-- Built centralized logging pipelines for `SnapLogic` (Fluent Bit → ClickHouse) and `MuleSoft` (Promtail → Loki), improving reliability and cross-platform observability.
-- Deployed and optimized the `SnapLogic` integration platform for high-volume enterprise automation and data workflows.
-- Led engineering efforts for API gateway systems, including team management, architectural design, and delivery of mission-critical services.
-- Led presales design for a compliance-monitoring dashboard sourcing `POMS` sensor data through `low-code data pipelines`, threshold-based `LINE` alerting, and reporting on `Google BigQuery`/`Looker`.
-- Designed an `AI document search agent` architecture with `agent-to-agent (A2A)` orchestration behind an `API gateway`, secure data-warehouse integration, and automated email delivery.
-- Architected an enterprise procurement portal on `Kubernetes` with an `LLM`-backed chatbot and `GitOps` CI/CD.
-- Supported the Manager in driving developer velocity, designing internal `AI-enablement` tooling and workflows that help the dev team adopt `AI` assisted development effectively.
+- Architected an **AI-assisted workflow engine** for validation, classification, rule evaluation, and matching, with **human-in-the-loop (HITL)** review and approval. Used `Bun`, `Elysia`, `TypeScript`, `Drizzle ORM`, and `PostgreSQL`.
+- Designed **event-driven agent workflows** with `AWS SQS`, `Python`, `FastAPI`, `LangGraph`, and `LiteLLM` to request missing information, extract structured email data, and re-evaluate business rules. Used **hexagonal architecture** to separate adapters, returning unresolved cases for user review.
+- Architected a **modular monolith** for web chat, `LINE`, and enterprise integrations using `Bun`, `Elysia`, `TypeORM`, and `PostgreSQL`. Used `Redis` and `BullMQ` for bounded per-user FIFO queues with configurable concurrency, timeouts, retries, and circuit breakers.
+- Implemented enterprise authentication, role-based access, and audit trails with `Microsoft Entra ID` and `Better Auth`. Integrated `Power BI` through backend-issued embed tokens and user-bound row-level security where configured.
+- Architected and built **SCG Home AI Service (Homie)** for product search, pricing, store lookup, and recommendations. Used `FastAPI`, `LangGraph`, `PostgreSQL`, `Redis`, and `LiteLLM` to support streaming, multi-agent orchestration, multiple LLM providers, and file processing.
+- Built **Agentic Chat UI** with `Astro`, `Svelte 5`, and `Elysia` on `Bun`, connecting legacy and **Agent-to-Agent (A2A)** backends through transport adapters. Added streamed tool visualization, authenticated conversation history, administration, **nonce-based CSP**, and asset integrity checks.
+- Connected `SQL Server`, `PostgreSQL`, and enterprise reference data through ETL mirrors for AI workflows, and delivered `SnapLogic` automation.
+- Built centralized logging with `Fluent Bit → ClickHouse` and `Promtail → Loki` for `MuleSoft`. Applied `OpenTelemetry` tracing across asynchronous services, integrating `SigNoz` and `Langfuse` for service and LLM observability.
+- Built **GitOps delivery workflows** with `Docker`, `Kubernetes`, `Helm`, `Argo CD`, `GitHub Actions`, and `AWS ECR` for environment-specific deployments, automated versioning, and multi-platform builds.
+- Led **KrakenD Enterprise** API gateway engineering, including custom plugins, API aggregation, team coordination, and architecture decisions for business-critical integrations.
+- Led presales architecture for `POMS` sensor monitoring, threshold-based `LINE` alerts, and `BigQuery`/`Looker` reporting.
+- Designed an **A2A document search** solution.
+- Supported engineering management with internal **AI-assisted development** tools and workflows.

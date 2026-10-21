@@ -1,6 +1,4 @@
 <script lang="ts">
-  import dayjs from 'dayjs'
-
   import telemetry from '../../i18n/telemetry.json'
   import { type Lang, type TranslationKey, useTranslations } from '../../i18n/utils'
   import SectionShell from '../SectionShell.svelte'
@@ -15,7 +13,6 @@
   const t = $derived(useTranslations(lang))
 
   const { categories, editorsCount, longestStreakDays } = telemetry.workType
-  const range = `${dayjs(telemetry.rangeStart).format('DD-MM-YYYY')} – ${dayjs(telemetry.rangeEnd).format('DD-MM-YYYY')}`
 
   const categoryStyle: Record<string, { key: TranslationKey; color: string }> = {
     'AI Coding': { key: 'work-type.ai', color: 'bg-(--charts-highlight)' },
@@ -43,7 +40,7 @@
   ])
 </script>
 
-<SectionShell title={t('work-type')} note={range} printHidden titleClass="text-[1.2rem] -mt-0.5">
+<SectionShell title={t('work-type')} note="wakatime.com" printHidden titleClass="text-[1.2rem] -mt-0.5">
   <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">{t('work-type.caption')}</p>
   <div class="flex h-7 w-full overflow-hidden" aria-hidden="true">
     {#each slices as slice (slice.label)}

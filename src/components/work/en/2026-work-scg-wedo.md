@@ -1,5 +1,6 @@
-- Support the definition and validation of system architecture, technologies, libraries, and development standards for new systems.
-- Work with Leads and Managers to improve workflows, develop tools, and enhance Developer productivity.
-- Support the development of team capabilities, including technical skills, working practices, and development standards.
-- Monitor, analyze, and communicate critical security or technology-related issues that may impact systems, enabling the team to respond and resolve issues quickly.
-- Collaborate with Leads and Managers to review and improve systems, processes, and workflows to ensure quality, stability, and efficiency.
+- Guide architecture, technology selection, engineering standards, and delivery as **Technical Lead** for enterprise AI and integration systems, with hands-on development and troubleshooting.
+- Lead the architecture and implementation of a **Go-based A2A document search platform**, separating agent serving from indexing. Integrate `Azure Blob Storage`, `Azure Event Grid`, `OpenSearch`, `PostgreSQL`, and `Microsoft Graph` for document discovery, master-data synchronization, and email delivery.
+- Design document indexing to handle duplicate and out-of-order storage events. Use idempotent processing, sequencer ordering, tombstones, recoverable rename processing, and **PostgreSQL advisory locks** to maintain consistency across replicas.
+- Guide **Agent-to-Agent (A2A)** interoperability through agent discovery, JSON-RPC contracts, and protocol compatibility, with clear responsibilities for the document agent, indexing service, and upstream orchestrator.
+- Work with leads and managers to improve developer workflows, reusable **AI-assisted engineering tools**, team capabilities, and practical development standards.
+- Review reliability and security concerns, communicate technical risks, and guide architecture and delivery improvements.

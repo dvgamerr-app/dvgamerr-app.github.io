@@ -8,7 +8,6 @@
   import CodingWorkType from './sections/CodingWorkType.svelte'
   import Contact from './sections/Contact.svelte'
   import Education from './sections/Education.svelte'
-  import Skill from './sections/Skill.svelte'
 
   interface Props {
     lang: Lang
@@ -25,5 +24,4 @@
 <CodingHistory {lang} />
 <CodingWorkType {lang} />
 <CodingAssisted {lang} />
-<Skill {lang} {experience} />
 <Education {lang} {resume} />
