@@ -55,7 +55,7 @@
               {/if}
             </div>
             <!-- The timeline rule lives on this static wrapper so roles at one company join into a single line;
-                 only the content inside animates, and bottom padding (not grid gaps) spaces the roles. -->
+                only the content inside animates, and bottom padding (not grid gaps) spaces the roles. -->
             <article
               class="md:col-span-9 relative group mb-0 pb-4 last:pb-0 last:mb-8 md:border-l md:border-gray-900/10 md:pl-6 md:dark:border-white/10 print:border-0 print:pl-0"
             >

@@ -92,15 +92,15 @@ Replace the personal data, icons in `public/`, and the domain in `CNAME` and `as
 ## Architecture
 
 ```
- Markdown + JSON (src/i18n, src/components/work)
+  Markdown + JSON (src/i18n, src/components/work)
             │
             ▼
-   Astro pages  ──►  static HTML  (/  and  /th/)
+  Astro pages  ──►  static HTML  (/  and  /th/)
             │
             ▼
-   Svelte 5 islands: Hero (load) · ProfileBadges (idle)            │
+  Svelte 5 islands: Hero (load) · ProfileBadges (idle)            │
             ▼
-   Motion Core globe (OGL) + GSAP ScrollTrigger + sky and satellite layers
+  Motion Core globe (OGL) + GSAP ScrollTrigger + sky and satellite layers
 ```
 
 Stack: Astro 7, Svelte 5, TypeScript 5/6, Tailwind CSS 4, GSAP, OGL, Bun.
