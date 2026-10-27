@@ -92,15 +92,15 @@ bun run build
 ## สถาปัตยกรรม
 
 ```
- Markdown + JSON (src/i18n, src/components/work)
+  Markdown + JSON (src/i18n, src/components/work)
             │
             ▼
-   Astro pages  ──►  static HTML  (/  และ  /th/)
+  Astro pages  ──►  static HTML  (/  และ  /th/)
             │
             ▼
-   Svelte 5 islands: Hero (load) · ProfileBadges (idle)            │
+  Svelte 5 islands: Hero (load) · ProfileBadges (idle)            │
             ▼
-   Motion Core globe (OGL) + GSAP ScrollTrigger + ชั้นท้องฟ้าและดาวเทียม
+  Motion Core globe (OGL) + GSAP ScrollTrigger + ชั้นท้องฟ้าและดาวเทียม
 ```
 
 Stack: Astro 7, Svelte 5, TypeScript 5/6, Tailwind CSS 4, GSAP, OGL, Bun
