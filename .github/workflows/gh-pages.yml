@@ -1,4 +1,4 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+# Build and deploy the Astro site to GitHub Pages.
 name: dvgamerr.app
 
 on:
@@ -6,7 +6,7 @@ on:
   push:
     branches: ['main']
 
-  # Scheduled build every Monday at 06:00 UTC
+  # Build and deploy every Monday at 06:00 UTC (13:00 Asia/Bangkok).
   schedule:
     - cron: '0 6 * * 1'
 

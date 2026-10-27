@@ -42,6 +42,20 @@ export default defineConfig({
     }),
     robotsTxt(),
     sitemap({
+      // Project Pages share this domain but are built in separate repositories.
+      customPages: [
+        'https://dvgamerr.app/go-bitkub/',
+        'https://dvgamerr.app/go-hoyolab/',
+        'https://dvgamerr.app/gokub-mcp/',
+        'https://dvgamerr.app/hentai-downloader/',
+        'https://dvgamerr.app/jirasync-hub-app/',
+        'https://dvgamerr.app/livepaper-app/',
+        'https://dvgamerr.app/minima-lite/',
+        'https://dvgamerr.app/nimbus-markdown/',
+        'https://dvgamerr.app/notice-manager/',
+        'https://dvgamerr.app/psp-library-win/',
+        'https://dvgamerr.app/waka-personal/',
+      ],
       i18n: {
         defaultLocale: 'en',
         locales: {
