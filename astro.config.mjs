@@ -50,7 +50,6 @@ export default defineConfig({
         'https://dvgamerr.app/hentai-downloader/',
         'https://dvgamerr.app/jirasync-hub-app/',
         'https://dvgamerr.app/livepaper-app/',
-        'https://dvgamerr.app/minima-lite/',
         'https://dvgamerr.app/nimbus-markdown/',
         'https://dvgamerr.app/notice-manager/',
         'https://dvgamerr.app/psp-library-win/',
