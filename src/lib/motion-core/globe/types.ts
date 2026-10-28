@@ -43,6 +43,24 @@ export interface GlobeLight {
 	y: number;
 }
 
+/**
+ * Local patch: sRGB colors of the ASCII globe.
+ */
+export interface GlobeAsciiPalette {
+	/** Page background; inverted cells draw their glyph in it. */
+	paper: string;
+	/** Glyphs and tiles on northern land. */
+	ink: string;
+	/** Glyphs and tiles on southern land. */
+	inkAlt: string;
+	/** Dim glyphs and tiles on the ocean. */
+	sea: string;
+	/** Tile of the brightest, inverted cells. */
+	invert: string;
+	/** Rare highlight glyphs. */
+	accent: [string, string];
+}
+
 export interface GlobePoint {
 	/** Horizontal position in normalized [0, 1] viewport space. */
 	x: number;
@@ -70,4 +88,8 @@ export interface GlobeFrame {
 	project: (x: number, y: number, z: number) => GlobePoint;
 	/** Project latitude/longitude at `altitude` globe radii (1 = surface). */
 	projectLatLon: (lat: number, lon: number, altitude?: number) => GlobePoint;
+	/** ASCII cell size in CSS pixels. */
+	cell: { width: number; height: number };
+	/** Center of the ASCII cell under a CSS pixel point (y from the top). */
+	snap: (x: number, y: number) => { x: number; y: number };
 }

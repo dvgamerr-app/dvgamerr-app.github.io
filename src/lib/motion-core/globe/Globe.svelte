@@ -35,20 +35,19 @@
 		 */
 		atmosphereConfig?: SceneProps["atmosphereConfig"];
 		/**
-		 * Number of points rendered on the surface.
-		 * @default 15000
+		 * Local patch: width in CSS pixels of one ASCII cell.
+		 * @default 14
 		 */
-		pointCount?: SceneProps["pointCount"];
+		cellSize?: SceneProps["cellSize"];
 		/**
-		 * Color applied to points that fall on land.
-		 * @default "#f77114"
+		 * Local patch: colors of the ASCII land, tiles and grid.
 		 */
-		landPointColor?: SceneProps["landPointColor"];
+		ascii?: SceneProps["ascii"];
 		/**
-		 * Size of each point in world units.
-		 * @default 0.05
+		 * Local patch: re-roll glyphs over time; turn off for reduced motion.
+		 * @default true
 		 */
-		pointSize?: SceneProps["pointSize"];
+		shimmer?: SceneProps["shimmer"];
 		/**
 		 * Whether the globe should auto-rotate.
 		 * @default true
@@ -98,9 +97,9 @@
 		offsetY = 0,
 		fresnelConfig,
 		atmosphereConfig,
-		pointCount,
-		landPointColor,
-		pointSize,
+		cellSize,
+		ascii,
+		shimmer,
 		autoRotate = true,
 		lockedPolarAngle = true,
 		markers = [],
@@ -121,9 +120,9 @@
 			{offsetY}
 			{fresnelConfig}
 			{atmosphereConfig}
-			{pointCount}
-			{landPointColor}
-			{pointSize}
+			{cellSize}
+			{ascii}
+			{shimmer}
 			{autoRotate}
 			{lockedPolarAngle}
 			{markers}
