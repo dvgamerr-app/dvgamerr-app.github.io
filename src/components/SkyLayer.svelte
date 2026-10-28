@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { SkyState } from '../lib/orbit'
   import type { Theme } from '../lib/theme.svelte'
+  import AsciiSprite from './AsciiSprite.svelte'
 
   interface Props {
     theme: Theme
@@ -9,6 +10,10 @@
   }
 
   let { theme, sky, reduced }: Props = $props()
+
+  // ASCII bodies in the globe's cell grid: a rayed sun and a crescent moon lit from the left.
+  const SUN = ['  .|.  ', ' .#@#. ', '-@@@@@-', " '#@#' ", "  '|'  "]
+  const MOON = [' .o8:', 'o8%  ', '8@   ', 'o8%  ', " 'o8:"]
 
   // Deterministic star field so server and client markup match.
   const stars = Array.from({ length: 90 }, (_, i) => {
@@ -53,42 +58,35 @@
     class={['absolute top-0 left-0 transition-opacity duration-700', !sky.ready && 'opacity-0']}
     style:transform={`translate3d(${sky.x}px, ${sky.y}px, 0)`}
   >
-    <span
-      class={['sun absolute block rounded-full transition duration-1000', theme === 'light' ? 'opacity-100' : 'translate-y-6 opacity-0']}
-    ></span>
-    <span
-      class={['moon absolute block rounded-full transition duration-1000', theme === 'dark' ? 'opacity-100' : 'translate-y-6 opacity-0']}
-    ></span>
+    <svg
+      class={['sun absolute overflow-visible transition duration-1000', theme === 'light' ? 'opacity-100' : 'translate-y-6 opacity-0']}
+      width="1"
+      height="1"
+    >
+      <AsciiSprite rows={SUN} cell={sky.cell} />
+    </svg>
+    <svg
+      class={['moon absolute overflow-visible transition duration-1000', theme === 'dark' ? 'opacity-100' : 'translate-y-6 opacity-0']}
+      width="1"
+      height="1"
+    >
+      <AsciiSprite rows={MOON} cell={sky.cell} />
+    </svg>
   </div>
 </div>
 
 <style>
   .sun {
-    width: 56px;
-    height: 56px;
-    margin: -28px 0 0 -28px;
-    background: radial-gradient(circle, #fffef9 0%, #fff9e5 70%, #ffedbd 100%);
-    box-shadow:
-      0 0 24px 5px rgb(255 223 160 / 0.35),
-      0 0 80px 20px rgb(255 211 140 / 0.12);
+    --ascii-ink: #e9a72a;
+    --ascii-paper: #ffffff;
+    filter: drop-shadow(0 0 18px rgb(255 211 140 / 0.45));
   }
 
   .moon {
-    width: 42px;
-    height: 42px;
-    margin: -21px 0 0 -21px;
-    background:
-      radial-gradient(circle at 34% 58%, rgb(150 156 170 / 0.55) 0 9%, transparent 10%),
-      radial-gradient(circle at 60% 30%, rgb(150 156 170 / 0.45) 0 7%, transparent 8%),
-      radial-gradient(circle at 64% 66%, rgb(150 156 170 / 0.4) 0 5%, transparent 6%),
-      radial-gradient(circle at 40% 38%, #c9ccd4 0%, #9ea4b1 70%, #7d8392 100%);
-    /* Crescent phase: the inset shadow is the night side. */
-    box-shadow:
-      inset -13px 5px 3px 1px rgb(2 8 23 / 0.96),
-      0 0 18px 2px rgb(190 207 230 / 0.08),
-      0 0 48px 10px rgb(170 192 222 / 0.025);
-    /* Keep the moon a quiet backdrop element rather than a bright focal point. */
-    filter: brightness(0.8);
+    --ascii-ink: #c5ced6;
+    --ascii-paper: #020817;
+    /* Keep the moon a quiet backdrop element; opacity is left to the theme cross-fade. */
+    filter: brightness(0.85);
   }
 
   @media screen and (prefers-reduced-motion: no-preference) {

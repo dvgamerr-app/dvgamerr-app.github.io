@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { GlobeFrame } from '../lib/motion-core'
 
+  import AsciiSprite from './AsciiSprite.svelte'
   import { createFleet, createUfo, incidentState, latLonPosition, satellitePosition, startIncident, stepFleet, stepUfo } from '../lib/orbit'
 
   interface Props {
@@ -26,7 +27,11 @@
 
   let svg = $state<SVGSVGElement>()
   const satEls = $state<SVGGElement[]>([])
-  const glyphEls = $state<SVGGElement[]>([])
+  // Satellites face their direction of travel: horizontal, falling diagonal, vertical, rising diagonal.
+  const ORIENTATIONS = [['=#='], ['\\  ', ' # ', '  \\'], ['|', '#', '|'], ['  /', ' # ', '/  ']]
+  const orientEls = $state<SVGGElement[][]>(fleet.satellites.map(() => []))
+  const orientOf = fleet.satellites.map(() => -1)
+  let cell = $state({ height: 13, width: 9 })
   const labelEls = $state<SVGTextElement[]>([])
   const beamEls = $state<SVGLineElement[]>([])
   const linkEls = $state<SVGLineElement[]>([])
@@ -42,7 +47,12 @@
 
   const ufo = createUfo()
   let ufoEl = $state<SVGGElement>()
-  let ufoBodyEl = $state<SVGGElement>()
+  // Cruise (dome, disc, blinking lights), then warp streaks to the right and to the left.
+  const UFO = ['  .@.  ', '<=#8#=>', '       ']
+  const UFO_LIGHTS = ['       ', '       ', ' o o o ']
+  const UFO_WARP = [['---=#8#>'], ['<#8#=---']]
+  const ufoModeEls = $state<SVGGElement[]>([])
+  let ufoMode = 0
   let trackEl = $state<SVGLineElement>()
   let ufoPrev = { x: 0, y: 0 }
 
@@ -58,6 +68,7 @@
   export function update(frame: GlobeFrame) {
     if (!svg) return
     const { width, height, radius, time } = frame
+    if (cell.width !== frame.cell.width || cell.height !== frame.cell.height) cell = frame.cell
     svg.setAttribute('viewBox', `0 0 ${width} ${height}`)
     if (!reduced) stepFleet(fleet, frame.delta, time, count)
 
@@ -75,7 +86,8 @@
       // Ease toward the target across frames so fast passes still read as a smooth fade.
       alphas[i] += (target - alphas[i]) * (reduced ? 1 : 1 - Math.exp(-frame.delta * 6))
       const alpha = alphas[i] < 0.01 ? 0 : alphas[i]
-      return { alpha, px: screen.x * width, py: screen.y * height, world }
+      const snapped = frame.snap(screen.x * width, screen.y * height)
+      return { alpha, px: snapped.x, py: snapped.y, world }
     })
 
     const pose = reduced ? null : stepUfo(ufo, time, frame.delta, { height, project: frame.project, radius, width }, ufoActive)
@@ -91,16 +103,15 @@
         ufo.heading += Math.atan2(Math.sin(target - ufo.heading), Math.cos(target - ufo.heading)) * 0.15
       }
       ufoPrev = { x: pose.x, y: pose.y }
-      // Saucers fly level: a gentle wobble plus a bank toward horizontal motion; the warp stretches along the heading.
-      const heading = (ufo.heading * 180) / Math.PI
-      const bank = Math.max(-14, Math.min(14, dx * 3)) + Math.sin(time * 5) * 5
-      const squash = 1 / Math.sqrt(pose.stretch)
-      ufoEl.setAttribute('transform', `translate(${pose.x.toFixed(1)} ${pose.y.toFixed(1)})`)
+      // The saucer cruises level in its cell; at warp it streaks out along its heading.
+      const at = frame.snap(pose.x, pose.y)
+      const mode = pose.stretch > 1.25 ? (Math.cos(ufo.heading) >= 0 ? 1 : 2) : 0
+      if (mode !== ufoMode) {
+        ufoModeEls.forEach((el, k) => el?.setAttribute('display', k === mode ? 'inline' : 'none'))
+        ufoMode = mode
+      }
+      ufoEl.setAttribute('transform', `translate(${at.x.toFixed(1)} ${at.y.toFixed(1)})`)
       ufoEl.setAttribute('opacity', pose.alpha.toFixed(2))
-      ufoBodyEl?.setAttribute(
-        'transform',
-        `rotate(${heading.toFixed(1)}) scale(${pose.stretch.toFixed(2)} ${squash.toFixed(2)}) rotate(${(-heading).toFixed(1)}) rotate(${bank.toFixed(1)})`,
-      )
 
       // The nearest visible agent locks on (and stays locked) while the craft circles the globe;
       // after a short track the craft hits back once per visit and that agent starts to malfunction.
@@ -182,8 +193,8 @@
       if (state !== stateOf[i]) group.dataset.state = stateOf[i] = state
       // Glitching agents shake and flicker like a failing radio.
       const glitch = state === 'glitch'
-      const jx = glitch ? (Math.random() - 0.5) * 3.5 : 0
-      const jy = glitch ? (Math.random() - 0.5) * 3.5 : 0
+      const jx = glitch && Math.random() < 0.3 ? Math.sign(Math.random() - 0.5) * cell.width : 0
+      const jy = glitch && Math.random() < 0.3 ? Math.sign(Math.random() - 0.5) * cell.height : 0
       const flicker = glitch && Math.random() < 0.3 ? 0.25 : 1
       group.setAttribute('transform', `translate(${(point.px + jx).toFixed(1)} ${(point.py + jy).toFixed(1)})`)
       group.setAttribute('opacity', (point.alpha * flicker).toFixed(2))
@@ -194,8 +205,12 @@
       const next = frame.project(ahead.x, ahead.y, ahead.z)
       const target = Math.atan2(next.y * height - point.py, next.x * width - point.px)
       headings[i] += Math.atan2(Math.sin(target - headings[i]), Math.cos(target - headings[i])) * 0.2
-      const tumble = glitch ? Math.sin(time * 23) * 28 : 0
-      glyphEls[i]?.setAttribute('transform', `rotate(${((headings[i] * 180) / Math.PI + tumble).toFixed(1)})`)
+      // Glitching agents tumble through every orientation.
+      const orient = glitch ? Math.floor(time * 12) % 4 : ((Math.round(headings[i] / (Math.PI / 4)) % 4) + 4) % 4
+      if (orient !== orientOf[i]) {
+        orientEls[i].forEach((el, k) => el?.setAttribute('display', k === orient ? 'inline' : 'none'))
+        orientOf[i] = orient
+      }
 
       const faults = {
         debug: 'debugging…',
@@ -272,26 +287,27 @@
   <line bind:this={assistEl} class="assist" opacity="0"></line>
   <line bind:this={trackEl} class="track" opacity="0"></line>
   <g bind:this={ufoEl} class="ufo" opacity="0">
-    <g bind:this={ufoBodyEl}>
-      <path class="ufo-dome" d="M-6.5 -1.2 C -6.5 -8.5, 6.5 -8.5, 6.5 -1.2 Z"></path>
-      <ellipse class="ufo-disc" rx="15" ry="4.4"></ellipse>
-      <ellipse class="ufo-rim" cy="1.6" rx="8" ry="1.7"></ellipse>
-      <circle class="ufo-light" cx="-9.5" cy="0.4" r="1.1"></circle>
-      <circle class="ufo-light" style="animation-delay: 0.25s" cx="0" cy="1.2" r="1.1"></circle>
-      <circle class="ufo-light" style="animation-delay: 0.5s" cx="9.5" cy="0.4" r="1.1"></circle>
+    <g bind:this={ufoModeEls[0]}>
+      <AsciiSprite rows={UFO} {cell} />
+      <g class="ufo-light"><AsciiSprite rows={UFO_LIGHTS} {cell} /></g>
     </g>
+    {#each UFO_WARP as rows, k (k)}
+      <g bind:this={ufoModeEls[k + 1]} display="none"><AsciiSprite {rows} {cell} /></g>
+    {/each}
   </g>
   {#each fleet.satellites as satellite, i (satellite.name)}
     <!-- data-state is rewritten per frame; binding it here keeps Svelte from pruning the [data-state] styles. -->
     <g bind:this={satEls[i]} class="satellite" data-state={stateOf[i]} opacity="0">
       <circle class="ping" r="8"></circle>
       <circle bind:this={progressEls[i]} class="progress" r="11" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"></circle>
-      <g bind:this={glyphEls[i]}>
-        <rect x="-10.5" y="-1.6" width="6.5" height="3.2" rx="0.6" class="panel"></rect>
-        <rect x="4" y="-1.6" width="6.5" height="3.2" rx="0.6" class="panel"></rect>
-        <rect x="-2.6" y="-2.6" width="5.2" height="5.2" rx="1" class="body"></rect>
-      </g>
-      <text bind:this={labelEls[i]} x="11" y="-9" class="label th-label">{satellite.name} · {satellite.role}</text>
+      {#each ORIENTATIONS as rows, k (k)}
+        <g bind:this={orientEls[i][k]} display={k === 0 ? 'inline' : 'none'}>
+          <AsciiSprite {rows} {cell} />
+        </g>
+      {/each}
+      <text bind:this={labelEls[i]} x={cell.width * 2} y={-cell.height * 1.2} class="label th-label"
+        >{satellite.name} · {satellite.role}</text
+      >
     </g>
   {/each}
 </svg>
@@ -299,6 +315,15 @@
 <style>
   .satellites {
     color: var(--text-color-link);
+    --ascii-paper: #ffffff;
+  }
+
+  :global(.dark) .satellites {
+    --ascii-paper: #020817;
+  }
+
+  .satellite {
+    --ascii-ink: currentColor;
   }
 
   .link {
@@ -315,18 +340,6 @@
 
   .packet {
     fill: currentColor;
-  }
-
-  .body {
-    fill: currentColor;
-  }
-
-  .panel {
-    fill: rgb(100 116 139 / 0.85);
-  }
-
-  :global(.dark) .panel {
-    fill: rgb(203 213 225 / 0.85);
   }
 
   .ping {
@@ -372,27 +385,18 @@
     transform: rotate(-90deg);
   }
 
-  .satellite[data-state='glitch'] .body,
-  .satellite[data-state='glitch'] .ping {
-    fill: rgb(248 113 113);
-    stroke: rgb(248 113 113);
+  /* The ASCII sprite and the ping follow currentColor, so each state recolors both. */
+  .satellite[data-state='glitch'] {
+    color: rgb(248 113 113);
   }
 
-  .satellite[data-state='debug'] .body {
-    fill: rgb(251 191 36);
+  .satellite[data-state='debug'] {
+    color: rgb(251 191 36);
   }
 
-  .satellite[data-state='debug'] .ping {
-    stroke: rgb(251 191 36);
-  }
-
-  .satellite[data-state='fix'] .body,
-  .satellite[data-state='recovered'] .body {
-    fill: rgb(52 211 153);
-  }
-
-  .satellite[data-state='recovered'] .ping {
-    stroke: rgb(52 211 153);
+  .satellite[data-state='fix'],
+  .satellite[data-state='recovered'] {
+    color: rgb(52 211 153);
   }
 
   .satellite[data-state='glitch'] .label {
@@ -418,27 +422,12 @@
   }
 
   .ufo {
+    --ascii-ink: rgb(45 212 191);
     filter: drop-shadow(0 0 6px rgb(94 234 212 / 0.55));
   }
 
-  .ufo-disc {
-    fill: rgb(100 116 139);
-    stroke: rgb(203 213 225 / 0.7);
-    stroke-width: 0.6;
-  }
-
-  .ufo-rim {
-    fill: rgb(51 65 85);
-  }
-
-  .ufo-dome {
-    fill: rgb(153 246 228 / 0.55);
-    stroke: rgb(204 251 241 / 0.8);
-    stroke-width: 0.5;
-  }
-
   .ufo-light {
-    fill: rgb(110 231 183);
+    --ascii-ink: rgb(110 231 183);
   }
 
   @media screen and (prefers-reduced-motion: no-preference) {
