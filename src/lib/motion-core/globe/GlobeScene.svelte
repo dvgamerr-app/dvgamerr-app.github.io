@@ -16,8 +16,8 @@
 	import type { Snippet } from "svelte";
 	// Astro turns bare image imports into ImageMetadata objects; `?url` keeps a plain string.
 	import landTextureUrl from "../assets/land-texture.png?url";
-	import { type ColorRepresentation, toLinearRgb } from "../helpers/color";
-	import type { GlobeFrame, GlobeLight, GlobeMarker, GlobeMarkerTooltipContext } from "./types";
+	import { type ColorRepresentation, toLinearRgb, toRgb } from "../helpers/color";
+	import type { GlobeAsciiPalette, GlobeFrame, GlobeLight, GlobeMarker, GlobeMarkerTooltipContext } from "./types";
 	import GlobeMarkerItem from "./GlobeMarkerItem.svelte";
 
 	interface FresnelConfig {
@@ -98,20 +98,19 @@
 		 */
 		atmosphereConfig?: AtmosphereConfig;
 		/**
-		 * Number of points rendered along the globe surface.
-		 * @default 15000
+		 * Local patch: width in CSS pixels of one ASCII cell; the height follows the glyph aspect.
+		 * @default 14
 		 */
-		pointCount?: number;
+		cellSize?: number;
 		/**
-		 * Size of each point in world units.
-		 * @default 0.05
+		 * Local patch: colors of the ASCII land, tiles and grid.
 		 */
-		pointSize?: number;
+		ascii?: GlobeAsciiPalette;
 		/**
-		 * Color applied to points representing land.
-		 * @default "#f77114"
+		 * Local patch: re-roll glyphs over time; turn off for reduced motion.
+		 * @default true
 		 */
-		landPointColor?: ColorRepresentation;
+		shimmer?: boolean;
 		/**
 		 * Whether the globe should auto-rotate.
 		 * @default true
@@ -165,9 +164,9 @@
 		scale: number;
 		offsetX: number;
 		offsetY: number;
-		pointCount: number;
-		pointSize: number;
-		landPointColor: ColorRepresentation;
+		cellSize: number;
+		ascii: GlobeAsciiPalette;
+		shimmer: boolean;
 		fresnelConfig: Required<FresnelConfig>;
 		atmosphereConfig: Required<AtmosphereConfig>;
 	}
@@ -186,6 +185,19 @@
 	const MAX_THETA = PI * 0.5 - 0.001;
 	const VISIBILITY_MIN_DOT = 0.24;
 	const VISIBILITY_MAX_DOT = 0.48;
+	// Local patch: glyph atlas. The shader indexes it by range: 0-6 light, 7-10 sea waves (with 3-4 as calm sea),
+	// 11-12 medium land, 13-18 heavy land (16-18 also fill inverted cells, 18 marks markers).
+	const GLYPHS = "'`,.:;!-~=+otS%X8#@";
+	// Cell height over width, close to a monospace character box.
+	const CELL_ASPECT = 10 / 7;
+	const defaultAsciiPalette: GlobeAsciiPalette = {
+		paper: "#060a14",
+		ink: "#a3d5cf",
+		inkAlt: "#b6b1e6",
+		sea: "#6c8bab",
+		invert: "#c5ced6",
+		accent: ["#e98fb5", "#e8df74"],
+	};
 	const MAX_SHADER_MARKERS = 128;
 	const SHADER_MARKER_SIZE_SCALE = 0.5;
 	const MIN_SHADER_MARKER_SIZE = 0.003;
@@ -212,9 +224,9 @@
 		offsetY = 0,
 		fresnelConfig = {},
 		atmosphereConfig = {},
-		pointCount = 15000,
-		pointSize = 0.05,
-		landPointColor = "#f77114",
+		cellSize = 14,
+		ascii = defaultAsciiPalette,
+		shimmer = true,
 		autoRotate = true,
 		lockedPolarAngle = true,
 		markers = [],
@@ -258,8 +270,24 @@
 		return t * t * (3 - 2 * t);
 	};
 
-	const toPointRadius = (nextPointSize: number) =>
-		Math.max(0.001, nextPointSize * 0.16);
+	// One glyph per cell-sized slot, drawn at the exact framebuffer size and centered on the tile,
+	// which leaves a `gap` on the left and bottom of each cell.
+	const makeGlyphAtlas = ({ width, height, gap }: { width: number; height: number; gap: number }) => {
+		const canvas = document.createElement("canvas");
+		canvas.width = width * GLYPHS.length;
+		canvas.height = height;
+		const ctx = canvas.getContext("2d")!;
+		ctx.fillStyle = "#000";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = "#fff";
+		ctx.font = `500 ${Math.round(height * 0.72)}px ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace`;
+		ctx.textAlign = "center";
+		ctx.textBaseline = "middle";
+		[...GLYPHS].forEach((glyph, index) => {
+			ctx.fillText(glyph, index * width + (width + gap) / 2, (height - gap) / 2 + height * 0.04);
+		});
+		return canvas;
+	};
 
 	function normalizeAngle(value: number): number {
 		const wrapped = (((value + PI) % (2 * PI)) + 2 * PI) % (2 * PI);
@@ -372,9 +400,9 @@
 			scale,
 			offsetX,
 			offsetY,
-			pointCount,
-			pointSize,
-			landPointColor,
+			cellSize,
+			ascii,
+			shimmer,
 			fresnelConfig: resolvedFresnelConfig,
 			atmosphereConfig: resolvedAtmosphereConfig,
 		});
@@ -420,6 +448,19 @@
 			wrapT: gl.REPEAT,
 		});
 
+		// Local patch: cells snap to whole framebuffer pixels so every tile, gap and grid line matches.
+		const cellPixels = (cssWidth: number) => {
+			const width = Math.max(4, Math.round(cssWidth * renderer.dpr));
+			return { width, height: Math.round(width * CELL_ASPECT), gap: Math.max(1, Math.round(renderer.dpr)) };
+		};
+		let glyphCell = cellPixels(cellSize);
+		const glyphTexture = new Texture(gl, {
+			image: makeGlyphAtlas(glyphCell),
+			minFilter: gl.NEAREST,
+			magFilter: gl.NEAREST,
+			generateMipmaps: false,
+		});
+
 		const uniforms = {
 			uTime: { value: 0 },
 			uResolution: { value: new Vec2(1, 1) },
@@ -427,8 +468,12 @@
 			uScale: { value: DEFAULT_GLOBE_SCALE },
 			uDisplayScale: { value: scale },
 			uDisplayOffset: { value: new Vec2(offsetX, offsetY) },
-			uDots: { value: Math.max(1, Math.floor(pointCount)) },
-			uPointRadius: { value: toPointRadius(pointSize) },
+			uBuffer: { value: new Vec2(1, 1) },
+			uCell: { value: new Vec2(glyphCell.width, glyphCell.height) },
+			uGap: { value: glyphCell.gap },
+			uGlyphs: { value: glyphTexture },
+			uGlyphCount: { value: GLYPHS.length },
+			uShimmer: { value: shimmer ? 1 : 0 },
 			uBaseColor: { value: new Vec3(0, 0, 0) },
 			uRimColor: { value: new Vec3(0, 0, 0) },
 			uRimPower: { value: resolvedFresnelConfig.rimPower },
@@ -439,7 +484,13 @@
 			uAtmosphereCoefficient: { value: resolvedAtmosphereConfig.coefficient },
 			uAtmosphereIntensity: { value: resolvedAtmosphereConfig.intensity },
 			uLightDir: { value: new Vec3(0, 0, 0) },
-			uLandPointColor: { value: new Vec3(0, 0, 0) },
+			uPaper: { value: new Vec3(0, 0, 0) },
+			uInk: { value: new Vec3(0, 0, 0) },
+			uInkAlt: { value: new Vec3(0, 0, 0) },
+			uSea: { value: new Vec3(0, 0, 0) },
+			uInvert: { value: new Vec3(0, 0, 0) },
+			uAccent: { value: new Vec3(0, 0, 0) },
+			uAccentAlt: { value: new Vec3(0, 0, 0) },
 			uLandTexture: { value: landTexture },
 			uMarkerCount: { value: 0 },
 			uMarkerData: { value: markerData },
@@ -460,35 +511,40 @@
 		const globeFragmentShader = `
 			precision highp float;
 
-			varying vec2 vUv;
-
 			uniform float uTime;
 			uniform vec2 uResolution;
 			uniform vec2 uRotation;
 			uniform float uScale;
 			uniform float uDisplayScale;
 			uniform vec2 uDisplayOffset;
-			uniform float uDots;
-			uniform float uPointRadius;
-			uniform vec3 uBaseColor;
-			uniform vec3 uRimColor;
-			uniform float uRimPower;
-			uniform float uRimIntensity;
 			uniform vec3 uLightDir;
-			uniform vec3 uLandPointColor;
 			uniform sampler2D uLandTexture;
 			uniform float uMarkerCount;
 			uniform vec4 uMarkerData[${MAX_SHADER_MARKERS}];
 			uniform vec3 uMarkerColor[${MAX_SHADER_MARKERS}];
+			// Local patch: ASCII cells in whole framebuffer pixels, a glyph atlas drawn at exactly that size,
+			// and an sRGB palette written straight to the canvas.
+			uniform vec2 uBuffer;
+			uniform vec2 uCell;
+			uniform float uGap;
+			uniform sampler2D uGlyphs;
+			uniform float uGlyphCount;
+			uniform float uShimmer;
+			uniform vec3 uPaper;
+			uniform vec3 uInk;
+			uniform vec3 uInkAlt;
+			uniform vec3 uSea;
+			uniform vec3 uInvert;
+			uniform vec3 uAccent;
+			uniform vec3 uAccentAlt;
 
 			const float kPi = 3.141592653589793;
-			const float kTau = 6.283185307179586;
-			const float kPhi = 1.618033988749895;
-			const float kSqrt5 = 2.23606797749979;
 			const float kSphereRadius = 0.8;
 			const int kMaxMarkers = ${MAX_SHADER_MARKERS};
 
-			float byDots;
+			float hash(vec2 p) {
+				return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+			}
 
 			vec2 transformUv(vec2 uv) {
 				float aspect = uResolution.x / max(1.0, uResolution.y);
@@ -509,61 +565,6 @@
 					0.0, cx, sx,
 					sy, cy * -sx, cy * cx
 				);
-			}
-
-			vec3 nearestFibonacciLattice(vec3 p, out float m) {
-				p = p.xzy;
-
-				float k = max(2.0, floor(log2(kSqrt5 * uDots * kPi * (1.0 - p.z * p.z)) * 0.72021));
-				vec2 f = floor(pow(kPhi, k) / kSqrt5 * vec2(1.0, kPhi) + 0.5);
-				vec2 br1 = fract((f + 1.0) * (kPhi - 1.0)) * kTau - 3.883222;
-				vec2 br2 = -2.0 * f;
-				vec2 sp = vec2(atan(p.y, p.x), p.z - 1.0);
-				vec2 c = floor(vec2(
-					br2.y * sp.x - br1.y * (sp.y * uDots + 1.0),
-					-br2.x * sp.x + br1.x * (sp.y * uDots + 1.0)
-				) / (br1.x * br2.y - br2.x * br1.y));
-
-				float mindist = kPi;
-				vec3 minip = vec3(0.0, 0.0, 1.0);
-
-				for (float s = 0.0; s < 4.0; s += 1.0) {
-					vec2 o = vec2(mod(s, 2.0), floor(s * 0.5));
-					float idx = dot(f, c + o);
-					if (idx > uDots) continue;
-
-					float a = idx;
-					float b = 0.0;
-					if (a >= 16384.0) a -= 16384.0, b += 0.868872;
-					if (a >= 8192.0) a -= 8192.0, b += 0.934436;
-					if (a >= 4096.0) a -= 4096.0, b += 0.467218;
-					if (a >= 2048.0) a -= 2048.0, b += 0.733609;
-					if (a >= 1024.0) a -= 1024.0, b += 0.866804;
-					if (a >= 512.0) a -= 512.0, b += 0.433402;
-					if (a >= 256.0) a -= 256.0, b += 0.216701;
-					if (a >= 128.0) a -= 128.0, b += 0.108351;
-					if (a >= 64.0) a -= 64.0, b += 0.554175;
-					if (a >= 32.0) a -= 32.0, b += 0.777088;
-					if (a >= 16.0) a -= 16.0, b += 0.888544;
-					if (a >= 8.0) a -= 8.0, b += 0.944272;
-					if (a >= 4.0) a -= 4.0, b += 0.472136;
-					if (a >= 2.0) a -= 2.0, b += 0.236068;
-					if (a >= 1.0) a -= 1.0, b += 0.618034;
-
-					float theta = fract(b) * kTau;
-					float cosphi = 1.0 - 2.0 * idx * byDots;
-					float sinphi = sqrt(max(0.0, 1.0 - cosphi * cosphi));
-					vec3 samplePoint = vec3(cos(theta) * sinphi, sin(theta) * sinphi, cosphi);
-
-					float dist = length(p - samplePoint);
-					if (dist < mindist) {
-						mindist = dist;
-						minip = samplePoint;
-					}
-				}
-
-				m = mindist;
-				return minip.xzy;
 			}
 
 			vec2 pointToMaskUV(vec3 p) {
@@ -596,92 +597,132 @@
 				);
 			}
 
-			vec3 linearToSrgb(vec3 color) {
-				vec3 safe = max(color, vec3(0.0));
-				vec3 low = safe * 12.92;
-				vec3 high = 1.055 * pow(safe, vec3(1.0 / 2.4)) - 0.055;
-				vec3 cutoff = step(vec3(0.0031308), safe);
-				return mix(low, high, cutoff);
+			vec2 toGlobeSpace(vec2 screenUv) {
+				vec2 uv = transformUv(screenUv) * 2.0 - 1.0;
+				uv.x *= uResolution.x / max(1.0, uResolution.y);
+				return uv / max(0.0001, uScale);
+			}
+
+			// Inverse of toGlobeSpace, returning framebuffer pixels.
+			vec2 globeToPixel(vec2 uv) {
+				float aspect = uResolution.x / max(1.0, uResolution.y);
+				vec2 centered = uv * uScale * uDisplayScale * 0.5 + vec2(uDisplayOffset.x * aspect, uDisplayOffset.y);
+				return vec2(centered.x / aspect + 0.5, centered.y + 0.5) * uBuffer;
+			}
+
+			// 1 where a framebuffer pixel lands on visible land.
+			float landAt(vec2 px, mat3 rot) {
+				vec2 uv = toGlobeSpace(px / uBuffer);
+				float l = dot(uv, uv);
+				float r2 = kSphereRadius * kSphereRadius;
+				if (l >= r2) return 0.0;
+				vec3 p = vec3(uv, sqrt(r2 - l)) / kSphereRadius;
+				return step(0.5, texture2D(uLandTexture, pointToMaskUV(p * rot)).r);
 			}
 
 			void main() {
-				byDots = 1.0 / max(1.0, uDots);
+				// The ASCII grid is fixed to the screen; the globe turns underneath and every cell samples it.
+				vec2 px = gl_FragCoord.xy;
+				vec2 cell = floor(px / uCell);
+				vec2 offset = px - cell * uCell;
+				vec2 center = (cell + 0.5) * uCell;
 
-				vec2 uv = transformUv(vUv) * 2.0 - 1.0;
-				uv.x *= uResolution.x / max(1.0, uResolution.y);
-				uv /= max(0.0001, uScale);
+				// Per-cell dice, re-rolled at each cell's own pace so the glyphs shimmer.
+				float seed = hash(cell);
+				float tick = floor(uTime * uShimmer * (0.4 + seed * 1.2) + seed * 13.0);
+				float r1 = hash(cell + tick * 0.731);
+				float r2 = hash(cell.yx + tick * 1.37 + 3.1);
+				float r3 = hash(cell + tick * 2.17 + 7.7);
 
-				float l = dot(uv, uv);
+				float glyph = -1.0;
+				vec3 glyphColor = uInk;
+				float glyphAlpha = 0.0;
+				vec3 tileColor = uInk;
+				float tileAlpha = 0.0;
+
+				vec2 centerUv = toGlobeSpace(center / uBuffer);
+				float centerL = dot(centerUv, centerUv);
 				float globeR2 = kSphereRadius * kSphereRadius;
-
-				vec3 color = vec3(0.0);
-				float alpha = 0.0;
-
-				if (l <= globeR2) {
-					float dis;
-					vec3 p = normalize(vec3(uv, sqrt(max(0.0, globeR2 - l))));
+				if (centerL < globeR2) {
 					mat3 rot = rotate(uRotation.y, uRotation.x);
-					vec3 globePoint = p * rot;
-					vec3 samplePoint = nearestFibonacciLattice(globePoint, dis);
-					vec2 mapUv = pointToMaskUV(samplePoint);
-					float land = texture2D(uLandTexture, mapUv).r;
+					vec3 normal = vec3(centerUv, sqrt(globeR2 - centerL)) / kSphereRadius;
+					vec2 q = uCell * 0.25;
+					float core = 0.25 * (
+						landAt(center + vec2(-q.x, -q.y), rot) + landAt(center + vec2(q.x, -q.y), rot) +
+						landAt(center + vec2(-q.x, q.y), rot) + landAt(center + vec2(q.x, q.y), rot)
+					);
+					vec3 lightVec = uLightDir.z > 0.5 ? vec3(uLightDir.xy, 0.6) : vec3(0.5, 0.5, 0.7);
+					float day = smoothstep(-0.25, 0.75, dot(normal, normalize(lightVec)));
+					// Cells dim toward the silhouette, and a rim brightest on the lit side outlines the sphere.
+					float limb = smoothstep(0.0, 0.6, normal.z);
+					float lit = smoothstep(-0.5, 0.9, dot(normalize(centerUv + 1e-5), normalize(lightVec.xy)));
+					float rim = pow(1.0 - normal.z, 3.0) * mix(0.3, 1.0, lit);
+					vec3 landInk = mix(uInk, uInkAlt, smoothstep(0.15, -0.35, (normal * rot).y));
 
-					float landDots = step(0.5, land) * smoothstep(uPointRadius, 0.0, dis);
+					if (core > 0.0) {
+						float level = clamp(core * mix(0.3, 1.0, day) * mix(0.45, 1.0, limb) + rim * 0.3 + (r1 - 0.5) * 0.3, 0.0, 1.0);
+						// Mostly o t S % X; # and @ stay rare and usually sit in inverted cells.
+						if (level < 0.15) glyph = floor(r2 * 7.0);
+						else if (level < 0.4) glyph = 11.0 + floor(r2 * 2.0);
+						else if (level > 0.8 && r3 > 0.92) glyph = 17.0 + floor(r2 * 2.0);
+						else glyph = 11.0 + min(5.0, floor(r2 * 5.0 + (level - 0.4) * 1.5));
+						glyphColor = landInk;
+						glyphAlpha = mix(0.6, 1.0, level);
+						tileColor = landInk;
+						tileAlpha = mix(0.06, 0.2, level);
+						if (level > 0.72 && r3 < 0.12) {
+							glyph = 16.0 + floor(r2 * 3.0);
+							glyphColor = uPaper;
+							glyphAlpha = 1.0;
+							tileColor = mix(uInvert, landInk, 0.2);
+							tileAlpha = 0.95;
+						} else if (glyph >= 11.0 && r3 > 0.985) {
+							glyphColor = r2 > 0.5 ? uAccent : uAccentAlt;
+						}
+					} else {
+						// Ocean: dim dots and waves, so the whole sphere reads as one body.
+						float sea = clamp(mix(0.12, 0.5, day) * mix(0.55, 1.0, limb) + rim * 0.75 + (r1 - 0.5) * 0.25, 0.0, 1.0);
+						if (sea < 0.3) glyph = r2 < 0.6 ? 3.0 : 4.0;
+						else glyph = 7.0 + floor(r2 * mix(2.0, 4.0, smoothstep(0.5, 0.85, sea)));
+						glyphColor = uSea;
+						glyphAlpha = mix(0.3, 0.85, sea);
+						tileColor = uSea;
+						tileAlpha = mix(0.03, 0.1, sea);
+					}
 
-					float dotNV = clamp(p.z / kSphereRadius, 0.0, 1.0);
-					float rim = pow(1.0 - dotNV, max(0.0001, uRimPower)) * uRimIntensity;
-					// Local patch: brighten the rim toward the scene light, dim the far side.
-					rim *= uLightDir.z > 0.5 ? mix(0.3, 1.4, smoothstep(-0.5, 0.9, dot(uv / max(1e-4, sqrt(l)), normalize(uLightDir.xy)))) : 1.0;
-					// Match the geometric foreshortening from the old instanced point mesh:
-					// near the silhouette points should visually fade instead of staying fully crisp.
-					float dotFade = smoothstep(0.04, 0.28, dotNV);
-					landDots *= dotFade;
-
-					vec3 markerColor = vec3(0.0);
-					float markerMask = 0.0;
-					float markerWeightSum = 0.0;
+					// Each marker fills only the one cell it falls in.
 					for (int i = 0; i < kMaxMarkers; i++) {
 						if (float(i) >= uMarkerCount) {
 							break;
 						}
-
-						vec4 marker = uMarkerData[i];
-						float markerDist = length(globePoint - marker.xyz);
-						float markerCore = smoothstep(marker.w, marker.w * 0.62, markerDist);
-						float pulse = fract(uTime * 0.85 + float(i) * 0.173);
-						float pulseRadius = marker.w * mix(1.15, 2.8, pulse);
-						float pulseWidth = marker.w * 0.42;
-						float pulseInner = smoothstep(
-							pulseRadius - pulseWidth,
-							pulseRadius,
-							markerDist
-						);
-						float pulseOuter =
-							1.0 - smoothstep(pulseRadius, pulseRadius + pulseWidth, markerDist);
-						float markerPulse = pulseInner * pulseOuter * (1.0 - pulse);
-						float markerDot = max(markerCore, markerPulse * 0.72);
-						markerMask = max(markerMask, markerDot);
-						markerWeightSum += markerDot;
-						markerColor += uMarkerColor[i] * markerDot;
+						vec3 markerNormal = rot * uMarkerData[i].xyz;
+						if (markerNormal.z > 0.15 && floor(globeToPixel(markerNormal.xy * kSphereRadius) / uCell) == cell) {
+							glyph = 18.0;
+							glyphColor = uPaper;
+							glyphAlpha = 1.0;
+							tileColor = uMarkerColor[i];
+							tileAlpha = mix(0.6, 1.0, 0.5 + 0.5 * sin(uTime * uShimmer * 4.0));
+						}
 					}
-
-					if (markerWeightSum > 0.0) {
-						markerColor /= markerWeightSum;
-					}
-
-					// Mix instead of add so light base colors do not wash out to white.
-					vec3 surface = mix(uBaseColor, uRimColor, clamp(rim, 0.0, 1.0));
-					surface = mix(surface, uLandPointColor, landDots * (1.0 - markerMask));
-
-					// Keep marker color clean and dominant over land dots.
-					vec3 boostedMarker = markerColor * (1.0 + 0.25 * markerMask);
-					surface = mix(surface, boostedMarker, markerMask);
-
-					color += surface;
-					alpha = 1.0;
 				}
 
-				gl_FragColor = vec4(linearToSrgb(color), clamp(alpha, 0.0, 1.0));
+				// Sparse dim marks drift across the empty sky.
+				if (glyph < 0.0 && seed > 0.996 && r1 > 0.45) {
+					glyph = seed > 0.998 ? 7.0 : 3.0;
+					glyphColor = uSea;
+					glyphAlpha = 0.35;
+				}
+
+				// Glyph over its tile, tile over a one-pixel grid line on each cell's left and bottom edge.
+				float ink = glyph < 0.0 ? 0.0 : texture2D(uGlyphs, vec2((glyph * uCell.x + offset.x) / (uGlyphCount * uCell.x), offset.y / uCell.y)).r;
+				float glyphA = ink * glyphAlpha;
+				float tileA = offset.x > uGap && offset.y > uGap ? tileAlpha : 0.0;
+				float gridA = offset.x < 1.0 || offset.y < 1.0 ? 0.035 : 0.0;
+				float alpha = glyphA + tileA * (1.0 - glyphA);
+				vec3 color = glyphColor * glyphA + tileColor * tileA * (1.0 - glyphA);
+				color += uInk * gridA * (1.0 - alpha);
+				alpha += gridA * (1.0 - alpha);
+				gl_FragColor = vec4(alpha > 0.0 ? color / alpha : vec3(0.0), alpha);
 			}
 		`;
 
@@ -758,7 +799,8 @@
 			vertex: vertexShader,
 			fragment: globeFragmentShader,
 			uniforms,
-			transparent: true,
+			// Local patch: no blending, so the straight-alpha ASCII output reaches the page as written.
+			transparent: false,
 			depthTest: false,
 			depthWrite: false,
 		});
@@ -788,7 +830,6 @@
 		atmosphereMesh.setParent(atmosphereScene);
 
 		let currentScale = DEFAULT_GLOBE_SCALE;
-		const tempColor = new Vec3();
 		const setColor = (
 			target: Vec3,
 			value: ColorRepresentation,
@@ -803,8 +844,15 @@
 			uniforms.uScale.value = currentScale;
 			uniforms.uDisplayScale.value = Math.max(0.001, state.scale);
 			uniforms.uDisplayOffset.value.set(state.offsetX, state.offsetY);
-			uniforms.uDots.value = Math.max(1, Math.floor(state.pointCount));
-			uniforms.uPointRadius.value = toPointRadius(state.pointSize);
+			const nextCell = cellPixels(state.cellSize);
+			if (nextCell.width !== glyphCell.width) {
+				glyphCell = nextCell;
+				glyphTexture.image = makeGlyphAtlas(glyphCell);
+				glyphTexture.needsUpdate = true;
+			}
+			uniforms.uCell.value.set(glyphCell.width, glyphCell.height);
+			uniforms.uGap.value = glyphCell.gap;
+			uniforms.uShimmer.value = state.shimmer ? 1 : 0;
 
 			setColor(uniforms.uBaseColor.value, state.fresnelConfig.color, [
 				17 / 255,
@@ -844,21 +892,27 @@
 				state.atmosphereConfig.intensity,
 			);
 
-			setColor(tempColor, state.landPointColor, [
-				247 / 255,
-				113 / 255,
-				20 / 255,
-			]);
-			uniforms.uLandPointColor.value.set(tempColor.x, tempColor.y, tempColor.z);
+			// The ASCII shader mixes and outputs sRGB directly, so these skip the linear conversion.
+			const setSrgb = (target: Vec3, value: string) => {
+				const [r, g, b] = toRgb(value, [1, 1, 1]);
+				target.set(r, g, b);
+			};
+			setSrgb(uniforms.uPaper.value, state.ascii.paper);
+			setSrgb(uniforms.uInk.value, state.ascii.ink);
+			setSrgb(uniforms.uInkAlt.value, state.ascii.inkAlt);
+			setSrgb(uniforms.uSea.value, state.ascii.sea);
+			setSrgb(uniforms.uInvert.value, state.ascii.invert);
+			setSrgb(uniforms.uAccent.value, state.ascii.accent[0]);
+			setSrgb(uniforms.uAccentAlt.value, state.ascii.accent[1]);
 		};
 
 		updateUniforms({
 			scale,
 			offsetX,
 			offsetY,
-			pointCount,
-			pointSize,
-			landPointColor,
+			cellSize,
+			ascii,
+			shimmer,
 			fresnelConfig: resolvedFresnelConfig,
 			atmosphereConfig: resolvedAtmosphereConfig,
 		});
@@ -939,7 +993,7 @@
 					MAX_SHADER_MARKER_SIZE,
 				);
 
-				const [r, g, b] = toLinearRgb(marker.color ?? "#ffffff", [1, 1, 1]);
+				const [r, g, b] = toRgb(marker.color ?? "#ffffff", [1, 1, 1]);
 				const markerColorOffset = index * 3;
 				markerColorData[markerColorOffset] = r;
 				markerColorData[markerColorOffset + 1] = g;
@@ -1029,9 +1083,10 @@
 		image.onload = () => {
 			if (disposed) return;
 			landTexture.image = image;
-			landTexture.generateMipmaps = true;
-			landTexture.minFilter = gl.NEAREST_MIPMAP_NEAREST;
-			landTexture.magFilter = gl.NEAREST;
+			// No mipmaps: each cell samples one fixed uv, so derivatives would pick a wrong level on cell borders.
+			landTexture.generateMipmaps = false;
+			landTexture.minFilter = gl.LINEAR;
+			landTexture.magFilter = gl.LINEAR;
 			landTexture.needsUpdate = true;
 		};
 		image.onerror = (error) => {
@@ -1055,6 +1110,7 @@
 				width = w;
 				height = h;
 				uniforms.uResolution.value.set(w, h);
+				uniforms.uBuffer.value.set(bufW, bufH);
 			}
 			const delta = previous ? (now - previous) / 1000 : 0;
 			previous = now;
@@ -1100,10 +1156,19 @@
 					radius: COBE_GLOBE_RADIUS,
 					time: uniforms.uTime.value,
 					width,
+					cell: { width: glyphCell.width / renderer.dpr, height: glyphCell.height / renderer.dpr },
+					// The shader counts rows from the bottom of the framebuffer, so snap from there too.
+					snap: (x: number, y: number) => {
+						const bottom = targetCanvas.height - y * renderer.dpr;
+						return {
+							x: ((Math.floor((x * renderer.dpr) / glyphCell.width) + 0.5) * glyphCell.width) / renderer.dpr,
+							y: (targetCanvas.height - (Math.floor(bottom / glyphCell.height) + 0.5) * glyphCell.height) / renderer.dpr,
+						};
+					},
 				});
 			}
 			renderer.render({ scene: globeScene, camera, clear: true });
-			renderer.render({ scene: atmosphereScene, camera, clear: false });
+			if (resolvedAtmosphereConfig.intensity > 0) renderer.render({ scene: atmosphereScene, camera, clear: false });
 			raf = window.requestAnimationFrame(tick);
 		};
 
@@ -1126,6 +1191,7 @@
 			globeProgram.remove();
 			atmosphereProgram.remove();
 			if (landTexture.texture) gl.deleteTexture(landTexture.texture);
+			if (glyphTexture.texture) gl.deleteTexture(glyphTexture.texture);
 		};
 	};
 

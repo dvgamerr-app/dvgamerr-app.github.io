@@ -4,7 +4,15 @@
   import { onMount } from 'svelte'
 
   import { type Lang, useTranslations } from '../i18n/utils'
-  import { Globe, type GlobeFrame, type GlobeLight, type GlobeMarker, type GlobeMarkerTooltipContext, TextLoop } from '../lib/motion-core'
+  import {
+    Globe,
+    type GlobeAsciiPalette,
+    type GlobeFrame,
+    type GlobeLight,
+    type GlobeMarker,
+    type GlobeMarkerTooltipContext,
+    TextLoop,
+  } from '../lib/motion-core'
   import type { SkyState } from '../lib/orbit'
   import { themeState } from '../lib/theme.svelte'
   import { button, pill } from '../lib/ui'
@@ -26,13 +34,17 @@
   const BANGKOK: [number, number] = [13.7563, 100.5018]
 
   const PALETTES = {
-    dark: { base: '#0d1122', rim: '#c84b31', land: '#e0643f', marker: '#ffdc5a', rimIntensity: 1.2, glow: 1.1 },
-    light: { base: '#e8edf8', rim: '#3068d8', land: '#3068d8', marker: '#ee5151', rimIntensity: 0.9, glow: 0.55 },
-  }
+    dark: {
+      ascii: { paper: '#020817', ink: '#a3d5cf', inkAlt: '#b6b1e6', sea: '#6c8bab', invert: '#c5ced6', accent: ['#e98fb5', '#e8df74'] },
+      marker: '#ffdc5a',
+    },
+    light: {
+      ascii: { paper: '#ffffff', ink: '#1d6e69', inkAlt: '#5048b0', sea: '#7f9bb8', invert: '#1b2f3a', accent: ['#c2457a', '#9c7f00'] },
+      marker: '#ee5151',
+    },
+  } satisfies Record<string, { ascii: GlobeAsciiPalette; marker: string }>
 
   const palette = $derived(PALETTES[themeState.current])
-  const fresnelConfig = $derived({ color: palette.base, rimColor: palette.rim, rimPower: 5, rimIntensity: palette.rimIntensity })
-  const atmosphereConfig = $derived({ color: palette.rim, intensity: palette.glow, scale: 1.12 })
   const markers = $derived<GlobeMarker[]>([{ location: BANGKOK, size: 0.07, color: palette.marker, label: t('hero.location') }])
 
   const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value))
@@ -55,7 +67,7 @@
   // Orbital layer: the far sun/moon circles behind the globe; satellites ride the globe camera.
   const ORBIT_SPEED = (2 * Math.PI) / 120 // one lap every two minutes
   let orbitAngle = -0.8 // start upper right of the globe
-  const sky = $state<SkyState>({ dirX: -1, dirY: -0.3, height: 900, ready: false, width: 1440, x: 0, y: 0 })
+  const sky = $state<SkyState>({ cell: { height: 13, width: 9 }, dirX: -1, dirY: -0.3, height: 900, ready: false, width: 1440, x: 0, y: 0 })
   // Mutated in place every frame; the globe reads it in its render loop without a Svelte update.
   const light: GlobeLight = { x: 0.7, y: 0.5 }
   let satellites = $state<SatelliteLayer>()
@@ -84,7 +96,9 @@
     const length = Math.hypot(lx, ly) || 1
     light.x = lx / length
     light.y = ly / length
-    Object.assign(sky, { dirX: -light.x, dirY: -light.y, height, ready: true, width, x, y })
+    const body = frame.snap(x, y)
+    if (sky.cell.width !== frame.cell.width || sky.cell.height !== frame.cell.height) sky.cell = frame.cell
+    Object.assign(sky, { dirX: -light.x, dirY: -light.y, height, ready: true, width, x: body.x, y: body.y })
     satellites?.update(frame)
   }
 
@@ -152,9 +166,10 @@
   })
 </script>
 
+<!-- The globe lifts the label 2rem above the marker; shift it beside the marker so it never covers Thailand. -->
 {#snippet markerLabel({ marker }: GlobeMarkerTooltipContext)}
   <span
-    class="th-label whitespace-nowrap rounded-full border border-gray-300/70 dark:border-white/15 bg-white/85 dark:bg-gray-900/70 px-2.5 py-1 text-xs font-medium text-gray-800 dark:text-gray-100 shadow-sm backdrop-blur-sm"
+    class="th-label translate-x-[calc(50%_+_0.75rem)] translate-y-[calc(2rem_-_50%)] whitespace-nowrap rounded-full border border-gray-300/70 dark:border-white/15 bg-white/85 dark:bg-gray-900/70 px-2.5 py-1 text-xs font-medium text-gray-800 dark:text-gray-100 shadow-sm backdrop-blur-sm"
     style:opacity={Math.max(0, 1 - motion.veil * 2.5)}
   >
     {marker.label}
@@ -170,11 +185,10 @@
     rotationOffset={motion.spin + motion.sway}
     autoRotate={false}
     focusOn={BANGKOK}
-    {fresnelConfig}
-    {atmosphereConfig}
-    landPointColor={palette.land}
-    pointCount={14000}
-    pointSize={0.055}
+    atmosphereConfig={{ intensity: 0 }}
+    ascii={palette.ascii}
+    cellSize={wideScreen ? 9.33 : 6.67}
+    shimmer={!reduceMotion}
     {markers}
     markerTooltip={markerLabel}
     lightDirection={light}

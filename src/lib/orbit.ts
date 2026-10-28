@@ -3,9 +3,11 @@
 // the Bangkok hub), not a real model — enough to read as a self-organising multi-agent system.
 
 export interface SkyState {
-  /** Sun/moon center in CSS pixels. */
+  /** Sun/moon center in CSS pixels, snapped to an ASCII cell. */
   x: number
   y: number
+  /** ASCII cell size in CSS pixels. */
+  cell: { width: number; height: number }
   /** Ray direction in pixel space (x right, y up), pointing at the globe. */
   dirX: number
   dirY: number
