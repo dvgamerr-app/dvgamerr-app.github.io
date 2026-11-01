@@ -48,11 +48,11 @@ jobs:
     outputs:
       details: ${{ steps.details.outputs.text }}
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: qltysh/qlty-action/install@c9b09987143d1e4ac955f4803c7bea742102feb5 # v2
+      - uses: qltysh/qlty-action/install@ebcd284bf32e36a030afe15f1e136c7be08b9506 # v2
       - name: Validate Qlty config
         run: |
           test -f .qlty/qlty.toml || { echo 'Run qlty init locally and commit .qlty/qlty.toml first.'; exit 1; }
@@ -102,7 +102,7 @@ jobs:
               output.write('text<<' + delimiter + '\n' + report + '\n' + delimiter + '\n')
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
               summary.write('## 💎 Qlty Analysis\n\n' + report)
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ always() }}
         with:
           name: qlty-reports
@@ -150,7 +150,7 @@ jobs:
       # No checkout or execution of PR scripts in this job.
       - name: Compose dashboard
         id: dashboard
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           RESULTS: ${{ toJSON(needs) }}
           QLTY_DETAILS: ${{ needs.qlty.outputs.details }}
