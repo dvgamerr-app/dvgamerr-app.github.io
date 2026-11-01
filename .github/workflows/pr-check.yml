@@ -52,7 +52,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: qltysh/qlty-action/install@c9b09987143d1e4ac955f4803c7bea742102feb5 # v2
+      - uses: qltysh/qlty-action/install@ebcd284bf32e36a030afe15f1e136c7be08b9506 # v2
       - name: Validate Qlty config
         run: |
           test -f .qlty/qlty.toml || { echo 'Run qlty init locally and commit .qlty/qlty.toml first.'; exit 1; }
