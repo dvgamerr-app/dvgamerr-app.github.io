@@ -1,36 +1,48 @@
 {
   "aiAssisted": {
-    "agentSessions": 2441,
-    "aiLinePercent": 90.25423830693734,
+    "agentSessions": 2662,
+    "aiLinePercent": 91.58956685953856,
     "lines": {
       "ai": {
-        "added": 750751,
-        "removed": 48647
+        "added": 841949,
+        "removed": 53927
       },
       "human": {
-        "added": 81067,
-        "removed": 2847607
+        "added": 77314,
+        "removed": 2845399
       }
     },
-    "linesPerMillionTokens": 103.74555721367244,
+    "linesPerMillionTokens": 114.70695354228394,
     "longestTaskSeconds": 89607.402001,
     "models": [
       {
         "agent": "codex",
-        "estCostUSD": 1011.6,
-        "hours": 277.42971383222203,
+        "estCostUSD": 1261.77,
+        "hours": 417.05930744944436,
         "key": "gpt-6.1-sol",
         "name": "GPT-6.1 Sol",
         "priced": true,
         "tokens": {
-          "input": 371299964,
-          "output": 26900327
+          "input": 422086803,
+          "output": 41760081
+        }
+      },
+      {
+        "agent": "claude",
+        "estCostUSD": 1602.6,
+        "hours": 149.78876049527784,
+        "key": "claude-sonnet-5-5",
+        "name": "Claude Sonnet 5.5",
+        "priced": true,
+        "tokens": {
+          "input": 723260612,
+          "output": 15608318
         }
       },
       {
         "agent": "claude",
         "estCostUSD": 3846.25,
-        "hours": 148.62019329861116,
+        "hours": 148.62019329861113,
         "key": "claude-sonnet-5",
         "name": "Claude Sonnet 5",
         "priced": true,
@@ -42,7 +54,7 @@
       {
         "agent": "codex",
         "estCostUSD": 7990.24,
-        "hours": 139.09013133388805,
+        "hours": 138.99055855583254,
         "key": "gpt-6-astra",
         "name": "GPT-6 Astra",
         "priced": true,
@@ -54,7 +66,7 @@
       {
         "agent": "codex",
         "estCostUSD": 10778.8,
-        "hours": 134.50065500583332,
+        "hours": 134.50065500583335,
         "key": "gpt-5.6-sol",
         "name": "GPT-5.6 Sol",
         "priced": true,
@@ -65,14 +77,14 @@
       },
       {
         "agent": "claude",
-        "estCostUSD": 1531.11,
-        "hours": 127.88199132972225,
-        "key": "claude-sonnet-5-5",
-        "name": "Claude Sonnet 5.5",
+        "estCostUSD": 311.47,
+        "hours": 52.64582333055556,
+        "key": "claude-opus-5-5",
+        "name": "Claude Opus 5.5",
         "priced": true,
         "tokens": {
-          "input": 705819665,
-          "output": 11947256
+          "input": 35177540,
+          "output": 8538175
         }
       },
       {
@@ -89,20 +101,8 @@
       },
       {
         "agent": "claude",
-        "estCostUSD": 196.69,
-        "hours": 30.270629167222225,
-        "key": "claude-opus-5-5",
-        "name": "Claude Opus 5.5",
-        "priced": true,
-        "tokens": {
-          "input": 22265799,
-          "output": 5381413
-        }
-      },
-      {
-        "agent": "claude",
         "estCostUSD": 368.99,
-        "hours": 18.439218045833332,
+        "hours": 18.435574712500006,
         "key": "claude-sonnet-4-6",
         "name": "Claude Sonnet 4.6",
         "priced": true,
@@ -114,7 +114,7 @@
       {
         "agent": "claude",
         "estCostUSD": 3637.31,
-        "hours": 15.842259443888889,
+        "hours": 15.842259443888894,
         "key": "claude-opus-4-8",
         "name": "Claude Opus 4.8",
         "priced": true,
@@ -126,7 +126,7 @@
       {
         "agent": "codex",
         "estCostUSD": 550.62,
-        "hours": 13.860668880555556,
+        "hours": 13.889279991666665,
         "key": "gpt-5.4",
         "name": "GPT-5.4",
         "priced": true,
@@ -138,7 +138,7 @@
       {
         "agent": "claude",
         "estCostUSD": 36.42,
-        "hours": 7.067743618611107,
+        "hours": 7.650001120277776,
         "key": "claude",
         "name": "Claude",
         "priced": true,
@@ -150,7 +150,7 @@
       {
         "agent": "codex",
         "estCostUSD": 91.88,
-        "hours": 5.740845835277777,
+        "hours": 5.764035280833331,
         "key": "codex",
         "name": "Codex",
         "priced": true,
@@ -174,13 +174,25 @@
       {
         "agent": "codex",
         "estCostUSD": 113.27,
-        "hours": 1.833122775277778,
+        "hours": 1.8350672197222224,
         "key": "gpt-5.5",
         "name": "GPT-5.5",
         "priced": true,
         "tokens": {
           "input": 21894070,
           "output": 126622
+        }
+      },
+      {
+        "agent": "codex",
+        "estCostUSD": 3.15,
+        "hours": 1.2261708347222222,
+        "key": "gpt-6.1-sol-max",
+        "name": "GPT-6.1 Sol Max",
+        "priced": false,
+        "tokens": {
+          "input": 449231,
+          "output": 119964
         }
       },
       {
@@ -233,6 +245,18 @@
       },
       {
         "agent": "codex",
+        "estCostUSD": 0.56,
+        "hours": 0.1797325,
+        "key": "gpt-6.1-terra",
+        "name": "GPT-6.1 Terra",
+        "priced": false,
+        "tokens": {
+          "input": 83746,
+          "output": 20589
+        }
+      },
+      {
+        "agent": "codex",
         "estCostUSD": 80.14,
         "hours": 0.17429472166666668,
         "key": "gpt-5.6-sol-ultra",
@@ -246,7 +270,7 @@
       {
         "agent": "codex",
         "estCostUSD": 1.3,
-        "hours": 0.1530661108333333,
+        "hours": 0.15306611083333332,
         "key": "gpt-5.6-terra",
         "name": "GPT-5.6 Terra",
         "priced": true,
@@ -256,15 +280,15 @@
         }
       },
       {
-        "agent": "codex",
-        "estCostUSD": 0.6,
-        "hours": 0.10275111249999999,
-        "key": "gpt-6.1-sol-max",
-        "name": "GPT-6.1 Sol Max",
-        "priced": false,
+        "agent": "claude",
+        "estCostUSD": 0.02,
+        "hours": 0.08965916611111115,
+        "key": "claude-haiku-5-5",
+        "name": "Claude Haiku 5.5",
+        "priced": true,
         "tokens": {
-          "input": 67838,
-          "output": 26688
+          "input": 113205,
+          "output": 26249
         }
       },
       {
@@ -281,22 +305,6 @@
       }
     ],
     "monthly": [
-      {
-        "aiLines": 0.8974048023284017,
-        "humanLines": 99.10259519767159,
-        "lines": {
-          "ai": {
-            "added": 74,
-            "removed": 10
-          },
-          "human": {
-            "added": 8172,
-            "removed": 6246
-          }
-        },
-        "month": "Nov",
-        "period": "2025-11"
-      },
       {
         "aiLines": 13.220210206407495,
         "humanLines": 86.7797897935925,
@@ -458,53 +466,69 @@
         "period": "2026-09"
       },
       {
-        "aiLines": 99.93784068088361,
-        "humanLines": 0.062159319116381374,
+        "aiLines": 99.94722719806153,
+        "humanLines": 0.05277280193847138,
         "lines": {
           "ai": {
-            "added": 209010,
-            "removed": 2902
+            "added": 268936,
+            "removed": 7567
           },
           "human": {
-            "added": 130,
-            "removed": 3253
+            "added": 142,
+            "removed": 3281
           }
         },
         "month": "Oct",
         "period": "2026-10"
+      },
+      {
+        "aiLines": 99.99680266018672,
+        "humanLines": 0.003197339813275355,
+        "lines": {
+          "ai": {
+            "added": 31275,
+            "removed": 617
+          },
+          "human": {
+            "added": 1,
+            "removed": 1
+          }
+        },
+        "month": "Nov",
+        "period": "2026-11"
       }
     ],
     "tokens": {
-      "estCostUSD": 32479.6,
-      "inputTokens": 7145001046,
-      "outputTokens": 91463051
+      "estCostUSD": 32919.17,
+      "inputTokens": 7226718917,
+      "outputTokens": 113280743
     }
   },
-  "generatedAt": "2026-10-21T09:39:38.467Z",
-  "rangeEnd": "2026-10-21",
-  "rangeStart": "2025-10-22",
+  "generatedAt": "2026-11-04T08:31:00.528Z",
+  "rangeEnd": "2026-11-04",
+  "rangeStart": "2025-11-05",
   "timezone": "Asia/Bangkok",
   "workType": {
     "categories": [
       {
         "name": "AI Coding",
-        "percent": 68.40965268635672,
-        "seconds": 3863714.127832
+        "percent": 72.68707193274324,
+        "seconds": 4539897.614829998
       },
       {
         "name": "Coding",
-        "percent": 26.794432696487664,
-        "seconds": 1513324.8612050002
+        "percent": 23.49624436083466,
+        "seconds": 1467531.1701909998
       },
       {
         "name": "Writing Docs",
-        "percent": 3.9467614718090376,
-        "seconds": 222909.450041
+        "percent": 3.2633213600085034,
+        "seconds": 203820.90604000012
       },
       {
         "name": "Writing Tests",
-        "percent": 0.8491531453465642,
-        "seconds": 47959.386951000015
+        "percent": 0.5533623464135995,
+        "seconds": 34561.96996000001
       }
     ],
     "editorsCount": 3,

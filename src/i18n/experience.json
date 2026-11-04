@@ -2,13 +2,13 @@
   "birthday": "1988-09-30T07:00:00.000+07:00",
   "interview": true,
   "currencry": {
-    "buy": 33.61,
+    "buy": 33.6,
     "ccy": "USD",
-    "sell": 33.61
+    "sell": 33.6
   },
   "salary": {
-    "base": 84250,
-    "extra": 260332,
+    "base": 84750,
+    "extra": 273475,
     "expect": 220000,
     "day": 20,
     "hour": 8
@@ -17,67 +17,67 @@
   "coding": {
     "bytes": {
       "Python": 13594614,
-      "Dockerfile": 71043,
-      "Shell": 418636,
-      "TypeScript": 39828980,
-      "CSS": 1760490,
-      "JavaScript": 8424514,
-      "HTML": 4144539,
+      "Dockerfile": 71543,
+      "Shell": 420432,
+      "TypeScript": 40385641,
+      "CSS": 1829268,
+      "JavaScript": 8907767,
+      "HTML": 4193367,
       "Mako": 1378,
       "Batchfile": 47870,
-      "SCSS": 358029,
+      "SCSS": 358318,
       "PowerShell": 202665,
+      "Svelte": 1698142,
       "Go": 6854755,
       "Makefile": 7704,
-      "Astro": 643736,
+      "Astro": 646059,
       "NSIS": 43060,
-      "C++": 281386,
-      "C": 39026,
-      "Svelte": 1697310,
-      "Vue": 1324518,
-      "HCL": 5211,
-      "C#": 2145862,
-      "Stylus": 326,
+      "C#": 2210986,
       "MDX": 1201248,
-      "TSQL": 122883,
-      "PLpgSQL": 308188,
-      "Swift": 27486,
-      "PHP": 1430493,
-      "ApacheConf": 332,
-      "Java": 12973,
-      "Rust": 1738115,
-      "Blade": 1376,
-      "Hack": 12055,
-      "Jupyter Notebook": 30912,
-      "CMake": 35340,
-      "EJS": 487038,
       "Dart": 42342,
+      "C++": 281386,
+      "CMake": 36392,
+      "Swift": 27486,
+      "C": 47402,
       "Kotlin": 131553,
       "Objective-C": 38,
+      "PHP": 1430493,
+      "Vue": 1324518,
+      "Hack": 12055,
+      "Ruby": 2802,
+      "Liquid": 686,
+      "Rust": 1738115,
       "VBScript": 562,
       "DataWeave": 1965,
-      "Lua": 6521,
+      "Stylus": 326,
+      "TSQL": 122883,
+      "PLpgSQL": 308188,
       "Perl": 80213,
-      "Ruby": 2802,
       "Visual Basic": 225787,
-      "Liquid": 686,
+      "ApacheConf": 332,
+      "Blade": 1376,
+      "Java": 12973,
+      "Jupyter Notebook": 30912,
+      "HCL": 5211,
+      "EJS": 487038,
+      "Lua": 6521,
       "Smarty": 5683
     },
     "top5": [
       {
         "caption": "JavaScript",
-        "commits": 4386,
-        "loc": 517008
+        "commits": 4544,
+        "loc": 532733
       },
       {
         "caption": "Go",
-        "commits": 2928,
-        "loc": 187486
+        "commits": 2932,
+        "loc": 187506
       },
       {
         "caption": "TypeScript",
-        "commits": 1478,
-        "loc": 559565
+        "commits": 1626,
+        "loc": 560891
       },
       {
         "caption": "Python",
@@ -86,8 +86,8 @@
       },
       {
         "caption": "Svelte",
-        "commits": 891,
-        "loc": 43213
+        "commits": 907,
+        "loc": 43397
       }
     ],
     "best_languages": "Vue.js",
